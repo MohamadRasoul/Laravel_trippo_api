@@ -3,16 +3,18 @@
 return [
     'default' => 'default',
     'documentations' => [
-        'default' => [
+        'auth' => [
             'api' => [
-                'title' => 'L5 Swagger UI',
+                'title' => 'Trippo - Auth',
             ],
 
             'routes' => [
                 /*
                  * Route for accessing api documentation interface
                 */
-                'api' => 'api/documentation',
+                'api' => 'api/docs/auth',
+                'docs' => '/docs/auth',
+                'oauth2_callback' => '/api/docs/auth/callback',
             ],
             'paths' => [
                 /*
@@ -23,12 +25,12 @@ return [
                 /*
                  * File name of the generated json documentation file
                 */
-                'docs_json' => 'api-docs.json',
+                'docs_json' => 'auth-docs.json',
 
                 /*
                  * File name of the generated YAML documentation file
                 */
-                'docs_yaml' => 'api-docs.yaml',
+                'docs_yaml' => 'auth-docs.yaml',
 
                 /*
                 * Set this to `json` or `yaml` to determine which documentation file to use in UI
@@ -39,7 +41,102 @@ return [
                  * Absolute paths to directory containing the swagger annotations are stored.
                 */
                 'annotations' => [
-                    base_path('app'),
+                    base_path('App\Http\Controllers\Api\Auth'),
+                    base_path('App\Http\Resources\Auth'),
+                    base_path('App\Http\Requests'),
+
+                ],
+
+            ],
+        ],
+        'admin' => [
+            'api' => [
+                'title' => 'Trippo - Admin',
+            ],
+
+            'routes' => [
+                /*
+                 * Route for accessing api documentation interface
+                */
+                'api' => 'api/docs/admin',
+                'docs' => '/docs/admin',
+                // 'oauth2_callback' => '/admin/callback',
+            ],
+            'paths' => [
+                /*
+                 * Edit to include full URL in ui for assets
+                */
+                'use_absolute_path' => env('L5_SWAGGER_USE_ABSOLUTE_PATH', true),
+
+                /*
+                 * File name of the generated json documentation file
+                */
+                'docs_json' => 'admin-docs.json',
+
+                /*
+                 * File name of the generated YAML documentation file
+                */
+                'docs_yaml' => 'admin-docs.yaml',
+
+                /*
+                * Set this to `json` or `yaml` to determine which documentation file to use in UI
+                */
+                'format_to_use_for_docs' => env('L5_FORMAT_TO_USE_FOR_DOCS', 'json'),
+
+                /*
+                 * Absolute paths to directory containing the swagger annotations are stored.
+                */
+                'annotations' => [
+                    base_path('App\Http\Controllers\Api\Admin'),
+                    base_path('App\Http\Resources\Admin'),
+                    base_path('App\Http\Requests'),
+
+                ],
+
+            ],
+        ],
+        'user' => [
+            'api' => [
+                'title' => 'Trippo - User',
+            ],
+
+            'routes' => [
+                /*
+                 * Route for accessing api documentation interface
+                */
+                'api' => 'api/docs/user',
+                'docs' => '/docs/user',
+                'oauth2_callback' => '/user/callback',
+            ],
+            'paths' => [
+                /*
+                 * Edit to include full URL in ui for assets
+                */
+                'use_absolute_path' => env('L5_SWAGGER_USE_ABSOLUTE_PATH', true),
+
+                /*
+                 * File name of the generated json documentation file
+                */
+                'docs_json' => 'user-docs.json',
+
+                /*
+                 * File name of the generated YAML documentation file
+                */
+                'docs_yaml' => 'user-docs.yaml',
+
+                /*
+                * Set this to `json` or `yaml` to determine which documentation file to use in UI
+                */
+                'format_to_use_for_docs' => env('L5_FORMAT_TO_USE_FOR_DOCS', 'json'),
+
+                /*
+                 * Absolute paths to directory containing the swagger annotations are stored.
+                */
+                'annotations' => [
+                    base_path('App\Http\Controllers\Api\User'),
+                    base_path('App\Http\Resources\User'),
+                    base_path('App\Http\Requests'),
+
                 ],
 
             ],
@@ -185,13 +282,15 @@ return [
                         ],
                     ],
                 ],
-                'sanctum' => [ // Unique name of security
-                    'type' => 'apiKey', // Valid values are "basic", "apiKey" or "oauth2".
+                */
+                'bearerToken' => [ // Unique name of security
+                    'type' => 'http',
                     'description' => 'Enter token in format (Bearer <token>)',
                     'name' => 'Authorization', // The name of the header or query parameter to be used.
                     'in' => 'header', // The location of the API key. Valid values are "query" or "header".
+                    'scheme' => 'bearer',
+                    'bearerFormat' => 'JWT',
                 ],
-                */
             ],
             'security' => [
                 /*
@@ -205,8 +304,7 @@ return [
                     ],
 
                     'passport' => []
-                    */
-                ],
+                    */],
             ],
         ],
 
@@ -222,7 +320,7 @@ return [
         'generate_yaml_copy' => env('L5_SWAGGER_GENERATE_YAML_COPY', false),
 
         /*
-         * Edit to trust the proxy's ip address - needed for AWS Load Balancer
+         * Edit to trust the proxy's ip Trippo - needed for AWS Load Balancer
          * string[]
         */
         'proxy' => false,
