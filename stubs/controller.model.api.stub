@@ -20,7 +20,8 @@ class {{ class }} extends Controller
     //  *    description="",
     //  *    security={{"bearerToken":{}}},
     //  *
-    //  **************** Parameter ****************
+    //  *
+    //  *
     //  *    @OA\Parameter(
     //  *       name="perPage",
     //  *       example=10,
@@ -42,7 +43,8 @@ class {{ class }} extends Controller
     //  *        )
     //  *    ),
     //  *
-    //  **************** Response ****************
+    //  *
+    //  *
     //  *    @OA\Response(
     //  *        response=200,
     //  *        description="Successful operation",
@@ -67,6 +69,7 @@ class {{ class }} extends Controller
     //  *           )
     //  *        ),
     //  *     ),
+    //  *
     //  *     @OA\Response(
     //  *        response=401,
     //  *        description="Error: Unauthorized",
@@ -74,7 +77,7 @@ class {{ class }} extends Controller
     //  *           property="message",
     //  *           type="string",
     //  *           example="Unauthenticated."
-    //  *          ),
+    //  *        ),
     //  *     )
     //  * )
     //  */
@@ -100,37 +103,39 @@ class {{ class }} extends Controller
     //  *    description="",
     //  *    security={{"bearerToken":{}}},
     //  *
-    //  **************** RequestBody ****************
+    //  *
+    //  *
     //  *    @OA\RequestBody(
     //  *        required=true,
     //  *        @OA\MediaType(mediaType="application/json",
-    //  *             @OA\Schema(ref="#/components/schemas/{{ storeRequest }}")
+    //  *           @OA\Schema(ref="#/components/schemas/{{ storeRequest }}")
     //  *       )
     //  *    ),
     //  *
-    //  **************** Response ****************
+    //  *
+    //  *
     //  *    @OA\Response(
     //  *        response=200,
     //  *        description="Successful operation",
     //  *        @OA\JsonContent(
-    //  *          @OA\Property(
-    //  *           property="success",
-    //  *           type="boolean",
-    //  *           example="true"
-    //  *          ),
-    //  *          @OA\Property(
-    //  *           property="message",
-    //  *           type="string",
-    //  *           example="{{ modelVariable }} is added success"
-    //  *          ),
-    //  *          @OA\Property(
-    //  *           property="data",
-    //  *              @OA\Property(
-    //  *              property="{{ modelVariable }}",
-    //  *              type="object",
-    //  *              ref="#/components/schemas/{{ model }}Resource"
-    //  *             ),
-    //  *          )
+    //  *           @OA\Property(
+    //  *              property="success",
+    //  *              type="boolean",
+    //  *              example="true"
+    //  *           ),
+    //  *           @OA\Property(
+    //  *              property="message",
+    //  *              type="string",
+    //  *              example="{{ modelVariable }} is added success"
+    //  *           ),
+    //  *           @OA\Property(
+    //  *              property="data",
+    //  *                 @OA\Property(
+    //  *                 property="{{ modelVariable }}",
+    //  *                 type="object",
+    //  *                 ref="#/components/schemas/{{ model }}Resource"
+    //  *              ),
+    //  *           )
     //  *        ),
     //  *     ),
     //  *     @OA\Response(
@@ -140,7 +145,7 @@ class {{ class }} extends Controller
     //  *           property="message",
     //  *           type="string",
     //  *           example="Unauthenticated."
-    //  *          ),
+    //  *        ),
     //  *     )
     //  * )
     //  */
@@ -172,7 +177,8 @@ class {{ class }} extends Controller
     //  *    description="",
     //  *    security={{"bearerToken":{}}},
     //  *
-    //  **************** Parameter ****************
+    //  *
+    //  *
     //  *    @OA\Parameter(
     //  *        name="id",
     //  *        example=1,
@@ -180,35 +186,37 @@ class {{ class }} extends Controller
     //  *        description="{{ model }} ID",
     //  *        required=true,
     //  *        @OA\Schema(
-    //  *            type="integer"
+    //  *           type="integer"
     //  *        )
     //  *    ),
     //  *
-    //  **************** Response ****************
+    //  *
+    //  *
     //  *    @OA\Response(
     //  *        response=200,
     //  *        description="Successful operation",
     //  *        @OA\JsonContent(
-    //  *          @OA\Property(
-    //  *           property="success",
-    //  *           type="boolean",
-    //  *           example="true"
-    //  *          ),
-    //  *          @OA\Property(
-    //  *           property="message",
-    //  *           type="string",
-    //  *           example="this is your {{ modelVariable }}"
-    //  *          ),
-    //  *          @OA\Property(
-    //  *           property="data",
-    //  *              @OA\Property(
-    //  *              property="{{ modelVariable }}",
-    //  *              type="object",
-    //  *              ref="#/components/schemas/{{ model }}Resource"
-    //  *             ),
-    //  *          )
+    //  *           @OA\Property(
+    //  *              property="success",
+    //  *              type="boolean",
+    //  *              example="true"
+    //  *           ),
+    //  *           @OA\Property(
+    //  *              property="message",
+    //  *              type="string",
+    //  *              example="this is your {{ modelVariable }}"
+    //  *           ),
+    //  *           @OA\Property(
+    //  *              property="data",
+    //  *                 @OA\Property(
+    //  *                 property="{{ modelVariable }}",
+    //  *                 type="object",
+    //  *                 ref="#/components/schemas/{{ model }}Resource"
+    //  *              ),
+    //  *           )
     //  *        ),
     //  *     ),
+    //  *
     //  *     @OA\Response(
     //  *        response=401,
     //  *        description="Error: Unauthorized",
@@ -216,7 +224,7 @@ class {{ class }} extends Controller
     //  *           property="message",
     //  *           type="string",
     //  *           example="Unauthenticated."
-    //  *          ),
+    //  *        ),
     //  *     )
     //  * )
     //  */
@@ -240,7 +248,8 @@ class {{ class }} extends Controller
     //  *    description="",
     //  *    security={{"bearerToken":{}}},
     //  *
-    //  **************** Parameter ****************
+    //  *
+    //  *
     //  *    @OA\Parameter(
     //  *       name="id",
     //  *       example=1,
@@ -252,11 +261,12 @@ class {{ class }} extends Controller
     //  *       )
     //  *    ),
     //  *
-    //  **************** RequestBody ****************
+    //  *
+    //  *
     //  *    @OA\RequestBody(
     //  *        required=true,
     //  *        @OA\MediaType(mediaType="application/json",
-    //  *             @OA\Schema(ref="#/components/schemas/{{ updateRequest }}")
+    //  *           @OA\Schema(ref="#/components/schemas/{{ updateRequest }}")
     //  *       )
     //  *    ),
     //  *
@@ -323,7 +333,8 @@ class {{ class }} extends Controller
     //  *    description="",
     //  *    security={{"bearerToken":{}}},
     //  *
-    //  **************** Parameter ****************
+    //  *
+    //  *
     //  *    @OA\Parameter(
     //  *        name="id",
     //  *        example=1,
@@ -335,24 +346,25 @@ class {{ class }} extends Controller
     //  *        )
     //  *    ),
     //  *
-    //  **************** Response ****************
+    //  *
+    //  *
     //  *    @OA\Response(
     //  *        response=200,
     //  *        description="Successful operation",
     //  *        @OA\JsonContent(
-    //  *          @OA\Property(
-    //  *           property="success",
-    //  *           type="boolean",
-    //  *           example="true"
-    //  *          ),
-    //  *          @OA\Property(
-    //  *           property="message",
-    //  *           type="string",
-    //  *           example="{{ modelVariable }} is deleted success"
-    //  *          ),
-    //  *          
+    //  *           @OA\Property(
+    //  *              property="success",
+    //  *              type="boolean",
+    //  *              example="true"
+    //  *           ),
+    //  *           @OA\Property(
+    //  *              property="message",
+    //  *              type="string",
+    //  *              example="{{ modelVariable }} is deleted success"
+    //  *           ),
     //  *        ),
     //  *     ),
+    //  *
     //  *     @OA\Response(
     //  *        response=401,
     //  *        description="Error: Unauthorized",
@@ -360,7 +372,7 @@ class {{ class }} extends Controller
     //  *           property="message",
     //  *           type="string",
     //  *           example="Unauthenticated."
-    //  *          ),
+    //  *        ),
     //  *     )
     //  * )
     //  */

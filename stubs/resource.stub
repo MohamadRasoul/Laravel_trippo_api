@@ -4,6 +4,31 @@ namespace {{ namespace }};
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+// /**
+//  * @OA\Schema(
+//  *      title="{{ class }}",
+//  *      description="{{ class }} body data",
+//  *      type="object",
+//  *
+//  *
+//  *      @OA\Property(
+//  *          property="id",
+//  *          type="string"
+//  *      ),
+//  *      @OA\Property(
+//  *          property="username",
+//  *          type="string"
+//  *      ),
+//  *
+//  *
+//  *      example={
+//  *          "id": 1,
+//  *          "username": "mohamad_ra",
+//  *      }
+//  * )
+//  */
+
+
 class {{ class }} extends JsonResource
 {
     
