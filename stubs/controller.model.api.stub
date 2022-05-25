@@ -94,7 +94,7 @@ class {{ class }} extends Controller
     }
 
     
-    /**
+    // /** 
     //  * @OA\Post(
     //  *    path="/api/{{ modelVariable }}/store",
     //  *    operationId="Store{{ model }}",
@@ -138,6 +138,7 @@ class {{ class }} extends Controller
     //  *           )
     //  *        ),
     //  *     ),
+    //  *
     //  *     @OA\Response(
     //  *        response=401,
     //  *        description="Error: Unauthorized",
@@ -171,7 +172,7 @@ class {{ class }} extends Controller
     // /** 
     //  * @OA\Get(
     //  *    path="/api/{{ modelVariable }}/{id}/show",
-    //  *    operationId="Index{{ model }}",
+    //  *    operationId="Show{{ model }}",
     //  *    tags={"{{ model }}"},
     //  *    summary="Get {{ model }} By ID",
     //  *    description="",
@@ -239,7 +240,7 @@ class {{ class }} extends Controller
     }
 
    
-    /**
+    // /** 
     //  * @OA\Post(
     //  *    path="/api/{{ modelVariable }}/{id}/update",
     //  *    operationId="Update{{ model }}",
@@ -270,7 +271,8 @@ class {{ class }} extends Controller
     //  *       )
     //  *    ),
     //  *
-    //  **************** Response ****************
+    //  *
+    //  *
     //  *    @OA\Response(
     //  *        response=200,
     //  *        description="Successful operation",

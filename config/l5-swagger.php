@@ -49,18 +49,18 @@ return [
 
             ],
         ],
-        'admin' => [
+        'dashboard' => [
             'api' => [
-                'title' => 'Trippo - Admin',
+                'title' => 'Trippo - Dashboard',
             ],
 
             'routes' => [
                 /*
                  * Route for accessing api documentation interface
                 */
-                'api' => 'api/docs/admin',
-                'docs' => '/docs/admin',
-                // 'oauth2_callback' => '/admin/callback',
+                'api' => 'api/docs/dashboard',
+                'docs' => '/docs/dashboard',
+                // 'oauth2_callback' => '/dashboard/callback',
             ],
             'paths' => [
                 /*
@@ -71,12 +71,12 @@ return [
                 /*
                  * File name of the generated json documentation file
                 */
-                'docs_json' => 'admin-docs.json',
+                'docs_json' => 'dashboard-docs.json',
 
                 /*
                  * File name of the generated YAML documentation file
                 */
-                'docs_yaml' => 'admin-docs.yaml',
+                'docs_yaml' => 'dashboard-docs.yaml',
 
                 /*
                 * Set this to `json` or `yaml` to determine which documentation file to use in UI
@@ -87,26 +87,26 @@ return [
                  * Absolute paths to directory containing the swagger annotations are stored.
                 */
                 'annotations' => [
-                    base_path('App\Http\Controllers\Api\Admin'),
-                    base_path('App\Http\Resources\Admin'),
+                    base_path('App\Http\Controllers\Api\Dashboard'),
+                    base_path('App\Http\Resources\Dashboard'),
                     base_path('App\Http\Requests'),
 
                 ],
 
             ],
         ],
-        'user' => [
+        'mobile' => [
             'api' => [
-                'title' => 'Trippo - User',
+                'title' => 'Trippo - Mobile',
             ],
 
             'routes' => [
                 /*
                  * Route for accessing api documentation interface
                 */
-                'api' => 'api/docs/user',
-                'docs' => '/docs/user',
-                'oauth2_callback' => '/user/callback',
+                'api' => 'api/docs/mobile',
+                'docs' => '/docs/mobile',
+                'oauth2_callback' => '/mobile/callback',
             ],
             'paths' => [
                 /*
@@ -117,12 +117,12 @@ return [
                 /*
                  * File name of the generated json documentation file
                 */
-                'docs_json' => 'user-docs.json',
+                'docs_json' => 'mobile-docs.json',
 
                 /*
                  * File name of the generated YAML documentation file
                 */
-                'docs_yaml' => 'user-docs.yaml',
+                'docs_yaml' => 'mobile-docs.yaml',
 
                 /*
                 * Set this to `json` or `yaml` to determine which documentation file to use in UI
@@ -133,8 +133,8 @@ return [
                  * Absolute paths to directory containing the swagger annotations are stored.
                 */
                 'annotations' => [
-                    base_path('App\Http\Controllers\Api\User'),
-                    base_path('App\Http\Resources\User'),
+                    base_path('App\Http\Controllers\Api\Mobile'),
+                    base_path('App\Http\Resources\Mobile'),
                     base_path('App\Http\Requests'),
 
                 ],

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\User;
+namespace App\Http\Controllers\Api\Mobile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 /**
  * @OA\Info(
  *      version="1.0.0",
- *      title="Laravel Trippo - User",
+ *      title="Laravel Trippo - Mobile",
  *      description="L5 Swagger OpenApi description",
  *      @OA\Contact(
  *          email="mralmaahlol@gmail.com"
@@ -39,7 +39,7 @@ use Illuminate\Http\Request;
  * 
  */
 
-class UserController extends Controller
+class MobileController extends Controller
 {
     //
 }
