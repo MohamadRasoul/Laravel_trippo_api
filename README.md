@@ -14,7 +14,7 @@
 *  Make sure to create a new database and connect in `.env`
 *  Run the following commands:
     ```shell script
-    git clone https://gitlab.com/Mohamad_RA/address_Laravel.git
+    git clone https://gitlab.com/Mohamad_RA/trippo_laravel.git
     cd trippo_laravel
     composer install
     php artisan migrate:fresh --seed
