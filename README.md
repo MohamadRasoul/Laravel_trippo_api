@@ -25,7 +25,7 @@
 *  connection your app to : `http://localhost:5000`
 
 ### API Documentation
-[Link to API documentaion for Authentication.](http://localhost:5000/api/docs/auth)
-[Link to API documentaion for Dashboard.](http://localhost:5000/api/docs/dashboard)
-[Link to API documentaion for Mobile.](http://localhost:5000/api/docs/mobile)
+* [Link to API documentaion for Authentication.](http://localhost:5000/api/docs/auth)
+* [Link to API documentaion for Dashboard.](http://localhost:5000/api/docs/dashboard)
+* [Link to API documentaion for Mobile.](http://localhost:5000/api/docs/mobile)
 
