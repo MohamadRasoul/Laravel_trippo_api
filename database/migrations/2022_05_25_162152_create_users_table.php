@@ -15,17 +15,20 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-
-            // $table->string('text');
-
-
-
-
-           
-            ######## Foreign keys  ########
-
-            // $table->foreignIdFor(City::class)->constrained('cities')->cascadeOnDelete();
-
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('username');
+            $table->string('password');
+            $table->text('about');
+            $table->string('gender');
+            $table->timestamp('date_of_birthday')->nullable();
+            $table->string('email')->unique();
+            $table->string('phone_number');
+            $table->string('latitude');
+            $table->string('longitude');
+            
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

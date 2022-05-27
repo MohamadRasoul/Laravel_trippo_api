@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
 
-            // $table->string('text');
+            $table->string('name');
+            $table->text('description');
+            $table->string('latitude');
+            $table->string('longitude');
+            $table->integer('views')->default(0);
 
-
-
-
-           
             ######## Foreign keys  ########
 
             // $table->foreignIdFor(City::class)->constrained('cities')->cascadeOnDelete();

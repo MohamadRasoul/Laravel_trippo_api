@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Laravel Trippo - User",
+        "title": "Laravel Trippo - Mobile",
         "description": "L5 Swagger OpenApi description",
         "contact": {
             "email": "mralmaahlol@gmail.com"

@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Laravel Trippo - Admin",
+        "title": "Laravel Trippo - Dashboard",
         "description": "L5 Swagger OpenApi description",
         "contact": {
             "email": "mralmaahlol@gmail.com"
