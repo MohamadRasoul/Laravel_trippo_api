@@ -11,7 +11,7 @@ class FeatureSeeder extends Seeder
     
     public function run()
     {
-        //  \App\Models\FeatureSeeder::factory(10)->create();
+         \App\Models\Feature::factory(10)->create();
         
     }
 }

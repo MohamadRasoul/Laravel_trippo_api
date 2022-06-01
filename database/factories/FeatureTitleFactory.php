@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\FeatureTitle;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +15,13 @@ class FeatureTitleFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = FeatureTitle::class;
+
     public function definition()
     {
         return [
-            // "name"   => $this->faker->name,
+            "title"   => $this->faker->name(),
+            "icon"   => $this->faker->text(),
         ];
     }
 }

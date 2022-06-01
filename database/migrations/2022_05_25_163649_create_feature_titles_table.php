@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('feature_titles', function (Blueprint $table) {
             $table->id();
 
-            // $table->string('text');
+            $table->string('title');
+            $table->string('icon')->nullable();
 
 
 

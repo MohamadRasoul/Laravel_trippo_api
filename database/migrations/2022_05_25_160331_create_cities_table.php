@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
-            $table->text('description');
-            $table->string('latitude');
-            $table->string('longitude');
-            $table->integer('views')->default(0);
+            $table->text('description')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->integer('views')->default(0)->nullable();
+            $table->string('images')->nullable();
 
             ######## Foreign keys  ########
 

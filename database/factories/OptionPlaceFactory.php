@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\OptionPlace;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +15,14 @@ class OptionPlaceFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = OptionPlace::class;
+
     public function definition()
     {
         return [
-            // "name"   => $this->faker->name,
+            "place_id"   => \App\Models\Place::all()->random()->id,
+            "option_id"   => \App\Models\Option::all()->random()->id,
+
         ];
     }
 }

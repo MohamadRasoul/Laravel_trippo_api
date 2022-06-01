@@ -11,7 +11,7 @@ class UserFollowerSeeder extends Seeder
     
     public function run()
     {
-        //  \App\Models\UserFollowerSeeder::factory(10)->create();
+         \App\Models\UserFollower::factory(10)->create();
         
     }
 }

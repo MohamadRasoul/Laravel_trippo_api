@@ -11,7 +11,7 @@ class OptionPlaceSeeder extends Seeder
     
     public function run()
     {
-        //  \App\Models\OptionPlaceSeeder::factory(10)->create();
+         \App\Models\OptionPlace::factory(10)->create();
         
     }
 }

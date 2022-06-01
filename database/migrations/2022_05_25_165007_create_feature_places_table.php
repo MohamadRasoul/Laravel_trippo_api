@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Feature;
+use App\Models\Place;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +18,7 @@ return new class extends Migration
         Schema::create('feature_places', function (Blueprint $table) {
             $table->id();
 
-            // $table->string('text');
+            $table->string('description')->nullable();
 
 
 
@@ -24,7 +26,8 @@ return new class extends Migration
            
             ######## Foreign keys  ########
 
-            // $table->foreignIdFor(City::class)->constrained('cities')->cascadeOnDelete();
+            $table->foreignIdFor(Place::class)->constrained('places')->cascadeOnDelete();
+            $table->foreignIdFor(Feature::class)->constrained('features')->cascadeOnDelete();
 
             $table->timestamps();
         });

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Plan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +15,16 @@ class PlanFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = Plan::class;
+
     public function definition()
     {
         return [
-            // "name"   => $this->faker->name,
+            "name"   => $this->faker->name(),
+            "description"   => $this->faker->text(),
+            "is_private"   => $this->faker->boolean(),
+            "user_id"   => \App\Models\User::all()->random()->id,
+
         ];
     }
 }

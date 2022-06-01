@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('text');
            
             ######## Foreign keys  ########
-            $table->foreignIdFor(Question::class)->constrained('cities')->cascadeOnDelete();
-            $table->foreignIdFor(User::class)->constrained('cities')->cascadeOnDelete();
+            $table->foreignIdFor(Question::class)->constrained('questions')->cascadeOnDelete();
+            $table->foreignIdFor(User::class)->constrained('users')->cascadeOnDelete();
 
             $table->timestamps();
         });

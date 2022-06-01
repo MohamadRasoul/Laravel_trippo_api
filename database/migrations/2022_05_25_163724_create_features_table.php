@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\FeatureTitle;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +17,7 @@ return new class extends Migration
         Schema::create('features', function (Blueprint $table) {
             $table->id();
 
-            // $table->string('text');
+            $table->string('title');
 
 
 
@@ -24,7 +25,7 @@ return new class extends Migration
            
             ######## Foreign keys  ########
 
-            // $table->foreignIdFor(City::class)->constrained('cities')->cascadeOnDelete();
+            $table->foreignIdFor(FeatureTitle::class)->constrained('feature_titles')->cascadeOnDelete();
 
             $table->timestamps();
         });

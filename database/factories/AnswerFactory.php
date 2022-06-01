@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Answer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +15,16 @@ class AnswerFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+    protected $model = Answer::class;
+
+
     public function definition()
     {
         return [
-            // "name"   => $this->faker->name,
+            'text' => $this->faker->text($maxNbChars = 200),
+            'question_id' =>  \App\Models\Question::all()->random()->id,
+            'user_id' =>  \App\Models\User::all()->random()->id,
         ];
     }
 }

@@ -11,7 +11,7 @@ class FeatureTitleSeeder extends Seeder
     
     public function run()
     {
-        //  \App\Models\FeatureTitleSeeder::factory(10)->create();
+         \App\Models\FeatureTitle::factory(10)->create();
         
     }
 }

@@ -1,5 +1,10 @@
 <?php
 
+use App\Models\Experience;
+use App\Models\Place;
+use App\Models\Plan;
+use App\Models\User;
+use App\Models\VisitType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +21,11 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
 
-            // $table->string('text');
+            $table->string('tilte');
+            $table->string('description')->nullable();
+            $table->date('full_date')->nullable();
+            $table->string('images')->nullable();
+           
 
 
 
@@ -24,7 +33,11 @@ return new class extends Migration
            
             ######## Foreign keys  ########
 
-            // $table->foreignIdFor(City::class)->constrained('cities')->cascadeOnDelete();
+            $table->foreignIdFor(Place::class)->constrained('places')->cascadeOnDelete();
+            $table->foreignIdFor(Plan::class)->constrained('plans')->cascadeOnDelete();
+            $table->foreignIdFor(VisitType::class)->constrained('visit_types')->cascadeOnDelete();
+            $table->foreignIdFor(Experience::class)->constrained('experiences')->cascadeOnDelete();
+            $table->foreignIdFor(User::class)->constrained('users')->cascadeOnDelete();
 
             $table->timestamps();
         });

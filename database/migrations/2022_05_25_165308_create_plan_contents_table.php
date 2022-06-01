@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Experience;
+use App\Models\Place;
+use App\Models\Plan;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +19,9 @@ return new class extends Migration
         Schema::create('plan_contents', function (Blueprint $table) {
             $table->id();
 
-            // $table->string('text');
+            $table->date('full_date');
+            $table->integer('duration')->nullable();
+            $table->string('comment')->nullable();
 
 
 
@@ -24,7 +29,9 @@ return new class extends Migration
            
             ######## Foreign keys  ########
 
-            // $table->foreignIdFor(City::class)->constrained('cities')->cascadeOnDelete();
+            $table->foreignIdFor(Plan::class)->constrained('plans')->cascadeOnDelete();
+            $table->foreignIdFor(Place::class)->constrained('places')->cascadeOnDelete();
+            $table->foreignIdFor(Experience::class)->constrained('experiences')->cascadeOnDelete();
 
             $table->timestamps();
         });

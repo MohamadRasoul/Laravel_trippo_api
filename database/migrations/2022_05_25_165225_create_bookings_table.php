@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Experience;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +17,12 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
 
-            // $table->string('text');
+            $table->string('name');
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->decimal('price')->nullable();
+            $table->integer('people_count')->nullable();
+            $table->integer('is_active')->default(0)->nullable();
 
 
 
@@ -24,7 +30,7 @@ return new class extends Migration
            
             ######## Foreign keys  ########
 
-            // $table->foreignIdFor(City::class)->constrained('cities')->cascadeOnDelete();
+            $table->foreignIdFor(Experience::class)->constrained('experiences')->cascadeOnDelete();
 
             $table->timestamps();
         });

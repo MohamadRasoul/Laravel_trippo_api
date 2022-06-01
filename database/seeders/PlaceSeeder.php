@@ -11,7 +11,7 @@ class PlaceSeeder extends Seeder
     
     public function run()
     {
-        //  \App\Models\PlaceSeeder::factory(10)->create();
+         \App\Models\Place::factory(10)->create();
         
     }
 }
