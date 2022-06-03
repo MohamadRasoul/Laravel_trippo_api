@@ -42,6 +42,7 @@ return [
                 */
                 'annotations' => [
                     base_path('App\Http\Controllers\Api\Auth'),
+                    base_path('App\Http\Controllers\Api\ImageController.php'),
                     base_path('App\Http\Resources\Auth'),
                     base_path('App\Http\Requests'),
 
@@ -88,6 +89,7 @@ return [
                 */
                 'annotations' => [
                     base_path('App\Http\Controllers\Api\Dashboard'),
+                    base_path('App\Http\Controllers\Api\ImageController.php'),
                     base_path('App\Http\Resources\Dashboard'),
                     base_path('App\Http\Requests'),
 
@@ -134,6 +136,7 @@ return [
                 */
                 'annotations' => [
                     base_path('App\Http\Controllers\Api\Mobile'),
+                    base_path('App\Http\Controllers\Api\ImageController.php'),
                     base_path('App\Http\Resources\Mobile'),
                     base_path('App\Http\Requests'),
 
