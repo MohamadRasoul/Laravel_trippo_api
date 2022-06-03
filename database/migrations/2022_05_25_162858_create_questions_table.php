@@ -22,7 +22,7 @@ return new class extends Migration
             
             ######## Foreign keys  ########
             $table->foreignIdFor(City::class)->constrained('cities')->cascadeOnDelete();
-            $table->foreignIdFor(User::class)->constrained('cities')->cascadeOnDelete();
+            $table->foreignIdFor(User::class)->constrained('users')->cascadeOnDelete();
 
             $table->timestamps();
         });

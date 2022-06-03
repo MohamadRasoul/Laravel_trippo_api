@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('awards', function (Blueprint $table) {
             $table->id();
 
-            // $table->string('text');
+            $table->string('name');
+            $table->string('description')->nullable();
+            $table->string('donor')->nullable();
+            $table->string('image')->nullable();
 
 
 

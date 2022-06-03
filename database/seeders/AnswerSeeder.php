@@ -11,7 +11,7 @@ class AnswerSeeder extends Seeder
     
     public function run()
     {
-        //  \App\Models\AnswerSeeder::factory(10)->create();
+         \App\Models\Answer::factory(10)->create();
         
     }
 }

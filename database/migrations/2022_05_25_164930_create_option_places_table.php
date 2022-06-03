@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Option;
+use App\Models\Place;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -24,7 +26,8 @@ return new class extends Migration
            
             ######## Foreign keys  ########
 
-            // $table->foreignIdFor(City::class)->constrained('cities')->cascadeOnDelete();
+            $table->foreignIdFor(Place::class)->constrained('places')->cascadeOnDelete();
+            $table->foreignIdFor(Option::class)->constrained('options')->cascadeOnDelete();
 
             $table->timestamps();
         });

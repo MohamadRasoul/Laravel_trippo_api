@@ -11,7 +11,7 @@ class AwardPlaceSeeder extends Seeder
     
     public function run()
     {
-        //  \App\Models\AwardPlaceSeeder::factory(10)->create();
+         \App\Models\AwardPlace::factory(10)->create();
         
     }
 }

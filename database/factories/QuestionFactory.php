@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Question;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +15,15 @@ class QuestionFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = Question::class;
+
     public function definition()
     {
         return [
-            // "name"   => $this->faker->name,
+            "text"   => $this->faker->text(),
+            "city_id"   => \App\Models\City::all()->random()->id,
+            "user_id"   => \App\Models\User::all()->random()->id,
+
         ];
     }
 }

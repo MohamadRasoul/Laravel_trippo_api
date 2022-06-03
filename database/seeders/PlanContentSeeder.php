@@ -11,7 +11,7 @@ class PlanContentSeeder extends Seeder
     
     public function run()
     {
-        //  \App\Models\PlanContentSeeder::factory(10)->create();
+         \App\Models\PlanContent::factory(10)->create();
         
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Feature;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +15,13 @@ class FeatureFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = Feature::class;
+
     public function definition()
     {
         return [
-            // "name"   => $this->faker->name,
+            "title"   => $this->faker->name(),
+            "feature_title_id"   =>\App\Models\FeatureTitle::all()->random()->id,
         ];
     }
 }
