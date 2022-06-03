@@ -16,8 +16,6 @@ class ImageService
     ) {
         if (!empty($image)) {
             // try {
-            $model->clearMediaCollection($collection);
-
             if (str_contains($image, env('APP_URL'))) {
                 $image = str_replace(env('APP_URL'), "", $image);
                 $mediaImage = $model

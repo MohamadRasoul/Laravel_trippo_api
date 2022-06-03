@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
  *      @OA\Contact(
  *          email="mralmaahlol@gmail.com"
  *      ),
- *      
+ *
  * )
  *
  * @OA\Server(
@@ -28,14 +28,19 @@ use Illuminate\Http\Request;
  * )
  *
  * @OA\Tag(
+ *     name="Image",
+ *     description="API Endpoints of Image Upload"
+ * )
+ *
+ * @OA\Tag(
  *     name="City",
  *     description="API Endpoints of City"
  * )
  *
  * @OA\PathItem(path="/api")
- * 
  *
- * 
+ *
+ *
  */
 
 class DashboardController extends Controller

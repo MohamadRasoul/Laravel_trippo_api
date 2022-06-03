@@ -13,6 +13,7 @@ Route::group([
 ], function () {
     Route::get('index', 'index');
     Route::post('store', 'store');
-    Route::get('show', 'show');
-    Route::post('update', 'update');
+    Route::get('{city}/show', 'show');
+    Route::post('{city}/update', 'update');
+    Route::delete('{city}/delete', 'destroy');
 });

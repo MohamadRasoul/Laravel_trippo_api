@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
  *      @OA\Contact(
  *          email="mralmaahlol@gmail.com"
  *      ),
- *      
+ *
  * )
  *
  * @OA\Server(
@@ -29,6 +29,11 @@ use Illuminate\Http\Request;
  * )
  *
  * @OA\Tag(
+ *     name="Image",
+ *     description="API Endpoints of City"
+ * )
+ *
+ * @OA\Tag(
  *     name="User",
  *     description="API Endpoints of City"
  * )
@@ -39,9 +44,9 @@ use Illuminate\Http\Request;
  * )
  *
  * @OA\PathItem(path="/api")
- * 
  *
- * 
+ *
+ *
  */
 
 class AuthController extends Controller
