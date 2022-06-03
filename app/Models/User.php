@@ -6,16 +6,18 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
+
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable;
 
     protected $guarded = [];
 
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'date_of_birthday'  => 'datetime',
     ];
 
     ########## Accessors / Mutators ##########
@@ -32,8 +34,16 @@ class User extends Authenticatable
 
     ########## Libraries ##########
 
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 
     ########## OverWrite ##########
-
 
 }

@@ -2,21 +2,26 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
-class Admin extends Model
+class Admin extends Authenticatable implements JWTSubject
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     protected $guarded = [];
 
-    protected $casts = [];
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 
 
     ########## Accessors / Mutators ##########
 
-    
+
     ########## Relations ##########
 
 
@@ -27,6 +32,15 @@ class Admin extends Model
 
 
     ########## Libraries ##########
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 
 
     ########## OverWrite ##########

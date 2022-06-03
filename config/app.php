@@ -178,7 +178,10 @@ return [
         App\Providers\RouteServiceProvider::class,
 
 
+        ############## Macro Response ##############
+        App\Providers\ResponseMacroServiceProvider::class,
 
+        ############## Permission Spatie ##############
         Spatie\Permission\PermissionServiceProvider::class,
 
     ],

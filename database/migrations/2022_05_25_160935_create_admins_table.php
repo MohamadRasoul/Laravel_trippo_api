@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('password');
 
             ######## Foreign keys  ########
-            $table->foreignIdFor(City::class)->constrained('cities')->cascadeOnDelete();
+            $table->foreignIdFor(City::class)->nullable()->constrained('cities')->cascadeOnDelete();
 
             $table->timestamps();
         });
