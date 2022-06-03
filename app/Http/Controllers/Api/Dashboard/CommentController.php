@@ -13,9 +13,9 @@ use App\Http\Requests\UpdatecommentRequest;
 
 class CommentController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/comment/index",
+    //  *    path="/api/dashboard/comment/index",
     //  *    operationId="Indexcomment",
     //  *    tags={"comment"},
     //  *    summary="Get All comments",
@@ -31,7 +31,7 @@ class CommentController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class CommentController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class CommentController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/comment/store",
+    //  *    path="/api/dashboard/comment/store",
     //  *    operationId="Storecomment",
     //  *    tags={"comment"},
     //  *    summary="Add comment",
@@ -170,10 +170,10 @@ class CommentController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/comment/{id}/show",
+    //  *    path="/api/dashboard/comment/{id}/show",
     //  *    operationId="Showcomment",
     //  *    tags={"comment"},
     //  *    summary="Get comment By ID",
@@ -241,10 +241,10 @@ class CommentController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/comment/{id}/update",
+    //  *    path="/api/dashboard/comment/{id}/update",
     //  *    operationId="Updatecomment",
     //  *    tags={"comment"},
     //  *    summary="Edit comment",
@@ -328,9 +328,9 @@ class CommentController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/comment/{id}/delete",
+    //  *    path="/api/dashboard/comment/{id}/delete",
     //  *    operationId="Deletecomment",
     //  *    tags={"comment"},
     //  *    summary="Delete comment By ID",

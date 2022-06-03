@@ -13,9 +13,9 @@ use App\Http\Requests\UpdatePlaceRequest;
 
 class PlaceController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/place/index",
+    //  *    path="/api/mobile/place/index",
     //  *    operationId="IndexPlace",
     //  *    tags={"Place"},
     //  *    summary="Get All Places",
@@ -31,7 +31,7 @@ class PlaceController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class PlaceController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class PlaceController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/place/store",
+    //  *    path="/api/mobile/place/store",
     //  *    operationId="StorePlace",
     //  *    tags={"Place"},
     //  *    summary="Add Place",
@@ -170,10 +170,10 @@ class PlaceController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/place/{id}/show",
+    //  *    path="/api/mobile/place/{id}/show",
     //  *    operationId="ShowPlace",
     //  *    tags={"Place"},
     //  *    summary="Get Place By ID",
@@ -241,10 +241,10 @@ class PlaceController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/place/{id}/update",
+    //  *    path="/api/mobile/place/{id}/update",
     //  *    operationId="UpdatePlace",
     //  *    tags={"Place"},
     //  *    summary="Edit Place",
@@ -328,9 +328,9 @@ class PlaceController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/place/{id}/delete",
+    //  *    path="/api/mobile/place/{id}/delete",
     //  *    operationId="DeletePlace",
     //  *    tags={"Place"},
     //  *    summary="Delete Place By ID",

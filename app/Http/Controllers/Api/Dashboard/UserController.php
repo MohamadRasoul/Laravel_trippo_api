@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/user/index",
+    //  *    path="/api/dashboard/user/index",
     //  *    operationId="IndexUser",
     //  *    tags={"User"},
     //  *    summary="Get All Users",
@@ -31,7 +31,7 @@ class UserController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class UserController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class UserController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/user/store",
+    //  *    path="/api/dashboard/user/store",
     //  *    operationId="StoreUser",
     //  *    tags={"User"},
     //  *    summary="Add User",
@@ -170,10 +170,10 @@ class UserController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/user/{id}/show",
+    //  *    path="/api/dashboard/user/{id}/show",
     //  *    operationId="ShowUser",
     //  *    tags={"User"},
     //  *    summary="Get User By ID",
@@ -241,10 +241,10 @@ class UserController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/user/{id}/update",
+    //  *    path="/api/dashboard/user/{id}/update",
     //  *    operationId="UpdateUser",
     //  *    tags={"User"},
     //  *    summary="Edit User",
@@ -328,9 +328,9 @@ class UserController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/user/{id}/delete",
+    //  *    path="/api/dashboard/user/{id}/delete",
     //  *    operationId="DeleteUser",
     //  *    tags={"User"},
     //  *    summary="Delete User By ID",

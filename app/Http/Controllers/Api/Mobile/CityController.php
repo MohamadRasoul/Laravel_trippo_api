@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateCityRequest;
 
 class CityController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/city/index",
+    //  *    path="/api/mobile/city/index",
     //  *    operationId="IndexCity",
     //  *    tags={"City"},
     //  *    summary="Get All Citys",
@@ -31,7 +31,7 @@ class CityController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class CityController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class CityController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/city/store",
+    //  *    path="/api/mobile/city/store",
     //  *    operationId="StoreCity",
     //  *    tags={"City"},
     //  *    summary="Add City",
@@ -170,10 +170,10 @@ class CityController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/city/{id}/show",
+    //  *    path="/api/mobile/city/{id}/show",
     //  *    operationId="ShowCity",
     //  *    tags={"City"},
     //  *    summary="Get City By ID",
@@ -241,10 +241,10 @@ class CityController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/city/{id}/update",
+    //  *    path="/api/mobile/city/{id}/update",
     //  *    operationId="UpdateCity",
     //  *    tags={"City"},
     //  *    summary="Edit City",
@@ -328,9 +328,9 @@ class CityController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/city/{id}/delete",
+    //  *    path="/api/mobile/city/{id}/delete",
     //  *    operationId="DeleteCity",
     //  *    tags={"City"},
     //  *    summary="Delete City By ID",

@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateAdminRequest;
 
 class AdminController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/admin/index",
+    //  *    path="/api/dashboard/admin/index",
     //  *    operationId="IndexAdmin",
     //  *    tags={"Admin"},
     //  *    summary="Get All Admins",
@@ -31,7 +31,7 @@ class AdminController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class AdminController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class AdminController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/admin/store",
+    //  *    path="/api/dashboard/admin/store",
     //  *    operationId="StoreAdmin",
     //  *    tags={"Admin"},
     //  *    summary="Add Admin",
@@ -170,10 +170,10 @@ class AdminController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/admin/{id}/show",
+    //  *    path="/api/dashboard/admin/{id}/show",
     //  *    operationId="ShowAdmin",
     //  *    tags={"Admin"},
     //  *    summary="Get Admin By ID",
@@ -241,10 +241,10 @@ class AdminController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/admin/{id}/update",
+    //  *    path="/api/dashboard/admin/{id}/update",
     //  *    operationId="UpdateAdmin",
     //  *    tags={"Admin"},
     //  *    summary="Edit Admin",
@@ -328,9 +328,9 @@ class AdminController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/admin/{id}/delete",
+    //  *    path="/api/dashboard/admin/{id}/delete",
     //  *    operationId="DeleteAdmin",
     //  *    tags={"Admin"},
     //  *    summary="Delete Admin By ID",

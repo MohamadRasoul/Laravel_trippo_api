@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateAnswerRequest;
 
 class AnswerController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/answer/index",
+    //  *    path="/api/mobile/answer/index",
     //  *    operationId="IndexAnswer",
     //  *    tags={"Answer"},
     //  *    summary="Get All Answers",
@@ -31,7 +31,7 @@ class AnswerController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class AnswerController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class AnswerController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/answer/store",
+    //  *    path="/api/mobile/answer/store",
     //  *    operationId="StoreAnswer",
     //  *    tags={"Answer"},
     //  *    summary="Add Answer",
@@ -170,10 +170,10 @@ class AnswerController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/answer/{id}/show",
+    //  *    path="/api/mobile/answer/{id}/show",
     //  *    operationId="ShowAnswer",
     //  *    tags={"Answer"},
     //  *    summary="Get Answer By ID",
@@ -241,10 +241,10 @@ class AnswerController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/answer/{id}/update",
+    //  *    path="/api/mobile/answer/{id}/update",
     //  *    operationId="UpdateAnswer",
     //  *    tags={"Answer"},
     //  *    summary="Edit Answer",
@@ -328,9 +328,9 @@ class AnswerController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/answer/{id}/delete",
+    //  *    path="/api/mobile/answer/{id}/delete",
     //  *    operationId="DeleteAnswer",
     //  *    tags={"Answer"},
     //  *    summary="Delete Answer By ID",

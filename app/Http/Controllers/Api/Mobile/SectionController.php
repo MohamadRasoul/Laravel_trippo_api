@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateSectionRequest;
 
 class SectionController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/section/index",
+    //  *    path="/api/mobile/section/index",
     //  *    operationId="IndexSection",
     //  *    tags={"Section"},
     //  *    summary="Get All Sections",
@@ -31,7 +31,7 @@ class SectionController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class SectionController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class SectionController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/section/store",
+    //  *    path="/api/mobile/section/store",
     //  *    operationId="StoreSection",
     //  *    tags={"Section"},
     //  *    summary="Add Section",
@@ -170,10 +170,10 @@ class SectionController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/section/{id}/show",
+    //  *    path="/api/mobile/section/{id}/show",
     //  *    operationId="ShowSection",
     //  *    tags={"Section"},
     //  *    summary="Get Section By ID",
@@ -241,10 +241,10 @@ class SectionController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/section/{id}/update",
+    //  *    path="/api/mobile/section/{id}/update",
     //  *    operationId="UpdateSection",
     //  *    tags={"Section"},
     //  *    summary="Edit Section",
@@ -328,9 +328,9 @@ class SectionController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/section/{id}/delete",
+    //  *    path="/api/mobile/section/{id}/delete",
     //  *    operationId="DeleteSection",
     //  *    tags={"Section"},
     //  *    summary="Delete Section By ID",

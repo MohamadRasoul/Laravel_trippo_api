@@ -13,9 +13,9 @@ use App\Http\Requests\UpdatePlanContentRequest;
 
 class PlanContentController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/planContent/index",
+    //  *    path="/api/dashboard/planContent/index",
     //  *    operationId="IndexPlanContent",
     //  *    tags={"PlanContent"},
     //  *    summary="Get All PlanContents",
@@ -31,7 +31,7 @@ class PlanContentController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class PlanContentController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class PlanContentController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/planContent/store",
+    //  *    path="/api/dashboard/planContent/store",
     //  *    operationId="StorePlanContent",
     //  *    tags={"PlanContent"},
     //  *    summary="Add PlanContent",
@@ -170,10 +170,10 @@ class PlanContentController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/planContent/{id}/show",
+    //  *    path="/api/dashboard/planContent/{id}/show",
     //  *    operationId="ShowPlanContent",
     //  *    tags={"PlanContent"},
     //  *    summary="Get PlanContent By ID",
@@ -241,10 +241,10 @@ class PlanContentController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/planContent/{id}/update",
+    //  *    path="/api/dashboard/planContent/{id}/update",
     //  *    operationId="UpdatePlanContent",
     //  *    tags={"PlanContent"},
     //  *    summary="Edit PlanContent",
@@ -328,9 +328,9 @@ class PlanContentController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/planContent/{id}/delete",
+    //  *    path="/api/dashboard/planContent/{id}/delete",
     //  *    operationId="DeletePlanContent",
     //  *    tags={"PlanContent"},
     //  *    summary="Delete PlanContent By ID",

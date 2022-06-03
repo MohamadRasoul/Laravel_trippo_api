@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateExperienceRequest;
 
 class ExperienceController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/experience/index",
+    //  *    path="/api/mobile/experience/index",
     //  *    operationId="IndexExperience",
     //  *    tags={"Experience"},
     //  *    summary="Get All Experiences",
@@ -31,7 +31,7 @@ class ExperienceController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class ExperienceController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class ExperienceController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/experience/store",
+    //  *    path="/api/mobile/experience/store",
     //  *    operationId="StoreExperience",
     //  *    tags={"Experience"},
     //  *    summary="Add Experience",
@@ -170,10 +170,10 @@ class ExperienceController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/experience/{id}/show",
+    //  *    path="/api/mobile/experience/{id}/show",
     //  *    operationId="ShowExperience",
     //  *    tags={"Experience"},
     //  *    summary="Get Experience By ID",
@@ -241,10 +241,10 @@ class ExperienceController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/experience/{id}/update",
+    //  *    path="/api/mobile/experience/{id}/update",
     //  *    operationId="UpdateExperience",
     //  *    tags={"Experience"},
     //  *    summary="Edit Experience",
@@ -328,9 +328,9 @@ class ExperienceController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/experience/{id}/delete",
+    //  *    path="/api/mobile/experience/{id}/delete",
     //  *    operationId="DeleteExperience",
     //  *    tags={"Experience"},
     //  *    summary="Delete Experience By ID",

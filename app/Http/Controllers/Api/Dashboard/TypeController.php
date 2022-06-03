@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateTypeRequest;
 
 class TypeController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/type/index",
+    //  *    path="/api/dashboard/type/index",
     //  *    operationId="IndexType",
     //  *    tags={"Type"},
     //  *    summary="Get All Types",
@@ -31,7 +31,7 @@ class TypeController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class TypeController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class TypeController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/type/store",
+    //  *    path="/api/dashboard/type/store",
     //  *    operationId="StoreType",
     //  *    tags={"Type"},
     //  *    summary="Add Type",
@@ -170,10 +170,10 @@ class TypeController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/type/{id}/show",
+    //  *    path="/api/dashboard/type/{id}/show",
     //  *    operationId="ShowType",
     //  *    tags={"Type"},
     //  *    summary="Get Type By ID",
@@ -241,10 +241,10 @@ class TypeController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/type/{id}/update",
+    //  *    path="/api/dashboard/type/{id}/update",
     //  *    operationId="UpdateType",
     //  *    tags={"Type"},
     //  *    summary="Edit Type",
@@ -328,9 +328,9 @@ class TypeController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/type/{id}/delete",
+    //  *    path="/api/dashboard/type/{id}/delete",
     //  *    operationId="DeleteType",
     //  *    tags={"Type"},
     //  *    summary="Delete Type By ID",

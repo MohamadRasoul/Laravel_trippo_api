@@ -13,9 +13,9 @@ use App\Http\Requests\UpdatePlanRequest;
 
 class PlanController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/plan/index",
+    //  *    path="/api/dashboard/plan/index",
     //  *    operationId="IndexPlan",
     //  *    tags={"Plan"},
     //  *    summary="Get All Plans",
@@ -31,7 +31,7 @@ class PlanController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class PlanController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class PlanController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/plan/store",
+    //  *    path="/api/dashboard/plan/store",
     //  *    operationId="StorePlan",
     //  *    tags={"Plan"},
     //  *    summary="Add Plan",
@@ -170,10 +170,10 @@ class PlanController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/plan/{id}/show",
+    //  *    path="/api/dashboard/plan/{id}/show",
     //  *    operationId="ShowPlan",
     //  *    tags={"Plan"},
     //  *    summary="Get Plan By ID",
@@ -241,10 +241,10 @@ class PlanController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/plan/{id}/update",
+    //  *    path="/api/dashboard/plan/{id}/update",
     //  *    operationId="UpdatePlan",
     //  *    tags={"Plan"},
     //  *    summary="Edit Plan",
@@ -328,9 +328,9 @@ class PlanController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/plan/{id}/delete",
+    //  *    path="/api/dashboard/plan/{id}/delete",
     //  *    operationId="DeletePlan",
     //  *    tags={"Plan"},
     //  *    summary="Delete Plan By ID",

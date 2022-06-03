@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateAwardRequest;
 
 class AwardController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/award/index",
+    //  *    path="/api/dashboard/award/index",
     //  *    operationId="IndexAward",
     //  *    tags={"Award"},
     //  *    summary="Get All Awards",
@@ -31,7 +31,7 @@ class AwardController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class AwardController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class AwardController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/award/store",
+    //  *    path="/api/dashboard/award/store",
     //  *    operationId="StoreAward",
     //  *    tags={"Award"},
     //  *    summary="Add Award",
@@ -170,10 +170,10 @@ class AwardController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/award/{id}/show",
+    //  *    path="/api/dashboard/award/{id}/show",
     //  *    operationId="ShowAward",
     //  *    tags={"Award"},
     //  *    summary="Get Award By ID",
@@ -241,10 +241,10 @@ class AwardController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/award/{id}/update",
+    //  *    path="/api/dashboard/award/{id}/update",
     //  *    operationId="UpdateAward",
     //  *    tags={"Award"},
     //  *    summary="Edit Award",
@@ -328,9 +328,9 @@ class AwardController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/award/{id}/delete",
+    //  *    path="/api/dashboard/award/{id}/delete",
     //  *    operationId="DeleteAward",
     //  *    tags={"Award"},
     //  *    summary="Delete Award By ID",

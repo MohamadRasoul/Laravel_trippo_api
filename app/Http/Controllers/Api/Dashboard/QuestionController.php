@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateQuestionRequest;
 
 class QuestionController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/question/index",
+    //  *    path="/api/dashboard/question/index",
     //  *    operationId="IndexQuestion",
     //  *    tags={"Question"},
     //  *    summary="Get All Questions",
@@ -31,7 +31,7 @@ class QuestionController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class QuestionController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class QuestionController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/question/store",
+    //  *    path="/api/dashboard/question/store",
     //  *    operationId="StoreQuestion",
     //  *    tags={"Question"},
     //  *    summary="Add Question",
@@ -170,10 +170,10 @@ class QuestionController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/question/{id}/show",
+    //  *    path="/api/dashboard/question/{id}/show",
     //  *    operationId="ShowQuestion",
     //  *    tags={"Question"},
     //  *    summary="Get Question By ID",
@@ -241,10 +241,10 @@ class QuestionController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/question/{id}/update",
+    //  *    path="/api/dashboard/question/{id}/update",
     //  *    operationId="UpdateQuestion",
     //  *    tags={"Question"},
     //  *    summary="Edit Question",
@@ -328,9 +328,9 @@ class QuestionController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/question/{id}/delete",
+    //  *    path="/api/dashboard/question/{id}/delete",
     //  *    operationId="DeleteQuestion",
     //  *    tags={"Question"},
     //  *    summary="Delete Question By ID",

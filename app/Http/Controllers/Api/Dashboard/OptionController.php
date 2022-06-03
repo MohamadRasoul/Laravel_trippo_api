@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateOptionRequest;
 
 class OptionController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/option/index",
+    //  *    path="/api/dashboard/option/index",
     //  *    operationId="IndexOption",
     //  *    tags={"Option"},
     //  *    summary="Get All Options",
@@ -31,7 +31,7 @@ class OptionController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class OptionController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class OptionController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/option/store",
+    //  *    path="/api/dashboard/option/store",
     //  *    operationId="StoreOption",
     //  *    tags={"Option"},
     //  *    summary="Add Option",
@@ -170,10 +170,10 @@ class OptionController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/option/{id}/show",
+    //  *    path="/api/dashboard/option/{id}/show",
     //  *    operationId="ShowOption",
     //  *    tags={"Option"},
     //  *    summary="Get Option By ID",
@@ -241,10 +241,10 @@ class OptionController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/option/{id}/update",
+    //  *    path="/api/dashboard/option/{id}/update",
     //  *    operationId="UpdateOption",
     //  *    tags={"Option"},
     //  *    summary="Edit Option",
@@ -328,9 +328,9 @@ class OptionController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/option/{id}/delete",
+    //  *    path="/api/dashboard/option/{id}/delete",
     //  *    operationId="DeleteOption",
     //  *    tags={"Option"},
     //  *    summary="Delete Option By ID",

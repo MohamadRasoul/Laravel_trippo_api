@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateFeatureTitleRequest;
 
 class FeatureTitleController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/featureTitle/index",
+    //  *    path="/api/mobile/featureTitle/index",
     //  *    operationId="IndexFeatureTitle",
     //  *    tags={"FeatureTitle"},
     //  *    summary="Get All FeatureTitles",
@@ -31,7 +31,7 @@ class FeatureTitleController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class FeatureTitleController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class FeatureTitleController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/featureTitle/store",
+    //  *    path="/api/mobile/featureTitle/store",
     //  *    operationId="StoreFeatureTitle",
     //  *    tags={"FeatureTitle"},
     //  *    summary="Add FeatureTitle",
@@ -170,10 +170,10 @@ class FeatureTitleController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/featureTitle/{id}/show",
+    //  *    path="/api/mobile/featureTitle/{id}/show",
     //  *    operationId="ShowFeatureTitle",
     //  *    tags={"FeatureTitle"},
     //  *    summary="Get FeatureTitle By ID",
@@ -241,10 +241,10 @@ class FeatureTitleController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/featureTitle/{id}/update",
+    //  *    path="/api/mobile/featureTitle/{id}/update",
     //  *    operationId="UpdateFeatureTitle",
     //  *    tags={"FeatureTitle"},
     //  *    summary="Edit FeatureTitle",
@@ -328,9 +328,9 @@ class FeatureTitleController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/featureTitle/{id}/delete",
+    //  *    path="/api/mobile/featureTitle/{id}/delete",
     //  *    operationId="DeleteFeatureTitle",
     //  *    tags={"FeatureTitle"},
     //  *    summary="Delete FeatureTitle By ID",

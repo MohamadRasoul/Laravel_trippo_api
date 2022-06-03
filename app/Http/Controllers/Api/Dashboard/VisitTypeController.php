@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateVisitTypeRequest;
 
 class VisitTypeController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/visitType/index",
+    //  *    path="/api/dashboard/visitType/index",
     //  *    operationId="IndexVisitType",
     //  *    tags={"VisitType"},
     //  *    summary="Get All VisitTypes",
@@ -31,7 +31,7 @@ class VisitTypeController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class VisitTypeController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class VisitTypeController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/visitType/store",
+    //  *    path="/api/dashboard/visitType/store",
     //  *    operationId="StoreVisitType",
     //  *    tags={"VisitType"},
     //  *    summary="Add VisitType",
@@ -170,10 +170,10 @@ class VisitTypeController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/visitType/{id}/show",
+    //  *    path="/api/dashboard/visitType/{id}/show",
     //  *    operationId="ShowVisitType",
     //  *    tags={"VisitType"},
     //  *    summary="Get VisitType By ID",
@@ -241,10 +241,10 @@ class VisitTypeController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/visitType/{id}/update",
+    //  *    path="/api/dashboard/visitType/{id}/update",
     //  *    operationId="UpdateVisitType",
     //  *    tags={"VisitType"},
     //  *    summary="Edit VisitType",
@@ -328,9 +328,9 @@ class VisitTypeController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/visitType/{id}/delete",
+    //  *    path="/api/dashboard/visitType/{id}/delete",
     //  *    operationId="DeleteVisitType",
     //  *    tags={"VisitType"},
     //  *    summary="Delete VisitType By ID",

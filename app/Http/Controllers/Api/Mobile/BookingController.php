@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateBookingRequest;
 
 class BookingController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/booking/index",
+    //  *    path="/api/mobile/booking/index",
     //  *    operationId="IndexBooking",
     //  *    tags={"Booking"},
     //  *    summary="Get All Bookings",
@@ -31,7 +31,7 @@ class BookingController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class BookingController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class BookingController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/booking/store",
+    //  *    path="/api/mobile/booking/store",
     //  *    operationId="StoreBooking",
     //  *    tags={"Booking"},
     //  *    summary="Add Booking",
@@ -170,10 +170,10 @@ class BookingController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/booking/{id}/show",
+    //  *    path="/api/mobile/booking/{id}/show",
     //  *    operationId="ShowBooking",
     //  *    tags={"Booking"},
     //  *    summary="Get Booking By ID",
@@ -241,10 +241,10 @@ class BookingController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/booking/{id}/update",
+    //  *    path="/api/mobile/booking/{id}/update",
     //  *    operationId="UpdateBooking",
     //  *    tags={"Booking"},
     //  *    summary="Edit Booking",
@@ -328,9 +328,9 @@ class BookingController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/booking/{id}/delete",
+    //  *    path="/api/mobile/booking/{id}/delete",
     //  *    operationId="DeleteBooking",
     //  *    tags={"Booking"},
     //  *    summary="Delete Booking By ID",

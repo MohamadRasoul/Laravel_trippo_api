@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateFeaturePlaceRequest;
 
 class FeaturePlaceController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/featurePlace/index",
+    //  *    path="/api/dashboard/featurePlace/index",
     //  *    operationId="IndexFeaturePlace",
     //  *    tags={"FeaturePlace"},
     //  *    summary="Get All FeaturePlaces",
@@ -31,7 +31,7 @@ class FeaturePlaceController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class FeaturePlaceController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class FeaturePlaceController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/featurePlace/store",
+    //  *    path="/api/dashboard/featurePlace/store",
     //  *    operationId="StoreFeaturePlace",
     //  *    tags={"FeaturePlace"},
     //  *    summary="Add FeaturePlace",
@@ -170,10 +170,10 @@ class FeaturePlaceController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/featurePlace/{id}/show",
+    //  *    path="/api/dashboard/featurePlace/{id}/show",
     //  *    operationId="ShowFeaturePlace",
     //  *    tags={"FeaturePlace"},
     //  *    summary="Get FeaturePlace By ID",
@@ -241,10 +241,10 @@ class FeaturePlaceController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/featurePlace/{id}/update",
+    //  *    path="/api/dashboard/featurePlace/{id}/update",
     //  *    operationId="UpdateFeaturePlace",
     //  *    tags={"FeaturePlace"},
     //  *    summary="Edit FeaturePlace",
@@ -328,9 +328,9 @@ class FeaturePlaceController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/featurePlace/{id}/delete",
+    //  *    path="/api/dashboard/featurePlace/{id}/delete",
     //  *    operationId="DeleteFeaturePlace",
     //  *    tags={"FeaturePlace"},
     //  *    summary="Delete FeaturePlace By ID",

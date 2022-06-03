@@ -13,9 +13,9 @@ use App\Http\Requests\UpdateFeatureRequest;
 
 class FeatureController extends Controller
 {
-    // /** 
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/feature/index",
+    //  *    path="/api/dashboard/feature/index",
     //  *    operationId="IndexFeature",
     //  *    tags={"Feature"},
     //  *    summary="Get All Features",
@@ -31,7 +31,7 @@ class FeatureController extends Controller
     //  *       description="Number of item per page",
     //  *       required=false,
     //  *       @OA\Schema(
-    //  *           type="integer",    
+    //  *           type="integer",
     //  *       )
     //  *    ),
     //  *    @OA\Parameter(
@@ -41,7 +41,7 @@ class FeatureController extends Controller
     //  *        description="Page number",
     //  *        required=false,
     //  *        @OA\Schema(
-    //  *            type="integer",    
+    //  *            type="integer",
     //  *        )
     //  *    ),
     //  *
@@ -95,10 +95,10 @@ class FeatureController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/feature/store",
+    //  *    path="/api/dashboard/feature/store",
     //  *    operationId="StoreFeature",
     //  *    tags={"Feature"},
     //  *    summary="Add Feature",
@@ -170,10 +170,10 @@ class FeatureController extends Controller
         );
     }
 
-    
-    // /** 
+
+    // /**
     //  * @OA\Get(
-    //  *    path="/api/feature/{id}/show",
+    //  *    path="/api/dashboard/feature/{id}/show",
     //  *    operationId="ShowFeature",
     //  *    tags={"Feature"},
     //  *    summary="Get Feature By ID",
@@ -241,10 +241,10 @@ class FeatureController extends Controller
         );
     }
 
-   
-    // /** 
+
+    // /**
     //  * @OA\Post(
-    //  *    path="/api/feature/{id}/update",
+    //  *    path="/api/dashboard/feature/{id}/update",
     //  *    operationId="UpdateFeature",
     //  *    tags={"Feature"},
     //  *    summary="Edit Feature",
@@ -328,9 +328,9 @@ class FeatureController extends Controller
         );
     }
 
-    // /** 
+    // /**
     //  * @OA\Delete(
-    //  *    path="/api/feature/{id}/delete",
+    //  *    path="/api/dashboard/feature/{id}/delete",
     //  *    operationId="DeleteFeature",
     //  *    tags={"Feature"},
     //  *    summary="Delete Feature By ID",
