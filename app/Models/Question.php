@@ -16,9 +16,12 @@ class Question extends Model
 
     ########## Accessors / Mutators ##########
 
-    
-    ########## Relations ##########
 
+    ########## Relations ##########
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
 
     ########## Query ##########
 

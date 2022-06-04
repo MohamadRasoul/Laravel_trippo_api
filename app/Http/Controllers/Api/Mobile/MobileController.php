@@ -30,14 +30,21 @@ use Illuminate\Http\Request;
  *
  * @OA\Tag(
  *     name="Image",
- *     description="API Endpoints of City"
+ *     description="API Endpoints of Image Upload"
  * )
  *
  * @OA\Tag(
  *     name="City",
  *     description="API Endpoints of City"
  * )
- *
+ * @OA\Tag(
+ *     name="Question",
+ *     description="API Endpoints of City"
+ * )
+ * @OA\Tag(
+ *     name="Answer",
+ *     description="API Endpoints of City"
+ * )
  * @OA\PathItem(path="/api")
  *
  *

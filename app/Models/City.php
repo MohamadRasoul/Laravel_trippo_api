@@ -20,7 +20,10 @@ class City extends Model implements HasMedia
 
 
     ########## Relations ##########
-
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 
     ########## Query ##########
 

@@ -36,6 +36,14 @@ use Illuminate\Http\Request;
  *     name="City",
  *     description="API Endpoints of City"
  * )
+ * @OA\Tag(
+ *     name="Question",
+ *     description="API Endpoints of City"
+ * )
+ * @OA\Tag(
+ *     name="Answer",
+ *     description="API Endpoints of City"
+ * )
  *
  * @OA\PathItem(path="/api")
  *

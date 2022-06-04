@@ -61,8 +61,11 @@ class CityController extends Controller
      *              property="data",
      *              @OA\Property(
      *                 property="cities",
-     *                 type="object",
-     *                 ref="#/components/schemas/CityResource"
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/CityResource"
+     *                 ),
      *              ),
      *           )
      *        ),
@@ -144,8 +147,11 @@ class CityController extends Controller
      *              property="data",
      *              @OA\Property(
      *                 property="cities",
-     *                 type="object",
-     *                 ref="#/components/schemas/CityResource"
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/CityResource"
+     *                 ),
      *              ),
      *           )
      *        ),
