@@ -72,6 +72,316 @@
                 ]
             }
         },
+        "/api/dashboard/award/index": {
+            "get": {
+                "tags": [
+                    "Award"
+                ],
+                "summary": "Get All Awards",
+                "description": "",
+                "operationId": "IndexAward",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all awards"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "awards": {
+                                                    "$ref": "#/components/schemas/AwardResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/award/store": {
+            "post": {
+                "tags": [
+                    "Award"
+                ],
+                "summary": "Add Award",
+                "description": "",
+                "operationId": "StoreAward",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreAwardRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "award is added success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "award": {
+                                                    "$ref": "#/components/schemas/AwardResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/award/{id}/show": {
+            "get": {
+                "tags": [
+                    "Award"
+                ],
+                "summary": "Get Award By ID",
+                "description": "",
+                "operationId": "ShowAward",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Award ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is your award"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "award": {
+                                                    "$ref": "#/components/schemas/AwardResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/award/{id}/update": {
+            "post": {
+                "tags": [
+                    "Award"
+                ],
+                "summary": "Edit Award",
+                "description": "",
+                "operationId": "UpdateAward",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Award ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateAwardRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "award is updated success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "award": {
+                                                    "$ref": "#/components/schemas/AwardResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/award/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "Award"
+                ],
+                "summary": "Delete Award By ID",
+                "description": "",
+                "operationId": "DeleteAward",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Award ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "award is deleted success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
         "/api/dashboard/city/index": {
             "get": {
                 "tags": [
@@ -1057,66 +1367,6 @@
                 ]
             }
         },
-        "/api/dashboard/option/{id}/show": {
-            "get": {
-                "tags": [
-                    "Option"
-                ],
-                "summary": "Get Option By ID",
-                "description": "",
-                "operationId": "ShowOption",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Option ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "example": 1
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": "true"
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "this is your option"
-                                        },
-                                        "data": {
-                                            "properties": {
-                                                "option": {
-                                                    "$ref": "#/components/schemas/OptionResource"
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Error: Unauthorized"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerToken": []
-                    }
-                ]
-            }
-        },
         "/api/dashboard/option/{id}/update": {
             "post": {
                 "tags": [
@@ -1984,6 +2234,37 @@
                     "text": "Yes, I was very happy when visit it"
                 }
             },
+            "StoreAwardRequest": {
+                "title": "StoreAwardRequest",
+                "description": "StoreAwardRequest body data",
+                "required": [
+                    "name",
+                    "description",
+                    "donor",
+                    "image"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "donor": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "award name",
+                    "description": "award description",
+                    "donor": "award donor",
+                    "image": "awardImageName.jpg"
+                }
+            },
             "StoreCityRequest": {
                 "title": "StoreCityRequest",
                 "description": "StoreCityRequest body data",
@@ -2105,6 +2386,37 @@
                     "image": "image.jpg"
                 }
             },
+            "UpdateAwardRequest": {
+                "title": "UpdateAwardRequest",
+                "description": "UpdateAwardRequest body data",
+                "required": [
+                    "name",
+                    "description",
+                    "donor",
+                    "image"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "donor": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "award name",
+                    "description": "award description",
+                    "donor": "award donor",
+                    "image": "awardImageName.jpg"
+                }
+            },
             "UpdateCityRequest": {
                 "title": "UpdateCityRequest",
                 "description": "UpdateCityRequest body data",
@@ -2205,6 +2517,32 @@
                 "example": {
                     "id": 1,
                     "text": "Yes, I was very happy whev visit it"
+                }
+            },
+            "AwardResource": {
+                "title": "AwardResource",
+                "description": "AwardResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "donor": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "id": 1,
+                    "name": "award name",
+                    "description": "award description",
+                    "donor": "award donor",
+                    "image": "awardImagePath"
                 }
             },
             "CityResource": {

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Dashboard\AnswerController;
+use App\Http\Controllers\Api\Dashboard\AwardController;
 use App\Http\Controllers\Api\Dashboard\CityController;
 use App\Http\Controllers\Api\Dashboard\FeatureController;
 use App\Http\Controllers\Api\Dashboard\FeatureTitleController;
@@ -82,6 +83,18 @@ Route::group([
     Route::post('type/{type}/store', 'store');
     Route::post('{option}/update', 'update');
     Route::delete('{option}/delete', 'destroy');
+});
+
+
+Route::group([
+    "prefix" => 'award',
+    "controller" => AwardController::class
+], function () {
+    Route::get('index', 'index');
+    Route::post('store', 'store');
+    Route::get('{award}/show', 'show');
+    Route::post('{award}/update', 'update');
+    Route::delete('{award}/delete', 'destroy');
 });
 
 
