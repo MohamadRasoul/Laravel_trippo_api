@@ -1,16 +1,15 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\Dashboard\CityController;
-use App\Http\Controllers\Api\Dashboard\QuestionController;
 use App\Http\Controllers\Api\Dashboard\AnswerController;
-
-
+use App\Http\Controllers\Api\Dashboard\CityController;
+use App\Http\Controllers\Api\Dashboard\FeatureController;
+use App\Http\Controllers\Api\Dashboard\FeatureTitleController;
+use App\Http\Controllers\Api\Dashboard\QuestionController;
+use Illuminate\Support\Facades\Route;
 
 
 Route::group([
-    "prefix"     => 'city',
+    "prefix" => 'city',
     "controller" => CityController::class
 ], function () {
     Route::get('index', 'index');
@@ -22,7 +21,7 @@ Route::group([
 
 
 Route::group([
-    "prefix"     => 'question',
+    "prefix" => 'question',
     "controller" => QuestionController::class
 ], function () {
     Route::get('city/{city}/index', 'indexByCity');
@@ -31,12 +30,35 @@ Route::group([
 });
 
 Route::group([
-    "prefix"     => 'answer',
+    "prefix" => 'answer',
     "controller" => AnswerController::class
 ], function () {
     Route::delete('{answer}/delete', 'destroy');
 });
 
+
+Route::group([
+    "prefix" => 'featureTitle',
+    "controller" => FeatureTitleController::class
+], function () {
+    Route::get('index', 'index');
+    Route::post('store', 'store');
+    Route::get('{featureTitle}/show', 'show');
+    Route::post('{featureTitle}/update', 'update');
+    Route::delete('{featureTitle}/delete', 'destroy');
+});
+
+
+Route::group([
+    "prefix" => 'feature',
+    "controller" => FeatureController::class
+], function () {
+    Route::get('index', 'index');
+    Route::post('featureTitle/{featureTitle}/store', 'store');
+    Route::get('{feature}/show', 'show');
+    Route::post('{feature}/update', 'update');
+    Route::delete('{feature}/delete', 'destroy');
+});
 
 
 

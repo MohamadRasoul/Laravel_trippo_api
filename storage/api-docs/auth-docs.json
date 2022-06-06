@@ -583,6 +583,43 @@
                     "longitude": "37.1343"
                 }
             },
+            "StoreFeatureRequest": {
+                "title": "StoreFeatureRequest",
+                "description": "StoreFeatureRequest body data",
+                "required": [
+                    "title"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "any thing"
+                }
+            },
+            "StoreFeatureTitleRequest": {
+                "title": "StoreFeatureTitleRequest",
+                "description": "StoreFeatureTitleRequest body data",
+                "required": [
+                    "title",
+                    "image"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "any Title",
+                    "image": "image.jpg"
+                }
+            },
             "StoreQuestionRequest": {
                 "title": "StoreQuestionRequest",
                 "description": "StoreQuestionRequest body data",
@@ -622,6 +659,36 @@
                     "description": "Damascus is the capital of Syria, the oldest capital in the world and, according to some, the fourth holiest city in Islam. It is colloquially known in Syria as aš-Šām and titled the City of Jasmine. Damascus is a major cultural center of the Levant and the Arab world.",
                     "latitude": "33.5138",
                     "longitude": "36.2765"
+                }
+            },
+            "UpdateFeatureRequest": {
+                "title": "UpdateFeatureRequest",
+                "description": "UpdateFeatureRequest body data",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "any thing"
+                }
+            },
+            "UpdateFeatureTitleRequest": {
+                "title": "UpdateFeatureTitleRequest",
+                "description": "UpdateFeatureTitleRequest body data",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "any Title",
+                    "image": "image.jpg"
                 }
             },
             "AdminResource": {

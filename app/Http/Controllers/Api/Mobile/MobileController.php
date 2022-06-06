@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\Mobile;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 
 /**
@@ -28,6 +27,7 @@ use Illuminate\Http\Request;
  *      description="Test Server"
  * )
  *
+ *
  * @OA\Tag(
  *     name="Image",
  *     description="API Endpoints of Image Upload"
@@ -39,18 +39,25 @@ use Illuminate\Http\Request;
  * )
  * @OA\Tag(
  *     name="Question",
- *     description="API Endpoints of City"
+ *     description="API Endpoints of Question"
  * )
  * @OA\Tag(
  *     name="Answer",
- *     description="API Endpoints of City"
+ *     description="API Endpoints of Answer"
+ * )
+ * @OA\Tag(
+ *     name="FeatureTitle",
+ *     description="API Endpoints of FeatureTitle"
+ * )
+ * @OA\Tag(
+ *     name="Feature",
+ *     description="API Endpoints of Feature"
  * )
  * @OA\PathItem(path="/api")
  *
  *
  *
  */
-
 class MobileController extends Controller
 {
     //

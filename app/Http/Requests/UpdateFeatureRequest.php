@@ -4,34 +4,26 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-// /**
-//  * @OA\Schema(
-//  *      title="UpdateFeatureRequest",
-//  *      description="UpdateFeatureRequest body data",
-//  *      type="object",
-//  *      required={"username","email"},
-//  *
-//  *
-//  *      @OA\Property(
-//  *         property="username",
-//  *         type="string"
-//  *      ),
-//  *      @OA\Property(
-//  *         property="email",
-//  *         type="string"
-//  *      ),
-//  *
-//  *
-//  *      example={
-//  *         "username"              : "mohamad_ra",
-//  *         "email"                 : "mralmaahlol@gmail.com",
-//  *      }
-//  * )
-//  */
-
+/**
+ * @OA\Schema(
+ *      title="UpdateFeatureRequest",
+ *      description="UpdateFeatureRequest body data",
+ *      type="object",
+ *
+ *
+ *      @OA\Property(
+ *         property="title",
+ *         type="string"
+ *      ),
+ *
+ *      example={
+ *         "title"              : "any thing",
+ *      }
+ * )
+ */
 class UpdateFeatureRequest extends FormRequest
 {
-    
+
     public function authorize()
     {
         return true;
@@ -40,7 +32,8 @@ class UpdateFeatureRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "title" => ['required', 'string', 'unique:features,title'],
+
         ];
     }
 

@@ -13,11 +13,13 @@ use Illuminate\Http\Resources\Json\JsonResource;
   *
   *      @OA\Property(
   *          property="id",
-  *          type="string"
+  *          type="string",
+  *          example="1"
   *      ),
   *      @OA\Property(
   *          property="text",
-  *          type="string"
+  *          type="string",
+  *          example="what is the most important thing in this city?"
   *      ),
   *       @OA\Property(
   *          property="answers",
@@ -28,10 +30,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
   *          )
   *       ),
   *
-  *      example={
-  *          "id": 1,
-  *          "text": "what is the most important thing in this city?",
-  *      }
   * )
   */
 

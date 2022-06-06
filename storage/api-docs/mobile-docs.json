@@ -350,6 +350,76 @@
                 ]
             }
         },
+        "/api/mobile/featureTitle/index": {
+            "get": {
+                "tags": [
+                    "FeatureTitle"
+                ],
+                "summary": "Get All FeatureTitles",
+                "description": "",
+                "operationId": "IndexFeatureTitle",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all featureTitles"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "featureTitles": {
+                                                    "$ref": "#/components/schemas/FeatureTitleResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
         "/api/mobile/question/city/{cityId}/index": {
             "get": {
                 "tags": [
@@ -824,6 +894,43 @@
                     "longitude": "37.1343"
                 }
             },
+            "StoreFeatureRequest": {
+                "title": "StoreFeatureRequest",
+                "description": "StoreFeatureRequest body data",
+                "required": [
+                    "title"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "any thing"
+                }
+            },
+            "StoreFeatureTitleRequest": {
+                "title": "StoreFeatureTitleRequest",
+                "description": "StoreFeatureTitleRequest body data",
+                "required": [
+                    "title",
+                    "image"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "any Title",
+                    "image": "image.jpg"
+                }
+            },
             "StoreQuestionRequest": {
                 "title": "StoreQuestionRequest",
                 "description": "StoreQuestionRequest body data",
@@ -863,6 +970,36 @@
                     "description": "Damascus is the capital of Syria, the oldest capital in the world and, according to some, the fourth holiest city in Islam. It is colloquially known in Syria as aš-Šām and titled the City of Jasmine. Damascus is a major cultural center of the Levant and the Arab world.",
                     "latitude": "33.5138",
                     "longitude": "36.2765"
+                }
+            },
+            "UpdateFeatureRequest": {
+                "title": "UpdateFeatureRequest",
+                "description": "UpdateFeatureRequest body data",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "any thing"
+                }
+            },
+            "UpdateFeatureTitleRequest": {
+                "title": "UpdateFeatureTitleRequest",
+                "description": "UpdateFeatureTitleRequest body data",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "any Title",
+                    "image": "image.jpg"
                 }
             },
             "AnswerResource": {
@@ -911,15 +1048,59 @@
                     "longitude": "37.1343"
                 }
             },
+            "FeatureResource": {
+                "title": "FeatureResource",
+                "description": "FeatureResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "id": 1,
+                    "title": "5G network"
+                }
+            },
+            "FeatureTitleResource": {
+                "title": "FeatureTitleResource",
+                "description": "FeatureTitleResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "intenet"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "image.jpg"
+                    },
+                    "features": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FeatureResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
             "QuestionResource": {
                 "title": "QuestionResource",
                 "description": "QuestionResource body data",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "1"
                     },
                     "text": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "what is the most important thing in this city?"
                     },
                     "answers": {
                         "type": "array",
@@ -928,11 +1109,7 @@
                         }
                     }
                 },
-                "type": "object",
-                "example": {
-                    "id": 1,
-                    "text": "what is the most important thing in this city?"
-                }
+                "type": "object"
             }
         },
         "securitySchemes": {
@@ -957,11 +1134,19 @@
         },
         {
             "name": "Question",
-            "description": "API Endpoints of City"
+            "description": "API Endpoints of Question"
         },
         {
             "name": "Answer",
-            "description": "API Endpoints of City"
+            "description": "API Endpoints of Answer"
+        },
+        {
+            "name": "FeatureTitle",
+            "description": "API Endpoints of FeatureTitle"
+        },
+        {
+            "name": "Feature",
+            "description": "API Endpoints of Feature"
         }
     ]
 }

@@ -73,13 +73,7 @@ class UserAuthController extends Controller
 
         $token = Auth::guard('user_api')->login($user);
 
-        return response()->success(
-            'user register successfully',
-            [
-                'user' => new UserResource($user),
-                'token' => $token,
-            ]
-        );
+        return $this->profile($user, $token);
     }
 
     /**
@@ -141,12 +135,20 @@ class UserAuthController extends Controller
 
         $user = Auth::guard('user_api')->user();
 
-        return response()->success('user login successfully',
-            [
-                'user' => $user,
-                'token' => $token,
-            ]);
+        return $this->profile($user, $token);
     }
+
+    protected function profile(User $user, $token)
+    {
+        return response()->success(
+            'user register successfully',
+            [
+                'user' => new UserResource($user),
+                'token' => $token,
+            ]
+        );
+    }
+
     /**
      * @OA\Post(
      *    path="/api/auth/user/logout",
@@ -191,19 +193,18 @@ class UserAuthController extends Controller
     {
         Auth::guard('user_api')->logout();
 
-
         return response()->success('user logout successfully');
     }
 
-
     public function refresh()
     {
-        return response()->success(
-            'refresh token successfuly',
-            [
-                'user' => Auth::guard('user_api')->user(),
-                'token' => Auth::guard('user_api')->refresh(),
-            ]
+
+        return $this->profile(
+            Auth::guard('user_api')->user(),
+            Auth::guard('user_api')->refresh()
         );
+
     }
+
+
 }
