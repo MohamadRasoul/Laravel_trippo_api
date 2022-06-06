@@ -620,6 +620,22 @@
                     "image": "image.jpg"
                 }
             },
+            "StoreOptionRequest": {
+                "title": "StoreOptionRequest",
+                "description": "StoreOptionRequest body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "any name"
+                }
+            },
             "StoreQuestionRequest": {
                 "title": "StoreQuestionRequest",
                 "description": "StoreQuestionRequest body data",
@@ -634,6 +650,27 @@
                 "type": "object",
                 "example": {
                     "text": "hello... can any one tell me about this city??"
+                }
+            },
+            "StoreTypeRequest": {
+                "title": "StoreTypeRequest",
+                "description": "StoreTypeRequest body data",
+                "required": [
+                    "name",
+                    "image"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "any name",
+                    "image": "image.jpg"
                 }
             },
             "UpdateCityRequest": {
@@ -688,6 +725,36 @@
                 "type": "object",
                 "example": {
                     "title": "any Title",
+                    "image": "image.jpg"
+                }
+            },
+            "UpdateOptionRequest": {
+                "title": "UpdateOptionRequest",
+                "description": "UpdateOptionRequest body data",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "any name"
+                }
+            },
+            "UpdateTypeRequest": {
+                "title": "UpdateTypeRequest",
+                "description": "UpdateTypeRequest body data",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "any name",
                     "image": "image.jpg"
                 }
             },

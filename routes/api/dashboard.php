@@ -4,7 +4,9 @@ use App\Http\Controllers\Api\Dashboard\AnswerController;
 use App\Http\Controllers\Api\Dashboard\CityController;
 use App\Http\Controllers\Api\Dashboard\FeatureController;
 use App\Http\Controllers\Api\Dashboard\FeatureTitleController;
+use App\Http\Controllers\Api\Dashboard\OptionController;
 use App\Http\Controllers\Api\Dashboard\QuestionController;
+use App\Http\Controllers\Api\Dashboard\TypeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -55,9 +57,31 @@ Route::group([
 ], function () {
     Route::get('index', 'index');
     Route::post('featureTitle/{featureTitle}/store', 'store');
-    Route::get('{feature}/show', 'show');
     Route::post('{feature}/update', 'update');
     Route::delete('{feature}/delete', 'destroy');
+});
+
+
+Route::group([
+    "prefix" => 'type',
+    "controller" => TypeController::class
+], function () {
+    Route::get('index', 'index');
+    Route::post('store', 'store');
+    Route::get('{type}/show', 'show');
+    Route::post('{type}/update', 'update');
+    Route::delete('{type}/delete', 'destroy');
+});
+
+
+Route::group([
+    "prefix" => 'option',
+    "controller" => OptionController::class
+], function () {
+    Route::get('index', 'index');
+    Route::post('type/{type}/store', 'store');
+    Route::post('{option}/update', 'update');
+    Route::delete('{option}/delete', 'destroy');
 });
 
 

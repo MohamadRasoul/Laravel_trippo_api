@@ -907,6 +907,338 @@
                 ]
             }
         },
+        "/api/dashboard/option/index": {
+            "get": {
+                "tags": [
+                    "Option"
+                ],
+                "summary": "Get All Options",
+                "description": "",
+                "operationId": "IndexOption",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    },
+                    {
+                        "name": "filter[type_id]",
+                        "in": "query",
+                        "description": "filter by featureTitle",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all options"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "options": {
+                                                    "$ref": "#/components/schemas/OptionResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/option/type/{typeId}/store": {
+            "post": {
+                "tags": [
+                    "Option"
+                ],
+                "summary": "Add Option",
+                "description": "",
+                "operationId": "StoreOption",
+                "parameters": [
+                    {
+                        "name": "typeId",
+                        "in": "path",
+                        "description": "Type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreOptionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "option is added success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "option": {
+                                                    "$ref": "#/components/schemas/OptionResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/option/{id}/show": {
+            "get": {
+                "tags": [
+                    "Option"
+                ],
+                "summary": "Get Option By ID",
+                "description": "",
+                "operationId": "ShowOption",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Option ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is your option"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "option": {
+                                                    "$ref": "#/components/schemas/OptionResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/option/{id}/update": {
+            "post": {
+                "tags": [
+                    "Option"
+                ],
+                "summary": "Edit Option",
+                "description": "",
+                "operationId": "UpdateOption",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Option ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateOptionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "option is updated success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "option": {
+                                                    "$ref": "#/components/schemas/OptionResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/option/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "Option"
+                ],
+                "summary": "Delete Option By ID",
+                "description": "",
+                "operationId": "DeleteOption",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Option ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "option is deleted success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
         "/api/dashboard/question/city/{cityId}/index": {
             "get": {
                 "tags": [
@@ -1090,6 +1422,316 @@
                                         "message": {
                                             "type": "string",
                                             "example": "question is deleted success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/type/index": {
+            "get": {
+                "tags": [
+                    "Type"
+                ],
+                "summary": "Get All Types",
+                "description": "",
+                "operationId": "IndexType",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all types"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "types": {
+                                                    "$ref": "#/components/schemas/TypeResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/type/store": {
+            "post": {
+                "tags": [
+                    "Type"
+                ],
+                "summary": "Add Type",
+                "description": "",
+                "operationId": "StoreType",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreTypeRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "type is added success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "type": {
+                                                    "$ref": "#/components/schemas/TypeResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/type/{id}/show": {
+            "get": {
+                "tags": [
+                    "Type"
+                ],
+                "summary": "Get Type By ID",
+                "description": "",
+                "operationId": "ShowType",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is your type"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "type": {
+                                                    "$ref": "#/components/schemas/TypeResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/type/{id}/update": {
+            "post": {
+                "tags": [
+                    "Type"
+                ],
+                "summary": "Edit Type",
+                "description": "",
+                "operationId": "UpdateType",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateTypeRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "type is updated success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "type": {
+                                                    "$ref": "#/components/schemas/TypeResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/type/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "Type"
+                ],
+                "summary": "Delete Type By ID",
+                "description": "",
+                "operationId": "DeleteType",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "type is deleted success"
                                         }
                                     },
                                     "type": "object"
@@ -1410,6 +2052,22 @@
                     "image": "image.jpg"
                 }
             },
+            "StoreOptionRequest": {
+                "title": "StoreOptionRequest",
+                "description": "StoreOptionRequest body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "any name"
+                }
+            },
             "StoreQuestionRequest": {
                 "title": "StoreQuestionRequest",
                 "description": "StoreQuestionRequest body data",
@@ -1424,6 +2082,27 @@
                 "type": "object",
                 "example": {
                     "text": "hello... can any one tell me about this city??"
+                }
+            },
+            "StoreTypeRequest": {
+                "title": "StoreTypeRequest",
+                "description": "StoreTypeRequest body data",
+                "required": [
+                    "name",
+                    "image"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "any name",
+                    "image": "image.jpg"
                 }
             },
             "UpdateCityRequest": {
@@ -1478,6 +2157,36 @@
                 "type": "object",
                 "example": {
                     "title": "any Title",
+                    "image": "image.jpg"
+                }
+            },
+            "UpdateOptionRequest": {
+                "title": "UpdateOptionRequest",
+                "description": "UpdateOptionRequest body data",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "any name"
+                }
+            },
+            "UpdateTypeRequest": {
+                "title": "UpdateTypeRequest",
+                "description": "UpdateTypeRequest body data",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "any name",
                     "image": "image.jpg"
                 }
             },
@@ -1569,6 +2278,23 @@
                 },
                 "type": "object"
             },
+            "OptionResource": {
+                "title": "OptionResource",
+                "description": "OptionResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "id": 1,
+                    "name": "any thing"
+                }
+            },
             "QuestionResource": {
                 "title": "QuestionResource",
                 "description": "QuestionResource body data",
@@ -1585,6 +2311,31 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/AnswerResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "TypeResource": {
+                "title": "TypeResource",
+                "description": "TypeResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "any name"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "image.jpg"
+                    },
+                    "options": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OptionResource"
                         }
                     }
                 },
@@ -1626,6 +2377,14 @@
         {
             "name": "Feature",
             "description": "API Endpoints of Feature"
+        },
+        {
+            "name": "Type",
+            "description": "API Endpoints of Type"
+        },
+        {
+            "name": "Option",
+            "description": "API Endpoints of Option"
         }
     ]
 }

@@ -51,6 +51,14 @@ use App\Http\Controllers\Controller;
  *     name="Feature",
  *     description="API Endpoints of Feature"
  * )
+ * @OA\Tag(
+ *     name="Type",
+ *     description="API Endpoints of Type"
+ * )
+ * @OA\Tag(
+ *     name="Option",
+ *     description="API Endpoints of Option"
+ * )
  *
  * @OA\PathItem(path="/api")
  *

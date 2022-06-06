@@ -4,34 +4,27 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-// /**
-//  * @OA\Schema(
-//  *      title="UpdateOptionRequest",
-//  *      description="UpdateOptionRequest body data",
-//  *      type="object",
-//  *      required={"username","email"},
-//  *
-//  *
-//  *      @OA\Property(
-//  *         property="username",
-//  *         type="string"
-//  *      ),
-//  *      @OA\Property(
-//  *         property="email",
-//  *         type="string"
-//  *      ),
-//  *
-//  *
-//  *      example={
-//  *         "username"              : "mohamad_ra",
-//  *         "email"                 : "mralmaahlol@gmail.com",
-//  *      }
-//  * )
-//  */
-
+/**
+ * @OA\Schema(
+ *      title="UpdateOptionRequest",
+ *      description="UpdateOptionRequest body data",
+ *      type="object",
+ *
+ *
+ *      @OA\Property(
+ *         property="name",
+ *         type="string"
+ *      ),
+ *
+ *
+ *      example={
+ *         "name"              : "any name",
+ *      }
+ * )
+ */
 class UpdateOptionRequest extends FormRequest
 {
-    
+
     public function authorize()
     {
         return true;
@@ -40,7 +33,7 @@ class UpdateOptionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => ['nullable', 'string']
         ];
     }
 
