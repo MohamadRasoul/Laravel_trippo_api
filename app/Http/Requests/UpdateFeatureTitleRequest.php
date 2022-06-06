@@ -46,8 +46,13 @@ class UpdateFeatureTitleRequest extends FormRequest
 
     public function validated($key = null, $default = null)
     {
-        return [
+        $data = [
             "title" => $this->title,
         ];
+
+
+        return array_filter($data, function ($value) {
+            return !is_null($value);
+        });
     }
 }

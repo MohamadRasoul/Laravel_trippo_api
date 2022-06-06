@@ -20,9 +20,8 @@ class OptionPlaceFactory extends Factory
     public function definition()
     {
         return [
-            "place_id"   => \App\Models\Place::all()->random()->id,
-            "option_id"   => \App\Models\Option::all()->random()->id,
-
+            "place_id" => \App\Models\Place::all()->random()->id,
+            "option_id" => \App\Models\Option::all()->random()->id,
         ];
     }
 }

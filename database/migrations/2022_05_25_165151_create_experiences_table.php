@@ -7,8 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -23,15 +22,11 @@ return new class extends Migration
             $table->string('about')->nullable();
             $table->string('ratting')->nullable();
             $table->string('views')->default(0)->nullable();
-            $table->string('images')->nullable();
             $table->string('address')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longtude')->nullable();
- 
 
 
-
-           
             ######## Foreign keys  ########
 
             $table->foreignIdFor(City::class)->constrained('cities')->cascadeOnDelete();

@@ -20,10 +20,9 @@ class FeaturePlaceFactory extends Factory
     public function definition()
     {
         return [
-            "description"   => $this->faker->text(),
-            "place_id"   =>\App\Models\Place::all()->random()->id,
-            "feature_id"   =>\App\Models\Feature::all()->random()->id,
-
+            "description" => $this->faker->text(),
+            "place_id" => \App\Models\Place::all()->random()->id,
+            "feature_id" => \App\Models\Feature::all()->random()->id,
         ];
     }
 }

@@ -46,8 +46,13 @@ class UpdateTypeRequest extends FormRequest
 
     public function validated($key = null, $default = null)
     {
-        return [
+        $data = [
             "name" => $this->name,
         ];
+
+
+        return array_filter($data, function ($value) {
+            return !is_null($value);
+        });
     }
 }

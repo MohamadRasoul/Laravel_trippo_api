@@ -20,8 +20,7 @@ class FeatureTitleFactory extends Factory
     public function definition()
     {
         return [
-            "title"   => $this->faker->name(),
-            "icon"   => $this->faker->text(),
+            "title" => $this->faker->name(),
         ];
     }
 }
