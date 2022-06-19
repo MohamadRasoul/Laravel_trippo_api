@@ -3,86 +3,88 @@
 namespace App\Http\Controllers\Api\Dashboard;
 
 use App\Http\Controllers\Controller;
-
-use App\Models\Place;
-
-use App\Services\ImageService;
 use App\Http\Requests\StorePlaceRequest;
 use App\Http\Requests\UpdatePlaceRequest;
+use App\Http\Resources\Dashboard\PlaceResource;
+use App\Models\Place;
+use App\Services\ImageService;
 
 
 class PlaceController extends Controller
 {
-    // /**
-    //  * @OA\Get(
-    //  *    path="/api/dashboard/place/index",
-    //  *    operationId="IndexPlace",
-    //  *    tags={"Place"},
-    //  *    summary="Get All Places",
-    //  *    description="",
-    //  *    security={{"bearerToken":{}}},
-    //  *
-    //  *
-    //  *
-    //  *    @OA\Parameter(
-    //  *       name="perPage",
-    //  *       example=10,
-    //  *       in="query",
-    //  *       description="Number of item per page",
-    //  *       required=false,
-    //  *       @OA\Schema(
-    //  *           type="integer",
-    //  *       )
-    //  *    ),
-    //  *    @OA\Parameter(
-    //  *        name="page",
-    //  *        example=1,
-    //  *        in="query",
-    //  *        description="Page number",
-    //  *        required=false,
-    //  *        @OA\Schema(
-    //  *            type="integer",
-    //  *        )
-    //  *    ),
-    //  *
-    //  *
-    //  *
-    //  *    @OA\Response(
-    //  *        response=200,
-    //  *        description="Successful operation",
-    //  *        @OA\JsonContent(
-    //  *           @OA\Property(
-    //  *              property="success",
-    //  *              type="boolean",
-    //  *              example="true"
-    //  *           ),
-    //  *           @OA\Property(
-    //  *              property="message",
-    //  *              type="string",
-    //  *              example="this is all places"
-    //  *           ),
-    //  *           @OA\Property(
-    //  *              property="data",
-    //  *              @OA\Property(
-    //  *                 property="places",
-    //  *                 type="object",
-    //  *                 ref="#/components/schemas/PlaceResource"
-    //  *              ),
-    //  *           )
-    //  *        ),
-    //  *     ),
-    //  *
-    //  *     @OA\Response(
-    //  *        response=401,
-    //  *        description="Error: Unauthorized",
-    //  *        @OA\Property(
-    //  *           property="message",
-    //  *           type="string",
-    //  *           example="Unauthenticated."
-    //  *        ),
-    //  *     )
-    //  * )
-    //  */
+    /**
+     * @OA\Get(
+     *    path="/api/dashboard/place/index",
+     *    operationId="IndexPlace",
+     *    tags={"Place"},
+     *    summary="Get All Places",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\Parameter(
+     *       name="perPage",
+     *       example=10,
+     *       in="query",
+     *       description="Number of item per page",
+     *       required=false,
+     *       @OA\Schema(
+     *           type="integer",
+     *       )
+     *    ),
+     *    @OA\Parameter(
+     *        name="page",
+     *        example=1,
+     *        in="query",
+     *        description="Page number",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is all places"
+     *           ),
+     *           @OA\Property(
+     *              property="data",
+     *              @OA\Property(
+     *                 property="places",
+     *                 type="array",
+     *                  @OA\Items(
+     *                     type="object",
+     *                     ref="#/components/schemas/PlaceResource"
+     *                  )
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
     public function index()
     {
         $places = Place::orderBy('id');
@@ -96,65 +98,66 @@ class PlaceController extends Controller
     }
 
 
-    // /**
-    //  * @OA\Post(
-    //  *    path="/api/dashboard/place/store",
-    //  *    operationId="StorePlace",
-    //  *    tags={"Place"},
-    //  *    summary="Add Place",
-    //  *    description="",
-    //  *    security={{"bearerToken":{}}},
-    //  *
-    //  *
-    //  *
-    //  *    @OA\RequestBody(
-    //  *        required=true,
-    //  *        @OA\MediaType(mediaType="application/json",
-    //  *           @OA\Schema(ref="#/components/schemas/StorePlaceRequest")
-    //  *       )
-    //  *    ),
-    //  *
-    //  *
-    //  *
-    //  *    @OA\Response(
-    //  *        response=200,
-    //  *        description="Successful operation",
-    //  *        @OA\JsonContent(
-    //  *           @OA\Property(
-    //  *              property="success",
-    //  *              type="boolean",
-    //  *              example="true"
-    //  *           ),
-    //  *           @OA\Property(
-    //  *              property="message",
-    //  *              type="string",
-    //  *              example="place is added success"
-    //  *           ),
-    //  *           @OA\Property(
-    //  *              property="data",
-    //  *                 @OA\Property(
-    //  *                 property="place",
-    //  *                 type="object",
-    //  *                 ref="#/components/schemas/PlaceResource"
-    //  *              ),
-    //  *           )
-    //  *        ),
-    //  *     ),
-    //  *
-    //  *     @OA\Response(
-    //  *        response=401,
-    //  *        description="Error: Unauthorized",
-    //  *        @OA\Property(
-    //  *           property="message",
-    //  *           type="string",
-    //  *           example="Unauthenticated."
-    //  *        ),
-    //  *     )
-    //  * )
-    //  */
+    /**
+     * @OA\Post(
+     *    path="/api/dashboard/place/store",
+     *    operationId="StorePlace",
+     *    tags={"Place"},
+     *    summary="Add Place",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\RequestBody(
+     *        required=true,
+     *        @OA\MediaType(mediaType="application/json",
+     *           @OA\Schema(ref="#/components/schemas/StorePlaceRequest"),
+     *       )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="place is added success"
+     *           ),
+     *           @OA\Property(
+     *              property="data",
+     *                 @OA\Property(
+     *                 property="place",
+     *                 type="object",
+     *                 ref="#/components/schemas/PlaceResource"
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
     public function store(StorePlaceRequest $request)
     {
-         $place = Place::create($request->validated());
+        $place = Place::create($request->validated());
+        
 
         (new ImageService)->storeImage(
             model: $place,
@@ -312,7 +315,7 @@ class PlaceController extends Controller
     //  */
     public function update(UpdatePlaceRequest $request, Place $place)
     {
-         $place->update($request->validated());
+        $place->update($request->validated());
 
         (new ImageService)->storeImage(
             model: $place,

@@ -76,8 +76,11 @@ class FeatureController extends Controller
      *              property="data",
      *              @OA\Property(
      *                 property="features",
-     *                 type="object",
-     *                 ref="#/components/schemas/FeatureResource"
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/FeatureResource"
+     *                 )
      *              ),
      *           )
      *        ),

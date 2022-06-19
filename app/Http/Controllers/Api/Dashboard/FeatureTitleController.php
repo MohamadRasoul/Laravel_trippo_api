@@ -64,8 +64,11 @@ class FeatureTitleController extends Controller
      *              property="data",
      *              @OA\Property(
      *                 property="featureTitles",
-     *                 type="object",
-     *                 ref="#/components/schemas/FeatureTitleResource"
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/FeatureTitleResource"
+     *                 )
      *              ),
      *           )
      *        ),

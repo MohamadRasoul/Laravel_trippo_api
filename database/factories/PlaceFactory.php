@@ -28,7 +28,7 @@ class PlaceFactory extends Factory
             "about" => $this->faker->text(),
             "address" => $this->faker->text(),
             "latitude" => $this->faker->numberBetween(10000, 300000),
-            "longtude" => $this->faker->numberBetween(10000, 300000),
+            "longitude" => $this->faker->numberBetween(10000, 300000),
             "ratting" => $this->faker->numberBetween(1, 5),
             "views" => $this->faker->numberBetween(10, 300),
             "web_site" => $this->faker->text($maxNbChars = 200),

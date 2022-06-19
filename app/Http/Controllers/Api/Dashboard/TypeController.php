@@ -64,8 +64,11 @@ class TypeController extends Controller
      *              property="data",
      *              @OA\Property(
      *                 property="types",
-     *                 type="object",
-     *                 ref="#/components/schemas/TypeResource"
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/TypeResource"
+     *                 )
      *              ),
      *           )
      *        ),

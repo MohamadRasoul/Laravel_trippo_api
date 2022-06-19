@@ -27,7 +27,7 @@ class ExperienceFactory extends Factory
             "views" => $this->faker->numberBetween(10000, 300000),
             "address" => $this->faker->text(),
             "latitude" => $this->faker->numberBetween(10000, 300000),
-            "longtude" => $this->faker->numberBetween(10000, 300000),
+            "longitude" => $this->faker->numberBetween(10000, 300000),
             "city_id" => \App\Models\City::all()->random()->id,
             "type_id" => \App\Models\Type::all()->random()->id,
             "user_id" => \App\Models\User::all()->random()->id,

@@ -16,9 +16,22 @@ class Place extends Model
 
     ########## Accessors / Mutators ##########
 
-    
-    ########## Relations ##########
 
+    ########## Relations ##########
+    public function features()
+    {
+        return $this->belongsToMany(Feature::class, 'feature_places');
+    }
+
+    public function options()
+    {
+        return $this->belongsToMany(Feature::class, 'feature_places');
+    }
+
+    public function awards()
+    {
+        return $this->belongsToMany(Feature::class, 'award_places');
+    }
 
     ########## Query ##########
 

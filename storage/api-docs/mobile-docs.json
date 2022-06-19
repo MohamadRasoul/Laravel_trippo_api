@@ -350,6 +350,89 @@
                 ]
             }
         },
+        "/api/dashboard/feature/index": {
+            "get": {
+                "tags": [
+                    "Feature"
+                ],
+                "summary": "Get All Features",
+                "description": "",
+                "operationId": "IndexFeature",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    },
+                    {
+                        "name": "filter[feature_title_id]",
+                        "in": "query",
+                        "description": "filter by featureTitle",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all features"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "features": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/FeatureResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
         "/api/mobile/featureTitle/index": {
             "get": {
                 "tags": [
@@ -398,7 +481,90 @@
                                         "data": {
                                             "properties": {
                                                 "featureTitles": {
-                                                    "$ref": "#/components/schemas/FeatureTitleResource"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/FeatureTitleResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/option/index": {
+            "get": {
+                "tags": [
+                    "Option"
+                ],
+                "summary": "Get All Options",
+                "description": "",
+                "operationId": "IndexOption",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    },
+                    {
+                        "name": "filter[type_id]",
+                        "in": "query",
+                        "description": "filter by featureTitle",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all options"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "options": {
+                                                    "$ref": "#/components/schemas/OptionResource"
                                                 }
                                             },
                                             "type": "object"
@@ -690,6 +856,76 @@
                     }
                 ]
             }
+        },
+        "/api/dashboard/type/index": {
+            "get": {
+                "tags": [
+                    "Type"
+                ],
+                "summary": "Get All Types",
+                "description": "",
+                "operationId": "IndexType",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all types"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "types": {
+                                                    "$ref": "#/components/schemas/TypeResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -863,6 +1099,37 @@
                     "text": "Yes, I was very happy when visit it"
                 }
             },
+            "StoreAwardRequest": {
+                "title": "StoreAwardRequest",
+                "description": "StoreAwardRequest body data",
+                "required": [
+                    "name",
+                    "description",
+                    "donor",
+                    "image"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "donor": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "award name",
+                    "description": "award description",
+                    "donor": "award donor",
+                    "image": "awardImageName.jpg"
+                }
+            },
             "StoreCityRequest": {
                 "title": "StoreCityRequest",
                 "description": "StoreCityRequest body data",
@@ -931,6 +1198,106 @@
                     "image": "image.jpg"
                 }
             },
+            "StoreOptionRequest": {
+                "title": "StoreOptionRequest",
+                "description": "StoreOptionRequest body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "any name"
+                }
+            },
+            "StorePlaceRequest": {
+                "title": "StorePlaceRequest",
+                "description": "StorePlaceRequest body data",
+                "required": [
+                    "username",
+                    "email"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "pen * @OA\\Schema(\ntitle=\"StorePlaceRequest\",\ndescription=\"StorePlaceRequest body data\",\ntype=\"object\",\nrequired={\"username\",\"email\"},",
+                        "type": "string"
+                    },
+                    "about": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "string"
+                    },
+                    "longitude": {
+                        "type": "string"
+                    },
+                    "web_site": {
+                        "type": "string"
+                    },
+                    "phone_number": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "open_at": {
+                        "type": "string"
+                    },
+                    "close_at": {
+                        "type": "string"
+                    },
+                    "features[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "options[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "awards[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "Green Table",
+                    "about": "best coffe to enjoy with your friends",
+                    "address": "address - address - address",
+                    "latitude": "33.65166",
+                    "longitude": "36.5165",
+                    "web_site": "www.web_site.com",
+                    "phone_number": "0958600569",
+                    "email": "email@email.com",
+                    "open_at": "10:00:00",
+                    "close_at": "22:00:00",
+                    "features": [
+                        1,
+                        2
+                    ],
+                    "options": [
+                        1,
+                        2
+                    ],
+                    "awards": [
+                        1,
+                        2
+                    ]
+                }
+            },
             "StoreQuestionRequest": {
                 "title": "StoreQuestionRequest",
                 "description": "StoreQuestionRequest body data",
@@ -945,6 +1312,58 @@
                 "type": "object",
                 "example": {
                     "text": "hello... can any one tell me about this city??"
+                }
+            },
+            "StoreTypeRequest": {
+                "title": "StoreTypeRequest",
+                "description": "StoreTypeRequest body data",
+                "required": [
+                    "name",
+                    "image"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "any name",
+                    "image": "image.jpg"
+                }
+            },
+            "UpdateAwardRequest": {
+                "title": "UpdateAwardRequest",
+                "description": "UpdateAwardRequest body data",
+                "required": [
+                    "name",
+                    "description",
+                    "donor",
+                    "image"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "donor": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "award name",
+                    "description": "award description",
+                    "donor": "award donor",
+                    "image": "awardImageName.jpg"
                 }
             },
             "UpdateCityRequest": {
@@ -1002,6 +1421,36 @@
                     "image": "image.jpg"
                 }
             },
+            "UpdateOptionRequest": {
+                "title": "UpdateOptionRequest",
+                "description": "UpdateOptionRequest body data",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "any name"
+                }
+            },
+            "UpdateTypeRequest": {
+                "title": "UpdateTypeRequest",
+                "description": "UpdateTypeRequest body data",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "any name",
+                    "image": "image.jpg"
+                }
+            },
             "AnswerResource": {
                 "title": "AnswerResource",
                 "description": "AnswerResource body data",
@@ -1017,6 +1466,32 @@
                 "example": {
                     "id": 1,
                     "text": "Yes, I was very happy whev visit it"
+                }
+            },
+            "AwardResource": {
+                "title": "AwardResource",
+                "description": "AwardResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "donor": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "id": 1,
+                    "name": "award name",
+                    "description": "award description",
+                    "donor": "award donor",
+                    "image": "awardImagePath"
                 }
             },
             "CityResource": {
@@ -1090,6 +1565,86 @@
                 },
                 "type": "object"
             },
+            "OptionResource": {
+                "title": "OptionResource",
+                "description": "OptionResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "id": 1,
+                    "name": "any thing"
+                }
+            },
+            "PlaceResource": {
+                "title": "PlaceResource",
+                "description": "PlaceResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Green Table"
+                    },
+                    "about": {
+                        "type": "string",
+                        "example": "best coffe to enjoy with your friends"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "address - address - address"
+                    },
+                    "latitude": {
+                        "type": "string",
+                        "example": "33.65166"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "example": "36.5165"
+                    },
+                    "ratting": {
+                        "type": "string",
+                        "example": 5
+                    },
+                    "views": {
+                        "type": "string",
+                        "example": 59
+                    },
+                    "web_site": {
+                        "type": "string",
+                        "example": "www.web_site.com"
+                    },
+                    "phone_number": {
+                        "type": "string",
+                        "example": "0958600569"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "email@email.com"
+                    },
+                    "open_at": {
+                        "type": "string",
+                        "example": "10:00:00"
+                    },
+                    "close_at": {
+                        "type": "string",
+                        "example": "22:00:00"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "example": "2022-06-06 17:38:54"
+                    }
+                },
+                "type": "object"
+            },
             "QuestionResource": {
                 "title": "QuestionResource",
                 "description": "QuestionResource body data",
@@ -1106,6 +1661,31 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/AnswerResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "TypeResource": {
+                "title": "TypeResource",
+                "description": "TypeResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "any name"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "image.jpg"
+                    },
+                    "options": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OptionResource"
                         }
                     }
                 },
@@ -1147,6 +1727,14 @@
         {
             "name": "Feature",
             "description": "API Endpoints of Feature"
+        },
+        {
+            "name": "Type",
+            "description": "API Endpoints of Type"
+        },
+        {
+            "name": "Option",
+            "description": "API Endpoints of Option"
         }
     ]
 }

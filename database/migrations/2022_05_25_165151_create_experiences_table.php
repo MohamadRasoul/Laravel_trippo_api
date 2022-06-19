@@ -24,7 +24,7 @@ return new class extends Migration {
             $table->string('views')->default(0)->nullable();
             $table->string('address')->nullable();
             $table->string('latitude')->nullable();
-            $table->string('longtude')->nullable();
+            $table->string('longitude')->nullable();
 
 
             ######## Foreign keys  ########

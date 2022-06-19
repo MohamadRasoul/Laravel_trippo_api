@@ -552,6 +552,37 @@
                     "text": "Yes, I was very happy when visit it"
                 }
             },
+            "StoreAwardRequest": {
+                "title": "StoreAwardRequest",
+                "description": "StoreAwardRequest body data",
+                "required": [
+                    "name",
+                    "description",
+                    "donor",
+                    "image"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "donor": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "award name",
+                    "description": "award description",
+                    "donor": "award donor",
+                    "image": "awardImageName.jpg"
+                }
+            },
             "StoreCityRequest": {
                 "title": "StoreCityRequest",
                 "description": "StoreCityRequest body data",
@@ -636,6 +667,65 @@
                     "name": "any name"
                 }
             },
+            "StorePlaceRequest": {
+                "title": "StorePlaceRequest",
+                "description": "StorePlaceRequest body data",
+                "required": [
+                    "username",
+                    "email"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "about": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "string"
+                    },
+                    "longitude": {
+                        "type": "string"
+                    },
+                    "web_site": {
+                        "type": "string"
+                    },
+                    "phone_number": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "open_at": {
+                        "type": "string"
+                    },
+                    "close_at": {
+                        "type": "string"
+                    },
+                    "features[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "options[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "awards[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "type": "object"
+            },
             "StoreQuestionRequest": {
                 "title": "StoreQuestionRequest",
                 "description": "StoreQuestionRequest body data",
@@ -671,6 +761,37 @@
                 "example": {
                     "name": "any name",
                     "image": "image.jpg"
+                }
+            },
+            "UpdateAwardRequest": {
+                "title": "UpdateAwardRequest",
+                "description": "UpdateAwardRequest body data",
+                "required": [
+                    "name",
+                    "description",
+                    "donor",
+                    "image"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "donor": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "award name",
+                    "description": "award description",
+                    "donor": "award donor",
+                    "image": "awardImageName.jpg"
                 }
             },
             "UpdateCityRequest": {
@@ -834,6 +955,35 @@
                     "phone_number": "0958600569",
                     "latitude": "36.1654",
                     "longitude": "37.1545"
+                }
+            }
+        },
+        "examples": {
+            "PlaceExample": {
+                "summary": "Place Example",
+                "value": {
+                    "name": "Green Table",
+                    "about": "best coffe to enjoy with your friends",
+                    "address": "address - address - address",
+                    "latitude": "33.65166",
+                    "longitude": "36.5165",
+                    "web_site": "www.web_site.com",
+                    "phone_number": "0958600569",
+                    "email": "email@email.com",
+                    "open_at": "10:00:00",
+                    "close_at": "22:00:00",
+                    "features": [
+                        1,
+                        2
+                    ],
+                    "options": [
+                        1,
+                        2
+                    ],
+                    "awards": [
+                        1,
+                        2
+                    ]
                 }
             }
         },

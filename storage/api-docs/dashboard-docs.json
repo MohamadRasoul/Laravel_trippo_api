@@ -120,7 +120,10 @@
                                         "data": {
                                             "properties": {
                                                 "awards": {
-                                                    "$ref": "#/components/schemas/AwardResource"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/AwardResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -693,7 +696,10 @@
                                         "data": {
                                             "properties": {
                                                 "features": {
-                                                    "$ref": "#/components/schemas/FeatureResource"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/FeatureResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -955,7 +961,10 @@
                                         "data": {
                                             "properties": {
                                                 "featureTitles": {
-                                                    "$ref": "#/components/schemas/FeatureTitleResource"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/FeatureTitleResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -1275,7 +1284,10 @@
                                         "data": {
                                             "properties": {
                                                 "options": {
-                                                    "$ref": "#/components/schemas/OptionResource"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/OptionResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -1471,6 +1483,137 @@
                                         "message": {
                                             "type": "string",
                                             "example": "option is deleted success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/place/index": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get All Places",
+                "description": "",
+                "operationId": "IndexPlace",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all places"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "places": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/PlaceResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/place/store": {
+            "post": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Add Place",
+                "description": "",
+                "operationId": "StorePlace",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StorePlaceRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "place is added success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "place": {
+                                                    "$ref": "#/components/schemas/PlaceResource"
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -1738,7 +1881,10 @@
                                         "data": {
                                             "properties": {
                                                 "types": {
-                                                    "$ref": "#/components/schemas/TypeResource"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/TypeResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -2349,6 +2495,89 @@
                     "name": "any name"
                 }
             },
+            "StorePlaceRequest": {
+                "title": "StorePlaceRequest",
+                "description": "StorePlaceRequest body data",
+                "required": [
+                    "username",
+                    "email"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "about": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "string"
+                    },
+                    "longitude": {
+                        "type": "string"
+                    },
+                    "web_site": {
+                        "type": "string"
+                    },
+                    "phone_number": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "open_at": {
+                        "type": "string"
+                    },
+                    "close_at": {
+                        "type": "string"
+                    },
+                    "features[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "options[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "awards[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "Green Table",
+                    "about": "best coffe to enjoy with your friends",
+                    "address": "address - address - address",
+                    "latitude": "33.65166",
+                    "longitude": "36.5165",
+                    "web_site": "www.web_site.com",
+                    "phone_number": "0958600569",
+                    "email": "email@email.com",
+                    "open_at": "10:00:00",
+                    "close_at": "22:00:00",
+                    "features": [
+                        1,
+                        2
+                    ],
+                    "options": [
+                        1,
+                        2
+                    ],
+                    "awards": [
+                        1,
+                        2
+                    ]
+                }
+            },
             "StoreQuestionRequest": {
                 "title": "StoreQuestionRequest",
                 "description": "StoreQuestionRequest body data",
@@ -2632,6 +2861,69 @@
                     "id": 1,
                     "name": "any thing"
                 }
+            },
+            "PlaceResource": {
+                "title": "PlaceResource",
+                "description": "PlaceResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Green Table"
+                    },
+                    "about": {
+                        "type": "string",
+                        "example": "best coffe to enjoy with your friends"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "address - address - address"
+                    },
+                    "latitude": {
+                        "type": "string",
+                        "example": "33.65166"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "example": "36.5165"
+                    },
+                    "ratting": {
+                        "type": "string",
+                        "example": 5
+                    },
+                    "views": {
+                        "type": "string",
+                        "example": 59
+                    },
+                    "web_site": {
+                        "type": "string",
+                        "example": "www.web_site.com"
+                    },
+                    "phone_number": {
+                        "type": "string",
+                        "example": "0958600569"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "email@email.com"
+                    },
+                    "open_at": {
+                        "type": "string",
+                        "example": "10:00:00"
+                    },
+                    "close_at": {
+                        "type": "string",
+                        "example": "22:00:00"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "example": "2022-06-06T17:38:54.000000Z"
+                    }
+                },
+                "type": "object"
             },
             "QuestionResource": {
                 "title": "QuestionResource",

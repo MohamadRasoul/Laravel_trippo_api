@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\Dashboard\CityController;
 use App\Http\Controllers\Api\Dashboard\FeatureController;
 use App\Http\Controllers\Api\Dashboard\FeatureTitleController;
 use App\Http\Controllers\Api\Dashboard\OptionController;
+use App\Http\Controllers\Api\Dashboard\PlaceController;
 use App\Http\Controllers\Api\Dashboard\QuestionController;
 use App\Http\Controllers\Api\Dashboard\TypeController;
 use Illuminate\Support\Facades\Route;
@@ -95,6 +96,17 @@ Route::group([
     Route::get('{award}/show', 'show');
     Route::post('{award}/update', 'update');
     Route::delete('{award}/delete', 'destroy');
+});
+
+Route::group([
+    "prefix" => 'place',
+    "controller" => PlaceController::class
+], function () {
+    Route::get('index', 'index');
+    Route::post('store', 'store');
+    Route::get('{place}/show', 'show');
+    Route::post('{place}/update', 'update');
+    Route::delete('{place}/delete', 'destroy');
 });
 
 

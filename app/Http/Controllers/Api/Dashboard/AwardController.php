@@ -64,8 +64,11 @@ class AwardController extends Controller
      *              property="data",
      *              @OA\Property(
      *                 property="awards",
-     *                 type="object",
-     *                 ref="#/components/schemas/AwardResource"
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/AwardResource"
+     *                 )
      *              ),
      *           )
      *        ),
