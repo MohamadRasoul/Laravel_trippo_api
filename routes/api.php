@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ImageController;
-
+use Illuminate\Support\Facades\Artisan;
 
 Route::post('image/upload',[ImageController::class,'uploadImage']);
 
