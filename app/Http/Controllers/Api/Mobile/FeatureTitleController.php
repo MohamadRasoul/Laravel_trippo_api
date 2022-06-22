@@ -11,7 +11,7 @@ class FeatureTitleController extends Controller
 {
     /**
      * @OA\Get(
-     *    path="/api/mobile/featureTitle/index",
+     *    path="/Api/mobile/featureTitle/index",
      *    operationId="IndexFeatureTitle",
      *    tags={"FeatureTitle"},
      *    summary="Get All FeatureTitles",

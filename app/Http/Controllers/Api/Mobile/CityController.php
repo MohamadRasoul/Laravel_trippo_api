@@ -11,7 +11,7 @@ class CityController extends Controller
 {
     /**
      * @OA\Get(
-     *    path="/api/mobile/city/index",
+     *    path="/Api/mobile/city/index",
      *    operationId="IndexCity",
      *    tags={"City"},
      *    summary="Get All Cities",
@@ -97,7 +97,7 @@ class CityController extends Controller
 
     /**
      * @OA\Get(
-     *    path="/api/mobile/city/indexTrending",
+     *    path="/Api/mobile/city/indexTrending",
      *    operationId="IndexTrendingCity",
      *    tags={"City"},
      *    summary="Get All Cities Sort By Views",

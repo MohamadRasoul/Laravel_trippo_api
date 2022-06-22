@@ -15,7 +15,7 @@ class PlanController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/api/mobile/plan/index",
+    //  *    path="/Api/mobile/plan/index",
     //  *    operationId="IndexPlan",
     //  *    tags={"Plan"},
     //  *    summary="Get All Plans",
@@ -98,7 +98,7 @@ class PlanController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/api/mobile/plan/store",
+    //  *    path="/Api/mobile/plan/store",
     //  *    operationId="StorePlan",
     //  *    tags={"Plan"},
     //  *    summary="Add Plan",
@@ -173,7 +173,7 @@ class PlanController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/api/mobile/plan/{id}/show",
+    //  *    path="/Api/mobile/plan/{id}/show",
     //  *    operationId="ShowPlan",
     //  *    tags={"Plan"},
     //  *    summary="Get Plan By ID",
@@ -244,7 +244,7 @@ class PlanController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/api/mobile/plan/{id}/update",
+    //  *    path="/Api/mobile/plan/{id}/update",
     //  *    operationId="UpdatePlan",
     //  *    tags={"Plan"},
     //  *    summary="Edit Plan",
@@ -330,7 +330,7 @@ class PlanController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/api/mobile/plan/{id}/delete",
+    //  *    path="/Api/mobile/plan/{id}/delete",
     //  *    operationId="DeletePlan",
     //  *    tags={"Plan"},
     //  *    summary="Delete Plan By ID",

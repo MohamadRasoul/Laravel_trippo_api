@@ -15,7 +15,7 @@ class OptionPlaceController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/api/mobile/optionPlace/index",
+    //  *    path="/Api/mobile/optionPlace/index",
     //  *    operationId="IndexOptionPlace",
     //  *    tags={"OptionPlace"},
     //  *    summary="Get All OptionPlaces",
@@ -98,7 +98,7 @@ class OptionPlaceController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/api/mobile/optionPlace/store",
+    //  *    path="/Api/mobile/optionPlace/store",
     //  *    operationId="StoreOptionPlace",
     //  *    tags={"OptionPlace"},
     //  *    summary="Add OptionPlace",
@@ -173,7 +173,7 @@ class OptionPlaceController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/api/mobile/optionPlace/{id}/show",
+    //  *    path="/Api/mobile/optionPlace/{id}/show",
     //  *    operationId="ShowOptionPlace",
     //  *    tags={"OptionPlace"},
     //  *    summary="Get OptionPlace By ID",
@@ -244,7 +244,7 @@ class OptionPlaceController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/api/mobile/optionPlace/{id}/update",
+    //  *    path="/Api/mobile/optionPlace/{id}/update",
     //  *    operationId="UpdateOptionPlace",
     //  *    tags={"OptionPlace"},
     //  *    summary="Edit OptionPlace",
@@ -330,7 +330,7 @@ class OptionPlaceController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/api/mobile/optionPlace/{id}/delete",
+    //  *    path="/Api/mobile/optionPlace/{id}/delete",
     //  *    operationId="DeleteOptionPlace",
     //  *    tags={"OptionPlace"},
     //  *    summary="Delete OptionPlace By ID",

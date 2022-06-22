@@ -18,7 +18,7 @@ class AdminAuthController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/api/auth/admin/register",
+     *    path="/Api/auth/admin/register",
      *    operationId="RegisterAdmin",
      *    tags={"Admin"},
      *    summary="Register Admin",
@@ -83,7 +83,7 @@ class AdminAuthController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/api/auth/admin/login",
+     *    path="/Api/auth/admin/login",
      *    operationId="LoginAdmin",
      *    tags={"Admin"},
      *    summary="Login Admin",
@@ -149,7 +149,7 @@ class AdminAuthController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/api/auth/admin/logout",
+     *    path="/Api/auth/admin/logout",
      *    operationId="logoutAdmin",
      *    tags={"Admin"},
      *    summary="logout Admin",

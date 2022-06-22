@@ -13,7 +13,7 @@ class AnswerController extends Controller
 {
     /**
      * @OA\Post(
-     *    path="/api/mobile/answer/question/{questionId}/store",
+     *    path="/Api/mobile/answer/question/{questionId}/store",
      *    operationId="StoreAnswer",
      *    tags={"Answer"},
      *    summary="Add Answer",
@@ -92,7 +92,7 @@ class AnswerController extends Controller
 
     /**
      * @OA\Delete(
-     *    path="/api/mobile/answer/{id}/delete",
+     *    path="/Api/mobile/answer/{id}/delete",
      *    operationId="DeleteAnswer",
      *    tags={"Answer"},
      *    summary="Delete Answer By ID",

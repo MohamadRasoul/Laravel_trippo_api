@@ -14,7 +14,7 @@ class TypeController extends Controller
 {
     /**
      * @OA\Get(
-     *    path="/api/dashboard/type/index",
+     *    path="/Api/dashboard/type/index",
      *    operationId="IndexType",
      *    tags={"Type"},
      *    summary="Get All Types",
@@ -100,7 +100,7 @@ class TypeController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/api/dashboard/type/store",
+     *    path="/Api/dashboard/type/store",
      *    operationId="StoreType",
      *    tags={"Type"},
      *    summary="Add Type",
@@ -175,7 +175,7 @@ class TypeController extends Controller
 
     /**
      * @OA\Get(
-     *    path="/api/dashboard/type/{id}/show",
+     *    path="/Api/dashboard/type/{id}/show",
      *    operationId="ShowType",
      *    tags={"Type"},
      *    summary="Get Type By ID",
@@ -246,7 +246,7 @@ class TypeController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/api/dashboard/type/{id}/update",
+     *    path="/Api/dashboard/type/{id}/update",
      *    operationId="UpdateType",
      *    tags={"Type"},
      *    summary="Edit Type",
@@ -332,7 +332,7 @@ class TypeController extends Controller
 
     /**
      * @OA\Delete(
-     *    path="/api/dashboard/type/{id}/delete",
+     *    path="/Api/dashboard/type/{id}/delete",
      *    operationId="DeleteType",
      *    tags={"Type"},
      *    summary="Delete Type By ID",

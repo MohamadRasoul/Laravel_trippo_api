@@ -15,7 +15,7 @@ class ExperienceController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/api/mobile/experience/index",
+    //  *    path="/Api/mobile/experience/index",
     //  *    operationId="IndexExperience",
     //  *    tags={"Experience"},
     //  *    summary="Get All Experiences",
@@ -98,7 +98,7 @@ class ExperienceController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/api/mobile/experience/store",
+    //  *    path="/Api/mobile/experience/store",
     //  *    operationId="StoreExperience",
     //  *    tags={"Experience"},
     //  *    summary="Add Experience",
@@ -173,7 +173,7 @@ class ExperienceController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/api/mobile/experience/{id}/show",
+    //  *    path="/Api/mobile/experience/{id}/show",
     //  *    operationId="ShowExperience",
     //  *    tags={"Experience"},
     //  *    summary="Get Experience By ID",
@@ -244,7 +244,7 @@ class ExperienceController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/api/mobile/experience/{id}/update",
+    //  *    path="/Api/mobile/experience/{id}/update",
     //  *    operationId="UpdateExperience",
     //  *    tags={"Experience"},
     //  *    summary="Edit Experience",
@@ -330,7 +330,7 @@ class ExperienceController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/api/mobile/experience/{id}/delete",
+    //  *    path="/Api/mobile/experience/{id}/delete",
     //  *    operationId="DeleteExperience",
     //  *    tags={"Experience"},
     //  *    summary="Delete Experience By ID",

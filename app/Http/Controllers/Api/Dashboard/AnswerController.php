@@ -12,7 +12,7 @@ class AnswerController extends Controller
 
      /**
       * @OA\Delete(
-      *    path="/api/dashboard/answer/{id}/delete",
+      *    path="/Api/dashboard/answer/{id}/delete",
       *    operationId="DeleteAnswer",
       *    tags={"Answer"},
       *    summary="Delete Answer By ID",

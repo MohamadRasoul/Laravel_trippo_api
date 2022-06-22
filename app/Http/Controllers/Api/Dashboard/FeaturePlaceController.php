@@ -15,7 +15,7 @@ class FeaturePlaceController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/api/dashboard/featurePlace/index",
+    //  *    path="/Api/dashboard/featurePlace/index",
     //  *    operationId="IndexFeaturePlace",
     //  *    tags={"FeaturePlace"},
     //  *    summary="Get All FeaturePlaces",
@@ -98,7 +98,7 @@ class FeaturePlaceController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/api/dashboard/featurePlace/store",
+    //  *    path="/Api/dashboard/featurePlace/store",
     //  *    operationId="StoreFeaturePlace",
     //  *    tags={"FeaturePlace"},
     //  *    summary="Add FeaturePlace",
@@ -173,7 +173,7 @@ class FeaturePlaceController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/api/dashboard/featurePlace/{id}/show",
+    //  *    path="/Api/dashboard/featurePlace/{id}/show",
     //  *    operationId="ShowFeaturePlace",
     //  *    tags={"FeaturePlace"},
     //  *    summary="Get FeaturePlace By ID",
@@ -244,7 +244,7 @@ class FeaturePlaceController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/api/dashboard/featurePlace/{id}/update",
+    //  *    path="/Api/dashboard/featurePlace/{id}/update",
     //  *    operationId="UpdateFeaturePlace",
     //  *    tags={"FeaturePlace"},
     //  *    summary="Edit FeaturePlace",
@@ -330,7 +330,7 @@ class FeaturePlaceController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/api/dashboard/featurePlace/{id}/delete",
+    //  *    path="/Api/dashboard/featurePlace/{id}/delete",
     //  *    operationId="DeleteFeaturePlace",
     //  *    tags={"FeaturePlace"},
     //  *    summary="Delete FeaturePlace By ID",

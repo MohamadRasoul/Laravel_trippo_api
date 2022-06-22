@@ -15,7 +15,7 @@ class SectionController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/api/mobile/section/index",
+    //  *    path="/Api/mobile/section/index",
     //  *    operationId="IndexSection",
     //  *    tags={"Section"},
     //  *    summary="Get All Sections",
@@ -98,7 +98,7 @@ class SectionController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/api/mobile/section/store",
+    //  *    path="/Api/mobile/section/store",
     //  *    operationId="StoreSection",
     //  *    tags={"Section"},
     //  *    summary="Add Section",
@@ -173,7 +173,7 @@ class SectionController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/api/mobile/section/{id}/show",
+    //  *    path="/Api/mobile/section/{id}/show",
     //  *    operationId="ShowSection",
     //  *    tags={"Section"},
     //  *    summary="Get Section By ID",
@@ -244,7 +244,7 @@ class SectionController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/api/mobile/section/{id}/update",
+    //  *    path="/Api/mobile/section/{id}/update",
     //  *    operationId="UpdateSection",
     //  *    tags={"Section"},
     //  *    summary="Edit Section",
@@ -330,7 +330,7 @@ class SectionController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/api/mobile/section/{id}/delete",
+    //  *    path="/Api/mobile/section/{id}/delete",
     //  *    operationId="DeleteSection",
     //  *    tags={"Section"},
     //  *    summary="Delete Section By ID",

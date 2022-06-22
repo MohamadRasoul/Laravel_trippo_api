@@ -16,7 +16,7 @@ class FeatureController extends Controller
 {
     /**
      * @OA\Get(
-     *    path="/api/dashboard/feature/index",
+     *    path="/Api/dashboard/feature/index",
      *    operationId="IndexFeature",
      *    tags={"Feature"},
      *    summary="Get All Features",
@@ -113,7 +113,7 @@ class FeatureController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/api/dashboard/feature/featureTitle/{featureTitleId}/store",
+     *    path="/Api/dashboard/feature/featureTitle/{featureTitleId}/store",
      *    operationId="StoreFeature",
      *    tags={"Feature"},
      *    summary="Add Feature",
@@ -192,7 +192,7 @@ class FeatureController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/api/dashboard/feature/{id}/update",
+     *    path="/Api/dashboard/feature/{id}/update",
      *    operationId="UpdateFeature",
      *    tags={"Feature"},
      *    summary="Edit Feature",
@@ -273,7 +273,7 @@ class FeatureController extends Controller
 
     /**
      * @OA\Delete(
-     *    path="/api/dashboard/feature/{id}/delete",
+     *    path="/Api/dashboard/feature/{id}/delete",
      *    operationId="DeleteFeature",
      *    tags={"Feature"},
      *    summary="Delete Feature By ID",

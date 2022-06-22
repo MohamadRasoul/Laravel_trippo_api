@@ -16,7 +16,7 @@ class CityController extends Controller
 {
      /**
       * @OA\Get(
-      *    path="/api/dashboard/city/index",
+      *    path="/Api/dashboard/city/index",
       *    operationId="IndexCity",
       *    tags={"City"},
       *    summary="Get All Cities",
@@ -102,7 +102,7 @@ class CityController extends Controller
 
      /**
       * @OA\Post(
-      *    path="/api/dashboard/city/store",
+      *    path="/Api/dashboard/city/store",
       *    operationId="StoreCity",
       *    tags={"City"},
       *    summary="Add City",
@@ -177,7 +177,7 @@ class CityController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/api/dashboard/city/{id}/show",
+    //  *    path="/Api/dashboard/city/{id}/show",
     //  *    operationId="ShowCity",
     //  *    tags={"City"},
     //  *    summary="Get City By ID",
@@ -248,7 +248,7 @@ class CityController extends Controller
 
      /**
       * @OA\Post(
-      *    path="/api/dashboard/city/{id}/update",
+      *    path="/Api/dashboard/city/{id}/update",
       *    operationId="UpdateCity",
       *    tags={"City"},
       *    summary="Edit City",
@@ -334,7 +334,7 @@ class CityController extends Controller
 
      /**
       * @OA\Delete(
-      *    path="/api/dashboard/city/{id}/delete",
+      *    path="/Api/dashboard/city/{id}/delete",
       *    operationId="DeleteCity",
       *    tags={"City"},
       *    summary="Delete City By ID",
