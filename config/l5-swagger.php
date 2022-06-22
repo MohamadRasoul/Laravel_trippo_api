@@ -12,9 +12,9 @@ return [
                 /*
                  * Route for accessing api documentation interface
                 */
-                'api' => 'api/docs/auth',
+                'api' => 'Api/docs/auth',
                 'docs' => '/docs/auth',
-                'oauth2_callback' => '/api/docs/auth/callback',
+                'oauth2_callback' => '/Api/docs/auth/callback',
             ],
             'paths' => [
                 /*
@@ -59,7 +59,7 @@ return [
                 /*
                  * Route for accessing api documentation interface
                 */
-                'api' => 'api/docs/dashboard',
+                'api' => 'Api/docs/dashboard',
                 'docs' => '/docs/dashboard',
                 // 'oauth2_callback' => '/dashboard/callback',
             ],
@@ -106,7 +106,7 @@ return [
                 /*
                  * Route for accessing api documentation interface
                 */
-                'api' => 'api/docs/mobile',
+                'api' => 'Api/docs/mobile',
                 'docs' => '/docs/mobile',
                 'oauth2_callback' => '/mobile/callback',
             ],
