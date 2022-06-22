@@ -18,6 +18,11 @@ use Illuminate\Http\Request;
  * )
  *
  * @OA\Server(
+ *      url="https://trippo-dzvz4dla0-mralmaahlol-gmailcom.vercel.app",
+ *      description="Test Server"
+ * )
+ *
+ * @OA\Server(
  *      url=L5_SWAGGER_CONST_HOST,
  *      description="Demo API Server"
  * )
@@ -25,11 +30,6 @@ use Illuminate\Http\Request;
  *
  * @OA\Server(
  *      url="http://localhost:8000",
- *      description="Test Server"
- * )
- *
- * @OA\Server(
- *      url="https://trippo-dzvz4dla0-mralmaahlol-gmailcom.vercel.app",
  *      description="Test Server"
  * )
  *
