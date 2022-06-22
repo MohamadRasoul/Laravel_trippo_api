@@ -20,7 +20,7 @@
     ],
     "paths": {
         "/api": {},
-        "/api/auth/admin/register": {
+        "/Api/auth/admin/register": {
             "post": {
                 "tags": [
                     "Admin"
@@ -74,7 +74,7 @@
                 }
             }
         },
-        "/api/auth/admin/login": {
+        "/Api/auth/admin/login": {
             "post": {
                 "tags": [
                     "Admin"
@@ -128,7 +128,7 @@
                 }
             }
         },
-        "/api/auth/admin/logout": {
+        "/Api/auth/admin/logout": {
             "post": {
                 "tags": [
                     "Admin"
@@ -169,7 +169,7 @@
                 ]
             }
         },
-        "/api/auth/user/register": {
+        "/Api/auth/user/register": {
             "post": {
                 "tags": [
                     "User"
@@ -223,7 +223,7 @@
                 }
             }
         },
-        "/api/auth/user/login": {
+        "/Api/auth/user/login": {
             "post": {
                 "tags": [
                     "User"
@@ -277,7 +277,7 @@
                 }
             }
         },
-        "/api/auth/user/logout": {
+        "/Api/auth/user/logout": {
             "post": {
                 "tags": [
                     "User"
@@ -318,7 +318,7 @@
                 ]
             }
         },
-        "/api/image/upload": {
+        "/Api/image/upload": {
             "post": {
                 "tags": [
                     "Image"
