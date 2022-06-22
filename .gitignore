@@ -2,7 +2,6 @@
 /public/hot
 /public/storage
 /public/media
-/public/images/temporary-upload
 /storage/*.key
 /vendor
 .env
