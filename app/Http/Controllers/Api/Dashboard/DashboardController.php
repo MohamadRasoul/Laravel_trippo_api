@@ -26,6 +26,11 @@ use App\Http\Controllers\Controller;
  *      description="Test Server"
  * )
  *
+ * @OA\Server(
+ *      url="https://trippo-dzvz4dla0-mralmaahlol-gmailcom.vercel.app",
+ *      description="Test Server"
+ * )
+ *
  * @OA\Tag(
  *     name="Image",
  *     description="API Endpoints of Image Upload"
