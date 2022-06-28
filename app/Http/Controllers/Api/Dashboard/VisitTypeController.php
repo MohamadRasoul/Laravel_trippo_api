@@ -15,7 +15,7 @@ class VisitTypeController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/dashboard/visitType/index",
+    //  *    path="/api/dashboard/visitType/index",
     //  *    operationId="IndexVisitType",
     //  *    tags={"VisitType"},
     //  *    summary="Get All VisitTypes",
@@ -98,7 +98,7 @@ class VisitTypeController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/dashboard/visitType/store",
+    //  *    path="/api/dashboard/visitType/store",
     //  *    operationId="StoreVisitType",
     //  *    tags={"VisitType"},
     //  *    summary="Add VisitType",
@@ -173,7 +173,7 @@ class VisitTypeController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/dashboard/visitType/{id}/show",
+    //  *    path="/api/dashboard/visitType/{id}/show",
     //  *    operationId="ShowVisitType",
     //  *    tags={"VisitType"},
     //  *    summary="Get VisitType By ID",
@@ -244,7 +244,7 @@ class VisitTypeController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/dashboard/visitType/{id}/update",
+    //  *    path="/api/dashboard/visitType/{id}/update",
     //  *    operationId="UpdateVisitType",
     //  *    tags={"VisitType"},
     //  *    summary="Edit VisitType",
@@ -330,7 +330,7 @@ class VisitTypeController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/Api/dashboard/visitType/{id}/delete",
+    //  *    path="/api/dashboard/visitType/{id}/delete",
     //  *    operationId="DeleteVisitType",
     //  *    tags={"VisitType"},
     //  *    summary="Delete VisitType By ID",

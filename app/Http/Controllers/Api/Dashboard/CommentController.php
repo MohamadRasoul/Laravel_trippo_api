@@ -15,7 +15,7 @@ class CommentController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/dashboard/comment/index",
+    //  *    path="/api/dashboard/comment/index",
     //  *    operationId="Indexcomment",
     //  *    tags={"comment"},
     //  *    summary="Get All comments",
@@ -98,7 +98,7 @@ class CommentController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/dashboard/comment/store",
+    //  *    path="/api/dashboard/comment/store",
     //  *    operationId="Storecomment",
     //  *    tags={"comment"},
     //  *    summary="Add comment",
@@ -173,7 +173,7 @@ class CommentController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/dashboard/comment/{id}/show",
+    //  *    path="/api/dashboard/comment/{id}/show",
     //  *    operationId="Showcomment",
     //  *    tags={"comment"},
     //  *    summary="Get comment By ID",
@@ -244,7 +244,7 @@ class CommentController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/dashboard/comment/{id}/update",
+    //  *    path="/api/dashboard/comment/{id}/update",
     //  *    operationId="Updatecomment",
     //  *    tags={"comment"},
     //  *    summary="Edit comment",
@@ -330,7 +330,7 @@ class CommentController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/Api/dashboard/comment/{id}/delete",
+    //  *    path="/api/dashboard/comment/{id}/delete",
     //  *    operationId="Deletecomment",
     //  *    tags={"comment"},
     //  *    summary="Delete comment By ID",

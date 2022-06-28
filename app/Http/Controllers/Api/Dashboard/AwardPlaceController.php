@@ -15,7 +15,7 @@ class AwardPlaceController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/dashboard/awardPlace/index",
+    //  *    path="/api/dashboard/awardPlace/index",
     //  *    operationId="IndexAwardPlace",
     //  *    tags={"AwardPlace"},
     //  *    summary="Get All AwardPlaces",
@@ -98,7 +98,7 @@ class AwardPlaceController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/dashboard/awardPlace/store",
+    //  *    path="/api/dashboard/awardPlace/store",
     //  *    operationId="StoreAwardPlace",
     //  *    tags={"AwardPlace"},
     //  *    summary="Add AwardPlace",
@@ -173,7 +173,7 @@ class AwardPlaceController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/dashboard/awardPlace/{id}/show",
+    //  *    path="/api/dashboard/awardPlace/{id}/show",
     //  *    operationId="ShowAwardPlace",
     //  *    tags={"AwardPlace"},
     //  *    summary="Get AwardPlace By ID",
@@ -244,7 +244,7 @@ class AwardPlaceController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/dashboard/awardPlace/{id}/update",
+    //  *    path="/api/dashboard/awardPlace/{id}/update",
     //  *    operationId="UpdateAwardPlace",
     //  *    tags={"AwardPlace"},
     //  *    summary="Edit AwardPlace",
@@ -330,7 +330,7 @@ class AwardPlaceController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/Api/dashboard/awardPlace/{id}/delete",
+    //  *    path="/api/dashboard/awardPlace/{id}/delete",
     //  *    operationId="DeleteAwardPlace",
     //  *    tags={"AwardPlace"},
     //  *    summary="Delete AwardPlace By ID",

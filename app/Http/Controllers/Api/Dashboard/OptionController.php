@@ -16,7 +16,7 @@ class OptionController extends Controller
 {
     /**
      * @OA\Get(
-     *    path="/Api/dashboard/option/index",
+     *    path="/api/dashboard/option/index",
      *    operationId="IndexOption",
      *    tags={"Option"},
      *    summary="Get All Options",
@@ -113,7 +113,7 @@ class OptionController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/Api/dashboard/option/type/{typeId}/store",
+     *    path="/api/dashboard/option/type/{typeId}/store",
      *    operationId="StoreOption",
      *    tags={"Option"},
      *    summary="Add Option",
@@ -193,7 +193,7 @@ class OptionController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/Api/dashboard/option/{id}/update",
+     *    path="/api/dashboard/option/{id}/update",
      *    operationId="UpdateOption",
      *    tags={"Option"},
      *    summary="Edit Option",
@@ -273,7 +273,7 @@ class OptionController extends Controller
 
     /**
      * @OA\Delete(
-     *    path="/Api/dashboard/option/{id}/delete",
+     *    path="/api/dashboard/option/{id}/delete",
      *    operationId="DeleteOption",
      *    tags={"Option"},
      *    summary="Delete Option By ID",

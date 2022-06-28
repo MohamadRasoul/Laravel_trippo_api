@@ -19,7 +19,7 @@ class QuestionController extends Controller
 {
      /**
       * @OA\Get(
-      *    path="/Api/dashboard/question/city/{cityId}/index",
+      *    path="/api/dashboard/question/city/{cityId}/index",
       *    operationId="IndexByCity",
       *    tags={"Question"},
       *    summary="Get All Questions By City",
@@ -115,7 +115,7 @@ class QuestionController extends Controller
 
      /**
       * @OA\Get(
-      *    path="/Api/dashboard/question/{id}/show",
+      *    path="/api/dashboard/question/{id}/show",
       *    operationId="ShowQuestion",
       *    tags={"Question"},
       *    summary="Get Question By ID",
@@ -196,7 +196,7 @@ class QuestionController extends Controller
 
      /**
       * @OA\Delete(
-      *    path="/Api/dashboard/question/{id}/delete",
+      *    path="/api/dashboard/question/{id}/delete",
       *    operationId="DeleteQuestion",
       *    tags={"Question"},
       *    summary="Delete Question By ID",

@@ -15,7 +15,7 @@ class AdminController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/dashboard/admin/index",
+    //  *    path="/api/dashboard/admin/index",
     //  *    operationId="IndexAdmin",
     //  *    tags={"Admin"},
     //  *    summary="Get All Admins",
@@ -98,7 +98,7 @@ class AdminController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/dashboard/admin/store",
+    //  *    path="/api/dashboard/admin/store",
     //  *    operationId="StoreAdmin",
     //  *    tags={"Admin"},
     //  *    summary="Add Admin",
@@ -173,7 +173,7 @@ class AdminController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/dashboard/admin/{id}/show",
+    //  *    path="/api/dashboard/admin/{id}/show",
     //  *    operationId="ShowAdmin",
     //  *    tags={"Admin"},
     //  *    summary="Get Admin By ID",
@@ -244,7 +244,7 @@ class AdminController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/dashboard/admin/{id}/update",
+    //  *    path="/api/dashboard/admin/{id}/update",
     //  *    operationId="UpdateAdmin",
     //  *    tags={"Admin"},
     //  *    summary="Edit Admin",
@@ -330,7 +330,7 @@ class AdminController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/Api/dashboard/admin/{id}/delete",
+    //  *    path="/api/dashboard/admin/{id}/delete",
     //  *    operationId="DeleteAdmin",
     //  *    tags={"Admin"},
     //  *    summary="Delete Admin By ID",

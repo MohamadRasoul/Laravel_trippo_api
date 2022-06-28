@@ -12,9 +12,9 @@ return [
                 /*
                  * Route for accessing api documentation interface
                 */
-                'api' => 'Api/docs/auth',
+                'api' => 'api/docs/auth',
                 'docs' => '/docs/auth',
-                'oauth2_callback' => '/Api/docs/auth/callback',
+                'oauth2_callback' => '/api/docs/auth/callback',
             ],
             'paths' => [
                 /*
@@ -59,7 +59,7 @@ return [
                 /*
                  * Route for accessing api documentation interface
                 */
-                'api' => 'Api/docs/dashboard',
+                'api' => 'api/docs/dashboard',
                 'docs' => '/docs/dashboard',
                 // 'oauth2_callback' => '/dashboard/callback',
             ],
@@ -92,7 +92,6 @@ return [
                     base_path('App\Http\Controllers\Api\ImageController.php'),
                     base_path('App\Http\Resources\Dashboard'),
                     base_path('App\Http\Requests'),
-
                 ],
 
             ],
@@ -106,7 +105,7 @@ return [
                 /*
                  * Route for accessing api documentation interface
                 */
-                'api' => 'Api/docs/mobile',
+                'api' => 'api/docs/mobile',
                 'docs' => '/docs/mobile',
                 'oauth2_callback' => '/mobile/callback',
             ],

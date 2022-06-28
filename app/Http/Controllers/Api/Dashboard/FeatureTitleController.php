@@ -14,7 +14,7 @@ class FeatureTitleController extends Controller
 {
     /**
      * @OA\Get(
-     *    path="/Api/dashboard/featureTitle/index",
+     *    path="/api/dashboard/featureTitle/index",
      *    operationId="IndexFeatureTitle",
      *    tags={"FeatureTitle"},
      *    summary="Get All FeatureTitles",
@@ -100,7 +100,7 @@ class FeatureTitleController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/Api/dashboard/featureTitle/store",
+     *    path="/api/dashboard/featureTitle/store",
      *    operationId="StoreFeatureTitle",
      *    tags={"FeatureTitle"},
      *    summary="Add FeatureTitle",
@@ -175,7 +175,7 @@ class FeatureTitleController extends Controller
 
     /**
      * @OA\Get(
-     *    path="/Api/dashboard/featureTitle/{id}/show",
+     *    path="/api/dashboard/featureTitle/{id}/show",
      *    operationId="ShowFeatureTitle",
      *    tags={"FeatureTitle"},
      *    summary="Get FeatureTitle By ID",
@@ -246,7 +246,7 @@ class FeatureTitleController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/Api/dashboard/featureTitle/{id}/update",
+     *    path="/api/dashboard/featureTitle/{id}/update",
      *    operationId="UpdateFeatureTitle",
      *    tags={"FeatureTitle"},
      *    summary="Edit FeatureTitle",
@@ -332,7 +332,7 @@ class FeatureTitleController extends Controller
 
     /**
      * @OA\Delete(
-     *    path="/Api/dashboard/featureTitle/{id}/delete",
+     *    path="/api/dashboard/featureTitle/{id}/delete",
      *    operationId="DeleteFeatureTitle",
      *    tags={"FeatureTitle"},
      *    summary="Delete FeatureTitle By ID",

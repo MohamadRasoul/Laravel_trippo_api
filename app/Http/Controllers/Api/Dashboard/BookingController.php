@@ -15,7 +15,7 @@ class BookingController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/dashboard/booking/index",
+    //  *    path="/api/dashboard/booking/index",
     //  *    operationId="IndexBooking",
     //  *    tags={"Booking"},
     //  *    summary="Get All Bookings",
@@ -98,7 +98,7 @@ class BookingController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/dashboard/booking/store",
+    //  *    path="/api/dashboard/booking/store",
     //  *    operationId="StoreBooking",
     //  *    tags={"Booking"},
     //  *    summary="Add Booking",
@@ -173,7 +173,7 @@ class BookingController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/dashboard/booking/{id}/show",
+    //  *    path="/api/dashboard/booking/{id}/show",
     //  *    operationId="ShowBooking",
     //  *    tags={"Booking"},
     //  *    summary="Get Booking By ID",
@@ -244,7 +244,7 @@ class BookingController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/dashboard/booking/{id}/update",
+    //  *    path="/api/dashboard/booking/{id}/update",
     //  *    operationId="UpdateBooking",
     //  *    tags={"Booking"},
     //  *    summary="Edit Booking",
@@ -330,7 +330,7 @@ class BookingController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/Api/dashboard/booking/{id}/delete",
+    //  *    path="/api/dashboard/booking/{id}/delete",
     //  *    operationId="DeleteBooking",
     //  *    tags={"Booking"},
     //  *    summary="Delete Booking By ID",

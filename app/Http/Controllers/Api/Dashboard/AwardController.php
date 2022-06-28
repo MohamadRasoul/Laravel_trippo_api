@@ -14,7 +14,7 @@ class AwardController extends Controller
 {
     /**
      * @OA\Get(
-     *    path="/Api/dashboard/award/index",
+     *    path="/api/dashboard/award/index",
      *    operationId="IndexAward",
      *    tags={"Award"},
      *    summary="Get All Awards",
@@ -100,7 +100,7 @@ class AwardController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/Api/dashboard/award/store",
+     *    path="/api/dashboard/award/store",
      *    operationId="StoreAward",
      *    tags={"Award"},
      *    summary="Add Award",
@@ -175,7 +175,7 @@ class AwardController extends Controller
 
     /**
      * @OA\Get(
-     *    path="/Api/dashboard/award/{id}/show",
+     *    path="/api/dashboard/award/{id}/show",
      *    operationId="ShowAward",
      *    tags={"Award"},
      *    summary="Get Award By ID",
@@ -246,7 +246,7 @@ class AwardController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/Api/dashboard/award/{id}/update",
+     *    path="/api/dashboard/award/{id}/update",
      *    operationId="UpdateAward",
      *    tags={"Award"},
      *    summary="Edit Award",
@@ -332,7 +332,7 @@ class AwardController extends Controller
 
     /**
      * @OA\Delete(
-     *    path="/Api/dashboard/award/{id}/delete",
+     *    path="/api/dashboard/award/{id}/delete",
      *    operationId="DeleteAward",
      *    tags={"Award"},
      *    summary="Delete Award By ID",

@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/mobile/user/index",
+    //  *    path="/api/mobile/user/index",
     //  *    operationId="IndexUser",
     //  *    tags={"User"},
     //  *    summary="Get All Users",
@@ -98,7 +98,7 @@ class UserController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/mobile/user/store",
+    //  *    path="/api/mobile/user/store",
     //  *    operationId="StoreUser",
     //  *    tags={"User"},
     //  *    summary="Add User",
@@ -173,7 +173,7 @@ class UserController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/mobile/user/{id}/show",
+    //  *    path="/api/mobile/user/{id}/show",
     //  *    operationId="ShowUser",
     //  *    tags={"User"},
     //  *    summary="Get User By ID",
@@ -244,7 +244,7 @@ class UserController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/mobile/user/{id}/update",
+    //  *    path="/api/mobile/user/{id}/update",
     //  *    operationId="UpdateUser",
     //  *    tags={"User"},
     //  *    summary="Edit User",
@@ -330,7 +330,7 @@ class UserController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/Api/mobile/user/{id}/delete",
+    //  *    path="/api/mobile/user/{id}/delete",
     //  *    operationId="DeleteUser",
     //  *    tags={"User"},
     //  *    summary="Delete User By ID",

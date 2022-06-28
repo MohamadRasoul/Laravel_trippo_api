@@ -15,7 +15,7 @@ class UserFollowerController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/dashboard/userFollower/index",
+    //  *    path="/api/dashboard/userFollower/index",
     //  *    operationId="IndexUserFollower",
     //  *    tags={"UserFollower"},
     //  *    summary="Get All UserFollowers",
@@ -98,7 +98,7 @@ class UserFollowerController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/dashboard/userFollower/store",
+    //  *    path="/api/dashboard/userFollower/store",
     //  *    operationId="StoreUserFollower",
     //  *    tags={"UserFollower"},
     //  *    summary="Add UserFollower",
@@ -173,7 +173,7 @@ class UserFollowerController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/dashboard/userFollower/{id}/show",
+    //  *    path="/api/dashboard/userFollower/{id}/show",
     //  *    operationId="ShowUserFollower",
     //  *    tags={"UserFollower"},
     //  *    summary="Get UserFollower By ID",
@@ -244,7 +244,7 @@ class UserFollowerController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/dashboard/userFollower/{id}/update",
+    //  *    path="/api/dashboard/userFollower/{id}/update",
     //  *    operationId="UpdateUserFollower",
     //  *    tags={"UserFollower"},
     //  *    summary="Edit UserFollower",
@@ -330,7 +330,7 @@ class UserFollowerController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/Api/dashboard/userFollower/{id}/delete",
+    //  *    path="/api/dashboard/userFollower/{id}/delete",
     //  *    operationId="DeleteUserFollower",
     //  *    tags={"UserFollower"},
     //  *    summary="Delete UserFollower By ID",

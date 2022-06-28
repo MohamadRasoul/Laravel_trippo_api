@@ -15,7 +15,7 @@ class PlanContentController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/mobile/planContent/index",
+    //  *    path="/api/mobile/planContent/index",
     //  *    operationId="IndexPlanContent",
     //  *    tags={"PlanContent"},
     //  *    summary="Get All PlanContents",
@@ -98,7 +98,7 @@ class PlanContentController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/mobile/planContent/store",
+    //  *    path="/api/mobile/planContent/store",
     //  *    operationId="StorePlanContent",
     //  *    tags={"PlanContent"},
     //  *    summary="Add PlanContent",
@@ -173,7 +173,7 @@ class PlanContentController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/mobile/planContent/{id}/show",
+    //  *    path="/api/mobile/planContent/{id}/show",
     //  *    operationId="ShowPlanContent",
     //  *    tags={"PlanContent"},
     //  *    summary="Get PlanContent By ID",
@@ -244,7 +244,7 @@ class PlanContentController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/mobile/planContent/{id}/update",
+    //  *    path="/api/mobile/planContent/{id}/update",
     //  *    operationId="UpdatePlanContent",
     //  *    tags={"PlanContent"},
     //  *    summary="Edit PlanContent",
@@ -330,7 +330,7 @@ class PlanContentController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/Api/mobile/planContent/{id}/delete",
+    //  *    path="/api/mobile/planContent/{id}/delete",
     //  *    operationId="DeletePlanContent",
     //  *    tags={"PlanContent"},
     //  *    summary="Delete PlanContent By ID",

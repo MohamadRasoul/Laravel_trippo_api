@@ -15,7 +15,7 @@ class PlaceController extends Controller
 {
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/mobile/place/index",
+    //  *    path="/api/mobile/place/index",
     //  *    operationId="IndexPlace",
     //  *    tags={"Place"},
     //  *    summary="Get All Places",
@@ -98,7 +98,7 @@ class PlaceController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/mobile/place/store",
+    //  *    path="/api/mobile/place/store",
     //  *    operationId="StorePlace",
     //  *    tags={"Place"},
     //  *    summary="Add Place",
@@ -173,7 +173,7 @@ class PlaceController extends Controller
 
     // /**
     //  * @OA\Get(
-    //  *    path="/Api/mobile/place/{id}/show",
+    //  *    path="/api/mobile/place/{id}/show",
     //  *    operationId="ShowPlace",
     //  *    tags={"Place"},
     //  *    summary="Get Place By ID",
@@ -244,7 +244,7 @@ class PlaceController extends Controller
 
     // /**
     //  * @OA\Post(
-    //  *    path="/Api/mobile/place/{id}/update",
+    //  *    path="/api/mobile/place/{id}/update",
     //  *    operationId="UpdatePlace",
     //  *    tags={"Place"},
     //  *    summary="Edit Place",
@@ -330,7 +330,7 @@ class PlaceController extends Controller
 
     // /**
     //  * @OA\Delete(
-    //  *    path="/Api/mobile/place/{id}/delete",
+    //  *    path="/api/mobile/place/{id}/delete",
     //  *    operationId="DeletePlace",
     //  *    tags={"Place"},
     //  *    summary="Delete Place By ID",

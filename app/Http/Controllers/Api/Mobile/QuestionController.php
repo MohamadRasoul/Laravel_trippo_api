@@ -16,7 +16,7 @@ class QuestionController extends Controller
 
     /**
      * @OA\Get(
-     *    path="/Api/mobile/question/city/{cityId}/index",
+     *    path="/api/mobile/question/city/{cityId}/index",
      *    operationId="IndexByCity",
      *    tags={"Question"},
      *    summary="Get All Questions By City",
@@ -112,7 +112,7 @@ class QuestionController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/Api/mobile/question/city/{cityId}/store",
+     *    path="/api/mobile/question/city/{cityId}/store",
      *    operationId="StoreQuestion",
      *    tags={"Question"},
      *    summary="Add Question",
@@ -192,7 +192,7 @@ class QuestionController extends Controller
 
     /**
      * @OA\Get(
-     *    path="/Api/mobile/question/{id}/show",
+     *    path="/api/mobile/question/{id}/show",
      *    operationId="ShowQuestion",
      *    tags={"Question"},
      *    summary="Get Question By ID",
@@ -273,7 +273,7 @@ class QuestionController extends Controller
 
     /**
      * @OA\Delete(
-     *    path="/Api/mobile/question/{id}/delete",
+     *    path="/api/mobile/question/{id}/delete",
      *    operationId="DeleteQuestion",
      *    tags={"Question"},
      *    summary="Delete Question By ID",
