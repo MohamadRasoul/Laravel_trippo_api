@@ -10,21 +10,17 @@
     },
     "servers": [
         {
-            "url": "https://trippo-dzvz4dla0-mralmaahlol-gmailcom.vercel.app",
+            "url": "http://localhost:8000",
             "description": "Test Server"
         },
         {
             "url": "http://192.168.137.1:5000",
             "description": "Demo API Server"
-        },
-        {
-            "url": "http://localhost:8000",
-            "description": "Test Server"
         }
     ],
     "paths": {
         "/api": {},
-        "/Api/auth/admin/register": {
+        "/api/auth/admin/register": {
             "post": {
                 "tags": [
                     "Admin"
@@ -78,7 +74,7 @@
                 }
             }
         },
-        "/Api/auth/admin/login": {
+        "/api/auth/admin/login": {
             "post": {
                 "tags": [
                     "Admin"
@@ -132,7 +128,7 @@
                 }
             }
         },
-        "/Api/auth/admin/logout": {
+        "/api/auth/admin/logout": {
             "post": {
                 "tags": [
                     "Admin"
@@ -173,7 +169,7 @@
                 ]
             }
         },
-        "/Api/auth/user/register": {
+        "/api/auth/user/register": {
             "post": {
                 "tags": [
                     "User"
@@ -227,7 +223,7 @@
                 }
             }
         },
-        "/Api/auth/user/login": {
+        "/api/auth/user/login": {
             "post": {
                 "tags": [
                     "User"
@@ -281,7 +277,7 @@
                 }
             }
         },
-        "/Api/auth/user/logout": {
+        "/api/auth/user/logout": {
             "post": {
                 "tags": [
                     "User"
@@ -322,7 +318,7 @@
                 ]
             }
         },
-        "/Api/image/upload": {
+        "/api/image/upload": {
             "post": {
                 "tags": [
                     "Image"

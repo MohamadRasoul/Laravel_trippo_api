@@ -9,7 +9,7 @@ class ImageController extends Controller
 {
     /**
      * @OA\Post(
-     *    path="/Api/image/upload",
+     *    path="/api/image/upload",
      *    operationId="UploadImage",
      *    tags={"Image"},
      *    summary="Upload Image",

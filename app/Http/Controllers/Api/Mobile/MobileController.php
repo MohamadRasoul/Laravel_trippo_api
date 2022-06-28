@@ -17,19 +17,13 @@ use App\Http\Controllers\Controller;
  * )
  *
  * @OA\Server(
- *      url="https://trippo-dzvz4dla0-mralmaahlol-gmailcom.vercel.app",
+ *      url="http://localhost:8000",
  *      description="Test Server"
  * )
  *
  * @OA\Server(
  *      url=L5_SWAGGER_CONST_HOST,
  *      description="Demo API Server"
- * )
- *
- *
- * @OA\Server(
- *      url="http://localhost:8000",
- *      description="Test Server"
  * )
  *
  *

@@ -19,7 +19,7 @@ class UserAuthController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/Api/auth/user/register",
+     *    path="/api/auth/user/register",
      *    operationId="RegisterUser",
      *    tags={"User"},
      *    summary="Register User",
@@ -78,7 +78,7 @@ class UserAuthController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/Api/auth/user/login",
+     *    path="/api/auth/user/login",
      *    operationId="LoginUser",
      *    tags={"User"},
      *    summary="Login User",
@@ -151,7 +151,7 @@ class UserAuthController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/Api/auth/user/logout",
+     *    path="/api/auth/user/logout",
      *    operationId="logoutUser",
      *    tags={"User"},
      *    summary="logout User",

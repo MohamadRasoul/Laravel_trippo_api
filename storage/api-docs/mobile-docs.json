@@ -10,21 +10,17 @@
     },
     "servers": [
         {
-            "url": "https://trippo-dzvz4dla0-mralmaahlol-gmailcom.vercel.app",
+            "url": "http://localhost:8000",
             "description": "Test Server"
         },
         {
             "url": "http://192.168.137.1:5000",
             "description": "Demo API Server"
-        },
-        {
-            "url": "http://localhost:8000",
-            "description": "Test Server"
         }
     ],
     "paths": {
         "/api": {},
-        "/Api/image/upload": {
+        "/api/image/upload": {
             "post": {
                 "tags": [
                     "Image"
@@ -86,7 +82,7 @@
                 }
             }
         },
-        "/Api/mobile/answer/question/{questionId}/store": {
+        "/api/mobile/answer/question/{questionId}/store": {
             "post": {
                 "tags": [
                     "Answer"
@@ -156,7 +152,7 @@
                 ]
             }
         },
-        "/Api/mobile/answer/{id}/delete": {
+        "/api/mobile/answer/{id}/delete": {
             "delete": {
                 "tags": [
                     "Answer"
@@ -208,7 +204,7 @@
                 ]
             }
         },
-        "/Api/mobile/city/index": {
+        "/api/mobile/city/index": {
             "get": {
                 "tags": [
                     "City"
@@ -281,7 +277,7 @@
                 ]
             }
         },
-        "/Api/mobile/city/indexTrending": {
+        "/api/mobile/city/indexTrending": {
             "get": {
                 "tags": [
                     "City"
@@ -437,7 +433,7 @@
                 ]
             }
         },
-        "/Api/mobile/featureTitle/index": {
+        "/api/mobile/featureTitle/index": {
             "get": {
                 "tags": [
                     "FeatureTitle"
@@ -590,7 +586,7 @@
                 ]
             }
         },
-        "/Api/mobile/question/city/{cityId}/index": {
+        "/api/mobile/question/city/{cityId}/index": {
             "get": {
                 "tags": [
                     "Question"
@@ -673,7 +669,7 @@
                 ]
             }
         },
-        "/Api/mobile/question/city/{cityId}/store": {
+        "/api/mobile/question/city/{cityId}/store": {
             "post": {
                 "tags": [
                     "Question"
@@ -743,7 +739,7 @@
                 ]
             }
         },
-        "/Api/mobile/question/{id}/show": {
+        "/api/mobile/question/{id}/show": {
             "get": {
                 "tags": [
                     "Question"
@@ -809,7 +805,7 @@
                 ]
             }
         },
-        "/Api/mobile/question/{id}/delete": {
+        "/api/mobile/question/{id}/delete": {
             "delete": {
                 "tags": [
                     "Question"

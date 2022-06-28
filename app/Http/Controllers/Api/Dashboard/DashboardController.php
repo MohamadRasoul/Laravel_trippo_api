@@ -16,7 +16,7 @@ use App\Http\Controllers\Controller;
  * )
  *
  * @OA\Server(
- *      url="https://trippo-dzvz4dla0-mralmaahlol-gmailcom.vercel.app",
+ *      url="http://localhost:8000",
  *      description="Test Server"
  * )
  *
@@ -25,11 +25,6 @@ use App\Http\Controllers\Controller;
  *      description="Demo API Server"
  * )
  *
- *
- * @OA\Server(
- *      url="http://localhost:8000",
- *      description="Test Server"
- * )
  *
  * @OA\Tag(
  *     name="Image",
