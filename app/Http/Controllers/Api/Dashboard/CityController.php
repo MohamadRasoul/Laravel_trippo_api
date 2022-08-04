@@ -14,79 +14,79 @@ use App\Http\Requests\UpdateCityRequest;
 
 class CityController extends Controller
 {
-     /**
-      * @OA\Get(
-      *    path="/api/dashboard/city/index",
-      *    operationId="IndexCity",
-      *    tags={"City"},
-      *    summary="Get All Cities",
-      *    description="",
-      *    security={{"bearerToken":{}}},
-      *
-      *
-      *
-      *    @OA\Parameter(
-      *       name="perPage",
-      *       example=10,
-      *       in="query",
-      *       description="Number of item per page",
-      *       required=false,
-      *       @OA\Schema(
-      *           type="integer",
-      *       )
-      *    ),
-      *    @OA\Parameter(
-      *        name="page",
-      *        example=1,
-      *        in="query",
-      *        description="Page number",
-      *        required=false,
-      *        @OA\Schema(
-      *            type="integer",
-      *        )
-      *    ),
-      *
-      *
-      *
-      *    @OA\Response(
-      *        response=200,
-      *        description="Successful operation",
-      *        @OA\JsonContent(
-      *           @OA\Property(
-      *              property="success",
-      *              type="boolean",
-      *              example="true"
-      *           ),
-      *           @OA\Property(
-      *              property="message",
-      *              type="string",
-      *              example="this is all cities"
-      *           ),
-      *           @OA\Property(
-      *              property="data",
-      *              @OA\Property(
-      *                 property="cities",
-      *                 type="array",
-      *                 @OA\Items(
-      *                    type="object",
-      *                    ref="#/components/schemas/CityResource"
-      *                 ),
-      *              ),
-      *           )
-      *        ),
-      *     ),
-      *
-      *     @OA\Response(
-      *        response=401,
-      *        description="Error: Unauthorized",
-      *        @OA\Property(
-      *           property="message",
-      *           type="string",
-      *           example="Unauthenticated."
-      *        ),
-      *     )
-      * )
-      */
+    /**
+     * @OA\Get(
+     *    path="/api/dashboard/city/index",
+     *    operationId="IndexCity",
+     *    tags={"City"},
+     *    summary="Get All Cities",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\Parameter(
+     *       name="perPage",
+     *       example=10,
+     *       in="query",
+     *       description="Number of item per page",
+     *       required=false,
+     *       @OA\Schema(
+     *           type="integer",
+     *       )
+     *    ),
+     *    @OA\Parameter(
+     *        name="page",
+     *        example=1,
+     *        in="query",
+     *        description="Page number",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is all cities"
+     *           ),
+     *           @OA\Property(
+     *              property="data",
+     *              @OA\Property(
+     *                 property="cities",
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/CityResource"
+     *                 ),
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
     public function index()
     {
         $cities = City::orderBy('id');
@@ -100,65 +100,65 @@ class CityController extends Controller
     }
 
 
-     /**
-      * @OA\Post(
-      *    path="/api/dashboard/city/store",
-      *    operationId="StoreCity",
-      *    tags={"City"},
-      *    summary="Add City",
-      *    description="",
-      *    security={{"bearerToken":{}}},
-      *
-      *
-      *
-      *    @OA\RequestBody(
-      *        required=true,
-      *        @OA\MediaType(mediaType="application/json",
-      *           @OA\Schema(ref="#/components/schemas/StoreCityRequest")
-      *       )
-      *    ),
-      *
-      *
-      *
-      *    @OA\Response(
-      *        response=200,
-      *        description="Successful operation",
-      *        @OA\JsonContent(
-      *           @OA\Property(
-      *              property="success",
-      *              type="boolean",
-      *              example="true"
-      *           ),
-      *           @OA\Property(
-      *              property="message",
-      *              type="string",
-      *              example="city is added success"
-      *           ),
-      *           @OA\Property(
-      *              property="data",
-      *                 @OA\Property(
-      *                 property="city",
-      *                 type="object",
-      *                 ref="#/components/schemas/CityResource"
-      *              ),
-      *           )
-      *        ),
-      *     ),
-      *
-      *     @OA\Response(
-      *        response=401,
-      *        description="Error: Unauthorized",
-      *        @OA\Property(
-      *           property="message",
-      *           type="string",
-      *           example="Unauthenticated."
-      *        ),
-      *     )
-      * )
-      */
+    /**
+     * @OA\Post(
+     *    path="/api/dashboard/city/store",
+     *    operationId="StoreCity",
+     *    tags={"City"},
+     *    summary="Add City",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\RequestBody(
+     *        required=true,
+     *        @OA\MediaType(mediaType="application/json",
+     *           @OA\Schema(ref="#/components/schemas/StoreCityRequest")
+     *       )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="city is added success"
+     *           ),
+     *           @OA\Property(
+     *              property="data",
+     *                 @OA\Property(
+     *                 property="city",
+     *                 type="object",
+     *                 ref="#/components/schemas/CityResource"
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
     public function store(StoreCityRequest $request)
     {
-         $city = City::create($request->validated());
+        $city = City::create($request->validated());
 
         (new ImageService)->storeImage(
             model: $city,
@@ -246,77 +246,77 @@ class CityController extends Controller
     }
 
 
-     /**
-      * @OA\Post(
-      *    path="/api/dashboard/city/{id}/update",
-      *    operationId="UpdateCity",
-      *    tags={"City"},
-      *    summary="Edit City",
-      *    description="",
-      *    security={{"bearerToken":{}}},
-      *
-      *
-      *
-      *    @OA\Parameter(
-      *       name="id",
-      *       example=1,
-      *       in="path",
-      *       description="City ID",
-      *       required=true,
-      *       @OA\Schema(
-      *           type="integer"
-      *       )
-      *    ),
-      *
-      *
-      *
-      *    @OA\RequestBody(
-      *        required=true,
-      *        @OA\MediaType(mediaType="application/json",
-      *           @OA\Schema(ref="#/components/schemas/UpdateCityRequest")
-      *       )
-      *    ),
-      *
-      *
-      *
-      *    @OA\Response(
-      *        response=200,
-      *        description="Successful operation",
-      *        @OA\JsonContent(
-      *           @OA\Property(
-      *              property="success",
-      *              type="boolean",
-      *              example="true"
-      *           ),
-      *           @OA\Property(
-      *              property="message",
-      *              type="string",
-      *              example="city is updated success"
-      *           ),
-      *           @OA\Property(
-      *              property="data",
-      *              @OA\Property(
-      *                 property="city",
-      *                 type="object",
-      *                 ref="#/components/schemas/CityResource"
-      *              ),
-      *           )
-      *        ),
-      *     ),
-      *     @OA\Response(
-      *        response=401,
-      *        description="Error: Unauthorized",
-      *        @OA\Property(
-      *           property="message",
-      *           type="string",
-      *           example="Unauthenticated."
-      *        ),
-      *     )
-      * )
-      */
+    /**
+     * @OA\Post(
+     *    path="/api/dashboard/city/{id}/update",
+     *    operationId="UpdateCity",
+     *    tags={"City"},
+     *    summary="Edit City",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\Parameter(
+     *       name="id",
+     *       example=1,
+     *       in="path",
+     *       description="City ID",
+     *       required=true,
+     *       @OA\Schema(
+     *           type="integer"
+     *       )
+     *    ),
+     *
+     *
+     *
+     *    @OA\RequestBody(
+     *        required=true,
+     *        @OA\MediaType(mediaType="application/json",
+     *           @OA\Schema(ref="#/components/schemas/UpdateCityRequest")
+     *       )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="city is updated success"
+     *           ),
+     *           @OA\Property(
+     *              property="data",
+     *              @OA\Property(
+     *                 property="city",
+     *                 type="object",
+     *                 ref="#/components/schemas/CityResource"
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
     public function update(UpdateCityRequest $request, City $city)
     {
-         $city->update($request->validated());
+        $city->update($request->validated());
 
         (new ImageService)->storeImage(
             model: $city,
@@ -332,58 +332,58 @@ class CityController extends Controller
         );
     }
 
-     /**
-      * @OA\Delete(
-      *    path="/api/dashboard/city/{id}/delete",
-      *    operationId="DeleteCity",
-      *    tags={"City"},
-      *    summary="Delete City By ID",
-      *    description="",
-      *    security={{"bearerToken":{}}},
-      *
-      *
-      *
-      *    @OA\Parameter(
-      *        name="id",
-      *        example=1,
-      *        in="path",
-      *        description="City ID",
-      *        required=true,
-      *        @OA\Schema(
-      *            type="integer"
-      *        )
-      *    ),
-      *
-      *
-      *
-      *    @OA\Response(
-      *        response=200,
-      *        description="Successful operation",
-      *        @OA\JsonContent(
-      *           @OA\Property(
-      *              property="success",
-      *              type="boolean",
-      *              example="true"
-      *           ),
-      *           @OA\Property(
-      *              property="message",
-      *              type="string",
-      *              example="city is deleted success"
-      *           ),
-      *        ),
-      *     ),
-      *
-      *     @OA\Response(
-      *        response=401,
-      *        description="Error: Unauthorized",
-      *        @OA\Property(
-      *           property="message",
-      *           type="string",
-      *           example="Unauthenticated."
-      *        ),
-      *     )
-      * )
-      */
+    /**
+     * @OA\Delete(
+     *    path="/api/dashboard/city/{id}/delete",
+     *    operationId="DeleteCity",
+     *    tags={"City"},
+     *    summary="Delete City By ID",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\Parameter(
+     *        name="id",
+     *        example=1,
+     *        in="path",
+     *        description="City ID",
+     *        required=true,
+     *        @OA\Schema(
+     *            type="integer"
+     *        )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="city is deleted success"
+     *           ),
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
     public function destroy(City $city)
     {
         $city->delete();

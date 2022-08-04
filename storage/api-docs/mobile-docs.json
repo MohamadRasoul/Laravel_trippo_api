@@ -10,10 +10,6 @@
     },
     "servers": [
         {
-            "url": "http://localhost:8000",
-            "description": "Test Server"
-        },
-        {
             "url": "http://192.168.137.1:5000",
             "description": "Demo API Server"
         }
@@ -60,7 +56,69 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "image is added success"
+                                            "example": "your image is upload success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "imageName": {
+                                                    "example": "hello.jpg"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/image/uploadBase64": {
+            "post": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "Upload Image",
+                "description": "",
+                "operationId": "UploadImageBase64",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "image64"
+                                ],
+                                "properties": {
+                                    "image64": {
+                                        "description": "image64 to upload",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "your image is upload success"
                                         },
                                         "data": {
                                             "properties": {

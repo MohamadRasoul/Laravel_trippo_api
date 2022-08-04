@@ -42,7 +42,7 @@ class ImageController extends Controller
      *           @OA\Property(
      *              property="message",
      *              type="string",
-     *              example="image is added success"
+     *              example="your image is upload success"
      *           ),
      *           @OA\Property(
      *              property="data",
@@ -76,35 +76,95 @@ class ImageController extends Controller
         request()->image->move(public_path('images/temporary-upload'), $filename);
 
         return response()->success(
-            "you image is upload",
+            "your image is upload success",
             [
                 "imageName" => $filename,
             ]
         );
     }
 
+
+    /**
+     * @OA\Post(
+     *    path="/api/image/uploadBase64",
+     *    operationId="UploadImageBase64",
+     *    tags={"Image"},
+     *    summary="Upload Image",
+     *    description="",
+     *
+     *    @OA\RequestBody(
+     *        required=true,
+     *        @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                required={"image64"},
+     *                 @OA\Property(
+     *                     description="image64 to upload",
+     *                     property="image64",
+     *                     type="string",
+     *                ),
+     *             )
+     *         )
+     *    ),
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="your image is upload success"
+     *           ),
+     *           @OA\Property(
+     *              property="data",
+     *                 @OA\Property(
+     *                 property="imageName",
+     *                 example="hello.jpg"
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
     public function uploadImageBase64(Request $request)
     {
-        if ($request->image64) {
-            $folderPath = public_path('images/temporary-upload/');
-            $base64Image = explode(";base64,", $request->image64);
+        $request->validate([
+            'image64' => 'required'
+        ]);
 
-            $explodeImage = explode("image/", $base64Image[0]);
+        $folderPath = public_path('images/temporary-upload/');
+        $base64Image = explode(";base64,", $request->image64);
 
-            $imageType = $explodeImage[1];
-            $image_base64 = base64_decode($base64Image[1]);
-            $fileName = uniqid() . '.' . $imageType;
+        $explodeImage = explode("image/", $base64Image[0]);
 
-            $file = $folderPath . $fileName;
+        $imageType = $explodeImage[1];
+        $image_base64 = base64_decode($base64Image[1]);
+        $fileName = uniqid() . '.' . $imageType;
 
-            file_put_contents($file, $image_base64);
+        $file = $folderPath . $fileName;
 
-            return response()->success(
-                "you image is upload",
-                [
-                    "imageName" => $fileName,
-                ]
-            );
-        }
+        file_put_contents($file, $image_base64);
+        return response()->success(
+            "your image is upload success",
+            [
+                "imageUrl" => $fileName,
+            ]
+        );
     }
 }

@@ -69,6 +69,7 @@ class UserAuthController extends Controller
 
     public function register(RegisterUserRequest $request)
     {
+        dd();
         $user = User::create($request->validated());
 
         $token = Auth::guard('user_api')->login($user);
