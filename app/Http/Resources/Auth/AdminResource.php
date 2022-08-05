@@ -11,7 +11,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *      type="object",
  *
  *
- *
  *      @OA\Property(
  *         property="id",
  *         type="string"

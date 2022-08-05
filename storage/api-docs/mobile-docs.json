@@ -408,6 +408,66 @@
                 ]
             }
         },
+        "/api/dashboard/city/{id}/show": {
+            "get": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Get City By ID",
+                "description": "",
+                "operationId": "ShowCity",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "City ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is your city"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "city": {
+                                                    "$ref": "#/components/schemas/CityResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
         "/api/dashboard/feature/index": {
             "get": {
                 "tags": [

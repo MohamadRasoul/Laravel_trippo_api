@@ -14,6 +14,7 @@ Route::group([
 ], function () {
     Route::get('index', 'index');
     Route::get('indexTrending', 'indexTrending');
+    Route::get('show', 'show');
 });
 
 
