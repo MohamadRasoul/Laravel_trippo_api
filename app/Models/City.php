@@ -42,6 +42,10 @@ class City extends Model implements HasMedia
         $this
             ->addMediaCollection('city_admin')
             ->useFallbackUrl(env('APP_URL') . '/images/static/fallback-images/city.jpg');
+
+        $this
+            ->addMediaCollection('city_user')
+            ->useFallbackUrl(env('APP_URL') . '/images/static/fallback-images/city.jpg');
     }
 
     ########## OverWrite ##########

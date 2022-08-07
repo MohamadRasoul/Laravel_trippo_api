@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Place extends Model
+class Place extends Model implements HasMedia
 {
-    use HasFactory;
+    use HasFactory, InteractsWithMedia;
 
     protected $guarded = [];
 
@@ -41,6 +43,18 @@ class Place extends Model
 
     ########## Libraries ##########
 
+    public function registerMediaCollections(): void
+    {
+        $this
+            ->addMediaCollection('place')
+            ->useFallbackUrl(env('APP_URL') . '/images/static/fallback-images/place.jpg');
+        $this
+            ->addMediaCollection('place_admin')
+            ->useFallbackUrl(env('APP_URL') . '/images/static/fallback-images/place.jpg');
+        $this
+            ->addMediaCollection('place_user')
+            ->useFallbackUrl(env('APP_URL') . '/images/static/fallback-images/place.jpg');
+    }
 
     ########## OverWrite ##########
 

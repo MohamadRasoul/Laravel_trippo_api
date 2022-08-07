@@ -55,7 +55,7 @@ class ImageService
     ) {
         if (!empty($image)) {
             try {
-                $model->clearMediaCollection($collection);
+                // $model->clearMediaCollection($collection);
 
                 $mediaImage = $model
                     ->addMedia(public_path('images/static/') . $folderName . "/" . $image)
