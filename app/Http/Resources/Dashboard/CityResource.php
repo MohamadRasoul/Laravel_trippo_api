@@ -57,14 +57,17 @@ class CityResource extends JsonResource
     public function toArray($request)
     {
         //        return parent::toArray($request);
-
+        $cityImage = $this->getMedia('city')->flatten();
+        $cityImageAdmin = $this->getMedia('city_admin')->flatten();
+        $images = $cityImage->merge($cityImageAdmin);
+        // return $cityImage;
         return [
             "id"           => $this->id,
             "name"         => $this->name,
             "description"  => $this->description,
             "latitude"     => $this->latitude,
             "longitude"    => $this->longitude,
-            "images"       => ImageResource::collection($this->getMedia('city')->flatten()),
+            "images"       => ImageResource::collection($images),
         ];
     }
 }

@@ -258,7 +258,6 @@ class CityController extends Controller
             model: $city,
             image: $request->image,
             collection: 'city_admin',
-            customProperties: ['isAccepted' => true]
         );
 
         return response()->success(
