@@ -64,6 +64,7 @@ class CityResource extends JsonResource
             "latitude"     => $this->latitude,
             "longitude"    => $this->longitude,
             "images"       => ImageResource::collection($images),
+            "questions"    => QuestionResource::collection($this->questions()->limit(3))
         ];
     }
 }
