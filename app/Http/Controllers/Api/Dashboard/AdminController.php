@@ -154,7 +154,7 @@ class AdminController extends Controller
     //  */
     public function store(StoreAdminRequest $request)
     {
-         $admin = Admin::create($request->validated());
+        $admin = Admin::create($request->validated());
 
         (new ImageService)->storeImage(
             model: $admin,
@@ -312,7 +312,7 @@ class AdminController extends Controller
     //  */
     public function update(UpdateAdminRequest $request, Admin $admin)
     {
-         $admin->update($request->validated());
+        $admin->update($request->validated());
 
         (new ImageService)->storeImage(
             model: $admin,

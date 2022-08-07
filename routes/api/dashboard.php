@@ -3,11 +3,7 @@
 use App\Http\Controllers\Api\Dashboard;
 use Illuminate\Support\Facades\Route;
 
-Route::group([
-    "prefix" => 'image',
-], function () {
-    Route::post('city/{city}/store', [Dashboard\CityController::class, 'addImage']);
-});
+
 
 
 Route::group([
@@ -15,9 +11,12 @@ Route::group([
     "controller" => Dashboard\CityController::class
 ], function () {
     Route::get('index', 'index');
-    Route::post('store', 'store');
     Route::get('{city}/show', 'show');
+
+    Route::post('store', 'store');
+    Route::post('{city}/image/store', 'addImage');
     Route::post('{city}/update', 'update');
+
     Route::delete('{city}/delete', 'destroy');
 });
 
@@ -107,7 +106,3 @@ Route::group([
     Route::post('{place}/update', 'update');
     Route::delete('{place}/delete', 'destroy');
 });
-
-
-
-

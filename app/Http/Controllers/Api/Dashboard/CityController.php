@@ -176,7 +176,7 @@ class CityController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/api/dashboard/image/city/{cityId}/store",
+     *    path="/api/dashboard/city/{cityId}/image/store",
      *    operationId="AddImageToCity",
      *    tags={"City"},
      *    summary="Add Image To City",

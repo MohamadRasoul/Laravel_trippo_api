@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Api\Mobile;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Mobile\CityResource;
 use App\Models\City;
-
+use App\Services\ImageService;
+use GuzzleHttp\Psr7\Request;
 
 class CityController extends Controller
 {
@@ -180,6 +181,101 @@ class CityController extends Controller
         );
     }
 
+
+    /**
+     * @OA\Post(
+     *    path="/api/mobile/image/city/{cityId}/store",
+     *    operationId="AddImageToCity",
+     *    tags={"City"},
+     *    summary="Add Image To City",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\Parameter(
+     *        name="cityId",
+     *        example=1,
+     *        in="path",
+     *        description="City ID",
+     *        required=true,
+     *        @OA\Schema(
+     *           type="integer"
+     *        )
+     *    ),
+     *
+     *
+     *    @OA\RequestBody(
+     *        required=true,
+     *        @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                required={"image"},
+     *                 @OA\Property(
+     *                     description="image to upload",
+     *                     property="image",
+     *                     type="string",
+     *                     example="image.png",
+     *                ),
+     *             )
+     *         )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="city is added success"
+     *           ),
+     *           @OA\Property(
+     *              property="data",
+     *                 @OA\Property(
+     *                 property="city",
+     *                 type="object",
+     *                 ref="#/components/schemas/CityResource"
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function addImage(Request $request, City $city)
+    {
+
+        (new ImageService)->storeImage(
+            model: $city,
+            image: $request->image,
+            collection: 'city_admin',
+            customProperties: ['isAccept' => false]
+        );
+
+        return response()->success(
+            'city is added success',
+            [
+                "city" => new CityResource($city),
+            ]
+        );
+    }
 
     /**
      * @OA\Get(

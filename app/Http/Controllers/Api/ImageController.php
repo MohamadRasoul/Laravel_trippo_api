@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Spatie\Image\Image;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ImageController extends Controller
 {
@@ -165,6 +167,64 @@ class ImageController extends Controller
             [
                 "imageUrl" => $fileName,
             ]
+        );
+    }
+
+
+    /**
+     * @OA\Delete(
+     *    path="/api/image/{id}/delete",
+     *    operationId="DeleteImage",
+     *    tags={"Image"},
+     *    summary="Delete Image",
+     *    description="",
+     *
+     * 
+     *    @OA\Parameter(
+     *        name="id",
+     *        example=1,
+     *        in="path",
+     *        description="Image ID",
+     *        required=true,
+     *        @OA\Schema(
+     *            type="integer"
+     *        )
+     *    ),
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="your image is delete success"
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function destroy(Media $image)
+    {
+        $image->delete();
+
+        return response()->success(
+            "your image is delete success"
         );
     }
 }
