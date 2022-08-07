@@ -21,6 +21,10 @@ pen * @OA\Schema(
  *          type="string"
  *      ),
  *      @OA\Property(
+ *          property="image",
+ *          type="string"
+ *      ),
+ *      @OA\Property(
  *          property="address",
  *          type="string"
  *      ),
@@ -71,6 +75,7 @@ pen * @OA\Schema(
  *      example={
  *         "name"          : "Green Table",
  *         "about"         : "best coffe to enjoy with your friends",
+ *         "image"         : "image.png",
  *         "address"       : "address - address - address",
  *         "latitude"      : "33.65166",
  *         "longitude"      : "36.5165",

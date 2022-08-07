@@ -15,6 +15,10 @@ use Illuminate\Foundation\Http\FormRequest;
  *         type="string"
  *      ),
  *      @OA\Property(
+ *         property="image",
+ *         type="string"
+ *      ),
+ *      @OA\Property(
  *         property="description",
  *         type="string"
  *      ),
@@ -30,6 +34,7 @@ use Illuminate\Foundation\Http\FormRequest;
  *
  *      example={
  *         "name"          : "Damascus",
+ *         "image"         : "image.png",
  *         "description"   : "Damascus is the capital of Syria, the oldest capital in the world and, according to some, the fourth holiest city in Islam. It is colloquially known in Syria as aš-Šām and titled the City of Jasmine. Damascus is a major cultural center of the Levant and the Arab world.",
  *         "latitude"      : "33.5138",
  *         "longitude"     : "36.2765",

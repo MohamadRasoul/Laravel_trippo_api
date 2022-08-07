@@ -18,6 +18,10 @@ use Illuminate\Foundation\Http\FormRequest;
  *         type="string"
  *      ),
  *      @OA\Property(
+ *         property="image",
+ *         type="string"
+ *      ),
+ *      @OA\Property(
  *         property="description",
  *         type="string"
  *      ),
@@ -33,6 +37,7 @@ use Illuminate\Foundation\Http\FormRequest;
  *
  *      example={
  *         "name"          : "Aleppo",
+ *         "image"         : "image.png",
  *         "description"   : "Aleppo is a city in Syria, which serves as the capital of the Aleppo Governorate, the most populous Syrian governorate with an official population of 4.6 million in 2010. Aleppo is one of the oldest continuously inhabited cities in the world; it may have been inhabited since the sixth millennium BC",
  *         "latitude"      : "36.2021",
  *         "longitude"     : "37.1343",

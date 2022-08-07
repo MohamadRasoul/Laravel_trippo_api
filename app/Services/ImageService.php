@@ -13,6 +13,7 @@ class ImageService
         $model,
         $image,
         $collection,
+        $customProperties = []
     ) {
         if (!empty($image)) {
             // try {
@@ -21,12 +22,14 @@ class ImageService
                 $mediaImage = $model
                     ->addMedia(public_path($image))
                     ->preservingOriginal()
-                    ->toMediaCollection($collection);
+                    ->toMediaCollection($collection)
+                    ->withCustomProperties($customProperties);
             } else {
                 $mediaImage = $model
                     ->addMedia(public_path('images/temporary-upload/') . $image)
                     ->preservingOriginal()
-                    ->toMediaCollection($collection);
+                    ->toMediaCollection($collection)
+                    ->withCustomProperties($customProperties);
             };
 
             $image = Image::make($model->getFirstMediaPath($collection));

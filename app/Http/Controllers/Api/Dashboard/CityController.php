@@ -10,7 +10,7 @@ use App\Models\City;
 use App\Services\ImageService;
 use App\Http\Requests\StoreCityRequest;
 use App\Http\Requests\UpdateCityRequest;
-
+use Illuminate\Http\Request;
 
 class CityController extends Controller
 {
@@ -174,67 +174,162 @@ class CityController extends Controller
         );
     }
 
+    /**
+     * @OA\Post(
+     *    path="/api/dashboard/image/city/{cityId}/store",
+     *    operationId="AddImageToCity",
+     *    tags={"City"},
+     *    summary="Add Image To City",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\Parameter(
+     *        name="cityId",
+     *        example=1,
+     *        in="path",
+     *        description="City ID",
+     *        required=true,
+     *        @OA\Schema(
+     *           type="integer"
+     *        )
+     *    ),
+     *
+     *
+     *    @OA\RequestBody(
+     *        required=true,
+     *        @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                required={"image"},
+     *                 @OA\Property(
+     *                     description="image to upload",
+     *                     property="image",
+     *                     type="string",
+     *                     example="image.png",
+     *                ),
+     *             )
+     *         )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="city is added success"
+     *           ),
+     *           @OA\Property(
+     *              property="data",
+     *                 @OA\Property(
+     *                 property="city",
+     *                 type="object",
+     *                 ref="#/components/schemas/CityResource"
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function addImage(Request $request, City $city)
+    {
 
-    // /**
-    //  * @OA\Get(
-    //  *    path="/api/dashboard/city/{id}/show",
-    //  *    operationId="ShowCity",
-    //  *    tags={"City"},
-    //  *    summary="Get City By ID",
-    //  *    description="",
-    //  *    security={{"bearerToken":{}}},
-    //  *
-    //  *
-    //  *
-    //  *    @OA\Parameter(
-    //  *        name="id",
-    //  *        example=1,
-    //  *        in="path",
-    //  *        description="City ID",
-    //  *        required=true,
-    //  *        @OA\Schema(
-    //  *           type="integer"
-    //  *        )
-    //  *    ),
-    //  *
-    //  *
-    //  *
-    //  *    @OA\Response(
-    //  *        response=200,
-    //  *        description="Successful operation",
-    //  *        @OA\JsonContent(
-    //  *           @OA\Property(
-    //  *              property="success",
-    //  *              type="boolean",
-    //  *              example="true"
-    //  *           ),
-    //  *           @OA\Property(
-    //  *              property="message",
-    //  *              type="string",
-    //  *              example="this is your city"
-    //  *           ),
-    //  *           @OA\Property(
-    //  *              property="data",
-    //  *                 @OA\Property(
-    //  *                 property="city",
-    //  *                 type="object",
-    //  *                 ref="#/components/schemas/CityResource"
-    //  *              ),
-    //  *           )
-    //  *        ),
-    //  *     ),
-    //  *
-    //  *     @OA\Response(
-    //  *        response=401,
-    //  *        description="Error: Unauthorized",
-    //  *        @OA\Property(
-    //  *           property="message",
-    //  *           type="string",
-    //  *           example="Unauthenticated."
-    //  *        ),
-    //  *     )
-    //  * )
-    //  */
+        (new ImageService)->storeImage(
+            model: $city,
+            image: $request->image,
+            collection: 'city_admin',
+            customProperties: ['isAccepted' => true]
+        );
+
+        return response()->success(
+            'city is added success',
+            [
+                "city" => new CityResource($city),
+            ]
+        );
+    }
+
+
+    /**
+     * @OA\Get(
+     *    path="/api/dashboard/city/{id}/show",
+     *    operationId="ShowCity",
+     *    tags={"City"},
+     *    summary="Get City By ID",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\Parameter(
+     *        name="id",
+     *        example=1,
+     *        in="path",
+     *        description="City ID",
+     *        required=true,
+     *        @OA\Schema(
+     *           type="integer"
+     *        )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is your city"
+     *           ),
+     *           @OA\Property(
+     *              property="data",
+     *                 @OA\Property(
+     *                 property="city",
+     *                 type="object",
+     *                 ref="#/components/schemas/CityResource"
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
     public function show(City $city)
     {
         return response()->success(

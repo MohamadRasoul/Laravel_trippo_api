@@ -1,20 +1,18 @@
 <?php
 
-use App\Http\Controllers\Api\Dashboard\AnswerController;
-use App\Http\Controllers\Api\Dashboard\AwardController;
-use App\Http\Controllers\Api\Dashboard\CityController;
-use App\Http\Controllers\Api\Dashboard\FeatureController;
-use App\Http\Controllers\Api\Dashboard\FeatureTitleController;
-use App\Http\Controllers\Api\Dashboard\OptionController;
-use App\Http\Controllers\Api\Dashboard\PlaceController;
-use App\Http\Controllers\Api\Dashboard\QuestionController;
-use App\Http\Controllers\Api\Dashboard\TypeController;
+use App\Http\Controllers\Api\Dashboard;
 use Illuminate\Support\Facades\Route;
+
+Route::group([
+    "prefix" => 'image',
+], function () {
+    Route::post('city/{city}/store', [Dashboard\CityController::class, 'addImage']);
+});
 
 
 Route::group([
     "prefix" => 'city',
-    "controller" => CityController::class
+    "controller" => Dashboard\CityController::class
 ], function () {
     Route::get('index', 'index');
     Route::post('store', 'store');
@@ -24,9 +22,10 @@ Route::group([
 });
 
 
+
 Route::group([
     "prefix" => 'question',
-    "controller" => QuestionController::class
+    "controller" => Dashboard\QuestionController::class
 ], function () {
     Route::get('city/{city}/index', 'indexByCity');
     Route::get('{question}/show', 'show');
@@ -35,7 +34,7 @@ Route::group([
 
 Route::group([
     "prefix" => 'answer',
-    "controller" => AnswerController::class
+    "controller" => Dashboard\AnswerController::class
 ], function () {
     Route::delete('{answer}/delete', 'destroy');
 });
@@ -43,7 +42,7 @@ Route::group([
 
 Route::group([
     "prefix" => 'featureTitle',
-    "controller" => FeatureTitleController::class
+    "controller" => Dashboard\FeatureTitleController::class
 ], function () {
     Route::get('index', 'index');
     Route::post('store', 'store');
@@ -55,7 +54,7 @@ Route::group([
 
 Route::group([
     "prefix" => 'feature',
-    "controller" => FeatureController::class
+    "controller" => Dashboard\FeatureController::class
 ], function () {
     Route::get('index', 'index');
     Route::post('featureTitle/{featureTitle}/store', 'store');
@@ -66,7 +65,7 @@ Route::group([
 
 Route::group([
     "prefix" => 'type',
-    "controller" => TypeController::class
+    "controller" => Dashboard\TypeController::class
 ], function () {
     Route::get('index', 'index');
     Route::post('store', 'store');
@@ -78,7 +77,7 @@ Route::group([
 
 Route::group([
     "prefix" => 'option',
-    "controller" => OptionController::class
+    "controller" => Dashboard\OptionController::class
 ], function () {
     Route::get('index', 'index');
     Route::post('type/{type}/store', 'store');
@@ -89,7 +88,7 @@ Route::group([
 
 Route::group([
     "prefix" => 'award',
-    "controller" => AwardController::class
+    "controller" => Dashboard\AwardController::class
 ], function () {
     Route::get('index', 'index');
     Route::post('store', 'store');
@@ -100,7 +99,7 @@ Route::group([
 
 Route::group([
     "prefix" => 'place',
-    "controller" => PlaceController::class
+    "controller" => Dashboard\PlaceController::class
 ], function () {
     Route::get('index', 'index');
     Route::post('store', 'store');

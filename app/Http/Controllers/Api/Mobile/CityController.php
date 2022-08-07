@@ -183,7 +183,7 @@ class CityController extends Controller
 
     /**
      * @OA\Get(
-     *    path="/api/dashboard/city/{id}/show",
+     *    path="/api/mobile/city/{id}/show",
      *    operationId="ShowCity",
      *    tags={"City"},
      *    summary="Get City By ID",

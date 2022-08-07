@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Mobile;
 
+use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
@@ -51,10 +52,12 @@ class CityResource extends JsonResource
     public function toArray($request)
     {
 //        return parent::toArray($request);
+
         return [
             "id"           => $this->id,
             "name"         => $this->name,
             "description"  => $this->description,
+            "images"       => ImageResource::collection($this->getMedia('city')->flatten()),
             "latitude"     => $this->latitude,
             "longitude"    => $this->longitude,
         ];

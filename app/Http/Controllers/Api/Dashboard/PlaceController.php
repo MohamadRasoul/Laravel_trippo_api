@@ -70,6 +70,11 @@ class PlaceController extends Controller
      *                     ref="#/components/schemas/PlaceResource"
      *                  )
      *              ),
+     *              @OA\Property(
+     *                 property="total",
+     *                 type="string",
+     *                 example="5"
+     *              ),
      *           )
      *        ),
      *     ),
@@ -89,10 +94,14 @@ class PlaceController extends Controller
     {
         $places = Place::orderBy('id');
 
+
+        $placePaginated = $places->paginate(request()->perPage ?? $places->count());
+        
         return response()->success(
             'this is all Places',
             [
-                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
+                "places" => PlaceResource::collection($placePaginated),
+                "total" => $placePaginated->lastPage(),
             ]
         );
     }
@@ -157,7 +166,7 @@ class PlaceController extends Controller
     public function store(StorePlaceRequest $request)
     {
         $place = Place::create($request->validated());
-        
+
 
         (new ImageService)->storeImage(
             model: $place,

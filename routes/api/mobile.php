@@ -1,26 +1,28 @@
 <?php
 
-use App\Http\Controllers\Api\Mobile\AnswerController;
-use App\Http\Controllers\Api\Mobile\CityController;
-use App\Http\Controllers\Api\Mobile\FeatureController;
-use App\Http\Controllers\Api\Mobile\FeatureTitleController;
-use App\Http\Controllers\Api\Mobile\QuestionController;
+use App\Http\Controllers\Api\Mobile;
 use Illuminate\Support\Facades\Route;
 
 
 Route::group([
     "prefix" => 'city',
-    "controller" => CityController::class
+    "controller" => Mobile\CityController::class
 ], function () {
     Route::get('index', 'index');
     Route::get('indexTrending', 'indexTrending');
-    Route::get('show', 'show');
+    Route::get('{city}/show', 'show');
+});
+
+Route::group([
+    "prefix" => 'image',
+], function () {
+    Route::post('city/{city}/store', [Mobile\CityController::class, 'addImage']);
 });
 
 
 Route::group([
     "prefix" => 'question',
-    "controller" => QuestionController::class
+    "controller" => Mobile\QuestionController::class
 ], function () {
     Route::get('city/{city}/index', 'indexByCity');
     Route::post('city/{city}/store', 'store');
@@ -31,7 +33,7 @@ Route::group([
 
 Route::group([
     "prefix" => 'answer',
-    "controller" => AnswerController::class
+    "controller" => Mobile\AnswerController::class
 ], function () {
     Route::post('question/{question}/store', 'store');
     Route::delete('{answer}/delete', 'destroy');
@@ -40,7 +42,7 @@ Route::group([
 
 Route::group([
     "prefix" => 'featureTitle',
-    "controller" => FeatureTitleController::class
+    "controller" => Mobile\FeatureTitleController::class
 ], function () {
     Route::get('index', 'index');
 });
@@ -48,7 +50,7 @@ Route::group([
 
 Route::group([
     "prefix" => 'feature',
-    "controller" => FeatureController::class
+    "controller" => Mobile\FeatureController::class
 ], function () {
     Route::get('index', 'index');
 });
