@@ -454,6 +454,186 @@
                 ]
             }
         },
+        "/api/dashboard/city/{id}/image/index": {
+            "get": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Get All City Image",
+                "description": "",
+                "operationId": "indexCityImage",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "City ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all images for city"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "city": {
+                                                    "$ref": "#/components/schemas/ImageResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/city/{id}/image/indexNotAccept": {
+            "get": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Get All City ImageNotAccept",
+                "description": "",
+                "operationId": "indexCityImageNotAccept",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "City ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all images for city"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "city": {
+                                                    "$ref": "#/components/schemas/ImageResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/city/{id}/show": {
+            "get": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Get City By ID",
+                "description": "",
+                "operationId": "ShowCity",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "City ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is your city"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "city": {
+                                                    "$ref": "#/components/schemas/CityResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
         "/api/dashboard/city/store": {
             "post": {
                 "tags": [
@@ -512,7 +692,7 @@
                 ]
             }
         },
-        "/api/dashboard/city/{cityId}/image/store": {
+        "/api/dashboard/city/{id}/image/store": {
             "post": {
                 "tags": [
                     "City"
@@ -522,7 +702,7 @@
                 "operationId": "AddImageToCity",
                 "parameters": [
                     {
-                        "name": "cityId",
+                        "name": "id",
                         "in": "path",
                         "description": "City ID",
                         "required": true,
@@ -592,19 +772,19 @@
                 ]
             }
         },
-        "/api/dashboard/city/{id}/show": {
-            "get": {
+        "/api/dashboard/city/image/{imageId}/accept": {
+            "post": {
                 "tags": [
                     "City"
                 ],
-                "summary": "Get City By ID",
+                "summary": "Accept Image",
                 "description": "",
-                "operationId": "ShowCity",
+                "operationId": "AcceptImage",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "imageId",
                         "in": "path",
-                        "description": "City ID",
+                        "description": "Image ID",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -625,15 +805,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "this is your city"
-                                        },
-                                        "data": {
-                                            "properties": {
-                                                "city": {
-                                                    "$ref": "#/components/schemas/CityResource"
-                                                }
-                                            },
-                                            "type": "object"
+                                            "example": "image is accept success"
                                         }
                                     },
                                     "type": "object"

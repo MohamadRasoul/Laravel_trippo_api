@@ -11,10 +11,13 @@ Route::group([
     "controller" => Dashboard\CityController::class
 ], function () {
     Route::get('index', 'index');
+    Route::get('{city}/image/index', 'indexImage');
+    Route::get('{city}/image/indexNotAccept', 'indexImageNotAccept');
     Route::get('{city}/show', 'show');
 
     Route::post('store', 'store');
     Route::post('{city}/image/store', 'addImage');
+    Route::post('image/{image}/accept', 'acceptImage');
     Route::post('{city}/update', 'update');
 
     Route::delete('{city}/delete', 'destroy');

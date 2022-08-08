@@ -455,17 +455,17 @@
                 ]
             }
         },
-        "/api/mobile/city/{cityId}/image/store": {
-            "post": {
+        "/api/mobile/city/{id}/image/index": {
+            "get": {
                 "tags": [
                     "City"
                 ],
-                "summary": "Add Image To City",
+                "summary": "Get All City Image",
                 "description": "",
-                "operationId": "AddImageToCity",
+                "operationId": "indexCityImage",
                 "parameters": [
                     {
-                        "name": "cityId",
+                        "name": "id",
                         "in": "path",
                         "description": "City ID",
                         "required": true,
@@ -475,26 +475,6 @@
                         "example": 1
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "required": [
-                                    "image"
-                                ],
-                                "properties": {
-                                    "image": {
-                                        "description": "image to upload",
-                                        "type": "string",
-                                        "example": "image.png"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
                 "responses": {
                     "200": {
                         "description": "Successful operation",
@@ -508,12 +488,12 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "city is added success"
+                                            "example": "this is all images for city"
                                         },
                                         "data": {
                                             "properties": {
                                                 "city": {
-                                                    "$ref": "#/components/schemas/CityResource"
+                                                    "$ref": "#/components/schemas/ImageResource"
                                                 }
                                             },
                                             "type": "object"
@@ -533,53 +513,6 @@
                         "bearerToken": []
                     }
                 ]
-            }
-        },
-        "/api/city/image/{id}/accept": {
-            "post": {
-                "tags": [
-                    "Image"
-                ],
-                "summary": "Accept Image",
-                "description": "",
-                "operationId": "AcceptImage",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Image ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "example": 1
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": "true"
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "image is accept success"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Error: Unauthorized"
-                    }
-                }
             }
         },
         "/api/mobile/city/{id}/show": {
@@ -642,17 +575,17 @@
                 ]
             }
         },
-        "/api/mobile/city/{id}/image/index": {
-            "get": {
+        "/api/mobile/city/{cityId}/image/store": {
+            "post": {
                 "tags": [
                     "City"
                 ],
-                "summary": "Get All City Image",
+                "summary": "Add Image To City",
                 "description": "",
-                "operationId": "indexCityImage",
+                "operationId": "AddImageToCity",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "cityId",
                         "in": "path",
                         "description": "City ID",
                         "required": true,
@@ -662,6 +595,26 @@
                         "example": 1
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "image"
+                                ],
+                                "properties": {
+                                    "image": {
+                                        "description": "image to upload",
+                                        "type": "string",
+                                        "example": "image.png"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "Successful operation",
@@ -675,12 +628,12 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "this is all images for city"
+                                            "example": "city is added success"
                                         },
                                         "data": {
                                             "properties": {
                                                 "city": {
-                                                    "$ref": "#/components/schemas/ImageResource"
+                                                    "$ref": "#/components/schemas/CityResource"
                                                 }
                                             },
                                             "type": "object"

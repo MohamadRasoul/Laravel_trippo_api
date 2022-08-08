@@ -9,8 +9,9 @@ Route::group([
 ], function () {
     Route::get('index', [Mobile\CityController::class, 'index']);
     Route::get('indexTrending', [Mobile\CityController::class, 'indexTrending']);
-    Route::get('{city}/show', [Mobile\CityController::class, 'show']);
     Route::get('{city}/image/index', [Mobile\CityController::class, 'indexImage']);
+    Route::get('{city}/show', [Mobile\CityController::class, 'show']);
+    
     Route::post('{city}/image/store', [Mobile\CityController::class, 'addImage']);
 });
 

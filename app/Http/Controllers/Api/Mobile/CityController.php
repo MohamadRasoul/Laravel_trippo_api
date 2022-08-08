@@ -185,6 +185,153 @@ class CityController extends Controller
 
 
     /**
+     * @OA\Get(
+     *    path="/api/mobile/city/{id}/image/index",
+     *    operationId="indexCityImage",
+     *    tags={"City"},
+     *    summary="Get All City Image",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\Parameter(
+     *        name="id",
+     *        example=1,
+     *        in="path",
+     *        description="City ID",
+     *        required=true,
+     *        @OA\Schema(
+     *           type="integer"
+     *        )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is all images for city"
+     *           ),
+     *           @OA\Property(
+     *              property="data",
+     *                 @OA\Property(
+     *                 property="city",
+     *                 type="object",
+     *                 ref="#/components/schemas/ImageResource"
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function indexImage(City $city)
+    {
+        $cityImage = $city->getMedia('city')->flatten();
+        $cityImageAdmin = $city->getMedia('city_admin')->flatten();
+        $cityImageUser = count($city->getMedia('city_user', ['isAccept' => true])) > 0 ? $city->getMedia('city_user', ['isAccept' => true])->flatten() : [];
+        $images = $cityImage->merge($cityImageAdmin)->merge($cityImageUser);
+
+        return response()->success(
+            'this is all images for city',
+            [
+                "images" => ImageResource::collection($images),
+            ]
+        );
+    }
+
+
+    /**
+     * @OA\Get(
+     *    path="/api/mobile/city/{id}/show",
+     *    operationId="ShowCity",
+     *    tags={"City"},
+     *    summary="Get City By ID",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\Parameter(
+     *        name="id",
+     *        example=1,
+     *        in="path",
+     *        description="City ID",
+     *        required=true,
+     *        @OA\Schema(
+     *           type="integer"
+     *        )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is your city"
+     *           ),
+     *           @OA\Property(
+     *              property="data",
+     *                 @OA\Property(
+     *                 property="city",
+     *                 type="object",
+     *                 ref="#/components/schemas/CityResource"
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function show(City $city)
+    {
+        return response()->success(
+            'this is your city',
+            [
+                "city" => new CityResource($city),
+            ]
+        );
+    }
+
+
+    /**
      * @OA\Post(
      *    path="/api/mobile/city/{cityId}/image/store",
      *    operationId="AddImageToCity",
@@ -267,7 +414,7 @@ class CityController extends Controller
         (new ImageService)->storeImage(
             model: $city,
             image: $request->image,
-            collection: 'city_admin',
+            collection: 'city_user',
             customProperties: ['isAccept' => false]
         );
 
@@ -277,211 +424,6 @@ class CityController extends Controller
             'image for city is added success',
             [
                 "city" => new CityResource($city),
-            ]
-        );
-    }
-
-
-
-    /**
-     * @OA\Post(
-     *    path="/api/city/image/{id}/accept",
-     *    operationId="AcceptImage",
-     *    tags={"Image"},
-     *    summary="Accept Image",
-     *    description="",
-     *
-     * 
-     *    @OA\Parameter(
-     *        name="id",
-     *        example=1,
-     *        in="path",
-     *        description="Image ID",
-     *        required=true,
-     *        @OA\Schema(
-     *            type="integer"
-     *        )
-     *    ),
-     *
-     *    @OA\Response(
-     *        response=200,
-     *        description="Successful operation",
-     *        @OA\JsonContent(
-     *           @OA\Property(
-     *              property="success",
-     *              type="boolean",
-     *              example="true"
-     *           ),
-     *           @OA\Property(
-     *              property="message",
-     *              type="string",
-     *              example="image is accept success"
-     *           )
-     *        ),
-     *     ),
-     *
-     *     @OA\Response(
-     *        response=401,
-     *        description="Error: Unauthorized",
-     *        @OA\Property(
-     *           property="message",
-     *           type="string",
-     *           example="Unauthenticated."
-     *        ),
-     *     )
-     * )
-     */
-    public function acceptImage(Media $image)
-    {
-        $image->withCustomProperties(['isAccept' => true]);
-
-        return response()->success(
-            "image is accept success"
-        );
-    }
-
-
-    /**
-     * @OA\Get(
-     *    path="/api/mobile/city/{id}/show",
-     *    operationId="ShowCity",
-     *    tags={"City"},
-     *    summary="Get City By ID",
-     *    description="",
-     *    security={{"bearerToken":{}}},
-     *
-     *
-     *
-     *    @OA\Parameter(
-     *        name="id",
-     *        example=1,
-     *        in="path",
-     *        description="City ID",
-     *        required=true,
-     *        @OA\Schema(
-     *           type="integer"
-     *        )
-     *    ),
-     *
-     *
-     *
-     *    @OA\Response(
-     *        response=200,
-     *        description="Successful operation",
-     *        @OA\JsonContent(
-     *           @OA\Property(
-     *              property="success",
-     *              type="boolean",
-     *              example="true"
-     *           ),
-     *           @OA\Property(
-     *              property="message",
-     *              type="string",
-     *              example="this is your city"
-     *           ),
-     *           @OA\Property(
-     *              property="data",
-     *                 @OA\Property(
-     *                 property="city",
-     *                 type="object",
-     *                 ref="#/components/schemas/CityResource"
-     *              ),
-     *           )
-     *        ),
-     *     ),
-     *
-     *     @OA\Response(
-     *        response=401,
-     *        description="Error: Unauthorized",
-     *        @OA\Property(
-     *           property="message",
-     *           type="string",
-     *           example="Unauthenticated."
-     *        ),
-     *     )
-     * )
-     */
-    public function show(City $city)
-    {
-        return response()->success(
-            'this is your city',
-            [
-                "city" => new CityResource($city),
-            ]
-        );
-    }
-
-    /**
-     * @OA\Get(
-     *    path="/api/mobile/city/{id}/image/index",
-     *    operationId="indexCityImage",
-     *    tags={"City"},
-     *    summary="Get All City Image",
-     *    description="",
-     *    security={{"bearerToken":{}}},
-     *
-     *
-     *
-     *    @OA\Parameter(
-     *        name="id",
-     *        example=1,
-     *        in="path",
-     *        description="City ID",
-     *        required=true,
-     *        @OA\Schema(
-     *           type="integer"
-     *        )
-     *    ),
-     *
-     *
-     *
-     *    @OA\Response(
-     *        response=200,
-     *        description="Successful operation",
-     *        @OA\JsonContent(
-     *           @OA\Property(
-     *              property="success",
-     *              type="boolean",
-     *              example="true"
-     *           ),
-     *           @OA\Property(
-     *              property="message",
-     *              type="string",
-     *              example="this is all images for city"
-     *           ),
-     *           @OA\Property(
-     *              property="data",
-     *                 @OA\Property(
-     *                 property="city",
-     *                 type="object",
-     *                 ref="#/components/schemas/ImageResource"
-     *              ),
-     *           )
-     *        ),
-     *     ),
-     *
-     *     @OA\Response(
-     *        response=401,
-     *        description="Error: Unauthorized",
-     *        @OA\Property(
-     *           property="message",
-     *           type="string",
-     *           example="Unauthenticated."
-     *        ),
-     *     )
-     * )
-     */
-    public function indexImage(City $city)
-    {
-        $cityImage = $city->getMedia('city')->flatten();
-        $cityImageAdmin = $city->getMedia('city_admin')->flatten();
-        $cityImageUser = count($city->getMedia('city_user', ['isAccept' => true])) > 0 ? $city->getMedia('city_user', ['isAccept' => true])->random()->flatten() : collect();
-        $images = $cityImage->merge($cityImageAdmin)->merge($cityImageUser);
-        
-        return response()->success(
-            'this is all images for city',
-            [
-                "images" => ImageResource::collection($images),
             ]
         );
     }
