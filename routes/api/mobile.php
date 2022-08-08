@@ -6,17 +6,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     "prefix" => 'city',
-    "controller" => Mobile\CityController::class
 ], function () {
-    Route::get('index', 'index');
-    Route::get('indexTrending', 'indexTrending');
-    Route::get('{city}/show', 'show');
-});
-
-Route::group([
-    "prefix" => 'image',
-], function () {
-    Route::post('city/{city}/store', [Mobile\CityController::class, 'addImage']);
+    Route::get('index', [Mobile\CityController::class, 'index']);
+    Route::get('indexTrending', [Mobile\CityController::class, 'indexTrending']);
+    Route::get('{city}/show', [Mobile\CityController::class, 'show']);
+    Route::post('{city}/image/store', [Mobile\CityController::class, 'addImage']);
 });
 
 

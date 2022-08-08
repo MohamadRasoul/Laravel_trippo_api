@@ -10,7 +10,7 @@
     },
     "servers": [
         {
-            "url": "http://192.168.137.1:5000",
+            "url": "http://127.0.0.1:5000/",
             "description": "Demo API Server"
         }
     ],
@@ -127,6 +127,53 @@
                                                 }
                                             },
                                             "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/image/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "Delete Image",
+                "description": "",
+                "operationId": "DeleteImage",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Image ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "your image is delete success"
                                         }
                                     },
                                     "type": "object"
@@ -408,6 +455,133 @@
                 ]
             }
         },
+        "/api/mobile/city/{cityId}/image/store": {
+            "post": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Add Image To City",
+                "description": "",
+                "operationId": "AddImageToCity",
+                "parameters": [
+                    {
+                        "name": "cityId",
+                        "in": "path",
+                        "description": "City ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "image"
+                                ],
+                                "properties": {
+                                    "image": {
+                                        "description": "image to upload",
+                                        "type": "string",
+                                        "example": "image.png"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "city is added success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "city": {
+                                                    "$ref": "#/components/schemas/CityResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/city/image/{id}/accept": {
+            "post": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "Accept Image",
+                "description": "",
+                "operationId": "AcceptImage",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Image ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "image is accept success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                }
+            }
+        },
         "/api/mobile/city/{id}/show": {
             "get": {
                 "tags": [
@@ -447,6 +621,66 @@
                                             "properties": {
                                                 "city": {
                                                     "$ref": "#/components/schemas/CityResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/city/{id}/image/index": {
+            "get": {
+                "tags": [
+                    "City"
+                ],
+                "summary": "Get All City Image",
+                "description": "",
+                "operationId": "indexCityImage",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "City ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all images for city"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "city": {
+                                                    "$ref": "#/components/schemas/ImageResource"
                                                 }
                                             },
                                             "type": "object"
@@ -1581,6 +1815,29 @@
                     "image": "image.jpg"
                 }
             },
+            "ImageResource": {
+                "title": "ImageResource",
+                "description": "ImageResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "url": {
+                        "type": "string",
+                        "example": "http://127.0.0.1:8000/media/1/image.png"
+                    },
+                    "order": {
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "hash": {
+                        "type": "string",
+                        "example": "LROykk$jy=x][WV@GZS~jEaxXmXS"
+                    }
+                },
+                "type": "object"
+            },
             "AnswerResource": {
                 "title": "AnswerResource",
                 "description": "AnswerResource body data",
@@ -1629,29 +1886,41 @@
                 "description": "CityResource body data",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "1"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "Aleppo"
                     },
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "Aleppo is a city in Syria, which serves as the capital of the Aleppo Governorate, the most populous Syrian governorate with an official population of 4.6 million in 2010. Aleppo is one of the oldest continuously inhabited cities in the world; it may have been inhabited since the sixth millennium BC"
                     },
                     "latitude": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "36.2021"
                     },
                     "longitude": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "37.1343"
+                    },
+                    "data": {
+                        "properties": {
+                            "city": {
+                                "$ref": "#/components/schemas/ImageResource"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "questions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/QuestionResource"
+                        }
                     }
                 },
-                "type": "object",
-                "example": {
-                    "id": 11,
-                    "name": "Aleppo",
-                    "description": "Aleppo is a city in Syria, which serves as the capital of the Aleppo Governorate, the most populous Syrian governorate with an official population of 4.6 million in 2010. Aleppo is one of the oldest continuously inhabited cities in the world; it may have been inhabited since the sixth millennium BC",
-                    "latitude": "36.2021",
-                    "longitude": "37.1343"
-                }
+                "type": "object"
             },
             "FeatureResource": {
                 "title": "FeatureResource",

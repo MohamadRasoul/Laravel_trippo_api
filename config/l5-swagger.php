@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'default' => 'default',
+    'default' => 'auth',
     'documentations' => [
         'auth' => [
             'api' => [
@@ -20,7 +20,7 @@ return [
                 /*
                  * Edit to include full URL in ui for assets
                 */
-                'use_absolute_path' => env('L5_SWAGGER_USE_ABSOLUTE_PATH', false),
+                'use_absolute_path' => env('L5_SWAGGER_USE_ABSOLUTE_PATH', true),
 
                 /*
                  * File name of the generated json documentation file
@@ -43,6 +43,7 @@ return [
                 'annotations' => [
                     base_path('App\Http\Controllers\Api\Auth'),
                     base_path('App\Http\Controllers\Api\ImageController.php'),
+                    base_path('App\Http\Resources\ImageResource.php'),
                     base_path('App\Http\Resources\Auth'),
                     base_path('App\Http\Requests'),
 
@@ -67,7 +68,7 @@ return [
                 /*
                  * Edit to include full URL in ui for assets
                 */
-                'use_absolute_path' => env('L5_SWAGGER_USE_ABSOLUTE_PATH', false),
+                'use_absolute_path' => env('L5_SWAGGER_USE_ABSOLUTE_PATH', true),
 
                 /*
                  * File name of the generated json documentation file
@@ -90,6 +91,7 @@ return [
                 'annotations' => [
                     base_path('App\Http\Controllers\Api\Dashboard'),
                     base_path('App\Http\Controllers\Api\ImageController.php'),
+                    base_path('App\Http\Resources\ImageResource.php'),
                     base_path('App\Http\Resources\Dashboard'),
                     base_path('App\Http\Requests'),
                 ],
@@ -113,7 +115,7 @@ return [
                 /*
                  * Edit to include full URL in ui for assets
                 */
-                'use_absolute_path' => env('L5_SWAGGER_USE_ABSOLUTE_PATH', false),
+                'use_absolute_path' => env('L5_SWAGGER_USE_ABSOLUTE_PATH', true),
 
                 /*
                  * File name of the generated json documentation file
@@ -137,6 +139,7 @@ return [
                     base_path('App\Http\Controllers\Api\Mobile'),
                     base_path('App\Http\Controllers\Api\ImageController.php'),
                     base_path('App\Http\Resources\Mobile'),
+                    base_path('App\Http\Resources\ImageResource.php'),
                     base_path('App\Http\Requests'),
 
                 ],

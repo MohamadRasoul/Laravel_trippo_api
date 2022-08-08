@@ -10,7 +10,7 @@
     },
     "servers": [
         {
-            "url": "http://192.168.137.1:5000",
+            "url": "http://127.0.0.1:5000/",
             "description": "Demo API Server"
         }
     ],
@@ -425,6 +425,53 @@
                                                 }
                                             },
                                             "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/image/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "Image"
+                ],
+                "summary": "Delete Image",
+                "description": "",
+                "operationId": "DeleteImage",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Image ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "your image is delete success"
                                         }
                                     },
                                     "type": "object"
@@ -1051,6 +1098,29 @@
                     "latitude": "36.1654",
                     "longitude": "37.1545"
                 }
+            },
+            "ImageResource": {
+                "title": "ImageResource",
+                "description": "ImageResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "url": {
+                        "type": "string",
+                        "example": "http://127.0.0.1:8000/media/1/image.png"
+                    },
+                    "order": {
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "hash": {
+                        "type": "string",
+                        "example": "LROykk$jy=x][WV@GZS~jEaxXmXS"
+                    }
+                },
+                "type": "object"
             }
         },
         "securitySchemes": {

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api\Mobile;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ImageResource;
 use App\Http\Resources\Mobile\CityResource;
 use App\Models\City;
 use App\Services\ImageService;
-use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class CityController extends Controller
 {
@@ -184,7 +186,7 @@ class CityController extends Controller
 
     /**
      * @OA\Post(
-     *    path="/api/mobile/image/city/{cityId}/store",
+     *    path="/api/mobile/city/{cityId}/image/store",
      *    operationId="AddImageToCity",
      *    tags={"City"},
      *    summary="Add Image To City",
@@ -269,13 +271,75 @@ class CityController extends Controller
             customProperties: ['isAccept' => false]
         );
 
+
+
         return response()->success(
-            'city is added success',
+            'image for city is added success',
             [
                 "city" => new CityResource($city),
             ]
         );
     }
+
+
+
+    /**
+     * @OA\Post(
+     *    path="/api/city/image/{id}/accept",
+     *    operationId="AcceptImage",
+     *    tags={"Image"},
+     *    summary="Accept Image",
+     *    description="",
+     *
+     * 
+     *    @OA\Parameter(
+     *        name="id",
+     *        example=1,
+     *        in="path",
+     *        description="Image ID",
+     *        required=true,
+     *        @OA\Schema(
+     *            type="integer"
+     *        )
+     *    ),
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="image is accept success"
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function acceptImage(Media $image)
+    {
+        $image->withCustomProperties(['isAccept' => true]);
+
+        return response()->success(
+            "image is accept success"
+        );
+    }
+
 
     /**
      * @OA\Get(
@@ -343,6 +407,78 @@ class CityController extends Controller
             'this is your city',
             [
                 "city" => new CityResource($city),
+            ]
+        );
+    }
+
+    /**
+     * @OA\Get(
+     *    path="/api/mobile/city/{id}/image/index",
+     *    operationId="indexCityImage",
+     *    tags={"City"},
+     *    summary="Get All City Image",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\Parameter(
+     *        name="id",
+     *        example=1,
+     *        in="path",
+     *        description="City ID",
+     *        required=true,
+     *        @OA\Schema(
+     *           type="integer"
+     *        )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is all images for city"
+     *           ),
+     *           @OA\Property(
+     *              property="data",
+     *                 @OA\Property(
+     *                 property="city",
+     *                 type="object",
+     *                 ref="#/components/schemas/ImageResource"
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function indexImage(City $city)
+    {
+        $images = $city->getMedia('images', ['isAccept' => true]);
+
+        return response()->success(
+            'this is all images for city',
+            [
+                "images" => ImageResource::collection($images),
             ]
         );
     }

@@ -14,12 +14,12 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *      @OA\Property(
  *          property="id",
  *          type="string",
-  *          example="1"
+ *          example="1"
  *      ),
  *      @OA\Property(
  *          property="text",
  *          type="string",
-  *          example="what is the most important thing in this city?"
+ *          example="what is the most important thing in this city?"
  *      ),
  *       @OA\Property(
  *          property="answers",
@@ -40,11 +40,12 @@ class QuestionResource extends JsonResource
 
     public function toArray($request)
     {
-//        return parent::toArray($request);
+        //        return parent::toArray($request);
+
         return [
             'id'        => $this->id,
             'text'      => $this->text,
-            'answers'   => AnswerResource::collection($this->answers()->latest()->take(3)->get()),
+            'answers'   => AnswerResource::collection($this->answers()->latest()->limit(3)->get()),
         ];
     }
 }
