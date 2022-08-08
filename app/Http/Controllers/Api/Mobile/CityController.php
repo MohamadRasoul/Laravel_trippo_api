@@ -473,8 +473,11 @@ class CityController extends Controller
      */
     public function indexImage(City $city)
     {
-        $images = $city->getMedia('images', ['isAccept' => true]);
-
+        $cityImage = $city->getMedia('city')->flatten();
+        $cityImageAdmin = $city->getMedia('city_admin')->flatten();
+        $cityImageUser = count($city->getMedia('city_user', ['isAccept' => true])) > 0 ? $city->getMedia('city_user', ['isAccept' => true])->random()->flatten() : collect();
+        $images = $cityImage->merge($cityImageAdmin)->merge($cityImageUser);
+        
         return response()->success(
             'this is all images for city',
             [
