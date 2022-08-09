@@ -13,7 +13,7 @@ class OptionController extends Controller
 {
     /**
      * @OA\Get(
-     *    path="/api/dashboard/option/index",
+     *    path="/api/mobile/option/index",
      *    operationId="IndexOption",
      *    tags={"Option"},
      *    summary="Get All Options",

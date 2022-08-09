@@ -11,7 +11,7 @@ class TypeController extends Controller
 {
     /**
      * @OA\Get(
-     *    path="/api/dashboard/type/index",
+     *    path="/api/mobile/type/index",
      *    operationId="IndexType",
      *    tags={"Type"},
      *    summary="Get All Types",

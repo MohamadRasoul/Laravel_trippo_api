@@ -13,7 +13,7 @@ class FeatureController extends Controller
 {
     /**
      * @OA\Get(
-     *    path="/api/dashboard/feature/index",
+     *    path="/api/mobile/feature/index",
      *    operationId="IndexFeature",
      *    tags={"Feature"},
      *    summary="Get All Features",
