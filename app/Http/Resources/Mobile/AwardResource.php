@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Mobile;
 
+use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
@@ -50,7 +51,7 @@ class AwardResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'donor' => $this->donor,
-            'image' => $this->getFirstMediaUrl('award'),
+            'image' => new ImageResource($this->getFirstMediaUrl('award')),
         ];
     }
 }

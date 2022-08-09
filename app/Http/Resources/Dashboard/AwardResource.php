@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Dashboard;
 
+use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
@@ -44,13 +45,13 @@ class AwardResource extends JsonResource
 
     public function toArray($request)
     {
-//        return parent::toArray($request);
+        //        return parent::toArray($request);
         return [
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
             'donor' => $this->donor,
-            'image' => $this->getFirstMediaUrl('award'),
+            'image' => new ImageResource($this->getFirstMediaUrl('award')),
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Mobile;
 
 use App\Http\Resources\Dashboard\FeatureResource;
+use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
@@ -45,7 +46,7 @@ class FeatureTitleResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'image' => $this->getFirstMediaUrl('featureTitle'),
+            'image' => new ImageResource($this->getFirstMediaUrl('featureTitle')),
             'features' => FeatureResource::collection($this->features)
         ];
     }

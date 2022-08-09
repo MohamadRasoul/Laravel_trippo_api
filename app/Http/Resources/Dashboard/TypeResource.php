@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Dashboard;
 
+use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
@@ -46,7 +47,7 @@ class TypeResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'image' => $this->getFirstMediaUrl('type'),
+            'image' => new ImageResource($this->getFirstMediaUrl('type')),
             'options' => OptionResource::collection($this->options),
         ];
     }
