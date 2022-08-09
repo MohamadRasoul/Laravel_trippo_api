@@ -658,7 +658,7 @@
                 ]
             }
         },
-        "/api/dashboard/feature/index": {
+        "/api/mobile/feature/index": {
             "get": {
                 "tags": [
                     "Feature"
@@ -814,7 +814,7 @@
                 ]
             }
         },
-        "/api/dashboard/option/index": {
+        "/api/mobile/option/index": {
             "get": {
                 "tags": [
                     "Option"
@@ -1441,7 +1441,7 @@
                 ]
             }
         },
-        "/api/dashboard/type/index": {
+        "/api/mobile/type/index": {
             "get": {
                 "tags": [
                     "Type"

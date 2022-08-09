@@ -51,6 +51,20 @@ Route::group([
     Route::get('index', 'index');
 });
 
+Route::group([
+    "prefix" => 'type',
+    "controller" => Mobile\TypeController::class
+], function () {
+    Route::get('index', 'index');
+});
+
+Route::group([
+    "prefix" => 'option',
+    "controller" => Mobile\OptionController::class
+], function () {
+    Route::get('index', 'index');
+});
+
 
 Route::group([
     "prefix" => 'place',
