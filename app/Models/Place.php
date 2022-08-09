@@ -57,13 +57,13 @@ class Place extends Model implements HasMedia
     {
         $this
             ->addMediaCollection('place')
-            ->useFallbackUrl(env('APP_URL') . '/images/static/fallback-images/place.jpg');
+            ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/place.jpg');
         $this
             ->addMediaCollection('place_admin')
-            ->useFallbackUrl(env('APP_URL') . '/images/static/fallback-images/place.jpg');
+            ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/place.jpg');
         $this
             ->addMediaCollection('place_user')
-            ->useFallbackUrl(env('APP_URL') . '/images/static/fallback-images/place.jpg');
+            ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/place.jpg');
     }
 
     ########## OverWrite ##########

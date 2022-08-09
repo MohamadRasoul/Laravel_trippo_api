@@ -34,7 +34,7 @@ class Award extends Model implements HasMedia
     {
         $this
             ->addMediaCollection('award')
-            ->useFallbackUrl(env('APP_URL') . '/images/static/fallback-images/city.jpg')
+            ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/city.jpg')
             ->singleFile();
     }
 

@@ -16,11 +16,11 @@ class ImageService
         $customProperties = []
     ) {
         if (!empty($image)) {
-            // dd($image, env('APP_URL', 'http://127.0.0.1:8000'), str_contains($image, env('APP_URL')));
+            // dd($image, env('APP_URL', 'http://127.0.0.1:8000'), str_contains($image, config('app.url')));
 
             // try {
             if (str_contains($image, env('APP_URL', 'http://127.0.0.1:8000'))) {
-                $image = str_replace(env('APP_URL'), "", $image);
+                $image = str_replace(config('app.url'), "", $image);
                 $mediaImage = $model
                     ->addMedia(public_path($image))
                     ->withCustomProperties($customProperties)

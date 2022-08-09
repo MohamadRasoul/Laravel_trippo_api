@@ -37,7 +37,7 @@ class FeatureTitle extends Model implements HasMedia
     {
         $this
             ->addMediaCollection('featureTitle')
-            ->useFallbackUrl(env('APP_URL') . '/images/static/fallback-images/city.jpg')
+            ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/city.jpg')
             ->singleFile();
     }
 

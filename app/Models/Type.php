@@ -37,7 +37,7 @@ class Type extends Model implements HasMedia
     {
         $this
             ->addMediaCollection('type')
-            ->useFallbackUrl(env('APP_URL') . '/images/static/fallback-images/city.jpg')
+            ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/city.jpg')
             ->singleFile();
     }
 
