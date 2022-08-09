@@ -16,7 +16,7 @@ class AwardSeeder extends Seeder
             function ($award) {
                 (new ImageService)->storeStaticImage(
                     model: $award,
-                    image: 'default.png',
+                    image: 'default.jpg',
                     collection: 'award',
                     folderName: 'fallback-images'
                 );

@@ -16,7 +16,7 @@ class PlaceSeeder extends Seeder
             function ($place) {
                 (new ImageService)->storeStaticImage(
                     model: $place,
-                    image: 'default.png',
+                    image: 'default.jpg',
                     collection: 'place',
                     folderName: 'fallback-images'
                 );

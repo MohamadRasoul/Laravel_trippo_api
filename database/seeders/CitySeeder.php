@@ -17,7 +17,7 @@ class CitySeeder extends Seeder
                 function ($city) {
                     (new ImageService)->storeStaticImage(
                         model: $city,
-                        image: 'default.png',
+                        image: 'default.jpg',
                         collection: 'city',
                         folderName: 'fallback-images'
                     );
