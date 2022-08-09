@@ -11,7 +11,7 @@ Route::group([
     Route::get('indexTrending', [Mobile\CityController::class, 'indexTrending']);
     Route::get('{city}/image/index', [Mobile\CityController::class, 'indexImage']);
     Route::get('{city}/show', [Mobile\CityController::class, 'show']);
-    
+
     Route::post('{city}/image/store', [Mobile\CityController::class, 'addImage']);
 });
 
@@ -49,4 +49,16 @@ Route::group([
     "controller" => Mobile\FeatureController::class
 ], function () {
     Route::get('index', 'index');
+});
+
+
+Route::group([
+    "prefix" => 'place',
+], function () {
+    Route::get('index', [Mobile\PlaceController::class, 'index']);
+    // Route::get('indexTrending', [Mobile\PlaceController::class, 'indexTrending']);
+    Route::get('{place}/image/index', [Mobile\PlaceController::class, 'indexImage']);
+    Route::get('{place}/show', [Mobile\PlaceController::class, 'show']);
+
+    Route::post('{place}/image/store', [Mobile\PlaceController::class, 'addImage']);
 });

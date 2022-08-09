@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api\Mobile;
 
+use App\Enums\ModelEnum;
+use App\Events\showModel;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ImageResource;
 use App\Http\Resources\Mobile\CityResource;
@@ -222,14 +224,18 @@ class CityController extends Controller
      *              type="string",
      *              example="this is all images for city"
      *           ),
-     *           @OA\Property(
+     *          @OA\Property(
      *              property="data",
-     *                 @OA\Property(
-     *                 property="city",
-     *                 type="object",
-     *                 ref="#/components/schemas/ImageResource"
+     *              @OA\Property(
+     *                 property="images",
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/ImageResource"
+     *                 ),
      *              ),
      *           )
+     *           
      *        ),
      *     ),
      *
@@ -322,6 +328,8 @@ class CityController extends Controller
      */
     public function show(City $city)
     {
+        event(new showModel($city, ModelEnum::City));
+
         return response()->success(
             'this is your city',
             [

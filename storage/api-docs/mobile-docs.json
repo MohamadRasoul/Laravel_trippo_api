@@ -492,8 +492,11 @@
                                         },
                                         "data": {
                                             "properties": {
-                                                "city": {
-                                                    "$ref": "#/components/schemas/ImageResource"
+                                                "images": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ImageResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -870,6 +873,282 @@
                                             "properties": {
                                                 "options": {
                                                     "$ref": "#/components/schemas/OptionResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/place/index": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get All Places",
+                "description": "",
+                "operationId": "IndexPlace",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all places"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "places": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/PlaceResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/place/{id}/image/index": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get All Place Image",
+                "description": "",
+                "operationId": "indexPlaceImage",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Place ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all images for place"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "images": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ImageResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/place/{id}/show": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get Place By ID",
+                "description": "",
+                "operationId": "ShowPlace",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Place ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is your place"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "place": {
+                                                    "$ref": "#/components/schemas/PlaceResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/place/{placeId}/image/store": {
+            "post": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Add Image To Place",
+                "description": "",
+                "operationId": "AddImageToPlace",
+                "parameters": [
+                    {
+                        "name": "placeId",
+                        "in": "path",
+                        "description": "Place ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "image"
+                                ],
+                                "properties": {
+                                    "image": {
+                                        "description": "image to upload",
+                                        "type": "string",
+                                        "example": "image.png"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "place is added success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "place": {
+                                                    "$ref": "#/components/schemas/PlaceResource"
                                                 }
                                             },
                                             "type": "object"
@@ -1532,7 +1811,6 @@
                 ],
                 "properties": {
                     "name": {
-                        "description": "pen * @OA\\Schema(\ntitle=\"StorePlaceRequest\",\ndescription=\"StorePlaceRequest body data\",\ntype=\"object\",\nrequired={\"username\",\"email\"},",
                         "type": "string"
                     },
                     "about": {
@@ -1564,6 +1842,12 @@
                     },
                     "close_at": {
                         "type": "string"
+                    },
+                    "type_id": {
+                        "type": "integer"
+                    },
+                    "city_id": {
+                        "type": "integer"
                     },
                     "features[]": {
                         "type": "array",
@@ -1597,6 +1881,8 @@
                     "email": "email@email.com",
                     "open_at": "10:00:00",
                     "close_at": "22:00:00",
+                    "type_id": "1",
+                    "city_id": "1",
                     "features": [
                         1,
                         2
@@ -1751,6 +2037,101 @@
                     "name": "any name"
                 }
             },
+            "UpdatePlaceRequest": {
+                "title": "UpdatePlaceRequest",
+                "description": "UpdatePlaceRequest body data",
+                "required": [
+                    "username",
+                    "email"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "about": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "string"
+                    },
+                    "longitude": {
+                        "type": "string"
+                    },
+                    "web_site": {
+                        "type": "string"
+                    },
+                    "phone_number": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "open_at": {
+                        "type": "string"
+                    },
+                    "close_at": {
+                        "type": "string"
+                    },
+                    "type_id": {
+                        "type": "integer"
+                    },
+                    "city_id": {
+                        "type": "integer"
+                    },
+                    "features[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "options[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "awards[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "Green Table",
+                    "about": "best coffe to enjoy with your friends",
+                    "image": "image.png",
+                    "address": "address - address - address",
+                    "latitude": "33.65166",
+                    "longitude": "36.5165",
+                    "web_site": "www.web_site.com",
+                    "phone_number": "0958600569",
+                    "email": "email@email.com",
+                    "open_at": "10:00:00",
+                    "close_at": "22:00:00",
+                    "type_id": "1",
+                    "city_id": "1",
+                    "features": [
+                        1,
+                        2
+                    ],
+                    "options": [
+                        1,
+                        2
+                    ],
+                    "awards": [
+                        1,
+                        2
+                    ]
+                }
+            },
             "UpdateTypeRequest": {
                 "title": "UpdateTypeRequest",
                 "description": "UpdateTypeRequest body data",
@@ -1858,13 +2239,11 @@
                         "type": "string",
                         "example": "37.1343"
                     },
-                    "data": {
-                        "properties": {
-                            "city": {
-                                "$ref": "#/components/schemas/ImageResource"
-                            }
-                        },
-                        "type": "object"
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ImageResource"
+                        }
                     },
                     "questions": {
                         "type": "array",
@@ -1993,6 +2372,12 @@
                     "created_at": {
                         "type": "string",
                         "example": "2022-06-06 17:38:54"
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ImageResource"
+                        }
                     }
                 },
                 "type": "object"

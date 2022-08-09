@@ -142,10 +142,13 @@ class CityController extends Controller
      *           ),
      *           @OA\Property(
      *              property="data",
-     *                 @OA\Property(
-     *                 property="city",
-     *                 type="object",
-     *                 ref="#/components/schemas/ImageResource"
+     *              @OA\Property(
+     *                 property="images",
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/ImageResource"
+     *                 ),
      *              ),
      *           )
      *        ),
@@ -218,10 +221,13 @@ class CityController extends Controller
      *           ),
      *           @OA\Property(
      *              property="data",
-     *                 @OA\Property(
-     *                 property="city",
-     *                 type="object",
-     *                 ref="#/components/schemas/ImageResource"
+     *              @OA\Property(
+     *                 property="images",
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/ImageResource"
+     *                 ),
      *              ),
      *           )
      *        ),
@@ -397,6 +403,7 @@ class CityController extends Controller
         );
     }
 
+
     /**
      * @OA\Post(
      *    path="/api/dashboard/city/{id}/image/store",
@@ -450,7 +457,7 @@ class CityController extends Controller
      *           @OA\Property(
      *              property="message",
      *              type="string",
-     *              example="city is added success"
+     *              example="image for city is added success"
      *           ),
      *           @OA\Property(
      *              property="data",
@@ -484,7 +491,7 @@ class CityController extends Controller
         );
 
         return response()->success(
-            'city is added success',
+            'image for city is added success',
             [
                 "city" => new CityResource($city),
             ]
@@ -495,9 +502,9 @@ class CityController extends Controller
     /**
      * @OA\Post(
      *    path="/api/dashboard/city/image/{imageId}/accept",
-     *    operationId="AcceptImage",
+     *    operationId="AcceptCiryImage",
      *    tags={"City"},
-     *    summary="Accept Image",
+     *    summary="Accept City Image",
      *    description="",
      *    security={{"bearerToken":{}}},
      *

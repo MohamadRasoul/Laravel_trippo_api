@@ -39,12 +39,12 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *      ),
  * 
  *      @OA\Property(
- *         property="data",
- *         @OA\Property(
- *            property="city",
+ *         property="images",
+ *         type="array",
+ *         @OA\Items(
  *            type="object",
  *            ref="#/components/schemas/ImageResource"
- *         ),
+ *         )
  *      ),
  *      @OA\Property(
  *         property="questions",

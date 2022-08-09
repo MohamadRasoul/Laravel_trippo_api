@@ -785,7 +785,6 @@
                 ],
                 "properties": {
                     "name": {
-                        "description": "pen * @OA\\Schema(\ntitle=\"StorePlaceRequest\",\ndescription=\"StorePlaceRequest body data\",\ntype=\"object\",\nrequired={\"username\",\"email\"},",
                         "type": "string"
                     },
                     "about": {
@@ -817,6 +816,12 @@
                     },
                     "close_at": {
                         "type": "string"
+                    },
+                    "type_id": {
+                        "type": "integer"
+                    },
+                    "city_id": {
+                        "type": "integer"
                     },
                     "features[]": {
                         "type": "array",
@@ -850,6 +855,8 @@
                     "email": "email@email.com",
                     "open_at": "10:00:00",
                     "close_at": "22:00:00",
+                    "type_id": "1",
+                    "city_id": "1",
                     "features": [
                         1,
                         2
@@ -1002,6 +1009,101 @@
                 "type": "object",
                 "example": {
                     "name": "any name"
+                }
+            },
+            "UpdatePlaceRequest": {
+                "title": "UpdatePlaceRequest",
+                "description": "UpdatePlaceRequest body data",
+                "required": [
+                    "username",
+                    "email"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "about": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "string"
+                    },
+                    "longitude": {
+                        "type": "string"
+                    },
+                    "web_site": {
+                        "type": "string"
+                    },
+                    "phone_number": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "open_at": {
+                        "type": "string"
+                    },
+                    "close_at": {
+                        "type": "string"
+                    },
+                    "type_id": {
+                        "type": "integer"
+                    },
+                    "city_id": {
+                        "type": "integer"
+                    },
+                    "features[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "options[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "awards[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "Green Table",
+                    "about": "best coffe to enjoy with your friends",
+                    "image": "image.png",
+                    "address": "address - address - address",
+                    "latitude": "33.65166",
+                    "longitude": "36.5165",
+                    "web_site": "www.web_site.com",
+                    "phone_number": "0958600569",
+                    "email": "email@email.com",
+                    "open_at": "10:00:00",
+                    "close_at": "22:00:00",
+                    "type_id": "1",
+                    "city_id": "1",
+                    "features": [
+                        1,
+                        2
+                    ],
+                    "options": [
+                        1,
+                        2
+                    ],
+                    "awards": [
+                        1,
+                        2
+                    ]
                 }
             },
             "UpdateTypeRequest": {

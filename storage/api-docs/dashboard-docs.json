@@ -491,8 +491,11 @@
                                         },
                                         "data": {
                                             "properties": {
-                                                "city": {
-                                                    "$ref": "#/components/schemas/ImageResource"
+                                                "images": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ImageResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -551,8 +554,11 @@
                                         },
                                         "data": {
                                             "properties": {
-                                                "city": {
-                                                    "$ref": "#/components/schemas/ImageResource"
+                                                "images": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ImageResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -745,7 +751,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "city is added success"
+                                            "example": "image for city is added success"
                                         },
                                         "data": {
                                             "properties": {
@@ -777,9 +783,9 @@
                 "tags": [
                     "City"
                 ],
-                "summary": "Accept Image",
+                "summary": "Accept City Image",
                 "description": "",
-                "operationId": "AcceptImage",
+                "operationId": "AcceptCiryImage",
                 "parameters": [
                     {
                         "name": "imageId",
@@ -1886,6 +1892,192 @@
                 ]
             }
         },
+        "/api/dashboard/place/{id}/image/index": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get All Place Image",
+                "description": "",
+                "operationId": "indexPlaceImage",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Place ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all images for place"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "images": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ImageResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/place/{id}/image/indexNotAccept": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get All Place ImageNotAccept",
+                "description": "",
+                "operationId": "indexPlaceImageNotAccept",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Place ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all images for place"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "images": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ImageResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/place/{id}/show": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get Place By ID",
+                "description": "",
+                "operationId": "ShowPlace",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Place ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is your place"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "place": {
+                                                    "$ref": "#/components/schemas/PlaceResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
         "/api/dashboard/place/store": {
             "post": {
                 "tags": [
@@ -1926,6 +2118,260 @@
                                                 }
                                             },
                                             "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/place/{id}/image/store": {
+            "post": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Add Image To Place",
+                "description": "",
+                "operationId": "AddImageToPlace",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Place ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "image"
+                                ],
+                                "properties": {
+                                    "image": {
+                                        "description": "image to upload",
+                                        "type": "string",
+                                        "example": "image.png"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "image for place is added success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "place": {
+                                                    "$ref": "#/components/schemas/PlaceResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/place/image/{imageId}/accept": {
+            "post": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Accept Place Image",
+                "description": "",
+                "operationId": "AcceptPlaceImage",
+                "parameters": [
+                    {
+                        "name": "imageId",
+                        "in": "path",
+                        "description": "Image ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "image is accept success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/place/{id}/update": {
+            "post": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Edit Place",
+                "description": "",
+                "operationId": "UpdatePlace",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Place ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdatePlaceRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "place is updated success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "place": {
+                                                    "$ref": "#/components/schemas/PlaceResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/place/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Delete Place By ID",
+                "description": "",
+                "operationId": "DeletePlace",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Place ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "place is deleted success"
                                         }
                                     },
                                     "type": "object"
@@ -2929,7 +3375,6 @@
                 ],
                 "properties": {
                     "name": {
-                        "description": "pen * @OA\\Schema(\ntitle=\"StorePlaceRequest\",\ndescription=\"StorePlaceRequest body data\",\ntype=\"object\",\nrequired={\"username\",\"email\"},",
                         "type": "string"
                     },
                     "about": {
@@ -2961,6 +3406,12 @@
                     },
                     "close_at": {
                         "type": "string"
+                    },
+                    "type_id": {
+                        "type": "integer"
+                    },
+                    "city_id": {
+                        "type": "integer"
                     },
                     "features[]": {
                         "type": "array",
@@ -2994,6 +3445,8 @@
                     "email": "email@email.com",
                     "open_at": "10:00:00",
                     "close_at": "22:00:00",
+                    "type_id": "1",
+                    "city_id": "1",
                     "features": [
                         1,
                         2
@@ -3146,6 +3599,101 @@
                 "type": "object",
                 "example": {
                     "name": "any name"
+                }
+            },
+            "UpdatePlaceRequest": {
+                "title": "UpdatePlaceRequest",
+                "description": "UpdatePlaceRequest body data",
+                "required": [
+                    "username",
+                    "email"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "about": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "string"
+                    },
+                    "longitude": {
+                        "type": "string"
+                    },
+                    "web_site": {
+                        "type": "string"
+                    },
+                    "phone_number": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "open_at": {
+                        "type": "string"
+                    },
+                    "close_at": {
+                        "type": "string"
+                    },
+                    "type_id": {
+                        "type": "integer"
+                    },
+                    "city_id": {
+                        "type": "integer"
+                    },
+                    "features[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "options[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "awards[]": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "Green Table",
+                    "about": "best coffe to enjoy with your friends",
+                    "image": "image.png",
+                    "address": "address - address - address",
+                    "latitude": "33.65166",
+                    "longitude": "36.5165",
+                    "web_site": "www.web_site.com",
+                    "phone_number": "0958600569",
+                    "email": "email@email.com",
+                    "open_at": "10:00:00",
+                    "close_at": "22:00:00",
+                    "type_id": "1",
+                    "city_id": "1",
+                    "features": [
+                        1,
+                        2
+                    ],
+                    "options": [
+                        1,
+                        2
+                    ],
+                    "awards": [
+                        1,
+                        2
+                    ]
                 }
             },
             "UpdateTypeRequest": {
@@ -3365,6 +3913,12 @@
                     "created_at": {
                         "type": "string",
                         "example": "2022-06-06T17:38:54.000000Z"
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ImageResource"
+                        }
                     }
                 },
                 "type": "object"

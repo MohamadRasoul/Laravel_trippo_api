@@ -3,9 +3,11 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /**
-pen * @OA\Schema(
+ * @OA\Schema(
  *      title="StorePlaceRequest",
  *      description="StorePlaceRequest body data",
  *      type="object",
@@ -57,6 +59,14 @@ pen * @OA\Schema(
  *          type="string"
  *      ),
  *      @OA\Property(
+ *          property="type_id",
+ *          type="integer"
+ *      ),
+ *      @OA\Property(
+ *          property="city_id",
+ *          type="integer"
+ *      ),
+ *      @OA\Property(
  *          property="features[]",
  *          type="array",
  *          @OA\Items(type="integer")
@@ -84,6 +94,8 @@ pen * @OA\Schema(
  *         "email"         : "email@email.com",
  *         "open_at"       : "10:00:00",
  *         "close_at"      : "22:00:00",
+ *         "type_id"      : "1",
+ *         "city_id"      : "1",
  *         "features"      : {1,2},
  *         "options"       : {1,2},
  *         "awards"        : {1,2},
@@ -115,6 +127,8 @@ class StorePlaceRequest extends FormRequest
             "features.*" => ['required', 'numeric'],
             "options.*" => ['required', 'numeric'],
             "awards.*" => ['required', 'numeric'],
+            "type_id" => ['required', 'numeric'],
+            "city_id" => ['required', 'numeric'],
         ];
     }
 
@@ -132,6 +146,9 @@ class StorePlaceRequest extends FormRequest
             "email" => $this->email,
             "open_at" => $this->open_at,
             "close_at" => $this->close_at,
+            "type_id" => $this->type_id,
+            "city_id" => $this->city_id,
+            "admin_id" => Auth::guard('admin_api')->user()->id,
         ];
     }
 }

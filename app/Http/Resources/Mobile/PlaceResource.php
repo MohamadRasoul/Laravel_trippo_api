@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Mobile;
 
+use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 
@@ -84,6 +85,14 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *          example="2022-06-06 17:38:54"
  *      ),
  *
+ *      @OA\Property(
+ *         property="images",
+ *         type="array",
+ *         @OA\Items(
+ *            type="object",
+ *            ref="#/components/schemas/ImageResource"
+ *         )
+ *      ),
  *
  * )
  */
@@ -92,6 +101,11 @@ class PlaceResource extends JsonResource
 
     public function toArray($request)
     {
+
+        $placeImage = $this->getMedia('place')->flatten();
+        $placeImageAdmin = $this->getMedia('place_admin')->flatten();
+        $images = $placeImage->merge($placeImageAdmin);
+
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -107,6 +121,7 @@ class PlaceResource extends JsonResource
             'open_at' => $this->open_at,
             'close_at' => $this->close_at,
             'created_at' => $this->created_at,
+            "images"       => ImageResource::collection($images),
         ];
     }
 }

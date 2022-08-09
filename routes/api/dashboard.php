@@ -8,19 +8,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     "prefix" => 'city',
-    "controller" => Dashboard\CityController::class
 ], function () {
-    Route::get('index', 'index');
-    Route::get('{city}/image/index', 'indexImage');
-    Route::get('{city}/image/indexNotAccept', 'indexImageNotAccept');
-    Route::get('{city}/show', 'show');
+    Route::get('index', [Dashboard\CityController::class, 'index']);
+    Route::get('{city}/image/index', [Dashboard\CityController::class, 'indexImage']);
+    Route::get('{city}/image/indexNotAccept', [Dashboard\CityController::class, 'indexImageNotAccept']);
+    Route::get('{city}/show', [Dashboard\CityController::class, 'show']);
 
-    Route::post('store', 'store');
-    Route::post('{city}/image/store', 'addImage');
-    Route::post('image/{image}/accept', 'acceptImage');
-    Route::post('{city}/update', 'update');
+    Route::post('store', [Dashboard\CityController::class, 'store']);
+    Route::post('{city}/image/store', [Dashboard\CityController::class, 'addImage']);
+    Route::post('image/{image}/accept', [Dashboard\CityController::class, 'acceptImage']);
+    Route::post('{city}/update', [Dashboard\CityController::class, 'update']);
 
-    Route::delete('{city}/delete', 'destroy');
+    Route::delete('{city}/delete', [Dashboard\CityController::class, 'destroy']);
 });
 
 
@@ -103,9 +102,21 @@ Route::group([
     "prefix" => 'place',
     "controller" => Dashboard\PlaceController::class
 ], function () {
-    Route::get('index', 'index');
-    Route::post('store', 'store');
-    Route::get('{place}/show', 'show');
-    Route::post('{place}/update', 'update');
-    Route::delete('{place}/delete', 'destroy');
+});
+
+
+Route::group([
+    "prefix" => 'place',
+], function () {
+    Route::get('index', [Dashboard\PlaceController::class, 'index']);
+    Route::get('{place}/image/index', [Dashboard\PlaceController::class, 'indexImage']);
+    Route::get('{place}/image/indexNotAccept', [Dashboard\PlaceController::class, 'indexImageNotAccept']);
+    Route::get('{place}/show', [Dashboard\PlaceController::class, 'show']);
+
+    Route::post('store', [Dashboard\PlaceController::class, 'store']);
+    Route::post('{place}/image/store', [Dashboard\PlaceController::class, 'addImage']);
+    Route::post('image/{image}/accept', [Dashboard\PlaceController::class, 'acceptImage']);
+    Route::post('{place}/update', [Dashboard\PlaceController::class, 'update']);
+
+    Route::delete('{place}/delete', [Dashboard\PlaceController::class, 'destroy']);
 });
