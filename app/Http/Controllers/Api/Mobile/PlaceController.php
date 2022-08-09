@@ -91,7 +91,7 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        $places = Place::orderBy('id');
+        $places = Place::inRandomOrder();
 
         return response()->success(
             'this is all Places',

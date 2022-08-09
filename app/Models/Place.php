@@ -35,6 +35,16 @@ class Place extends Model implements HasMedia
         return $this->belongsToMany(Feature::class, 'award_places');
     }
 
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
+
     ########## Query ##########
 
 

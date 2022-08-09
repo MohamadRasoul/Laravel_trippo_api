@@ -20,8 +20,6 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-
-        // TODO: to get value from enum
         // Reset cached roles and permissions
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 

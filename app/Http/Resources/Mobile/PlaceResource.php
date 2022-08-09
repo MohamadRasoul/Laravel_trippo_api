@@ -114,6 +114,8 @@ class PlaceResource extends JsonResource
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
             'ratting' => $this->ratting,
+            // Todo 
+            'ratting_count' => rand(70, 2000),
             'views' => $this->views,
             'web_site' => $this->web_site,
             'phone_number' => $this->phone_number,
@@ -121,6 +123,8 @@ class PlaceResource extends JsonResource
             'open_at' => $this->open_at,
             'close_at' => $this->close_at,
             'created_at' => $this->created_at,
+            'city'      => $this->city->name,
+            'type'      => $this->type->name,
             "images"       => ImageResource::collection($images),
         ];
     }
