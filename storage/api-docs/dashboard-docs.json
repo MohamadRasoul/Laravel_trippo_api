@@ -3735,26 +3735,31 @@
                 "description": "AwardResource body data",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "example": 1
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "award name"
                     },
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "award description"
                     },
                     "donor": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "award donor"
+                    },
+                    "image": {
+                        "properties": {
+                            "": {
+                                "$ref": "#/components/schemas/ImageResource"
+                            }
+                        },
+                        "type": "object"
                     }
                 },
-                "type": "object",
-                "example": {
-                    "id": 1,
-                    "name": "award name",
-                    "description": "award description",
-                    "donor": "award donor",
-                    "image": "awardImagePath"
-                }
+                "type": "object"
             },
             "CityResource": {
                 "title": "CityResource",
@@ -3824,15 +3829,19 @@
                         "type": "string",
                         "example": "intenet"
                     },
-                    "image": {
-                        "type": "string",
-                        "example": "image.jpg"
-                    },
                     "features": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/FeatureResource"
                         }
+                    },
+                    "image": {
+                        "properties": {
+                            "": {
+                                "$ref": "#/components/schemas/ImageResource"
+                            }
+                        },
+                        "type": "object"
                     }
                 },
                 "type": "object"
@@ -3956,15 +3965,19 @@
                         "type": "string",
                         "example": "any name"
                     },
-                    "image": {
-                        "type": "string",
-                        "example": "image.jpg"
-                    },
                     "options": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/OptionResource"
                         }
+                    },
+                    "image": {
+                        "properties": {
+                            "": {
+                                "$ref": "#/components/schemas/ImageResource"
+                            }
+                        },
+                        "type": "object"
                     }
                 },
                 "type": "object"
