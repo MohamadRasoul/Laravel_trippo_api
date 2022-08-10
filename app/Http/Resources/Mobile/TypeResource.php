@@ -22,17 +22,20 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *          type="string",
  *          example="any name",
  *      ),
- *      @OA\Property(
- *          property="image",
- *          type="string",
- *          example="image.jpg"
- *      ),
+ *      
  *      @OA\Property(
  *          property="options",
  *          type="array",
  *          @OA\Items(
  *             type="object",
  *             ref="#/components/schemas/OptionResource"
+ *          )
+ *       ),
+ *      @OA\Property(
+ *          property="image",
+ *          @OA\Property(
+ *             type="object",
+ *             ref="#/components/schemas/ImageResource"
  *          )
  *       ),
  * )
@@ -43,12 +46,12 @@ class TypeResource extends JsonResource
 
     public function toArray($request)
     {
-//        return parent::toArray($request);
+        //        return parent::toArray($request);
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'image' => new ImageResource($this->getFirstMediaUrl('type')),
             'options' => OptionResource::collection($this->options),
+            'image' => new ImageResource($this->getFirstMedia('type')),
         ];
     }
 }

@@ -14,29 +14,32 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *
  *      @OA\Property(
  *          property="id",
- *          type="string"
+ *          type="string",
+ *          example= 1,
  *      ),
  *      @OA\Property(
  *          property="name",
- *          type="string"
+ *          type="string",
+ *          example= "award name",
  *      ),
  *      @OA\Property(
  *          property="description",
- *          type="string"
+ *          type="string",
+ *          example= "award description",
  *      ),
  *      @OA\Property(
  *          property="donor",
- *          type="string"
+ *          type="string",
+ *          example= "award donor",
  *      ),
+ *      @OA\Property(
+ *          property="image",
+ *          @OA\Property(
+ *             type="object",
+ *             ref="#/components/schemas/ImageResource"
+ *          )
+ *       ),
  *
- *
- *      example={
- *          "id": 1,
- *          "name": "award name",
- *          "description": "award description",
- *          "donor": "award donor",
- *          "image": "awardImagePath",
- *      }
  * )
  */
 class AwardResource extends JsonResource
@@ -51,7 +54,7 @@ class AwardResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'donor' => $this->donor,
-            'image' => new ImageResource($this->getFirstMediaUrl('award')),
+            'image' => new ImageResource($this->getFirstMedia('award')),
         ];
     }
 }

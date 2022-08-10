@@ -23,17 +23,19 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *          type="string",
  *          example="intenet"
  *      ),
- *      @OA\Property(
- *          property="image",
- *          type="string",
- *          example="image.jpg"
- *      ),
  *     @OA\Property(
  *          property="features",
  *          type="array",
  *          @OA\Items(
  *             type="object",
  *             ref="#/components/schemas/FeatureResource"
+ *          )
+ *       ),
+ *       @OA\Property(
+ *          property="image",
+ *          @OA\Property(
+ *             type="object",
+ *             ref="#/components/schemas/ImageResource"
  *          )
  *       ),
  *
@@ -46,8 +48,8 @@ class FeatureTitleResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'image' => new ImageResource($this->getFirstMediaUrl('featureTitle')),
-            'features' => FeatureResource::collection($this->features)
+            'image' => new ImageResource($this->getFirstMedia('featureTitle')),
+            'features' => FeatureResource::collection($this->features),
         ];
     }
 }
