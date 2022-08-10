@@ -18,51 +18,45 @@ Route::group([
 
 Route::group([
     "prefix" => 'question',
-    "controller" => Mobile\QuestionController::class
 ], function () {
-    Route::get('city/{city}/index', 'indexByCity');
-    Route::post('city/{city}/store', 'store');
-    Route::get('{question}/show', 'show');
-    Route::delete('{question}/delete', 'destroy');
+    Route::get('city/{city}/index', [Mobile\QuestionController::class, 'indexByCity']);
+    Route::post('city/{city}/store', [Mobile\QuestionController::class, 'store']);
+    Route::get('{question}/show', [Mobile\QuestionController::class, 'show']);
+    Route::delete('{question}/delete', [Mobile\QuestionController::class, 'destroy']);
 });
 
 
 Route::group([
     "prefix" => 'answer',
-    "controller" => Mobile\AnswerController::class
 ], function () {
-    Route::post('question/{question}/store', 'store');
-    Route::delete('{answer}/delete', 'destroy');
+    Route::post('question/{question}/store', [Mobile\AnswerController::class, 'store']);
+    Route::delete('{answer}/delete', [Mobile\AnswerController::class, 'destroy']);
 });
 
 
 Route::group([
     "prefix" => 'featureTitle',
-    "controller" => Mobile\FeatureTitleController::class
 ], function () {
-    Route::get('index', 'index');
+    Route::get('index', [Mobile\FeatureTitleController::class, 'index']);
 });
 
 
 Route::group([
     "prefix" => 'feature',
-    "controller" => Mobile\FeatureController::class
 ], function () {
-    Route::get('index', 'index');
+    Route::get('index', [Mobile\FeatureController::class, 'index']);
 });
 
 Route::group([
     "prefix" => 'type',
-    "controller" => Mobile\TypeController::class
 ], function () {
-    Route::get('index', 'index');
+    Route::get('index', [Mobile\TypeController::class, 'index']);
 });
 
 Route::group([
     "prefix" => 'option',
-    "controller" => Mobile\OptionController::class
 ], function () {
-    Route::get('index', 'index');
+    Route::get('index', [Mobile\OptionController::class, 'index']);
 });
 
 

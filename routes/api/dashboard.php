@@ -26,83 +26,71 @@ Route::group([
 
 Route::group([
     "prefix" => 'question',
-    "controller" => Dashboard\QuestionController::class
 ], function () {
-    Route::get('city/{city}/index', 'indexByCity');
-    Route::get('{question}/show', 'show');
-    Route::delete('{question}/delete', 'destroy');
+    Route::get('city/{city}/index', [Dashboard\QuestionController::class, 'indexByCity']);
+    Route::get('{question}/show', [Dashboard\QuestionController::class, 'show']);
+    Route::delete('{question}/delete', [Dashboard\QuestionController::class, 'destroy']);
 });
 
 Route::group([
     "prefix" => 'answer',
-    "controller" => Dashboard\AnswerController::class
 ], function () {
-    Route::delete('{answer}/delete', 'destroy');
+    Route::delete('{answer}/delete', [Dashboard\AnswerController::class, 'destroy']);
 });
 
 
 Route::group([
     "prefix" => 'featureTitle',
-    "controller" => Dashboard\FeatureTitleController::class
 ], function () {
-    Route::get('index', 'index');
-    Route::post('store', 'store');
-    Route::get('{featureTitle}/show', 'show');
-    Route::post('{featureTitle}/update', 'update');
-    Route::delete('{featureTitle}/delete', 'destroy');
+    Route::get('index', [Dashboard\FeatureTitleController::class, 'index']);
+    Route::post('store', [Dashboard\FeatureTitleController::class, 'store']);
+    Route::get('{featureTitle}/show', [Dashboard\FeatureTitleController::class, 'show']);
+    Route::post('{featureTitle}/update', [Dashboard\FeatureTitleController::class, 'update']);
+    Route::delete('{featureTitle}/delete', [Dashboard\FeatureTitleController::class, 'destroy']);
 });
 
 
 Route::group([
     "prefix" => 'feature',
-    "controller" => Dashboard\FeatureController::class
 ], function () {
-    Route::get('index', 'index');
-    Route::post('featureTitle/{featureTitle}/store', 'store');
-    Route::post('{feature}/update', 'update');
-    Route::delete('{feature}/delete', 'destroy');
+    Route::get('index', [Dashboard\FeatureController::class, 'index']);
+    Route::post('featureTitle/{featureTitle}/store', [Dashboard\FeatureController::class, 'store']);
+    Route::post('{feature}/update', [Dashboard\FeatureController::class, 'update']);
+    Route::delete('{feature}/delete', [Dashboard\FeatureController::class, 'destroy']);
 });
 
 
 Route::group([
     "prefix" => 'type',
-    "controller" => Dashboard\TypeController::class
 ], function () {
-    Route::get('index', 'index');
-    Route::post('store', 'store');
-    Route::get('{type}/show', 'show');
-    Route::post('{type}/update', 'update');
-    Route::delete('{type}/delete', 'destroy');
+    Route::get('index', [Dashboard\TypeController::class, 'index']);
+    Route::post('store', [Dashboard\TypeController::class, 'store']);
+    Route::get('{type}/show', [Dashboard\TypeController::class, 'show']);
+    Route::post('{type}/update', [Dashboard\TypeController::class, 'update']);
+    Route::delete('{type}/delete', [Dashboard\TypeController::class, 'destroy']);
 });
 
 
 Route::group([
     "prefix" => 'option',
-    "controller" => Dashboard\OptionController::class
 ], function () {
-    Route::get('index', 'index');
-    Route::post('type/{type}/store', 'store');
-    Route::post('{option}/update', 'update');
-    Route::delete('{option}/delete', 'destroy');
+    Route::get('index', [Dashboard\OptionController::class, 'index']);
+    Route::post('type/{type}/store', [Dashboard\OptionController::class, 'store']);
+    Route::post('{option}/update', [Dashboard\OptionController::class, 'update']);
+    Route::delete('{option}/delete', [Dashboard\OptionController::class, 'destroy']);
 });
 
 
 Route::group([
     "prefix" => 'award',
-    "controller" => Dashboard\AwardController::class
 ], function () {
-    Route::get('index', 'index');
-    Route::post('store', 'store');
-    Route::get('{award}/show', 'show');
-    Route::post('{award}/update', 'update');
-    Route::delete('{award}/delete', 'destroy');
+    Route::get('index',[Dashboard\AwardController::class,'index'] );
+    Route::post('store',[Dashboard\AwardController::class,'store'] );
+    Route::get('{award}/show',[Dashboard\AwardController::class,'show'] );
+    Route::post('{award}/update',[Dashboard\AwardController::class,'update'] );
+    Route::delete('{award}/delete',[Dashboard\AwardController::class,'destroy'] );
 });
 
-Route::group([
-    "prefix" => 'place',
-    "controller" => Dashboard\PlaceController::class
-], function () {
-});
 
 
 Route::group([
