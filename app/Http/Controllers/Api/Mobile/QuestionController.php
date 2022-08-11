@@ -179,6 +179,7 @@ class QuestionController extends Controller
      */
     public function store(StoreQuestionRequest $request, City $city)
     {
+
         $question = $city->questions()->create($request->validated());
 
         return response()->success(
