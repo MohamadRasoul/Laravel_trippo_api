@@ -4,7 +4,7 @@ namespace App\Http\Resources\Mobile;
 
 use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
-
+use Carbon\Carbon;
 
 /**
  * @OA\Schema(
@@ -105,7 +105,14 @@ class PlaceResource extends JsonResource
         $placeImage = $this->getMedia('place')->flatten();
         $placeImageAdmin = $this->getMedia('place_admin')->flatten();
         $images = $placeImage->merge($placeImageAdmin);
-
+        $time_now = Carbon::now()->format('H:i:s');
+        if($time_now > $this->open_at && $time_now < $this->close_at)
+        {
+            $is_open = true;
+        }
+        else {
+            $is_open = true;
+        }
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -120,6 +127,7 @@ class PlaceResource extends JsonResource
             'web_site' => $this->web_site,
             'phone_number' => $this->phone_number,
             'email' => $this->email,
+            'is_open' => $is_open,
             'open_at' => $this->open_at,
             'close_at' => $this->close_at,
             'created_at' => $this->created_at,
