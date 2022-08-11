@@ -106,12 +106,12 @@ class PlaceResource extends JsonResource
         $placeImageAdmin = $this->getMedia('place_admin')->flatten();
         $images = $placeImage->merge($placeImageAdmin);
         $time_now = Carbon::now()->format('H:i:s');
-        if($time_now > $this->open_at && $time_now < $this->close_at)
+        if($time_now >= $this->open_at && $time_now <= $this->close_at)
         {
             $is_open = true;
         }
         else {
-            $is_open = true;
+            $is_open = false;
         }
         return [
             'id' => $this->id,
