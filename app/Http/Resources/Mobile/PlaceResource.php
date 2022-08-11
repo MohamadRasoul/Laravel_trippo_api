@@ -118,8 +118,8 @@ class PlaceResource extends JsonResource
             'name' => $this->name,
             'about' => $this->about,
             'address' => $this->address,
-            'latitude' => $this->latitude,
-            'longitude' => $this->longitude,
+            'latitude' => (double)$this->latitude,
+            'longitude' => (double)$this->longitude,
             'ratting' => $this->ratting,
             // Todo
             'ratting_count' => rand(70, 2000),
