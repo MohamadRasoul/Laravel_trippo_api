@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Award;
 use App\Models\Option;
 use App\Models\Place;
 use Illuminate\Database\Migrations\Migration;
@@ -27,7 +28,7 @@ return new class extends Migration
             ######## Foreign keys  ########
 
             $table->foreignIdFor(Place::class)->constrained('places')->cascadeOnDelete();
-            $table->foreignIdFor(Option::class)->constrained('options')->cascadeOnDelete();
+            $table->foreignIdFor(Award::class)->constrained('awards')->cascadeOnDelete();
 
             $table->timestamps();
         });
