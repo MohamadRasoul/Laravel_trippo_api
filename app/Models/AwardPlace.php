@@ -19,7 +19,7 @@ class AwardPlace extends Model
     
     ########## Relations ##########
 
-
+ 
     ########## Query ##########
 
 

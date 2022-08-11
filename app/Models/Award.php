@@ -20,7 +20,10 @@ class Award extends Model implements HasMedia
 
 
     ########## Relations ##########
-
+    public function places()
+    {
+        return $this->belongsToMany(Place::class, 'award_places');
+    }
 
     ########## Query ##########
 
@@ -29,7 +32,7 @@ class Award extends Model implements HasMedia
 
 
     ########## Libraries ##########
-
+   
     public function registerMediaCollections(): void
     {
         $this

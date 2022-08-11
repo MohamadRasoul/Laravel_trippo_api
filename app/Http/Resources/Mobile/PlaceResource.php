@@ -106,13 +106,13 @@ class PlaceResource extends JsonResource
         $placeImageAdmin = $this->getMedia('place_admin')->flatten();
         $images = $placeImage->merge($placeImageAdmin);
         $time_now = Carbon::now()->format('H:i:s');
-        if($time_now >= $this->open_at && $time_now <= $this->close_at)
-        {
+        if ($time_now >= $this->open_at && $time_now <= $this->close_at) {
             $is_open = true;
-        }
-        else {
+        } else {
             $is_open = false;
         }
+
+
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -121,7 +121,7 @@ class PlaceResource extends JsonResource
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
             'ratting' => $this->ratting,
-            // Todo 
+            // Todo
             'ratting_count' => rand(70, 2000),
             'views' => $this->views,
             'web_site' => $this->web_site,
@@ -134,6 +134,7 @@ class PlaceResource extends JsonResource
             'city'      => $this->city->name,
             'type'      => $this->type->name,
             "images"       => ImageResource::collection($images),
+            "awards"       => AwardResource::collection($this->awards),
         ];
     }
 }

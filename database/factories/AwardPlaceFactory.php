@@ -22,7 +22,7 @@ class AwardPlaceFactory extends Factory
     {
         return [
             "place_id"   => \App\Models\Place::all()->random()->id,
-            "option_id"   => \App\Models\Option::all()->random()->id,
+            "award_id"   => \App\Models\Option::all()->random()->id,
         ];
     }
 }
