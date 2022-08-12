@@ -348,4 +348,19 @@ class PlaceController extends Controller
             ]
         );
     }
+
+
+    public function getPlacesWithPointMap(Request $request)
+    {
+        $places = Place::whereBetween('longitude', [$request->northeast_lng, $request->southwest_lng])
+        ->whereBetween('latitude', [$request->northeast_lat, $request->southwest_lat])
+        ->where('type_id',$request->type_id);
+
+        return response()->success(
+            'this is Places',
+            [
+                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
+            ]
+        );
+    }
 }
