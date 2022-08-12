@@ -60,6 +60,7 @@ Route::group([
 });
 
 
+
 Route::group([
     "prefix" => 'place',
 ], function () {
@@ -69,4 +70,12 @@ Route::group([
     Route::get('{place}/show', [Mobile\PlaceController::class, 'show']);
     Route::post('{place}/image/store', [Mobile\PlaceController::class, 'addImage']);
     Route::post('place_by_point_map', [Mobile\PlaceController::class, 'getPlacesWithPointMap']);
+});
+
+
+Route::group([
+    "prefix" => 'favourite',
+], function () {
+    Route::get('index', [Mobile\FavouritePlaceController::class, 'index']);
+    Route::post('{place_id}/changeStatus', [Mobile\FavouritePlaceController::class, 'changeStatus']);
 });

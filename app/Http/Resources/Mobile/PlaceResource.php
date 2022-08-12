@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Mobile;
 
 use App\Http\Resources\ImageResource;
+use App\Models\FavouritePlace;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Carbon\Carbon;
 
@@ -111,7 +112,13 @@ class PlaceResource extends JsonResource
         } else {
             $is_open = false;
         }
-
+        $favourite = FavouritePlace::where('place_id',$this->id)->count();
+        if ($favourite > 0) {
+           $is_favourite = true;
+        }
+        else {
+            $is_favourite = false;
+        }
 
         return [
             'id' => $this->id,
@@ -128,6 +135,7 @@ class PlaceResource extends JsonResource
             'phone_number' => $this->phone_number,
             'email' => $this->email,
             'is_open' => $is_open,
+            'is_favourite' => $is_favourite,
             'open_at' => $this->open_at,
             'close_at' => $this->close_at,
             'created_at' => $this->created_at,

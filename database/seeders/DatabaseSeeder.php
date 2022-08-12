@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             FeatureSeeder::class,
             FeaturePlaceSeeder::class,
             PlanContentSeeder::class,
+            FavouritePlaceSeeder::class,
         ]);
     }
 }
