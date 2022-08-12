@@ -40,7 +40,7 @@ class LoginAdminRequest extends FormRequest
     public function rules()
     {
         return [
-            'username'   => ['required', 'string', 'max:255'],
+            'username' =>['required', 'string', 'max:255'],
             'password'   => ['required', 'string', 'min:6'],
         ];
     }
@@ -50,6 +50,7 @@ class LoginAdminRequest extends FormRequest
     {
         return [
             'username'   => $this->username,
+            'email'   => $this->email,
             'password'   => $this->password,
         ];
     }

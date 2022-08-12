@@ -50,6 +50,7 @@ class LoginUserRequest extends FormRequest
     {
         return [
             'username'   => $this->username,
+            'email'   => $this->email,
             'password'   => $this->password,
         ];
     }

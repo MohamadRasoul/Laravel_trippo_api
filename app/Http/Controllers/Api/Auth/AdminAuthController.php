@@ -132,19 +132,22 @@ class AdminAuthController extends Controller
      */
     public function login(LoginAdminRequest $request)
     {
-
-        $token = Auth::guard('admin_api')->attempt($request->validated());
+        $field = filter_var($request->input('username'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $request->merge([$field => $request->input('username')]);
+        $token = Auth::guard('admin_api')->attempt($request->only($field, 'password'));
         if (!$token) {
             return response()->error('Unauthorized', 401);
         }
 
         $admin = Auth::guard('admin_api')->user();
 
-        return response()->success('admin login successfully',
+        return response()->success(
+            'admin login successfully',
             [
                 'admin' => $admin,
                 'token' => $token,
-            ]);
+            ]
+        );
     }
 
     /**
