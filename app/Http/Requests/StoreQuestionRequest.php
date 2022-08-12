@@ -44,7 +44,7 @@ class StoreQuestionRequest extends FormRequest
     {
         return [
             'text' => $this->text,
-            'user_id' => Auth::guard('user_api')->user()
+            'user_id' => Auth::guard('user_api')->user()->id
         ];
     }
 }
