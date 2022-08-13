@@ -352,8 +352,8 @@ class PlaceController extends Controller
 
     public function getPlacesWithPointMap(Request $request)
     {
-        $places = Place::whereBetween('longitude', [$request->northeast_lng, $request->southwest_lng])
-        ->whereBetween('latitude', [$request->northeast_lat, $request->southwest_lat])
+        $places = Place::whereBetween('longitude', [min($request->northeast_lng,$request->southwest_lng),max($request->northeast_lng,$request->southwest_lng)])
+        ->whereBetween('latitude', [min($request->northeast_lat, $request->southwest_lat),max($request->northeast_lat, $request->southwest_lat)])
         ->where('type_id',$request->type_id);
 
         return response()->success(
