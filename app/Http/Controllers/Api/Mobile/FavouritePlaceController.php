@@ -28,7 +28,7 @@ class FavouritePlaceController extends Controller
         return response()->success(
             'this is all FavouritePlace',
             [
-                "FavouritePlace" => PlaceResource::collection($places),
+                "places" => PlaceResource::collection($places),
             ]
         );
     }
