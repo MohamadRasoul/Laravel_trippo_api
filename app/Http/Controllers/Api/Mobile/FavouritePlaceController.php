@@ -17,6 +17,7 @@ class FavouritePlaceController extends Controller
 {
     public function index()
     {
+        $places = array();
         $user_id = Auth::guard('user_api')->user()->id;
         $favouriteplace = FavouritePlace::where('user_id',$user_id)->orderBy('id')->get();
 
