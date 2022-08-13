@@ -69,7 +69,7 @@ Route::group([
     Route::get('{place}/image/index', [Mobile\PlaceController::class, 'indexImage']);
     Route::get('{place}/show', [Mobile\PlaceController::class, 'show']);
     Route::post('{place}/image/store', [Mobile\PlaceController::class, 'addImage']);
-    Route::post('place_by_point_map', [Mobile\PlaceController::class, 'getPlacesWithPointMap']);
+    Route::get('place_by_point_map', [Mobile\PlaceController::class, 'getPlacesWithPointMap']);
 });
 
 
