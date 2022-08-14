@@ -16,9 +16,12 @@ class Answer extends Model
 
     ########## Accessors / Mutators ##########
 
-    
-    ########## Relations ##########
 
+    ########## Relations ##########
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     ########## Query ##########
 

@@ -2703,6 +2703,9 @@
                         "items": {
                             "$ref": "#/components/schemas/ImageResource"
                         }
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/UserInfoResource"
                     }
                 },
                 "type": "object"
@@ -2847,7 +2850,7 @@
                         "example": "what is the most important thing in this city?"
                     },
                     "user": {
-                        "$ref": "#/components/schemas/UserQuestionResource"
+                        "$ref": "#/components/schemas/UserInfoResource"
                     },
                     "answers": {
                         "schema": "QuestionResource",
@@ -2883,9 +2886,9 @@
                 },
                 "type": "object"
             },
-            "UserQuestionResource": {
-                "title": "UserQuestionResource",
-                "description": "UserQuestionResource body data",
+            "UserInfoResource": {
+                "title": "UserInfoResource",
+                "description": "UserInfoResource body data",
                 "properties": {
                     "id": {
                         "type": "string",

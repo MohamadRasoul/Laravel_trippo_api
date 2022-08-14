@@ -7,8 +7,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
  * @OA\Schema(
- *      title="UserQuestionResource",
- *      description="UserQuestionResource body data",
+ *      title="UserInfoResource",
+ *      description="UserInfoResource body data",
  *      type="object",
  *
  *
@@ -36,7 +36,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  */
 
 
-class UserQuestionResource extends JsonResource
+class UserInfoResource extends JsonResource
 {
 
 
@@ -46,10 +46,10 @@ class UserQuestionResource extends JsonResource
 
 
         return [
-            "id"                => $this->id,
-            "name"              => $this->first_name . ' ' . $this->last_name,
-            "username"          => $this->username,
-            'image'             => new ImageResource($this->getMedia('user')->flatten())
+            "id"          => $this->id,
+            "name"        => $this->first_name . ' ' . $this->last_name,
+            "username"    => $this->username,
+            'image'       => new ImageResource($this->getMedia('user')->flatten())
         ];
     }
 }

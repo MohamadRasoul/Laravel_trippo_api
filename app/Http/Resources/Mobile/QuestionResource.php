@@ -23,7 +23,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *      ),
  *      @OA\Property(
  *          property="user",
- *          ref="#/components/schemas/UserQuestionResource"
+ *          ref="#/components/schemas/UserInfoResource"
  *          )
  *       ),
  *       @OA\Property(
@@ -50,7 +50,7 @@ class QuestionResource extends JsonResource
         return [
             'id'        => $this->id,
             'text'      => $this->text,
-            'user'      => new UserQuestionResource($this->user),
+            'user'      => new UserInfoResource($this->user),
             'answers'   => AnswerResource::collection($this->answers()->latest()->limit(3)->get()),
         ];
     }

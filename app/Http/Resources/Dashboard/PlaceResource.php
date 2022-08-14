@@ -93,7 +93,14 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *            ref="#/components/schemas/ImageResource"
  *         )
  *      ),
- *
+ *       @OA\Property(
+ *          property="options",
+ *          type="array",
+ *          @OA\Items(
+ *             type="object",
+ *             ref="#/components/schemas/OptionResource"
+ *          )
+ *       ),
  * )
  */
 class PlaceResource extends JsonResource
@@ -105,6 +112,14 @@ class PlaceResource extends JsonResource
         $placeImage = $this->getMedia('place')->flatten();
         $placeImageAdmin = $this->getMedia('place_admin')->flatten();
         $images = $placeImage->merge($placeImageAdmin);
+
+
+        // $feature = $this->features()->groupBy(function ($it) {
+        //     return $it->content->id;
+        // })->map(function ($products, $content_id) {
+        //     $content = Content::find($content_id);
+        //     return new ContentWithProductResource($content, $products);
+        // })->flatten(1);
 
         return [
             'id'            => $this->id,
@@ -122,6 +137,8 @@ class PlaceResource extends JsonResource
             'close_at'      => $this->close_at,
             'created_at'    => $this->created_at,
             "images"        => ImageResource::collection($images),
+            'options'       => OptionResource::collection($this->options),
+            'features'      => OptionResource::collection($this->options),
         ];
     }
 }

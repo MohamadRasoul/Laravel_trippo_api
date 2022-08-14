@@ -13,18 +13,19 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *
  *      @OA\Property(
  *          property="id",
- *          type="string"
+ *          type="string",
+ *          example= 1,
  *      ),
  *      @OA\Property(
  *          property="text",
- *          type="string"
+ *          type="string",
+ *          example= "Yes, I was very happy whev visit it",
  *      ),
- *
- *
- *      example={
- *          "id": 1,
- *          "text": "Yes, I was very happy whev visit it",
- *      }
+ *      @OA\Property(
+ *          property="user",
+ *          ref="#/components/schemas/UserInfoResource"
+ *          )
+ *       ),
  * )
  */
 
@@ -35,10 +36,11 @@ class AnswerResource extends JsonResource
 
     public function toArray($request)
     {
-//        return parent::toArray($request);
+        //        return parent::toArray($request);
         return [
             'id'        => $this->id,
             'text'      => $this->text,
+            'user'      => new UserInfoResource($this->user),
         ];
     }
 }

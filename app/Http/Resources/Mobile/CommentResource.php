@@ -55,6 +55,11 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *            ref="#/components/schemas/ImageResource"
  *         )
  *      ),
+ *      @OA\Property(
+ *          property="user",
+ *          ref="#/components/schemas/UserInfoResource"
+ *          )
+ *       ),
  * )
  */
 
@@ -76,6 +81,7 @@ class CommentResource extends JsonResource
             "visit_type"     => $this->visitType->name,
             "created_at"     => $this->created_at,
             "images"         => ImageResource::collection($this->getMedia('comment')->flatten()),
+            'user'           => new UserInfoResource($this->user),
         ];
     }
 }
