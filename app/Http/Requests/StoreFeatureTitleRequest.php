@@ -24,7 +24,7 @@ use Illuminate\Foundation\Http\FormRequest;
  *
  *      example={
  *         "title"   : "any Title",
- *         "image"   : "image.jpg",
+ *         "image"   : "image.png",
  *      }
  * )
  */

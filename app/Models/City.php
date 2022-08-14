@@ -25,6 +25,11 @@ class City extends Model implements HasMedia
         return $this->hasMany(Question::class);
     }
 
+    public function userViews()
+    {
+        return $this->morphToMany(User::class, 'viewable', 'views')->withPivot('count');
+    }
+
     ########## Query ##########
 
 

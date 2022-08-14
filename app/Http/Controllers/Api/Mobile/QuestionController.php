@@ -99,7 +99,7 @@ class QuestionController extends Controller
      */
     public function indexByCity(City $city)
     {
-        $questions = $city->questions()->latest();
+        $questions = $city->questions()->with(['user'])->latest();
 
         return response()->success(
             'this is all questions belong to your city',

@@ -34,9 +34,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *      ),
  *      @OA\Property(
  *          property="image",
- *          @OA\Property(
- *             type="object",
- *             ref="#/components/schemas/ImageResource"
+ *          ref="#/components/schemas/ImageResource"
  *          )
  *       ),
  * )

@@ -723,6 +723,51 @@
                     "longitude": "37.1343"
                 }
             },
+            "StoreCommentRequest": {
+                "title": "StorecommentRequest",
+                "description": "StorecommentRequest body data",
+                "required": [
+                    "tilte",
+                    "description",
+                    "rating",
+                    "full_date",
+                    "images",
+                    "visit_type_id"
+                ],
+                "properties": {
+                    "tilte": {
+                        "type": "string",
+                        "example": "first comment"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "this is the first comment"
+                    },
+                    "rating": {
+                        "type": "string",
+                        "example": "5"
+                    },
+                    "full_date": {
+                        "type": "string",
+                        "example": "5-10-2022"
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "image.png",
+                            "image.png"
+                        ]
+                    },
+                    "visit_type_id": {
+                        "type": "string",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
             "StoreFeatureRequest": {
                 "title": "StoreFeatureRequest",
                 "description": "StoreFeatureRequest body data",
@@ -757,7 +802,7 @@
                 "type": "object",
                 "example": {
                     "title": "any Title",
-                    "image": "image.jpg"
+                    "image": "image.png"
                 }
             },
             "StoreOptionRequest": {
@@ -905,7 +950,7 @@
                 "type": "object",
                 "example": {
                     "name": "any name",
-                    "image": "image.jpg"
+                    "image": "image.png"
                 }
             },
             "UpdateAwardRequest": {
@@ -995,7 +1040,7 @@
                 "type": "object",
                 "example": {
                     "title": "any Title",
-                    "image": "image.jpg"
+                    "image": "image.png"
                 }
             },
             "UpdateOptionRequest": {
@@ -1120,7 +1165,7 @@
                 "type": "object",
                 "example": {
                     "name": "any name",
-                    "image": "image.jpg"
+                    "image": "image.png"
                 }
             },
             "AdminResource": {

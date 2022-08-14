@@ -21,6 +21,11 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *          type="string",
  *          example="what is the most important thing in this city?"
  *      ),
+ *      @OA\Property(
+ *          property="user",
+ *          ref="#/components/schemas/UserQuestionResource"
+ *          )
+ *       ),
  *       @OA\Property(
  *          property="answers",
  *          type="array",
@@ -45,6 +50,7 @@ class QuestionResource extends JsonResource
         return [
             'id'        => $this->id,
             'text'      => $this->text,
+            'user'      => new UserQuestionResource($this->user),
             'answers'   => AnswerResource::collection($this->answers()->latest()->limit(3)->get()),
         ];
     }

@@ -6,8 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 // /**
 //  * @OA\Schema(
-//  *      title="UpdatecommentRequest",
-//  *      description="UpdatecommentRequest body data",
+//  *      title="StoreViewRequest",
+//  *      description="StoreViewRequest body data",
 //  *      type="object",
 //  *      required={"username","email"},
 //  *
@@ -29,7 +29,7 @@ use Illuminate\Foundation\Http\FormRequest;
 //  * )
 //  */
 
-class UpdateCommentRequest extends FormRequest
+class StoreViewRequest extends FormRequest
 {
     
     public function authorize()

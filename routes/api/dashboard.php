@@ -84,11 +84,11 @@ Route::group([
 Route::group([
     "prefix" => 'award',
 ], function () {
-    Route::get('index',[Dashboard\AwardController::class,'index'] );
-    Route::post('store',[Dashboard\AwardController::class,'store'] );
-    Route::get('{award}/show',[Dashboard\AwardController::class,'show'] );
-    Route::post('{award}/update',[Dashboard\AwardController::class,'update'] );
-    Route::delete('{award}/delete',[Dashboard\AwardController::class,'destroy'] );
+    Route::get('index', [Dashboard\AwardController::class, 'index']);
+    Route::post('store', [Dashboard\AwardController::class, 'store']);
+    Route::get('{award}/show', [Dashboard\AwardController::class, 'show']);
+    Route::post('{award}/update', [Dashboard\AwardController::class, 'update']);
+    Route::delete('{award}/delete', [Dashboard\AwardController::class, 'destroy']);
 });
 
 
@@ -107,4 +107,21 @@ Route::group([
     Route::post('{place}/update', [Dashboard\PlaceController::class, 'update']);
 
     Route::delete('{place}/delete', [Dashboard\PlaceController::class, 'destroy']);
+});
+
+
+Route::group([
+    "prefix" => 'comment',
+], function () {
+    Route::get('index', [Dashboard\CommentController::class, 'index']);
+    Route::get('{comment}/show', [Dashboard\CommentController::class, 'show']);
+
+    Route::delete('{comment}/delete', [Dashboard\CommentController::class, 'destroy']);
+});
+
+
+Route::group([
+    "prefix" => 'visitType',
+], function () {
+    Route::get('index', [Dashboard\VisitTypeController::class, 'index']);
 });

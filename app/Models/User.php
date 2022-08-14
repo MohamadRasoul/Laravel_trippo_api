@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable implements JWTSubject, HasMedia
 
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, InteractsWithMedia;
 
     protected $guarded = [];
 
@@ -24,6 +25,15 @@ class User extends Authenticatable implements JWTSubject
 
 
     ########## Relations ##########
+    public function cityViews()
+    {
+        return $this->morphedByMany(City::class, 'viewable', 'views')->withPivot('count');
+    }
+
+    public function placeViews()
+    {
+        return $this->morphedByMany(Place::class, 'viewable', 'views')->withPivot('count');
+    }
 
 
     ########## Query ##########
@@ -34,6 +44,12 @@ class User extends Authenticatable implements JWTSubject
 
     ########## Libraries ##########
 
+    public function registerMediaCollections(): void
+    {
+        $this
+            ->addMediaCollection('user')
+            ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/city.jpg');
+    }
     public function getJWTIdentifier()
     {
         return $this->getKey();

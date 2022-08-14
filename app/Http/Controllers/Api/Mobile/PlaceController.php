@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api\Mobile;
 
+use App\Enums\ModelEnum;
+use App\Events\showModel;
 use App\Http\Controllers\Controller;
 
 use App\Models\Place;
@@ -243,6 +245,8 @@ class PlaceController extends Controller
      */
     public function show(Place $place)
     {
+        event(new showModel($place, ModelEnum::Place));
+
         return response()->success(
             'this is your place',
             [
@@ -352,9 +356,9 @@ class PlaceController extends Controller
 
     public function getPlacesWithPointMap(Request $request)
     {
-        $places = Place::whereBetween('longitude', [min($request->northeast_lng,$request->southwest_lng),max($request->northeast_lng,$request->southwest_lng)])
-        ->whereBetween('latitude', [min($request->northeast_lat, $request->southwest_lat),max($request->northeast_lat, $request->southwest_lat)])
-        ->where('type_id',$request->type_id);
+        $places = Place::whereBetween('longitude', [min($request->northeast_lng, $request->southwest_lng), max($request->northeast_lng, $request->southwest_lng)])
+            ->whereBetween('latitude', [min($request->northeast_lat, $request->southwest_lat), max($request->northeast_lat, $request->southwest_lat)])
+            ->where('type_id', $request->type_id);
 
         return response()->success(
             'this is Places',

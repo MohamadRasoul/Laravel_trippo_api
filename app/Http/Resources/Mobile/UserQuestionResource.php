@@ -7,8 +7,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
  * @OA\Schema(
- *      title="TypeResource",
- *      description="TypeResource body data",
+ *      title="UserQuestionResource",
+ *      description="UserQuestionResource body data",
  *      type="object",
  *
  *
@@ -20,17 +20,13 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *      @OA\Property(
  *          property="name",
  *          type="string",
- *          example="any name",
+ *          example= "mohamad rasoul",
  *      ),
- *      
  *      @OA\Property(
- *          property="options",
- *          type="array",
- *          @OA\Items(
- *             type="object",
- *             ref="#/components/schemas/OptionResource"
- *          )
- *       ),
+ *          property="username",
+ *          type="string",
+ *          example= "mohamad_ra",
+ *      ),
  *      @OA\Property(
  *          property="image",
  *          ref="#/components/schemas/ImageResource"
@@ -38,18 +34,22 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *       ),
  * )
  */
-class TypeResource extends JsonResource
+
+
+class UserQuestionResource extends JsonResource
 {
 
 
     public function toArray($request)
     {
-        //        return parent::toArray($request);
+        return parent::toArray($request);
+
+
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'options' => OptionResource::collection($this->options),
-            'image' => new ImageResource($this->getFirstMedia('type')),
+            "id"                => $this->id,
+            "name"              => $this->first_name . ' ' . $this->last_name,
+            "username"          => $this->username,
+            'image'             => new ImageResource($this->getMedia('user')->flatten())
         ];
     }
 }

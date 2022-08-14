@@ -33,9 +33,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *       ),
  *       @OA\Property(
  *          property="image",
- *          @OA\Property(
- *             type="object",
- *             ref="#/components/schemas/ImageResource"
+ *          ref="#/components/schemas/ImageResource"
  *          )
  *       ),
  *
@@ -46,9 +44,9 @@ class FeatureTitleResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'title' => $this->title,
-            'image' => new ImageResource($this->getFirstMedia('featureTitle')),
+            'id'       => $this->id,
+            'title'    => $this->title,
+            'image'    => new ImageResource($this->getFirstMedia('featureTitle')),
             'features' => FeatureResource::collection($this->features),
         ];
     }

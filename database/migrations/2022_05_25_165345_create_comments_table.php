@@ -22,15 +22,16 @@ return new class extends Migration {
 
             $table->string('tilte');
             $table->string('description')->nullable();
+            $table->integer('rating')->default(0);
             $table->date('full_date')->nullable();
 
 
             ######## Foreign keys  ########
 
-            $table->foreignIdFor(Place::class)->constrained('places')->cascadeOnDelete();
-            $table->foreignIdFor(Plan::class)->constrained('plans')->cascadeOnDelete();
-            $table->foreignIdFor(VisitType::class)->constrained('visit_types')->cascadeOnDelete();
-            $table->foreignIdFor(Experience::class)->constrained('experiences')->cascadeOnDelete();
+            $table->foreignIdFor(Place::class)->nullable()->constrained('places')->cascadeOnDelete();
+            $table->foreignIdFor(Plan::class)->nullable()->constrained('plans')->cascadeOnDelete();
+            $table->foreignIdFor(VisitType::class)->nullable()->constrained('visit_types')->cascadeOnDelete();
+            $table->foreignIdFor(Experience::class)->nullable()->constrained('experiences')->cascadeOnDelete();
             $table->foreignIdFor(User::class)->constrained('users')->cascadeOnDelete();
 
             $table->timestamps();

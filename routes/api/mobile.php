@@ -74,6 +74,38 @@ Route::group([
 
 
 Route::group([
+    "prefix" => 'comment',
+], function () {
+    Route::get('index', [Mobile\CommentController::class, 'index']);
+    Route::get('{comment}/show', [Mobile\CommentController::class, 'show']);
+
+    Route::post('place/{place}/store', [Mobile\CommentController::class, 'storePlaceComment']);
+    Route::post('experience/{experience}/store', [Mobile\CommentController::class, 'storeExperienceComment']);
+});
+
+Route::group([
+    "prefix" => 'visitType',
+], function () {
+    Route::get('index', [Mobile\VisitTypeController::class, 'index']);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::group([
     "prefix" => 'favourite',
 ], function () {
     Route::get('index', [Mobile\FavouritePlaceController::class, 'index']);

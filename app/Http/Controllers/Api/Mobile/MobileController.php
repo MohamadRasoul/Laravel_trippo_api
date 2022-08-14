@@ -55,6 +55,18 @@ use App\Http\Controllers\Controller;
  *     name="Option",
  *     description="API Endpoints of Option"
  * )
+ * @OA\Tag(
+ *     name="Place",
+ *     description="API Endpoints of Place"
+ * )
+ * @OA\Tag(
+ *     name="Comment",
+ *     description="API Endpoints of Comment"
+ * )
+ * @OA\Tag(
+ *     name="VisitType",
+ *     description="API Endpoints of VisitType"
+ * )
  * @OA\PathItem(path="/api")
  *
  *

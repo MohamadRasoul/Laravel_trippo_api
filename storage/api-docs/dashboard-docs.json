@@ -952,6 +952,215 @@
                 ]
             }
         },
+        "/api/dashboard/comment/index": {
+            "get": {
+                "tags": [
+                    "Comment"
+                ],
+                "summary": "Get All comments",
+                "description": "",
+                "operationId": "IndexComment",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    },
+                    {
+                        "name": "filter[place_id]",
+                        "in": "query",
+                        "description": "filter by place",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filter[experience_id]",
+                        "in": "query",
+                        "description": "filter by experience",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filter[plane_id]",
+                        "in": "query",
+                        "description": "filter by plane",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all comments"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "comments": {
+                                                    "$ref": "#/components/schemas/CommentResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/comment/{id}/show": {
+            "get": {
+                "tags": [
+                    "Comment"
+                ],
+                "summary": "Get comment By ID",
+                "description": "",
+                "operationId": "Showcomment",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "comment ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is your comment"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "comment": {
+                                                    "$ref": "#/components/schemas/CommentResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/comment/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "Comment"
+                ],
+                "summary": "Delete comment By ID",
+                "description": "",
+                "operationId": "Deletecomment",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "comment ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "comment is deleted success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
         "/api/dashboard/feature/index": {
             "get": {
                 "tags": [
@@ -2904,6 +3113,76 @@
                 ]
             }
         },
+        "/api/dashboard/visitType/index": {
+            "get": {
+                "tags": [
+                    "VisitType"
+                ],
+                "summary": "Get All VisitTypes",
+                "description": "",
+                "operationId": "IndexVisitType",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all visitTypes"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "visitTypes": {
+                                                    "$ref": "#/components/schemas/VisitTypeResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
         "/api/image/upload": {
             "post": {
                 "tags": [
@@ -3313,6 +3592,51 @@
                     "longitude": "37.1343"
                 }
             },
+            "StoreCommentRequest": {
+                "title": "StorecommentRequest",
+                "description": "StorecommentRequest body data",
+                "required": [
+                    "tilte",
+                    "description",
+                    "rating",
+                    "full_date",
+                    "images",
+                    "visit_type_id"
+                ],
+                "properties": {
+                    "tilte": {
+                        "type": "string",
+                        "example": "first comment"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "this is the first comment"
+                    },
+                    "rating": {
+                        "type": "string",
+                        "example": "5"
+                    },
+                    "full_date": {
+                        "type": "string",
+                        "example": "5-10-2022"
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "image.png",
+                            "image.png"
+                        ]
+                    },
+                    "visit_type_id": {
+                        "type": "string",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
             "StoreFeatureRequest": {
                 "title": "StoreFeatureRequest",
                 "description": "StoreFeatureRequest body data",
@@ -3347,7 +3671,7 @@
                 "type": "object",
                 "example": {
                     "title": "any Title",
-                    "image": "image.jpg"
+                    "image": "image.png"
                 }
             },
             "StoreOptionRequest": {
@@ -3495,7 +3819,7 @@
                 "type": "object",
                 "example": {
                     "name": "any name",
-                    "image": "image.jpg"
+                    "image": "image.png"
                 }
             },
             "UpdateAwardRequest": {
@@ -3585,7 +3909,7 @@
                 "type": "object",
                 "example": {
                     "title": "any Title",
-                    "image": "image.jpg"
+                    "image": "image.png"
                 }
             },
             "UpdateOptionRequest": {
@@ -3710,7 +4034,7 @@
                 "type": "object",
                 "example": {
                     "name": "any name",
-                    "image": "image.jpg"
+                    "image": "image.png"
                 }
             },
             "AnswerResource": {
@@ -3795,6 +4119,47 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/QuestionResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "CommentResource": {
+                "title": "CommentResource",
+                "description": "CommentResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": 7
+                    },
+                    "tilte": {
+                        "type": "string",
+                        "example": "first comment"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "this is the first comment"
+                    },
+                    "rating": {
+                        "type": "string",
+                        "example": "5"
+                    },
+                    "full_date": {
+                        "type": "string",
+                        "example": "5-10-2022"
+                    },
+                    "visit_type": {
+                        "type": "string",
+                        "example": "family"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "example": "2022-08-14T17:46:00.000000Z"
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ImageResource"
                         }
                     }
                 },
@@ -3982,6 +4347,23 @@
                 },
                 "type": "object"
             },
+            "VisitTypeResource": {
+                "title": "VisitTypeResource",
+                "description": "VisitTypeResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "id": 1,
+                    "name": "mohamad_ra"
+                }
+            },
             "ImageResource": {
                 "title": "ImageResource",
                 "description": "ImageResource body data",
@@ -4049,6 +4431,22 @@
         {
             "name": "Option",
             "description": "API Endpoints of Option"
+        },
+        {
+            "name": "Award",
+            "description": "API Endpoints of Award"
+        },
+        {
+            "name": "Place",
+            "description": "API Endpoints of Place"
+        },
+        {
+            "name": "Comment",
+            "description": "API Endpoints of Comment"
+        },
+        {
+            "name": "VisitType",
+            "description": "API Endpoints of VisitType"
         }
     ]
 }

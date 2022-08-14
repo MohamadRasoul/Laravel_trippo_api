@@ -44,10 +44,21 @@ class Place extends Model implements HasMedia
     {
         return $this->belongsTo(Type::class);
     }
-    public function favourite(){
+
+    public function favourite()
+    {
         return $this->hasMany(FavouritePlace::class);
     }
-    
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function userViews()
+    {
+        return $this->morphToMany(User::class, 'viewable', 'views')->withPivot('count');
+    }
     ########## Query ##########
 
 

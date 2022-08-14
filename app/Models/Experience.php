@@ -16,9 +16,13 @@ class Experience extends Model
 
     ########## Accessors / Mutators ##########
 
-    
-    ########## Relations ##########
 
+    ########## Relations ##########
+    
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 
     ########## Query ##########
 
