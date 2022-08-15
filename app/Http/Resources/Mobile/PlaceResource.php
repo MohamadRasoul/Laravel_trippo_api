@@ -179,7 +179,6 @@ class PlaceResource extends JsonResource
             'latitude' => (float)$this->latitude,
             'longitude' => (float)$this->longitude,
             'ratting' => round($this->ratting),
-
             'ratting_count' => [
                 "all" => $comments->count(),
                 "Family" => $commentsFamily->count(),
