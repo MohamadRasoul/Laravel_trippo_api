@@ -53,11 +53,12 @@ class UpdateExperienceRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required'],
-            'about' => ['required'],
-            'address' => ['required'],
+            'name' => ['nullable'],
+            'about' => ['nullable'],
+            'address' => ['nullable'],
             'latitude' => ['nullable'],
             'longitude' => ['nullable'],
+            'price_begin' => ['nullable'],
         ];
     }
 

@@ -313,11 +313,13 @@ class ExperienceController extends Controller
     {
         $experience->update($request->validated());
 
-        (new ImageService)->storeImage(
-            model: $experience,
-            image: $request->image,
-            collection: 'experience'
-        );
+        foreach ($request->images as $image) {
+            (new ImageService)->storeImage(
+                model: $experience,
+                image: $image,
+                collection: 'experience'
+            );
+        }
 
         return response()->success(
             'experience is updated success',
