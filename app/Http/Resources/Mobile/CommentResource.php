@@ -80,7 +80,7 @@ class CommentResource extends JsonResource
             "full_date"      => $this->full_date,
             "visit_type"     => $this->visitType->name,
             "created_at"     => $this->created_at,
-            "images"         => ImageResource::collection($this->getMedia('comment')->flatten()),
+            "images"         => ImageResource::collection($this->load('media')->getMedia('comment')),
             'user'           => new UserInfoResource($this->user),
         ];
     }

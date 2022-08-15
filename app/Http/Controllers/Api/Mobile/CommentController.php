@@ -322,7 +322,6 @@ class CommentController extends Controller
      *    ),
      *
      *
-     *
      *    @OA\Response(
      *        response=200,
      *        description="Successful operation",

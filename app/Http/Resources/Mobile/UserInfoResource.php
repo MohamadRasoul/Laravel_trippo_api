@@ -44,10 +44,11 @@ class UserInfoResource extends JsonResource
     {
         
         return [
-            "id"          => $this->id,
-            "name"        => $this->first_name . ' ' . $this->last_name,
-            "username"    => $this->username,
-            'image'       => new ImageResource($this->getFirstMedia('user'))
+            "id"         => $this->id,
+            "first_name" => $this->first_name,
+            "last_name"  => $this->last_name,
+            "username"   => $this->username,
+            'image'      => new ImageResource($this->getFirstMedia('user'))
         ];
     }
 }
