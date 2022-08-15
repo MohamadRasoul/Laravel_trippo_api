@@ -165,12 +165,6 @@ class PlaceResource extends JsonResource
                 return FeatureResource::collection($value);
             });
 
-        $comments = $this->comments;
-        $commentsFamily = $comments->where('visit_type_id', 1);
-        $commentsSolo = $comments->where('visit_type_id', 2);
-        $commentsBusiness = $comments->where('visit_type_id', 3);
-        $commentsFriends = $comments->where('visit_type_id', 4);
-
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -179,13 +173,8 @@ class PlaceResource extends JsonResource
             'latitude' => (float)$this->latitude,
             'longitude' => (float)$this->longitude,
             'ratting' => round($this->ratting),
-            'ratting_count' => [
-                "all" => $comments->count(),
-                "Family" => $commentsFamily->count(),
-                "Solo" => $commentsSolo->count(),
-                "Business" => $commentsBusiness->count(),
-                "Friends" => $commentsFriends->count(),
-            ],
+
+            'ratting_count' => $this->comments()->count(),
             'image_count' => count($images),
             'views' => $this->views,
             'web_site' => $this->web_site,
