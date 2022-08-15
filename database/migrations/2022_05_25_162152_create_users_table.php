@@ -25,8 +25,8 @@ return new class extends Migration
             $table->timestamp('date_of_birthday')->nullable();
             $table->string('email')->unique();
             $table->string('phone_number')->nullable();
-            $table->double('latitude')->nullable();
-            $table->double('longitude')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->foreignIdFor(City::class)->nullable()->constrained('cities')->cascadeOnDelete();

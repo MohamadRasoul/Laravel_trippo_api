@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Api\Dashboard;
 
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\ApproveHostRequest;
+use App\Http\Requests\RejectHostRequest;
 use App\Models\User;
 
 use App\Services\ImageService;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-
+use App\Http\Resources\Auth\UserResource;
+use App\Http\Resources\Dashboard\UserResource as DashboardUserResource;
 
 class UserController extends Controller
 {
@@ -385,5 +387,34 @@ class UserController extends Controller
         $user->delete();
 
         return response()->success('user is deleted success');
+    }
+
+
+    public function getAllRequestHost()
+    {
+        $users = User::where('is_host',1)->orderBy('id');
+        return response()->success(
+            'this is all requests users for host',
+            [
+                "users" => DashboardUserResource::collection($users->paginate(request()->perPage ?? $users->count())),
+            ]
+        );
+    }
+
+    public function approveRequestHost(ApproveHostRequest $request, User $user)
+    {
+        $user->update($request->validated());
+        return response()->success(
+            'approve request host success',
+        );
+    }
+
+    
+    public function rejectRequestHost(RejectHostRequest $request, User $user)
+    {
+        $user->update($request->validated());
+        return response()->success(
+            'reject request host success',
+        );
     }
 }
