@@ -135,3 +135,10 @@ Route::group([
     Route::get('index', [Mobile\FavouritePlaceController::class, 'index']);
     Route::post('{place_id}/changeStatus', [Mobile\FavouritePlaceController::class, 'changeStatus']);
 });
+
+
+Route::group([
+    "prefix" => 'user',
+], function () {
+    Route::post('requestHost', [Mobile\UserController::class, 'requestHost']);
+});
