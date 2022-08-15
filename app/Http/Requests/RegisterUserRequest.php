@@ -98,12 +98,6 @@ class RegisterUserRequest extends FormRequest
             'username' => ['required', 'string', 'max:255', 'unique:users,username'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'about' => ['required', 'string', 'max:255'],
-            'gender' => ['required', 'max:255', new Enum(GenderEnum::class)],
-            'date_of_birthday' => ['required', 'string', 'max:255'],
-            'phone_number' => ['required', 'string', 'max:255'],
-            'latitude' => ['required', 'string', 'max:255'],
-            'longitude' => ['required', 'string', 'max:255'],
         ];
     }
 
@@ -116,12 +110,6 @@ class RegisterUserRequest extends FormRequest
             'username' => $this->username,
             'email' => $this->email,
             'password' => Hash::make($this->password),
-            'about' => $this->about,
-            'gender' => $this->gender,
-            'date_of_birthday' => $this->date_of_birthday,
-            'phone_number' => $this->phone_number,
-            'latitude' => $this->latitude,
-            'longitude' => $this->longitude,
         ];
     }
 }

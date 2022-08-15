@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginUserRequest;
 use App\Http\Requests\RegisterUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\Auth\UserResource;
 use App\Models\User;
+use App\Services\ImageService;
 use Illuminate\Support\Facades\Auth;
 
 class UserAuthController extends Controller
@@ -197,14 +199,33 @@ class UserAuthController extends Controller
         return response()->success('user logout successfully');
     }
 
-    public function refresh()
-    {
+    // public function refresh()
+    // {
 
-        return $this->profile(
-            Auth::guard('user_api')->user(),
-            Auth::guard('user_api')->refresh()
+    //     return $this->profile(
+    //         Auth::guard('user_api')->user(),
+    //         Auth::guard('user_api')->refresh()
+    //     );
+
+    // }
+
+    public function update(UpdateUserRequest $request,User $user)
+    {
+        // dd($user);
+        $user->update($request->validated());
+
+        (new ImageService)->storeImage(
+            model: $user,
+            image: $request->image,
+            collection: 'user'
         );
 
+        return response()->success(
+            'user is updated success',
+            [
+                "user" => new UserResource($user),
+            ]
+        );
     }
 
 
