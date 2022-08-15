@@ -136,19 +136,19 @@ class CommentController extends Controller
                     ],
                     [
                         'name'   => 'Family',
-                        'count'  => isset($commentsRating['Family']) ?? $commentsRating['Family'],
+                        'count'  => isset($commentsRating['Family']) ? $commentsRating['Family'] : 0,
                     ],
                     [
                         'name'   => 'Solo',
-                        'count'  => isset($commentsRating['Solo']) ?? $commentsRating['Solo'],
+                        'count'  => isset($commentsRating['Solo']) ? $commentsRating['Solo'] : 0,
                     ],
                     [
                         'name'   => 'Business',
-                        'count'  => isset($commentsRating['Business']) ?? $commentsRating['Business'],
+                        'count'  => isset($commentsRating['Business']) ? $commentsRating['Business'] : 0,
                     ],
                     [
                         'name'   => 'Friends',
-                        'count'  => isset($commentsRating['Friends']) ?? $commentsRating['Friends'],
+                        'count'  => isset($commentsRating['Friends']) ? $commentsRating['Friends'] : 0,
                     ],
                 ],
                 "comments" => CommentResource::collection($comments->paginate(request()->perPage ?? $comments->count())),
