@@ -3397,6 +3397,10 @@
                         "type": "string",
                         "example": "Yes, I was very happy whev visit it"
                     },
+                    "created_at": {
+                        "type": "string",
+                        "example": "2022-08-15T11:39:55.000000Z"
+                    },
                     "user": {
                         "$ref": "#/components/schemas/UserInfoResource"
                     }
@@ -3570,6 +3574,104 @@
                     "name": "any thing"
                 }
             },
+            "PlaceInfoResource": {
+                "title": "PlaceInfoResource",
+                "description": "PlaceResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Green Table"
+                    },
+                    "about": {
+                        "type": "string",
+                        "example": "best coffe to enjoy with your friends"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "address - address - address"
+                    },
+                    "latitude": {
+                        "type": "string",
+                        "example": "33.65166"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "example": "36.5165"
+                    },
+                    "ratting": {
+                        "type": "string",
+                        "example": 5
+                    },
+                    "views": {
+                        "type": "string",
+                        "example": 59
+                    },
+                    "web_site": {
+                        "type": "string",
+                        "example": "www.web_site.com"
+                    },
+                    "phone_number": {
+                        "type": "string",
+                        "example": "0958600569"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "email@email.com"
+                    },
+                    "open_at": {
+                        "type": "string",
+                        "example": "10:00:00"
+                    },
+                    "close_at": {
+                        "type": "string",
+                        "example": "22:00:00"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "example": "2022-06-06 17:38:54"
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ImageResource"
+                        }
+                    },
+                    "awards": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AwardResource"
+                        }
+                    },
+                    "options": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OptionResource"
+                        }
+                    },
+                    "features": {
+                        "properties": {
+                            "Miss Eliza Emard Sr.": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/FeatureResource"
+                                }
+                            },
+                            "Lexus Cronin PhD": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/FeatureResource"
+                                }
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
             "PlaceResource": {
                 "title": "PlaceResource",
                 "description": "PlaceResource body data",
@@ -3726,6 +3828,10 @@
                     "text": {
                         "type": "string",
                         "example": "what is the most important thing in this city?"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "example": "2022-08-15T11:39:55.000000Z"
                     },
                     "user": {
                         "$ref": "#/components/schemas/UserInfoResource"

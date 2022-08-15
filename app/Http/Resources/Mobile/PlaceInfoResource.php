@@ -11,10 +11,9 @@ use Carbon\Carbon;
 
 /**
  * @OA\Schema(
- *      title="PlaceResource",
+ *      title="PlaceInfoResource",
  *      description="PlaceResource body data",
  *      type="object",
- *
  *
  *
  *      @OA\Property(
@@ -135,7 +134,7 @@ use Carbon\Carbon;
  *
  * )
  */
-class PlaceResource extends JsonResource
+class PlaceInfoResource extends JsonResource
 {
 
     public function toArray($request)
@@ -144,15 +143,6 @@ class PlaceResource extends JsonResource
         $placeImage = $this->getMedia('place')->flatten();
         $placeImageAdmin = $this->getMedia('place_admin')->flatten();
         $images = $placeImage->merge($placeImageAdmin);
-
-        $user = auth('user_api')->user();
-
-        $features = $this->features
-            ->groupBy(function ($it) {
-                return $it->featureTitle->title;
-            })->map(function ($value, $key) {
-                return FeatureResource::collection($value);
-            });
 
         return [
             'id' => $this->id,
@@ -163,22 +153,15 @@ class PlaceResource extends JsonResource
             'longitude' => (float)$this->longitude,
             'ratting' => $this->ratting,
             // Todo
-            'ratting_count' => rand(70, 2000),
+            'ratting_count' => $this->comments()->count(),
             'views' => $this->views,
             'web_site' => $this->web_site,
             'phone_number' => $this->phone_number,
             'email' => $this->email,
             'is_open' => $this->isOpen(),
-            'is_favourite' => $user->favoritesPlace()->where('place_id', $this->id)->exists(),
-            'open_at' => $this->open_at,
-            'close_at' => $this->close_at,
-            'created_at' => $this->created_at,
             'city'      => $this->city->name,
             'type'      => $this->type->name,
-            "images"       => ImageResource::collection($images),
-            "awards"       => AwardResource::collection($this->awards),
-            'options'      => OptionResource::collection($this->options),
-            "features"     => $features,
+            "images"    => new ImageResource($this->getFirstMedia('place')),
         ];
     }
 }

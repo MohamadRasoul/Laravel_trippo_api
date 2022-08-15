@@ -3785,6 +3785,32 @@
                     ]
                 }
             },
+            "StorePlanContentRequest": {
+                "title": "StorePlanContentRequest",
+                "description": "StorePlanContentRequest body data",
+                "required": [
+                    "full_date",
+                    "comment",
+                    "place_id"
+                ],
+                "properties": {
+                    "place_id": {
+                        "type": "string"
+                    },
+                    "full_date": {
+                        "type": "string"
+                    },
+                    "comment": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "place_id": 1,
+                    "full_date": "5-11-2022",
+                    "comment": "sdad asdasda asd sada sdasd dasda"
+                }
+            },
             "StorePlanRequest": {
                 "title": "StorePlanRequest",
                 "description": "StorePlanRequest body data",
@@ -4038,6 +4064,28 @@
                         1,
                         2
                     ]
+                }
+            },
+            "UpdatePlanContentRequest": {
+                "title": "UpdatePlanContentRequest",
+                "description": "UpdatePlanContentRequest body data",
+                "required": [],
+                "properties": {
+                    "place_id": {
+                        "type": "string"
+                    },
+                    "full_date": {
+                        "type": "string"
+                    },
+                    "comment": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "place_id": 1,
+                    "full_date": "5-11-2022",
+                    "comment": "sdad asdasda asd sada sdasd dasda"
                 }
             },
             "UpdatePlanRequest": {

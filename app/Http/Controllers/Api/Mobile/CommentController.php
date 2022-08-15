@@ -275,6 +275,14 @@ class CommentController extends Controller
     {
         $comment = $place->comments()->create($request->validated());
 
+
+        $placeComments = $place->comments();
+
+        $place->update([
+            'rating'    => $placeComments->sum('')/$placeComments->count(),
+        ]);
+
+
         foreach ($request->images as $image) {
             (new ImageService)->storeImage(
                 model: $comment,
