@@ -24,6 +24,7 @@ class PlanFactory extends Factory
             "description"   => $this->faker->text(),
             "is_private"   => $this->faker->boolean(),
             "user_id"   => \App\Models\User::all()->random()->id,
+            "city_id"   => \App\Models\City::all()->random()->id,
 
         ];
     }

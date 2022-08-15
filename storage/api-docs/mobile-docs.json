@@ -1827,6 +1827,16 @@
                             "type": "integer"
                         },
                         "example": 1
+                    },
+                    {
+                        "name": "filter[city_id]",
+                        "in": "query",
+                        "description": "filter by featureTitle",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
                     }
                 ],
                 "responses": {
@@ -1917,66 +1927,6 @@
                                         "data": {
                                             "properties": {
                                                 "plans": {
-                                                    "$ref": "#/components/schemas/PlanResource"
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Error: Unauthorized"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerToken": []
-                    }
-                ]
-            }
-        },
-        "/api/mobile/plan/{id}/show": {
-            "get": {
-                "tags": [
-                    "Plan"
-                ],
-                "summary": "Get Plan By ID",
-                "description": "",
-                "operationId": "ShowPlan",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Plan ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "example": 1
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": "true"
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "this is your plan"
-                                        },
-                                        "data": {
-                                            "properties": {
-                                                "plan": {
                                                     "$ref": "#/components/schemas/PlanResource"
                                                 }
                                             },
@@ -3702,6 +3652,14 @@
                     },
                     "ratting": {
                         "type": "string",
+                        "example": 5
+                    },
+                    "ratting_count": {
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "image_count": {
+                        "type": "integer",
                         "example": 5
                     },
                     "views": {

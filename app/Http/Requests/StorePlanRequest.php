@@ -20,11 +20,21 @@ use Illuminate\Foundation\Http\FormRequest;
  *         property="description",
  *         type="string"
  *      ),
+ *      @OA\Property(
+ *         property="city_id",
+ *         type="string"
+ *      ),
+ *      @OA\Property(
+ *         property="image",
+ *         type="string"
+ *      ),
  *
  *
  *      example={
  *         "name"         : "aleppo resturant",
  *         "description"  : "best resturant in aleppo",
+ *         "city_id"  : 1,
+ *         "image"  : "image.jpg",
  *      }
  * )
  */
@@ -42,16 +52,20 @@ class StorePlanRequest extends FormRequest
         return [
             'name'          => ['required'],
             'description'   => ['nullable'],
+            'city_id'       => ['required'],
+            'image'         => ['nullable'],
         ];
     }
 
 
     public function validated($key = null, $default = null)
     {
-        return [
+        $data = [
             'name'          => $this->name,
             'description'   => $this->description,
             'user_id'       => auth('user_api')->id(),
         ];
+
+        return $data;
     }
 }

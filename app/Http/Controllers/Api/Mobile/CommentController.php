@@ -276,10 +276,10 @@ class CommentController extends Controller
         $comment = $place->comments()->create($request->validated());
 
 
-        $placeComments = $place->comments();
+        $placeComments = $place->comments;
 
         $place->update([
-            'rating'    => $placeComments->sum('')/$placeComments->count(),
+            'ratting'    => $placeComments->sum('rating') / $placeComments->count(),
         ]);
 
 
@@ -369,6 +369,14 @@ class CommentController extends Controller
     public function storeExperienceComment(StoreCommentRequest $request, Experience $experience)
     {
         $comment = $experience->comments()->create($request->validated());
+
+
+
+        $experienceComments = $experience->comments();
+
+        $experience->update([
+            'rating'    => $experienceComments->sum('rating') / $experienceComments->count(),
+        ]);
 
         foreach ($request->images as $image) {
             (new ImageService)->storeImage(
