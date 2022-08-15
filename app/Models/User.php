@@ -60,6 +60,16 @@ class User extends Authenticatable implements JWTSubject, HasMedia
             ->addMediaCollection('user')
             ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/city.jpg')
             ->singleFile();
+
+            $this
+            ->addMediaCollection('idfront')
+            ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/city.jpg')
+            ->singleFile();
+
+            $this
+            ->addMediaCollection('idback')
+            ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/city.jpg')
+            ->singleFile();
     }
     public function getJWTIdentifier()
     {

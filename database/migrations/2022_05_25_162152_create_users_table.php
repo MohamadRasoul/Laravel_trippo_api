@@ -25,6 +25,7 @@ return new class extends Migration
             $table->timestamp('date_of_birthday')->nullable();
             $table->string('email')->unique();
             $table->string('phone_number')->nullable();
+            $table->string('is_host')->default(0);
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->timestamp('email_verified_at')->nullable();

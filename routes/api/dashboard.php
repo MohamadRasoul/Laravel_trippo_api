@@ -125,3 +125,13 @@ Route::group([
 ], function () {
     Route::get('index', [Dashboard\VisitTypeController::class, 'index']);
 });
+
+
+
+Route::group([
+    "prefix" => 'user',
+], function () {
+    Route::get('getAllRequestHost', [Dashboard\UserController::class, 'getAllRequestHost']);
+    Route::post('approveRequestHost/{user}', [Dashboard\UserController::class, 'approveRequestHost']);
+    Route::post('rejectRequestHost/{user}', [Dashboard\UserController::class, 'rejectRequestHost']);
+});

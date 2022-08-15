@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Api\Mobile;
 
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\RequestHostUserRequest;
 use App\Models\User;
 
 use App\Services\ImageService;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -154,7 +154,7 @@ class UserController extends Controller
     //  */
     public function store(StoreUserRequest $request)
     {
-         $user = User::create($request->validated());
+        $user = User::create($request->validated());
 
         (new ImageService)->storeImage(
             model: $user,
@@ -312,7 +312,7 @@ class UserController extends Controller
     //  */
     public function update(UpdateUserRequest $request, User $user)
     {
-         $user->update($request->validated());
+        $user->update($request->validated());
 
         (new ImageService)->storeImage(
             model: $user,
@@ -385,5 +385,28 @@ class UserController extends Controller
         $user->delete();
 
         return response()->success('user is deleted success');
+    }
+
+
+    public function requestHost(RequestHostUserRequest $request)
+    {
+        $user = auth('user_api')->user();
+        $user->update($request->validated());
+
+        (new ImageService)->storeImage(
+            model: $user,
+            image: $request->idback,
+            collection: 'idback'
+        );
+
+        (new ImageService)->storeImage(
+            model: $user,
+            image: $request->idfront,
+            collection: 'idfront'
+        );
+
+        return response()->success(
+            'user request host success',
+        );
     }
 }
