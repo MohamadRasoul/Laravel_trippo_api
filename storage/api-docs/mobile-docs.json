@@ -2589,17 +2589,18 @@
                 "description": "AnswerResource body data",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "example": 1
                     },
                     "text": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "Yes, I was very happy whev visit it"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/UserInfoResource"
                     }
                 },
-                "type": "object",
-                "example": {
-                    "id": 1,
-                    "text": "Yes, I was very happy whev visit it"
-                }
+                "type": "object"
             },
             "AwardResource": {
                 "title": "AwardResource",
@@ -2833,6 +2834,35 @@
                         "items": {
                             "$ref": "#/components/schemas/ImageResource"
                         }
+                    },
+                    "awards": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AwardResource"
+                        }
+                    },
+                    "options": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OptionResource"
+                        }
+                    },
+                    "features": {
+                        "properties": {
+                            "Miss Eliza Emard Sr.": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/FeatureResource"
+                                }
+                            },
+                            "Lexus Cronin PhD": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/FeatureResource"
+                                }
+                            }
+                        },
+                        "type": "object"
                     }
                 },
                 "type": "object"

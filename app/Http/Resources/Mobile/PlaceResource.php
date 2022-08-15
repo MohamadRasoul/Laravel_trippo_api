@@ -2,8 +2,10 @@
 
 namespace App\Http\Resources\Mobile;
 
+use App\Http\Resources\Dashboard\FeatureResource;
 use App\Http\Resources\ImageResource;
 use App\Models\FavouritePlace;
+use App\Models\FeatureTitle;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Carbon\Carbon;
 
@@ -94,6 +96,42 @@ use Carbon\Carbon;
  *            ref="#/components/schemas/ImageResource"
  *         )
  *      ),
+ *      @OA\Property(
+ *         property="awards",
+ *         type="array",
+ *         @OA\Items(
+ *            type="object",
+ *            ref="#/components/schemas/AwardResource"
+ *         )
+ *      ),
+ *      @OA\Property(
+ *          property="options",
+ *          type="array",
+ *          @OA\Items(
+ *             type="object",
+ *             ref="#/components/schemas/OptionResource"
+ *          )
+ *       ),
+ *       @OA\Property(
+ *          property="features",
+ *          type="object",
+ *          @OA\Property(
+ *             property="Miss Eliza Emard Sr.",
+ *             type="array",
+ *             @OA\Items(
+ *                type="object",
+ *                ref="#/components/schemas/FeatureResource"
+ *             )
+ *          ),
+ *          @OA\Property(
+ *             property="Lexus Cronin PhD",
+ *             type="array",
+ *             @OA\Items(
+ *                type="object",
+ *                ref="#/components/schemas/FeatureResource"
+ *             )
+ *          ),
+ *       ),
  *
  * )
  */
@@ -109,12 +147,12 @@ class PlaceResource extends JsonResource
 
         $user = auth('user_api')->user();
 
-        // $feature = $this->features()->groupBy(function ($it) {
-        //     return $it->fu->id;
-        // })->map(function ($products, $content_id) {
-        //     $content = Content::find($content_id);
-        //     return new ContentWithProductResource($content, $products);
-        // })->flatten(1);
+        $features = $this->features
+            ->groupBy(function ($it) {
+                return $it->featureTitle->title;
+            })->map(function ($value, $key) {
+                return FeatureResource::collection($value);
+            });
 
         return [
             'id' => $this->id,
@@ -139,6 +177,8 @@ class PlaceResource extends JsonResource
             'type'      => $this->type->name,
             "images"       => ImageResource::collection($images),
             "awards"       => AwardResource::collection($this->awards),
+            'options'      => OptionResource::collection($this->options),
+            "features"     => $features,
         ];
     }
 }

@@ -16,10 +16,13 @@ class Feature extends Model
 
     ########## Accessors / Mutators ##########
 
-    
+
     ########## Relations ##########
 
-    
+    public function featureTitle()
+    {
+        return $this->belongsTo(FeatureTitle::class);
+    }
     ########## Query ##########
 
 

@@ -60,7 +60,7 @@ class Place extends Model implements HasMedia
     {
         return $this->morphToMany(User::class, 'viewable', 'views')->withPivot('count');
     }
-    ########## function ##########
+    ########## Query ##########
 
 
     public function isOpen()

@@ -132,7 +132,6 @@ class PlaceResource extends JsonResource
             'created_at'    => $this->created_at,
             "images"        => ImageResource::collection($images),
             'options'       => OptionResource::collection($this->options),
-            'features'      => OptionResource::collection($this->options),
         ];
     }
 }
