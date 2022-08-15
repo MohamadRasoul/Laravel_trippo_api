@@ -22,6 +22,11 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *          example="what is the most important thing in this city?"
  *      ),
  *      @OA\Property(
+ *          property="created_at",
+ *          type="string",
+ *          example="2022-08-15T11:39:55.000000Z"
+ *      ),
+ *      @OA\Property(
  *          property="user",
  *          ref="#/components/schemas/UserInfoResource"
  *          )
@@ -48,10 +53,11 @@ class QuestionResource extends JsonResource
         //        return parent::toArray($request);
 
         return [
-            'id'        => $this->id,
-            'text'      => $this->text,
-            'user'      => new UserInfoResource($this->user),
-            'answers'   => AnswerResource::collection($this->answers()->latest()->limit(3)->get()),
+            'id'           => $this->id,
+            'text'         => $this->text,
+            'created_at'   => $this->created_at,
+            'user'         => new UserInfoResource($this->user),
+            'answers'      => AnswerResource::collection($this->answers()->latest()->limit(3)->get()),
         ];
     }
 }
