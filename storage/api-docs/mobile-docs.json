@@ -1018,6 +1018,316 @@
                 ]
             }
         },
+        "/api/mobile/experience/index": {
+            "get": {
+                "tags": [
+                    "Experience"
+                ],
+                "summary": "Get All Experiences",
+                "description": "",
+                "operationId": "IndexExperience",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all experiences"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "experiences": {
+                                                    "$ref": "#/components/schemas/ExperienceResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/experience/{id}/show": {
+            "get": {
+                "tags": [
+                    "Experience"
+                ],
+                "summary": "Get Experience By ID",
+                "description": "",
+                "operationId": "ShowExperience",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Experience ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is your experience"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "experience": {
+                                                    "$ref": "#/components/schemas/ExperienceResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/experience/store": {
+            "post": {
+                "tags": [
+                    "Experience"
+                ],
+                "summary": "Add Experience",
+                "description": "",
+                "operationId": "StoreExperience",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreExperienceRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "experience is added success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "experience": {
+                                                    "$ref": "#/components/schemas/ExperienceResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/experience/{id}/update": {
+            "post": {
+                "tags": [
+                    "Experience"
+                ],
+                "summary": "Edit Experience",
+                "description": "",
+                "operationId": "UpdateExperience",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Experience ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateExperienceRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "experience is updated success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "experience": {
+                                                    "$ref": "#/components/schemas/ExperienceResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/experience/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "Experience"
+                ],
+                "summary": "Delete Experience By ID",
+                "description": "",
+                "operationId": "DeleteExperience",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Experience ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "experience is deleted success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
         "/api/mobile/feature/index": {
             "get": {
                 "tags": [
@@ -2886,6 +3196,52 @@
                 },
                 "type": "object"
             },
+            "StoreExperienceRequest": {
+                "title": "StoreExperienceRequest",
+                "description": "StoreExperienceRequest body data",
+                "required": [
+                    "name",
+                    "about",
+                    "address"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "experiance name"
+                    },
+                    "about": {
+                        "type": "string",
+                        "example": "experiance about"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "experiance address"
+                    },
+                    "price_begin": {
+                        "type": "string",
+                        "example": "150"
+                    },
+                    "latitude": {
+                        "type": "string",
+                        "example": 36.2435
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "example": 36.2435
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "image.png",
+                            "image.png"
+                        ]
+                    }
+                },
+                "type": "object"
+            },
             "StoreFeatureRequest": {
                 "title": "StoreFeatureRequest",
                 "description": "StoreFeatureRequest body data",
@@ -3085,7 +3441,7 @@
                     "name": "aleppo resturant",
                     "description": "best resturant in aleppo",
                     "city_id": 1,
-                    "image": "image.jpg"
+                    "image": "image.png"
                 }
             },
             "StoreQuestionRequest": {
@@ -3184,6 +3540,34 @@
                     "latitude": "33.5138",
                     "longitude": "36.2765"
                 }
+            },
+            "UpdateExperienceRequest": {
+                "title": "UpdateExperienceRequest",
+                "description": "UpdateExperienceRequest body data",
+                "required": [],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "experiance name"
+                    },
+                    "about": {
+                        "type": "string",
+                        "example": "experiance about"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "experiance address"
+                    },
+                    "latitude": {
+                        "type": "string",
+                        "example": 36.2435
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "example": 36.2435
+                    }
+                },
+                "type": "object"
             },
             "UpdateFeatureRequest": {
                 "title": "UpdateFeatureRequest",
@@ -3533,6 +3917,49 @@
                     },
                     "user": {
                         "$ref": "#/components/schemas/UserInfoResource"
+                    }
+                },
+                "type": "object"
+            },
+            "ExperienceResource": {
+                "title": "ExperienceResource",
+                "description": "ExperienceResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Royce O'Kon"
+                    },
+                    "about": {
+                        "type": "string",
+                        "example": "Consequatur numquam omnis in maiores iusto maiores. Quam optio rerum eaque quidem. Blanditiis beatae repellendus magni magni aut."
+                    },
+                    "ratting": {
+                        "type": "string",
+                        "example": "Quisquam omnis ut reprehenderit temporibus corrupti. Enim quia dolores a quidem quia. Et ipsa doloribus est saepe. Qui quia dicta eaque est molestiae magni sit."
+                    },
+                    "views": {
+                        "type": "string",
+                        "example": "107622"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "Maiores voluptatem quis sunt magni enim illo. Et aliquid aut iste eum eveniet cum placeat. Voluptate corporis dolorem deleniti fuga aut aut. Quibusdam qui excepturi delectus et eius illum."
+                    },
+                    "latitude": {
+                        "type": "string",
+                        "example": "267937"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "example": "195991"
+                    },
+                    "price_begin": {
+                        "type": "string",
+                        "example": "150"
                     }
                 },
                 "type": "object"

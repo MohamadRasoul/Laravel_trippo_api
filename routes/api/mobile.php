@@ -114,6 +114,18 @@ Route::group([
 });
 
 
+Route::group([
+    "prefix" => 'experience',
+], function () {
+    Route::get('index', [Mobile\ExperienceController::class, 'index']);
+    Route::get('{experience}/show', [Mobile\ExperienceController::class, 'show']);
+
+    Route::post('store', [Mobile\ExperienceController::class, 'store']);
+    Route::post('{experience}/update', [Mobile\ExperienceController::class, 'update']);
+    Route::delete('{experience}/delete', [Mobile\ExperienceController::class, 'destroy']);
+});
+
+
 
 
 

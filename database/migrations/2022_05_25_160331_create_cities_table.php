@@ -18,8 +18,8 @@ return new class extends Migration
 
             $table->string('name');
             $table->text('description');
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->double('latitude');
+            $table->double('longitude');
             $table->integer('views')->default(0);
 
             ######## Foreign keys  ########
