@@ -98,6 +98,7 @@ class RegisterUserRequest extends FormRequest
             'username' => ['required', 'string', 'max:255', 'unique:users,username'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'city_id' => ['nullable', 'numeric'],
         ];
     }
 
@@ -110,6 +111,7 @@ class RegisterUserRequest extends FormRequest
             'username' => $this->username,
             'email' => $this->email,
             'password' => Hash::make($this->password),
+            'city_id' => $this->city_id,
         ];
     }
 }
