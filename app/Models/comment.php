@@ -30,6 +30,11 @@ class Comment extends Model implements HasMedia
     {
         return $this->belongsTo(User::class);
     }
+    
+    public function place()
+    {
+        return $this->belongsTo(Place::class);
+    }
 
     ########## Query ##########
 

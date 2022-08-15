@@ -93,7 +93,7 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        $places = Place::inRandomOrder();
+        $places = Place::with(['comments'])->inRandomOrder();
 
         return response()->success(
             'this is all Places',
@@ -353,7 +353,7 @@ class PlaceController extends Controller
         );
     }
 
-
+    // TODO : add Swagger
     public function getPlacesWithPointMap(Request $request)
     {
         $places = Place::whereBetween('longitude', [min($request->northeast_lng, $request->southwest_lng), max($request->northeast_lng, $request->southwest_lng)])

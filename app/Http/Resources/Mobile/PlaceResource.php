@@ -53,6 +53,16 @@ use Carbon\Carbon;
  *          example=5
  *      ),
  *      @OA\Property(
+ *          property="ratting_count",
+ *          type="integer",
+ *          example=5
+ *      ),
+ *      @OA\Property(
+ *          property="image_count",
+ *          type="integer",
+ *          example=5
+ *      ),
+ *      @OA\Property(
  *          property="views",
  *          type="string",
  *          example=59
@@ -140,12 +150,13 @@ class PlaceResource extends JsonResource
 
     public function toArray($request)
     {
+        $user = auth('user_api')->user();
+
 
         $placeImage = $this->getMedia('place')->flatten();
         $placeImageAdmin = $this->getMedia('place_admin')->flatten();
-        $images = $placeImage->merge($placeImageAdmin);
-
-        $user = auth('user_api')->user();
+        $placeImageUser = count($this->getMedia('place_user', ['isAccept' => true])) > 0 ? $this->getMedia('place_user', ['isAccept' => true])->flatten() : [];
+        $images = $placeImage->merge($placeImageAdmin)->merge($placeImageUser);
 
         $features = $this->features
             ->groupBy(function ($it) {
@@ -161,9 +172,10 @@ class PlaceResource extends JsonResource
             'address' => $this->address,
             'latitude' => (float)$this->latitude,
             'longitude' => (float)$this->longitude,
-            'ratting' => $this->ratting,
-            // Todo
-            'ratting_count' => rand(70, 2000),
+            'ratting' => round($this->ratting),
+
+            'ratting_count' => $this->comments()->count(),
+            'image_count' => count($images),
             'views' => $this->views,
             'web_site' => $this->web_site,
             'phone_number' => $this->phone_number,

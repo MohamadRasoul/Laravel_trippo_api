@@ -42,6 +42,8 @@ class UpdatePlanRequest extends FormRequest
         return [
             'name'          => ['nullable'],
             'description'   => ['nullable'],
+            'city_id'       => ['nullable'],
+            'image'         => ['nullable'],
         ];
     }
 
@@ -49,6 +51,13 @@ class UpdatePlanRequest extends FormRequest
 
     public function validated($key = null, $default = null)
     {
-        return data_get($this->validator->validated(), $key, $default);
+        $data = [
+            'name'          => $this->name,
+            'description'   => $this->description,
+        ];
+
+        return array_filter($data, function ($value) {
+            return !is_null($value);
+        });
     }
 }

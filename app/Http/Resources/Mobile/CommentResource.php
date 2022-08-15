@@ -72,6 +72,7 @@ class CommentResource extends JsonResource
     {
         // return parent::toArray($request);
         // return $this->getMedia('comment')->flatten();
+        
         return [
             "id"             => $this->id,
             "tilte"          => $this->tilte,

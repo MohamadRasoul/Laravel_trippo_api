@@ -49,7 +49,7 @@ class PlanContentResource extends JsonResource
 
         return [
             'id'           => $this->id,
-            "place_id"     => $this->place_id,
+            "place"        => new PlaceInfoResource($this->place_id),
             "full_date"    => $this->full_date,
             "comment"      => $this->comment,
         ];

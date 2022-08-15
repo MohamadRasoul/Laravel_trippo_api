@@ -76,7 +76,8 @@ Route::group([
 Route::group([
     "prefix" => 'comment',
 ], function () {
-    Route::get('index', [Mobile\CommentController::class, 'index']);
+    Route::get('/place/{place}/index', [Mobile\CommentController::class, 'indexByPlace']);
+    Route::get('/experience/{experience}/index', [Mobile\CommentController::class, 'indexByExperience']);
     Route::get('{comment}/show', [Mobile\CommentController::class, 'show']);
 
     Route::post('place/{place}/store', [Mobile\CommentController::class, 'storePlaceComment']);

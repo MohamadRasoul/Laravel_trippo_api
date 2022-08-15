@@ -658,7 +658,87 @@
                 ]
             }
         },
-        "/api/mobile/comment/index": {
+        "/api/mobile/comment/place/{placeId}/index": {
+            "get": {
+                "tags": [
+                    "Comment"
+                ],
+                "summary": "Get All comments",
+                "description": "",
+                "operationId": "IndexCommentByPlace",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    },
+                    {
+                        "name": "placeId",
+                        "in": "path",
+                        "description": "Place ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all comments"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "comments": {
+                                                    "$ref": "#/components/schemas/CommentResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/comment/experience/{experienceId}/index": {
             "get": {
                 "tags": [
                     "Comment"
@@ -688,31 +768,14 @@
                         "example": 1
                     },
                     {
-                        "name": "filter[place_id]",
-                        "in": "query",
-                        "description": "filter by place",
-                        "required": false,
+                        "name": "experienceId",
+                        "in": "path",
+                        "description": "Experience ID",
+                        "required": true,
                         "schema": {
                             "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "filter[experience_id]",
-                        "in": "query",
-                        "description": "filter by experience",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "filter[plane_id]",
-                        "in": "query",
-                        "description": "filter by plane",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
+                        },
+                        "example": 1
                     }
                 ],
                 "responses": {
@@ -1827,6 +1890,16 @@
                             "type": "integer"
                         },
                         "example": 1
+                    },
+                    {
+                        "name": "filter[city_id]",
+                        "in": "query",
+                        "description": "filter by featureTitle",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
                     }
                 ],
                 "responses": {
@@ -1917,66 +1990,6 @@
                                         "data": {
                                             "properties": {
                                                 "plans": {
-                                                    "$ref": "#/components/schemas/PlanResource"
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Error: Unauthorized"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerToken": []
-                    }
-                ]
-            }
-        },
-        "/api/mobile/plan/{id}/show": {
-            "get": {
-                "tags": [
-                    "Plan"
-                ],
-                "summary": "Get Plan By ID",
-                "description": "",
-                "operationId": "ShowPlan",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Plan ID",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "example": 1
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": "true"
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "this is your plan"
-                                        },
-                                        "data": {
-                                            "properties": {
-                                                "plan": {
                                                     "$ref": "#/components/schemas/PlanResource"
                                                 }
                                             },
@@ -3059,12 +3072,20 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "city_id": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
                     }
                 },
                 "type": "object",
                 "example": {
                     "name": "aleppo resturant",
-                    "description": "best resturant in aleppo"
+                    "description": "best resturant in aleppo",
+                    "city_id": 1,
+                    "image": "image.jpg"
                 }
             },
             "StoreQuestionRequest": {
@@ -3702,6 +3723,14 @@
                     },
                     "ratting": {
                         "type": "string",
+                        "example": 5
+                    },
+                    "ratting_count": {
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "image_count": {
+                        "type": "integer",
                         "example": 5
                     },
                     "views": {

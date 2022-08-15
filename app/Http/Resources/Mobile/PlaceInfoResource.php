@@ -139,28 +139,13 @@ class PlaceInfoResource extends JsonResource
 
     public function toArray($request)
     {
-
-        $placeImage = $this->getMedia('place')->flatten();
-        $placeImageAdmin = $this->getMedia('place_admin')->flatten();
-        $images = $placeImage->merge($placeImageAdmin);
-
         return [
             'id' => $this->id,
             'name' => $this->name,
             'about' => $this->about,
-            'address' => $this->address,
-            'latitude' => (float)$this->latitude,
-            'longitude' => (float)$this->longitude,
             'ratting' => $this->ratting,
-            // Todo
             'ratting_count' => $this->comments()->count(),
-            'views' => $this->views,
-            'web_site' => $this->web_site,
-            'phone_number' => $this->phone_number,
-            'email' => $this->email,
-            'is_open' => $this->isOpen(),
-            'city'      => $this->city->name,
-            'type'      => $this->type->name,
+            'type' => $this->type()->name,
             "images"    => new ImageResource($this->getFirstMedia('place')),
         ];
     }
