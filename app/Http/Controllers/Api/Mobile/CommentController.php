@@ -79,6 +79,25 @@ class CommentController extends Controller
      *           @OA\Property(
      *              property="data",
      *              @OA\Property(
+     *                 property="rating",
+     *                 @OA\Property(
+     *                    property="all",
+     *                    example=1
+     *                 ),
+     *                 @OA\Property(
+     *                    property="all",
+     *                    example=1
+     *                 ),
+     *                 @OA\Property(
+     *                    property="all",
+     *                    example=1
+     *                 ),
+     *                 @OA\Property(
+     *                    property="all",
+     *                    example=1
+     *                 ),
+     *              ),
+     *              @OA\Property(
      *                 property="comments",
      *                 type="object",
      *                 ref="#/components/schemas/CommentResource"
@@ -101,22 +120,40 @@ class CommentController extends Controller
     public function indexByPlace(Place $place)
     {
         $comments = $place->comments()->latest();
-        $commentsFamily = (clone $comments)->where('visit_type_id', 1);
-        $commentsSolo = (clone $comments)->where('visit_type_id', 2);
-        $commentsBusiness = (clone $comments)->where('visit_type_id', 3);
-        $commentsFriends = (clone $comments)->where('visit_type_id', 4);
+
+        $commentsRating = $comments->get()
+            ->groupBy(function ($it) {
+                return $it->visitType->name;
+            })->map->count();
 
         return response()->success(
             'this is all comments',
             [
                 'ratting' => [
-                    "all" => $comments->count(),
-                    "Family" => $commentsFamily->count(),
-                    "Solo" => $commentsSolo->count(),
-                    "Business" => $commentsBusiness->count(),
-                    "Friends" => $commentsFriends->count(),
+                    [
+                        'name'   => 'all',
+                        'count'  => $comments->count(),
+                    ],
+                    [
+                        'name'   => 'Family',
+                        'count'  => $commentsRating['Family'],
+                    ],
+                    [
+                        'name'   => 'Solo',
+                        'count'  => $commentsRating['Solo'],
+                    ],
+                    [
+                        'name'   => 'Business',
+                        'count'  => $commentsRating['Business'],
+                    ],
+                    [
+                        'name'   => 'Friends',
+                        'count'  => $commentsRating['Friends'],
+                    ],
                 ],
                 "comments" => CommentResource::collection($comments->paginate(request()->perPage ?? $comments->count())),
+
+
             ]
         );
     }
@@ -204,23 +241,39 @@ class CommentController extends Controller
     public function indexByExperience(Experience $experience)
     {
         $comments = $experience->comments()->latest();
-        $commentsFamily = (clone $comments)->where('visit_type_id', 1);
-        $commentsSolo = (clone $comments)->where('visit_type_id', 2);
-        $commentsBusiness = (clone $comments)->where('visit_type_id', 3);
-        $commentsFriends = (clone $comments)->where('visit_type_id', 4);
+        $commentsRating = $comments->get()
+            ->groupBy(function ($it) {
+                return $it->visitType->name;
+            })->map->count();
 
 
         return response()->success(
             'this is all comments',
             [
                 'ratting' => [
-                    "all" => $comments->count(),
-                    "Family" => $commentsFamily->count(),
-                    "Solo" => $commentsSolo->count(),
-                    "Business" => $commentsBusiness->count(),
-                    "Friends" => $commentsFriends->count(),
+                    [
+                        'name'   => 'all',
+                        'count'  => $comments->count(),
+                    ],
+                    [
+                        'name'   => 'Family',
+                        'count'  => $commentsRating['Family'],
+                    ],
+                    [
+                        'name'   => 'Solo',
+                        'count'  => $commentsRating['Solo'],
+                    ],
+                    [
+                        'name'   => 'Business',
+                        'count'  => $commentsRating['Business'],
+                    ],
+                    [
+                        'name'   => 'Friends',
+                        'count'  => $commentsRating['Friends'],
+                    ],
                 ],
                 "comments" => CommentResource::collection($comments->paginate(request()->perPage ?? $comments->count())),
+
             ]
         );
     }

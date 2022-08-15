@@ -23,7 +23,7 @@ class VisitTypeSeeder extends Seeder
                 'name'  => "Business",
             ],
             [
-                'name'  => "Frinds",
+                'name'  => "Friends",
             ],
         ]);
     }
