@@ -21,8 +21,8 @@ return new class extends Migration {
             $table->string('name');
             $table->text('about');
             $table->string('address')->nullable();
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
+            $table->double('latitude')->nullable();
+            $table->double('longitude')->nullable();
             $table->double('ratting')->default(0);
             $table->integer('views')->default(0);
             $table->string('web_site')->nullable();

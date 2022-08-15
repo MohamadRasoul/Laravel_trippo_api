@@ -22,6 +22,11 @@ class PlanContent extends Model
     {
         return $this->belongsTo(PlanContent::class);
     }
+ 
+    public function place()
+    {
+        return $this->belongsTo(Place::class);
+    }
 
     ########## Query ##########
 

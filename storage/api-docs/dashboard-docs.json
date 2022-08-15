@@ -3637,6 +3637,38 @@
                 },
                 "type": "object"
             },
+            "StoreExperienceRequest": {
+                "title": "StoreExperienceRequest",
+                "description": "StoreExperienceRequest body data",
+                "required": [
+                    "name",
+                    "about",
+                    "address"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "experiance name"
+                    },
+                    "about": {
+                        "type": "string",
+                        "example": "experiance about"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "experiance address"
+                    },
+                    "latitude": {
+                        "type": "string",
+                        "example": 36.2435
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "example": 36.2435
+                    }
+                },
+                "type": "object"
+            },
             "StoreFeatureRequest": {
                 "title": "StoreFeatureRequest",
                 "description": "StoreFeatureRequest body data",
@@ -3823,12 +3855,20 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "city_id": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
                     }
                 },
                 "type": "object",
                 "example": {
                     "name": "aleppo resturant",
-                    "description": "best resturant in aleppo"
+                    "description": "best resturant in aleppo",
+                    "city_id": 1,
+                    "image": "image.png"
                 }
             },
             "StoreQuestionRequest": {
@@ -3927,6 +3967,34 @@
                     "latitude": "33.5138",
                     "longitude": "36.2765"
                 }
+            },
+            "UpdateExperienceRequest": {
+                "title": "UpdateExperienceRequest",
+                "description": "UpdateExperienceRequest body data",
+                "required": [],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "experiance name"
+                    },
+                    "about": {
+                        "type": "string",
+                        "example": "experiance about"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "experiance address"
+                    },
+                    "latitude": {
+                        "type": "string",
+                        "example": 36.2435
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "example": 36.2435
+                    }
+                },
+                "type": "object"
             },
             "UpdateFeatureRequest": {
                 "title": "UpdateFeatureRequest",

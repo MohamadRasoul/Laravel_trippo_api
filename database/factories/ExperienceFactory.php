@@ -23,15 +23,13 @@ class ExperienceFactory extends Factory
         return [
             "name" => $this->faker->name(),
             "about" => $this->faker->text(),
-            "ratting" => $this->faker->text(),
+            "ratting" => $this->faker->numberBetween(0, 5),
             "views" => $this->faker->numberBetween(10000, 300000),
             "address" => $this->faker->text(),
-            "latitude" => $this->faker->numberBetween(10000, 300000),
-            "longitude" => $this->faker->numberBetween(10000, 300000),
-            "city_id" => \App\Models\City::all()->random()->id,
-            "type_id" => \App\Models\Type::all()->random()->id,
+            "latitude" => $this->faker->latitude(),
+            "longitude" => $this->faker->longitude(),
+            "price_begin" => $this->faker->numberBetween(10, 200),
             "user_id" => \App\Models\User::all()->random()->id,
-
         ];
     }
 }

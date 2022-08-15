@@ -250,12 +250,14 @@ class PlanContentController extends Controller
 
         $place = Place::find($request->place_id);
 
-        (new ImageService)->storeImage(
-            model: $plan,
-            image: $place->getFirstMediaUrl('place'),
-            collection: 'plan'
-        );
-
+        if (!$plan->hasMedia('plan', ['from-user' => true])) {
+            (new ImageService)->storeImage(
+                model: $plan,
+                image: $place->getFirstMediaUrl('place'),
+                collection: 'plan'
+            );
+        }
+        
         return response()->success(
             'planContent is added success',
             [

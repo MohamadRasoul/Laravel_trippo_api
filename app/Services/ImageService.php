@@ -51,7 +51,8 @@ class ImageService
         $model,
         $image,
         $collection,
-        $folderName
+        $folderName,
+        $customProperties = []
     ) {
         if (!empty($image)) {
             try {
@@ -59,6 +60,7 @@ class ImageService
 
                 $mediaImage = $model
                     ->addMedia(public_path('images/static/') . $folderName . "/" . $image)
+                    ->withCustomProperties($customProperties)
                     ->preservingOriginal()
                     ->toMediaCollection($collection);
 
