@@ -150,13 +150,13 @@ class PlaceResource extends JsonResource
 
     public function toArray($request)
     {
+        $user = auth('user_api')->user();
+
 
         $placeImage = $this->getMedia('place')->flatten();
         $placeImageAdmin = $this->getMedia('place_admin')->flatten();
         $placeImageUser = count($this->getMedia('place_user', ['isAccept' => true])) > 0 ? $this->getMedia('place_user', ['isAccept' => true])->flatten() : [];
         $images = $placeImage->merge($placeImageAdmin)->merge($placeImageUser);
-
-        $user = auth('user_api')->user();
 
         $features = $this->features
             ->groupBy(function ($it) {
@@ -164,6 +164,12 @@ class PlaceResource extends JsonResource
             })->map(function ($value, $key) {
                 return FeatureResource::collection($value);
             });
+
+        $comments = $this->comments;
+        $commentsFamily = $comments->where('visit_type_id', 1);
+        $commentsSolo = $comments->where('visit_type_id', 2);
+        $commentsBusiness = $comments->where('visit_type_id', 3);
+        $commentsFriends = $comments->where('visit_type_id', 4);
 
         return [
             'id' => $this->id,
@@ -173,7 +179,14 @@ class PlaceResource extends JsonResource
             'latitude' => (float)$this->latitude,
             'longitude' => (float)$this->longitude,
             'ratting' => round($this->ratting),
-            'ratting_count' => $this->comments->count(),
+
+            'ratting_count' => [
+                "all" => $comments->count(),
+                "Family" => $commentsFamily->count(),
+                "Solo" => $commentsSolo->count(),
+                "Business" => $commentsBusiness->count(),
+                "Friends" => $commentsFriends->count(),
+            ],
             'image_count' => count($images),
             'views' => $this->views,
             'web_site' => $this->web_site,
