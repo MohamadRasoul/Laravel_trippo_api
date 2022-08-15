@@ -139,13 +139,14 @@ class PlaceInfoResource extends JsonResource
 
     public function toArray($request)
     {
+
         return [
             'id' => $this->id,
             'name' => $this->name,
             'about' => $this->about,
             'ratting' => $this->ratting,
             'ratting_count' => $this->comments()->count(),
-            'type' => $this->type()->name,
+            'type' => $this->type->name,
             "images"    => new ImageResource($this->getFirstMedia('place')),
         ];
     }

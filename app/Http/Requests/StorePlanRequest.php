@@ -34,7 +34,7 @@ use Illuminate\Foundation\Http\FormRequest;
  *         "name"         : "aleppo resturant",
  *         "description"  : "best resturant in aleppo",
  *         "city_id"  : 1,
- *         "image"  : "image.jpg",
+ *         "image"  : "image.png",
  *      }
  * )
  */
