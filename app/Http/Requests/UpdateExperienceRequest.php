@@ -4,34 +4,47 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-// /**
-//  * @OA\Schema(
-//  *      title="UpdateExperienceRequest",
-//  *      description="UpdateExperienceRequest body data",
-//  *      type="object",
-//  *      required={"username","email"},
-//  *
-//  *
-//  *      @OA\Property(
-//  *         property="username",
-//  *         type="string"
-//  *      ),
-//  *      @OA\Property(
-//  *         property="email",
-//  *         type="string"
-//  *      ),
-//  *
-//  *
-//  *      example={
-//  *         "username"              : "mohamad_ra",
-//  *         "email"                 : "mralmaahlol@gmail.com",
-//  *      }
-//  * )
-//  */
+/**
+ * @OA\Schema(
+ *      title="UpdateExperienceRequest",
+ *      description="UpdateExperienceRequest body data",
+ *      type="object",
+ *      required={},
+ *
+ *
+ *      @OA\Property(
+ *         property="name",
+ *         type="string",
+ *         example="experiance name",
+ *      ),
+ *      @OA\Property(
+ *         property="about",
+ *         type="string",
+ *         example="experiance about",
+ *      ),
+ *      @OA\Property(
+ *         property="address",
+ *         type="string",
+ *         example="experiance address",
+ *      ),
+ *      @OA\Property(
+ *         property="latitude",
+ *         type="string",
+ *         example=36.2435,
+ *      ),
+ *      @OA\Property(
+ *         property="longitude",
+ *         type="string",
+ *         example=36.2435,
+ *      ),
+ *
+ *
+ * )
+ */
 
 class UpdateExperienceRequest extends FormRequest
 {
-    
+
     public function authorize()
     {
         return true;
@@ -40,7 +53,11 @@ class UpdateExperienceRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required'],
+            'about' => ['required'],
+            'address' => ['required'],
+            'latitude' => ['nullable'],
+            'longitude' => ['nullable'],
         ];
     }
 

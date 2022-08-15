@@ -7,7 +7,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -19,18 +20,17 @@ return new class extends Migration {
             $table->id();
 
             $table->string('name');
-            $table->string('about')->nullable();
-            $table->string('ratting')->nullable();
-            $table->string('views')->default(0)->nullable();
+            $table->text('about')->nullable();
+            $table->integer('price_begin')->nullable();
+            $table->integer('ratting')->default(0);
+            $table->integer('views')->default(0);
             $table->string('address')->nullable();
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
+            $table->double('latitude')->nullable();
+            $table->double('longitude')->nullable();
 
 
             ######## Foreign keys  ########
 
-            $table->foreignIdFor(City::class)->constrained('cities')->cascadeOnDelete();
-            $table->foreignIdFor(Type::class)->constrained('types')->cascadeOnDelete();
             $table->foreignIdFor(User::class)->constrained('users')->cascadeOnDelete();
 
             $table->timestamps();
