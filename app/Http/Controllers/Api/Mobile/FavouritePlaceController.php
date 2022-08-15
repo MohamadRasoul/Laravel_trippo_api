@@ -35,11 +35,13 @@ class FavouritePlaceController extends Controller
 
     public function changeStatus($place_id, FavouritePlace $favouritePlace)
     {
+       
         $place = Place::find($place_id);
         $userHasPosts = Place::has('favourite')->find($place_id);
-        if ($userHasPosts) {
-            $favourite = FavouritePlace::where('user_id', Auth::guard('user_api')->user()->id)->first();
-            if ($favourite) {
+        $favourite = FavouritePlace::where('user_id', Auth::guard('user_api')->user()->id)->first();
+
+        if ($userHasPosts && $favourite) {
+        
                 FavouritePlace::where('place_id',$place_id)->first()->delete();
                 return response()->success(
                     'favourite is removed success',
@@ -47,7 +49,7 @@ class FavouritePlaceController extends Controller
                         "place" => new PlaceResource($place),
                     ]
                 );
-            }
+            
         } else {
             $favourite = $favouritePlace::create(
                 [
