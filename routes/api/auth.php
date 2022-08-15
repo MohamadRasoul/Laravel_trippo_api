@@ -24,6 +24,7 @@ Route::group([
     Route::post('register', 'register');
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
+    Route::post('update/{user}', 'update');
 });
 
 
