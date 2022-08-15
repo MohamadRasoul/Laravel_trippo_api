@@ -21,11 +21,10 @@ class PlanContentFactory extends Factory
     {
         return [
             "full_date"   => $this->faker->date(now()),
-            "duration"   => $this->faker->numberBetween(10,300),
             "comment"   => $this->faker->text(),
             "plan_id"   => \App\Models\Plan::all()->random()->id,
             "place_id"   => \App\Models\Place::all()->random()->id,
-            "experience_id"   => \App\Models\Experience::all()->random()->id,
+            // "experience_id"   => \App\Models\Experience::all()->random()->id,
            
         ];
     }

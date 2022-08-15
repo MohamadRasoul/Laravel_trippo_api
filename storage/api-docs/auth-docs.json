@@ -916,6 +916,26 @@
                     ]
                 }
             },
+            "StorePlanRequest": {
+                "title": "StorePlanRequest",
+                "description": "StorePlanRequest body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "aleppo resturant",
+                    "description": "best resturant in aleppo"
+                }
+            },
             "StoreQuestionRequest": {
                 "title": "StoreQuestionRequest",
                 "description": "StoreQuestionRequest body data",
@@ -1149,6 +1169,27 @@
                         1,
                         2
                     ]
+                }
+            },
+            "UpdatePlanRequest": {
+                "title": "UpdatePlanRequest",
+                "description": "UpdatePlanRequest body data",
+                "required": [
+                    "username",
+                    "email"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "aleppo resturant",
+                    "description": "best resturant in aleppo"
                 }
             },
             "UpdateTypeRequest": {

@@ -89,6 +89,29 @@ Route::group([
     Route::get('index', [Mobile\VisitTypeController::class, 'index']);
 });
 
+Route::group([
+    "prefix" => 'plan',
+], function () {
+    Route::get('index', [Mobile\PlanController::class, 'index']);
+    Route::get('user/index', [Mobile\PlanController::class, 'indexByUser']);
+    Route::get('{plan}/show', [Mobile\PlanController::class, 'show']);
+
+    Route::post('store', [Mobile\PlanController::class, 'store']);
+    Route::post('{plan}/update', [Mobile\PlanController::class, 'update']);
+    Route::delete('{plan}/delete', [Mobile\PlanController::class, 'destroy']);
+});
+
+Route::group([
+    "prefix" => 'planContent',
+], function () {
+    Route::get('plan/{plan}/index', [Mobile\PlanContentController::class, 'indexByPlan']);
+    Route::get('{planContent}/show', [Mobile\PlanContentController::class, 'show']);
+
+    Route::post('plan/{plan}/store', [Mobile\PlanContentController::class, 'store']);
+    Route::post('{planContent}/update', [Mobile\PlanContentController::class, 'update']);
+    Route::delete('{planContent}/delete', [Mobile\PlanContentController::class, 'destroy']);
+});
+
 
 
 

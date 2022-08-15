@@ -20,18 +20,12 @@ return new class extends Migration
             $table->id();
 
             $table->date('full_date');
-            $table->integer('duration')->nullable();
             $table->string('comment')->nullable();
 
-
-
-
-           
             ######## Foreign keys  ########
 
             $table->foreignIdFor(Plan::class)->constrained('plans')->cascadeOnDelete();
             $table->foreignIdFor(Place::class)->constrained('places')->cascadeOnDelete();
-            $table->foreignIdFor(Experience::class)->constrained('experiences')->cascadeOnDelete();
 
             $table->timestamps();
         });

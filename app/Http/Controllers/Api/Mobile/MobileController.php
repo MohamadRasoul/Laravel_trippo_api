@@ -67,6 +67,14 @@ use App\Http\Controllers\Controller;
  *     name="VisitType",
  *     description="API Endpoints of VisitType"
  * )
+ * @OA\Tag(
+ *     name="Plan",
+ *     description="API Endpoints of Plan"
+ * )
+ * @OA\Tag(
+ *     name="PlanContent",
+ *     description="API Endpoints of PlanContent"
+ * )
  * @OA\PathItem(path="/api")
  *
  *

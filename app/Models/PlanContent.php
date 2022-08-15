@@ -16,9 +16,12 @@ class PlanContent extends Model
 
     ########## Accessors / Mutators ##########
 
-    
-    ########## Relations ##########
 
+    ########## Relations ##########
+    public function plan()
+    {
+        return $this->belongsTo(PlanContent::class);
+    }
 
     ########## Query ##########
 

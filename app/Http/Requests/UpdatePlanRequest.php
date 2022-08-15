@@ -4,34 +4,34 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-// /**
-//  * @OA\Schema(
-//  *      title="UpdatePlanRequest",
-//  *      description="UpdatePlanRequest body data",
-//  *      type="object",
-//  *      required={"username","email"},
-//  *
-//  *
-//  *      @OA\Property(
-//  *         property="username",
-//  *         type="string"
-//  *      ),
-//  *      @OA\Property(
-//  *         property="email",
-//  *         type="string"
-//  *      ),
-//  *
-//  *
-//  *      example={
-//  *         "username"              : "mohamad_ra",
-//  *         "email"                 : "mralmaahlol@gmail.com",
-//  *      }
-//  * )
-//  */
+/**
+ * @OA\Schema(
+ *      title="UpdatePlanRequest",
+ *      description="UpdatePlanRequest body data",
+ *      type="object",
+ *      required={"username","email"},
+ *
+ *
+ *      @OA\Property(
+ *         property="name",
+ *         type="string"
+ *      ),
+ *      @OA\Property(
+ *         property="description",
+ *         type="string"
+ *      ),
+ *
+ *
+ *      example={
+ *         "name"         : "aleppo resturant",
+ *         "description"  : "best resturant in aleppo",
+ *      }
+ * )
+ */
 
 class UpdatePlanRequest extends FormRequest
 {
-    
+
     public function authorize()
     {
         return true;
@@ -40,9 +40,11 @@ class UpdatePlanRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'          => ['nullable'],
+            'description'   => ['nullable'],
         ];
     }
+
 
 
     public function validated($key = null, $default = null)

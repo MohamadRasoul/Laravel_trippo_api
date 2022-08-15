@@ -1467,6 +1467,718 @@
                 ]
             }
         },
+        "/api/mobile/planContent/plan/{planId}/index": {
+            "get": {
+                "tags": [
+                    "PlanContent"
+                ],
+                "summary": "Get All PlanContents By Plan",
+                "description": "",
+                "operationId": "IndexPlanContentByPlan",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    },
+                    {
+                        "name": "planId",
+                        "in": "path",
+                        "description": "Plan ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all planContents"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "planContents": {
+                                                    "$ref": "#/components/schemas/PlanContentResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/planContent/{id}/show": {
+            "get": {
+                "tags": [
+                    "PlanContent"
+                ],
+                "summary": "Get PlanContent By ID",
+                "description": "",
+                "operationId": "ShowPlanContent",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "PlanContent ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is your planContent"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "planContent": {
+                                                    "$ref": "#/components/schemas/PlanContentResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/planContent/plan/{planId}/store": {
+            "post": {
+                "tags": [
+                    "PlanContent"
+                ],
+                "summary": "Add PlanContent",
+                "description": "",
+                "operationId": "StorePlanContent",
+                "parameters": [
+                    {
+                        "name": "planId",
+                        "in": "path",
+                        "description": "Plan ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StorePlanContentRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "planContent is added success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "planContent": {
+                                                    "$ref": "#/components/schemas/PlanContentResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/planContent/{id}/update": {
+            "post": {
+                "tags": [
+                    "PlanContent"
+                ],
+                "summary": "Edit PlanContent",
+                "description": "",
+                "operationId": "UpdatePlanContent",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "PlanContent ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdatePlanContentRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "planContent is updated success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "planContent": {
+                                                    "$ref": "#/components/schemas/PlanContentResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/planContent/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "PlanContent"
+                ],
+                "summary": "Delete PlanContent By ID",
+                "description": "",
+                "operationId": "DeletePlanContent",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "PlanContent ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "planContent is deleted success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/plan/index": {
+            "get": {
+                "tags": [
+                    "Plan"
+                ],
+                "summary": "Get All Plans",
+                "description": "",
+                "operationId": "IndexPlan",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all plans"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "plans": {
+                                                    "$ref": "#/components/schemas/PlanResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/plan/user/index": {
+            "get": {
+                "tags": [
+                    "Plan"
+                ],
+                "summary": "Get All Plans By User",
+                "description": "",
+                "operationId": "IndexPlanByUser",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all plans"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "plans": {
+                                                    "$ref": "#/components/schemas/PlanResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/plan/{id}/show": {
+            "get": {
+                "tags": [
+                    "Plan"
+                ],
+                "summary": "Get Plan By ID",
+                "description": "",
+                "operationId": "ShowPlan",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Plan ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is your plan"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "plan": {
+                                                    "$ref": "#/components/schemas/PlanResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/plan/store": {
+            "post": {
+                "tags": [
+                    "Plan"
+                ],
+                "summary": "Add Plan",
+                "description": "",
+                "operationId": "StorePlan",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StorePlanRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "plan is added success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "plan": {
+                                                    "$ref": "#/components/schemas/PlanResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/plan/{id}/update": {
+            "post": {
+                "tags": [
+                    "Plan"
+                ],
+                "summary": "Edit Plan",
+                "description": "",
+                "operationId": "UpdatePlan",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Plan ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdatePlanRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "plan is updated success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "plan": {
+                                                    "$ref": "#/components/schemas/PlanResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/plan/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "Plan"
+                ],
+                "summary": "Delete Plan By ID",
+                "description": "",
+                "operationId": "DeletePlan",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Plan ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "plan is deleted success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
         "/api/mobile/question/city/{cityId}/index": {
             "get": {
                 "tags": [
@@ -2309,6 +3021,52 @@
                     ]
                 }
             },
+            "StorePlanContentRequest": {
+                "title": "StorePlanContentRequest",
+                "description": "StorePlanContentRequest body data",
+                "required": [
+                    "full_date",
+                    "comment",
+                    "place_id"
+                ],
+                "properties": {
+                    "place_id": {
+                        "type": "string"
+                    },
+                    "full_date": {
+                        "type": "string"
+                    },
+                    "comment": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "place_id": 1,
+                    "full_date": "5-11-2022",
+                    "comment": "sdad asdasda asd sada sdasd dasda"
+                }
+            },
+            "StorePlanRequest": {
+                "title": "StorePlanRequest",
+                "description": "StorePlanRequest body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "aleppo resturant",
+                    "description": "best resturant in aleppo"
+                }
+            },
             "StoreQuestionRequest": {
                 "title": "StoreQuestionRequest",
                 "description": "StoreQuestionRequest body data",
@@ -2542,6 +3300,49 @@
                         1,
                         2
                     ]
+                }
+            },
+            "UpdatePlanContentRequest": {
+                "title": "UpdatePlanContentRequest",
+                "description": "UpdatePlanContentRequest body data",
+                "required": [],
+                "properties": {
+                    "place_id": {
+                        "type": "string"
+                    },
+                    "full_date": {
+                        "type": "string"
+                    },
+                    "comment": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "place_id": 1,
+                    "full_date": "5-11-2022",
+                    "comment": "sdad asdasda asd sada sdasd dasda"
+                }
+            },
+            "UpdatePlanRequest": {
+                "title": "UpdatePlanRequest",
+                "description": "UpdatePlanRequest body data",
+                "required": [
+                    "username",
+                    "email"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "name": "aleppo resturant",
+                    "description": "best resturant in aleppo"
                 }
             },
             "UpdateTypeRequest": {
@@ -2867,6 +3668,53 @@
                 },
                 "type": "object"
             },
+            "PlanContentResource": {
+                "title": "PlanContentResource",
+                "description": "PlanContentResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "full_date": {
+                        "type": "string"
+                    },
+                    "comment": {
+                        "type": "string"
+                    },
+                    "place_id": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "id": 10,
+                    "full_date": "2022-08-15",
+                    "comment": "Est exercitationem consequatur repellat qui nesciunt ut alias. Quia alias delectus aut numquam dolorem enim voluptatem. Aut molestiae ut et animi aut ut minima.",
+                    "place_id": 48
+                }
+            },
+            "PlanResource": {
+                "title": "PlanResource",
+                "description": "PlanResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "aleppo resturant"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "best resturant in aleppo"
+                    },
+                    "image": {
+                        "$ref": "#/components/schemas/ImageResource"
+                    }
+                },
+                "type": "object"
+            },
             "QuestionResource": {
                 "title": "QuestionResource",
                 "description": "QuestionResource body data",
@@ -3011,6 +3859,14 @@
         {
             "name": "VisitType",
             "description": "API Endpoints of VisitType"
+        },
+        {
+            "name": "Plan",
+            "description": "API Endpoints of Plan"
+        },
+        {
+            "name": "PlanContent",
+            "description": "API Endpoints of PlanContent"
         }
     ]
 }

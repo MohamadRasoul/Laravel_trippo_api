@@ -19,13 +19,8 @@ return new class extends Migration
 
             $table->string('name');
             $table->string('description')->nullable();
-            $table->integer('is_private')->default(0);
+            $table->boolean('is_private')->default(true);
 
-
-
-
-
-           
             ######## Foreign keys  ########
 
             $table->foreignIdFor(User::class)->constrained('users')->cascadeOnDelete();
