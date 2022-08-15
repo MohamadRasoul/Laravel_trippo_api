@@ -35,6 +35,11 @@ class User extends Authenticatable implements JWTSubject, HasMedia
         return $this->morphedByMany(Place::class, 'viewable', 'views')->withPivot('count');
     }
 
+    public function favoritesPlace()
+    {
+        return $this->hasMany(FavouritePlace::class);
+    }
+
 
     ########## Query ##########
 
@@ -48,7 +53,8 @@ class User extends Authenticatable implements JWTSubject, HasMedia
     {
         $this
             ->addMediaCollection('user')
-            ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/city.jpg');
+            ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/city.jpg')
+            ->singleFile();
     }
     public function getJWTIdentifier()
     {

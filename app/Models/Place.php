@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
@@ -59,8 +60,19 @@ class Place extends Model implements HasMedia
     {
         return $this->morphToMany(User::class, 'viewable', 'views')->withPivot('count');
     }
-    ########## Query ##########
+    ########## function ##########
 
+
+    public function isOpen()
+    {
+        $time_now = Carbon::now()->format('H:i:s');
+        // dd($time_now, $this->open_at, $this->close_at);
+        if ($time_now >= $this->open_at && $time_now <= $this->close_at) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     ########## Scopes ##########
 

@@ -114,12 +114,6 @@ class PlaceResource extends JsonResource
         $images = $placeImage->merge($placeImageAdmin);
 
 
-        // $feature = $this->features()->groupBy(function ($it) {
-        //     return $it->content->id;
-        // })->map(function ($products, $content_id) {
-        //     $content = Content::find($content_id);
-        //     return new ContentWithProductResource($content, $products);
-        // })->flatten(1);
 
         return [
             'id'            => $this->id,

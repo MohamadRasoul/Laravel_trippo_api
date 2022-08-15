@@ -106,27 +106,23 @@ class PlaceResource extends JsonResource
         $placeImage = $this->getMedia('place')->flatten();
         $placeImageAdmin = $this->getMedia('place_admin')->flatten();
         $images = $placeImage->merge($placeImageAdmin);
-        $time_now = Carbon::now()->format('H:i:s');
-        if ($time_now >= $this->open_at && $time_now <= $this->close_at) {
-            $is_open = true;
-        } else {
-            $is_open = false;
-        }
-        $favourite = FavouritePlace::where('place_id',$this->id)->count();
-        if ($favourite > 0) {
-           $is_favourite = true;
-        }
-        else {
-            $is_favourite = false;
-        }
+
+        $user = auth('user_api')->user();
+
+        // $feature = $this->features()->groupBy(function ($it) {
+        //     return $it->fu->id;
+        // })->map(function ($products, $content_id) {
+        //     $content = Content::find($content_id);
+        //     return new ContentWithProductResource($content, $products);
+        // })->flatten(1);
 
         return [
             'id' => $this->id,
             'name' => $this->name,
             'about' => $this->about,
             'address' => $this->address,
-            'latitude' => (double)$this->latitude,
-            'longitude' => (double)$this->longitude,
+            'latitude' => (float)$this->latitude,
+            'longitude' => (float)$this->longitude,
             'ratting' => $this->ratting,
             // Todo
             'ratting_count' => rand(70, 2000),
@@ -134,8 +130,8 @@ class PlaceResource extends JsonResource
             'web_site' => $this->web_site,
             'phone_number' => $this->phone_number,
             'email' => $this->email,
-            'is_open' => $is_open,
-            'is_favourite' => $is_favourite,
+            'is_open' => $this->isOpen(),
+            'is_favourite' => $user->favoritesPlace()->where('place_id', $this->id)->exists(),
             'open_at' => $this->open_at,
             'close_at' => $this->close_at,
             'created_at' => $this->created_at,

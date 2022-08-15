@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             PlanContentSeeder::class,
             FavouritePlaceSeeder::class,
             VisitTypeSeeder::class,
+            CommentSeeder::class,
         ]);
     }
 }

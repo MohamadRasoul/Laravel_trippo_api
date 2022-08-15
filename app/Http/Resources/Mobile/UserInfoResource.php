@@ -42,14 +42,12 @@ class UserInfoResource extends JsonResource
 
     public function toArray($request)
     {
-        return parent::toArray($request);
-
-
+        
         return [
             "id"          => $this->id,
             "name"        => $this->first_name . ' ' . $this->last_name,
             "username"    => $this->username,
-            'image'       => new ImageResource($this->getMedia('user')->flatten())
+            'image'       => new ImageResource($this->getFirstMedia('user'))
         ];
     }
 }

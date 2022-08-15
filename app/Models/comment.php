@@ -25,6 +25,11 @@ class Comment extends Model implements HasMedia
     {
         return $this->belongsTo(VisitType::class);
     }
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     ########## Query ##########
 

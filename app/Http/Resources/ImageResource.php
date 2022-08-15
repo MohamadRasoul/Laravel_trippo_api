@@ -42,11 +42,10 @@ class ImageResource extends JsonResource
 
     public function toArray($request)
     {
-        // return parent::toArray($request);
-        // dump($this->custom_properties, $this->id);
+
         return [
             'id'       => $this->id,
-            'url'      => $this->original_url,
+            'url'      =>  $this->original_url,
             'order'    => $this->order_column,
             'hash'     => isset($this->custom_properties['hash']) ? $this->custom_properties['hash'] : null,
         ];
