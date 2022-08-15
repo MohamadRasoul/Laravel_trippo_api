@@ -45,11 +45,9 @@ class PlanContentResource extends JsonResource
 
     public function toArray($request)
     {
-
-
         return [
             'id'           => $this->id,
-            "place"        => new PlaceInfoResource($this->place_id),
+            "place"        => new PlaceInfoResource($this->place),
             "full_date"    => $this->full_date,
             "comment"      => $this->comment,
         ];

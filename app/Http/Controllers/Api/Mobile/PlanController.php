@@ -192,7 +192,6 @@ class PlanController extends Controller
         );
     }
 
-
     /**
      * @OA\Post(
      *    path="/api/mobile/plan/store",
@@ -253,12 +252,19 @@ class PlanController extends Controller
     {
         $plan = Plan::create($request->validated());
 
-        (new ImageService)->storeStaticImage(
-            model: $plan,
-            image: 'default.jpg',
-            collection: 'plan',
-            folderName: 'fallback-images'
-        );
+        $request->image ?
+            (new ImageService)->storeImage(
+                model: $plan,
+                image: $request->image,
+                collection: 'plan',
+                customProperties: ['from-user' => true]
+            )
+            : (new ImageService)->storeStaticImage(
+                model: $plan,
+                image: 'default.jpg',
+                collection: 'plan',
+                folderName: 'fallback-images'
+            );
 
         return response()->success(
             'plan is added success',
