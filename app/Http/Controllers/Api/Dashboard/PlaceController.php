@@ -396,6 +396,9 @@ class PlaceController extends Controller
     {
         $place = Place::create($request->validated());
 
+        $place->features()->sync(request()->features);
+        $place->options()->sync(request()->options);
+        $place->awards()->sync(request()->awards);
 
         (new ImageService)->storeImage(
             model: $place,

@@ -63,6 +63,7 @@ class StorePlanRequest extends FormRequest
         $data = [
             'name'          => $this->name,
             'description'   => $this->description,
+            'city_id'       => $this->city_id,
             'user_id'       => auth('user_api')->id(),
         ];
 

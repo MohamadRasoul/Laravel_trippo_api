@@ -42,7 +42,7 @@ class User extends Authenticatable implements JWTSubject, HasMedia
 
     public function plans()
     {
-        return $this->hasMany(FavouritePlace::class);
+        return $this->hasMany(plan::class);
     }
 
 

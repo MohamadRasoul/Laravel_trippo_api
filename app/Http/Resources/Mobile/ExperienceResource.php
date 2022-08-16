@@ -76,6 +76,8 @@ class ExperienceResource extends JsonResource
             "latitude" => $this->latitude,
             "longitude" => $this->longitude,
             "user" => new UserInfoResource($this->user),
+            "places" => PlaceInfoResource::collection($this->places),
+            "places" => PlaceInfoResource::collection($this->places),
         ];
     }
 }

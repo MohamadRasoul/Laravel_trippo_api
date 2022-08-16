@@ -43,6 +43,12 @@ use Illuminate\Foundation\Http\FormRequest;
  *         example=36.2435,
  *      ),
  *      @OA\Property(
+ *         property="places",
+ *         type="string",
+ *         example={1,2},
+ *      ),
+ *              
+ *      @OA\Property(
  *          property="images",
  *          type="array",
  *          @OA\Items(type="string"),
@@ -70,7 +76,8 @@ class StoreExperienceRequest extends FormRequest
             'price_begin' => ['required'],
             'latitude' => ['nullable'],
             'longitude' => ['nullable'],
-            'images'    => ['nullable',],
+            'images'    => ['nullable'],
+            "places.*" => ['required', 'numeric'],
         ];
     }
 
