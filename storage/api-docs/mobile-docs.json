@@ -5025,6 +5025,12 @@
                         "type": "string",
                         "example": "150"
                     },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ImageResource"
+                        }
+                    },
                     "user": {
                         "$ref": "#/components/schemas/UserInfoResource"
                     },

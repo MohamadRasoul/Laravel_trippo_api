@@ -14,23 +14,23 @@ class ExperienceSeeder extends Seeder
     {
         \App\Models\Experience::factory(10)->create()
             ->each(
-                function ($experiance) {
+                function ($experience) {
                     (new ImageService)->storeStaticImage(
-                        model: $experiance,
+                        model: $experience,
                         image: 'default.jpg',
-                        collection: 'experiance',
+                        collection: 'experience',
                         folderName: 'fallback-images'
                     );
                     (new ImageService)->storeStaticImage(
-                        model: $experiance,
+                        model: $experience,
                         image: 'default_1.jpg',
-                        collection: 'experiance',
+                        collection: 'experience',
                         folderName: 'fallback-images'
                     );
                     (new ImageService)->storeStaticImage(
-                        model: $experiance,
+                        model: $experience,
                         image: 'default_2.jpg',
-                        collection: 'experiance',
+                        collection: 'experience',
                         folderName: 'fallback-images'
                     );
                 }
