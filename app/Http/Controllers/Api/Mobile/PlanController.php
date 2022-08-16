@@ -10,6 +10,7 @@ use App\Services\ImageService;
 use App\Http\Requests\StorePlanRequest;
 use App\Http\Requests\UpdatePlanRequest;
 use App\Http\Resources\Mobile\PlanResource;
+use Illuminate\Http\Request;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
@@ -179,12 +180,14 @@ class PlanController extends Controller
      *     )
      * )
      */
-    public function indexByUser()
+    public function indexByUser(Request $request)
     {
         $user = auth('user_api')->user();
         
-        $plans = $user->plans()->latest();
-
+        $plans = $user->plans()
+        ->when($request->city_id, function ($query)use ($request) {
+            $query->where('city_id',$request->city_id);
+        })->latest();
         return response()->success(
             'this is all Plans',
             [
