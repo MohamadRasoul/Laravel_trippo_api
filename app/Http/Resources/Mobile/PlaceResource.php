@@ -185,6 +185,7 @@ class PlaceResource extends JsonResource
             'open_at' => $this->open_at,
             'close_at' => $this->close_at,
             'created_at' => $this->created_at,
+            'city_id'      => $this->city->id,
             'city'      => $this->city->name,
             'type'      => $this->type->name,
             "images"       => ImageResource::collection($images),
