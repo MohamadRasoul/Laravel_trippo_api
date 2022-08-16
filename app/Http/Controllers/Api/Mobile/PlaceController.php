@@ -197,7 +197,7 @@ class PlaceController extends Controller
             })
             ->when($request->city ?? null, function ($query, $name) {
                 $query->whereHas('name', 'like', "%$name%");
-            })
+            });
 
         return response()->success(
             'this is all Places',
