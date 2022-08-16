@@ -106,6 +106,110 @@ class PlaceController extends Controller
 
     /**
      * @OA\Get(
+     *    path="/api/mobile/place/indexwithSearch",
+     *    operationId="IndexPlacewithSearch",
+     *    tags={"Place"},
+     *    summary="Get All Places",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\Parameter(
+     *       name="perPage",
+     *       example=10,
+     *       in="query",
+     *       description="Number of item per page",
+     *       required=false,
+     *       @OA\Schema(
+     *           type="integer",
+     *       )
+     *    ),
+     *    @OA\Parameter(
+     *        name="page",
+     *        example=1,
+     *        in="query",
+     *        description="Page number",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is all places"
+     *           ),
+     *          @OA\Property(
+     *              property="data",
+     *              @OA\Property(
+     *                 property="places",
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/PlaceResource"
+     *                 ),
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function indexwithSearch(Request $request)
+    {
+        $places = Place::query()
+            ->when($request->placeRating ?? null, function ($query, $name) {
+                $query->whereHas('name', 'like', "%$name%");
+            })
+            ->when($request->featureTitle ?? null, function ($query, $name) {
+                $query->whereHas('name', 'like', "%$name%");
+            })
+            ->when($request->feature ?? null, function ($query, $name) {
+                $query->whereHas('name', 'like', "%$name%");
+            })
+            ->when($request->type ?? null, function ($query, $name) {
+                $query->whereHas('name', 'like', "%$name%");
+            })
+            ->when($request->option ?? null, function ($query, $name) {
+                $query->whereHas('name', 'like', "%$name%");
+            })
+            ->when($request->city ?? null, function ($query, $name) {
+                $query->whereHas('name', 'like', "%$name%");
+            })
+
+        return response()->success(
+            'this is all Places',
+            [
+                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
+            ]
+        );
+    }
+
+
+    /**
+     * @OA\Get(
      *    path="/api/mobile/place/{id}/image/index",
      *    operationId="indexPlaceImage",
      *    tags={"Place"},

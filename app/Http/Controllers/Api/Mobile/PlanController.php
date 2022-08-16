@@ -187,8 +187,6 @@ class PlanController extends Controller
     {
         $user = auth('user_api')->user();
 
-
-
         $plans = $user->plans()
             ->when($request->city_id, function ($query) use ($request) {
                 $query->where('city_id', $request->city_id);

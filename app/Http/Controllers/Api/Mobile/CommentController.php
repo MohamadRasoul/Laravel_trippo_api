@@ -412,7 +412,7 @@ class CommentController extends Controller
         $placeComments = $place->comments;
 
         $place->update([
-            'ratting'    => $placeComments->sum('rating') / $placeComments->count(),
+            'ratting'    => round($placeComments->sum('rating') / $placeComments->count()),
         ]);
 
 
@@ -508,7 +508,7 @@ class CommentController extends Controller
         $experienceComments = $experience->comments();
 
         $experience->update([
-            'rating'    => $experienceComments->sum('rating') / $experienceComments->count(),
+            'rating'    => round($experienceComments->sum('rating') / $experienceComments->count()),
         ]);
 
         foreach ($request->images as $image) {
