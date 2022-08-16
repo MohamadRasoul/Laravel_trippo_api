@@ -73,8 +73,11 @@ class OptionController extends Controller
      *              property="data",
      *              @OA\Property(
      *                 property="options",
-     *                 type="object",
-     *                 ref="#/components/schemas/OptionResource"
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/OptionResource"
+     *                 )
      *              ),
      *           )
      *        ),

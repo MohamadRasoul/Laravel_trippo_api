@@ -32,61 +32,15 @@ use Carbon\Carbon;
  *          example="best coffe to enjoy with your friends"
  *      ),
  *      @OA\Property(
- *          property="address",
- *          type="string",
- *          example="address - address - address"
- *      ),
- *      @OA\Property(
- *          property="latitude",
- *          type="string",
- *          example="33.65166"
- *      ),
- *      @OA\Property(
- *          property="longitude",
- *          type="string",
- *          example="36.5165"
- *      ),
- *      @OA\Property(
  *          property="ratting",
  *          type="string",
  *          example=5
  *      ),
  *      @OA\Property(
- *          property="views",
+ *          property="type",
  *          type="string",
- *          example=59
+ *          example="hotel"
  *      ),
- *      @OA\Property(
- *          property="web_site",
- *          type="string",
- *          example="www.web_site.com"
- *      ),
- *      @OA\Property(
- *          property="phone_number",
- *          type="string",
- *          example="0958600569"
- *      ),
- *      @OA\Property(
- *          property="email",
- *          type="string",
- *          example="email@email.com"
- *      ),
- *      @OA\Property(
- *          property="open_at",
- *          type="string",
- *          example="10:00:00"
- *      ),
- *      @OA\Property(
- *          property="close_at",
- *          type="string",
- *          example="22:00:00"
- *      ),
- *      @OA\Property(
- *          property="created_at",
- *          type="string",
- *          example="2022-06-06 17:38:54"
- *      ),
- *
  *      @OA\Property(
  *         property="images",
  *         type="array",
@@ -95,43 +49,6 @@ use Carbon\Carbon;
  *            ref="#/components/schemas/ImageResource"
  *         )
  *      ),
- *      @OA\Property(
- *         property="awards",
- *         type="array",
- *         @OA\Items(
- *            type="object",
- *            ref="#/components/schemas/AwardResource"
- *         )
- *      ),
- *      @OA\Property(
- *          property="options",
- *          type="array",
- *          @OA\Items(
- *             type="object",
- *             ref="#/components/schemas/OptionResource"
- *          )
- *       ),
- *       @OA\Property(
- *          property="features",
- *          type="object",
- *          @OA\Property(
- *             property="Miss Eliza Emard Sr.",
- *             type="array",
- *             @OA\Items(
- *                type="object",
- *                ref="#/components/schemas/FeatureResource"
- *             )
- *          ),
- *          @OA\Property(
- *             property="Lexus Cronin PhD",
- *             type="array",
- *             @OA\Items(
- *                type="object",
- *                ref="#/components/schemas/FeatureResource"
- *             )
- *          ),
- *       ),
- *
  * )
  */
 class PlaceInfoResource extends JsonResource

@@ -716,7 +716,10 @@
                                         "data": {
                                             "properties": {
                                                 "comments": {
-                                                    "$ref": "#/components/schemas/CommentResource"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/CommentResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -796,7 +799,10 @@
                                         "data": {
                                             "properties": {
                                                 "comments": {
-                                                    "$ref": "#/components/schemas/CommentResource"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/CommentResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -1066,7 +1072,10 @@
                                         "data": {
                                             "properties": {
                                                 "experiences": {
-                                                    "$ref": "#/components/schemas/ExperienceResource"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ExperienceResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -1542,7 +1551,10 @@
                                         "data": {
                                             "properties": {
                                                 "options": {
-                                                    "$ref": "#/components/schemas/OptionResource"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/OptionResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -1898,7 +1910,10 @@
                                         "data": {
                                             "properties": {
                                                 "planContents": {
-                                                    "$ref": "#/components/schemas/PlanContentResource"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/PlanContentResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -2230,7 +2245,10 @@
                                         "data": {
                                             "properties": {
                                                 "plans": {
-                                                    "$ref": "#/components/schemas/PlanResource"
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/PlanResource"
+                                                    }
                                                 }
                                             },
                                             "type": "object"
@@ -3236,6 +3254,18 @@
                             2
                         ]
                     },
+                    "bookings": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "example": {
+                                "name": "mohamad_ra",
+                                "price": "2000",
+                                "people_count": "2",
+                                "is_active": "1"
+                            }
+                        }
+                    },
                     "images": {
                         "type": "array",
                         "items": {
@@ -3845,6 +3875,35 @@
                 },
                 "type": "object"
             },
+            "BookingResource": {
+                "title": "BookingResource",
+                "description": "BookingResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "string"
+                    },
+                    "people_count": {
+                        "type": "string"
+                    },
+                    "is_active": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "id": 1,
+                    "name": "mohamad_ra",
+                    "price": "2000",
+                    "people_count": "2",
+                    "is_active": "1"
+                }
+            },
             "CityResource": {
                 "title": "CityResource",
                 "description": "CityResource body data",
@@ -3967,6 +4026,23 @@
                     "price_begin": {
                         "type": "string",
                         "example": "150"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/UserInfoResource"
+                    },
+                    "places": {
+                        "schema": "ExperienceResource",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PlaceInfoResource"
+                        }
+                    },
+                    "bookings": {
+                        "schema": "ExperienceResource",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BookingResource"
+                        }
                     }
                 },
                 "type": "object"
@@ -4045,84 +4121,19 @@
                         "type": "string",
                         "example": "best coffe to enjoy with your friends"
                     },
-                    "address": {
-                        "type": "string",
-                        "example": "address - address - address"
-                    },
-                    "latitude": {
-                        "type": "string",
-                        "example": "33.65166"
-                    },
-                    "longitude": {
-                        "type": "string",
-                        "example": "36.5165"
-                    },
                     "ratting": {
                         "type": "string",
                         "example": 5
                     },
-                    "views": {
+                    "type": {
                         "type": "string",
-                        "example": 59
-                    },
-                    "web_site": {
-                        "type": "string",
-                        "example": "www.web_site.com"
-                    },
-                    "phone_number": {
-                        "type": "string",
-                        "example": "0958600569"
-                    },
-                    "email": {
-                        "type": "string",
-                        "example": "email@email.com"
-                    },
-                    "open_at": {
-                        "type": "string",
-                        "example": "10:00:00"
-                    },
-                    "close_at": {
-                        "type": "string",
-                        "example": "22:00:00"
-                    },
-                    "created_at": {
-                        "type": "string",
-                        "example": "2022-06-06 17:38:54"
+                        "example": "hotel"
                     },
                     "images": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/ImageResource"
                         }
-                    },
-                    "awards": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/AwardResource"
-                        }
-                    },
-                    "options": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/OptionResource"
-                        }
-                    },
-                    "features": {
-                        "properties": {
-                            "Miss Eliza Emard Sr.": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/FeatureResource"
-                                }
-                            },
-                            "Lexus Cronin PhD": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/FeatureResource"
-                                }
-                            }
-                        },
-                        "type": "object"
                     }
                 },
                 "type": "object"

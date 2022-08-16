@@ -80,8 +80,11 @@ class CommentController extends Controller
      *              property="data",
      *              @OA\Property(
      *                 property="comments",
-     *                 type="object",
-     *                 ref="#/components/schemas/CommentResource"
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/CommentResource"
+     *                 )
      *              ),
      *           )
      *        ),
@@ -201,8 +204,11 @@ class CommentController extends Controller
      *              property="data",
      *              @OA\Property(
      *                 property="comments",
-     *                 type="object",
-     *                 ref="#/components/schemas/CommentResource"
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/CommentResource"
+     *                 )
      *              ),
      *           )
      *        ),

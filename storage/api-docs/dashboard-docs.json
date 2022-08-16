@@ -1749,6 +1749,319 @@
                 ]
             }
         },
+        "/api/dashboard/notification/index": {
+            "get": {
+                "tags": [
+                    "Notification"
+                ],
+                "summary": "Get All Notifications",
+                "description": "",
+                "operationId": "IndexNotification",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all notifications"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "notifications": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/NotificationResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/notification/store": {
+            "post": {
+                "tags": [
+                    "Notification"
+                ],
+                "summary": "Add Notification",
+                "description": "",
+                "operationId": "StoreNotification",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreNotificationRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "notification is added success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "notification": {
+                                                    "$ref": "#/components/schemas/NotificationResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/notification/{id}/show": {
+            "get": {
+                "tags": [
+                    "Notification"
+                ],
+                "summary": "Get Notification By ID",
+                "description": "",
+                "operationId": "ShowNotification",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Notification ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is your notification"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "notification": {
+                                                    "$ref": "#/components/schemas/NotificationResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/notification/{id}/update": {
+            "post": {
+                "tags": [
+                    "Notification"
+                ],
+                "summary": "Edit Notification",
+                "description": "",
+                "operationId": "UpdateNotification",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Notification ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateNotificationRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "notification is updated success"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "notification": {
+                                                    "$ref": "#/components/schemas/NotificationResource"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/dashboard/notification/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "Notification"
+                ],
+                "summary": "Delete Notification By ID",
+                "description": "",
+                "operationId": "DeleteNotification",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Notification ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "notification is deleted success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
         "/api/dashboard/option/index": {
             "get": {
                 "tags": [
@@ -3658,6 +3971,10 @@
                         "type": "string",
                         "example": "experiance address"
                     },
+                    "price_begin": {
+                        "type": "string",
+                        "example": "150"
+                    },
                     "latitude": {
                         "type": "string",
                         "example": 36.2435
@@ -3665,6 +3982,35 @@
                     "longitude": {
                         "type": "string",
                         "example": 36.2435
+                    },
+                    "places": {
+                        "type": "string",
+                        "example": [
+                            1,
+                            2
+                        ]
+                    },
+                    "bookings": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "example": {
+                                "name": "mohamad_ra",
+                                "price": "2000",
+                                "people_count": "2",
+                                "is_active": "1"
+                            }
+                        }
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "image.png",
+                            "image.png"
+                        ]
                     }
                 },
                 "type": "object"
@@ -3703,6 +4049,31 @@
                 "type": "object",
                 "example": {
                     "title": "any Title",
+                    "image": "image.png"
+                }
+            },
+            "StoreNotificationRequest": {
+                "title": "StoreNotificationRequest",
+                "description": "StoreNotificationRequest body data",
+                "required": [
+                    "title",
+                    "description"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "notification title",
+                    "description": "notification description",
                     "image": "image.png"
                 }
             },
@@ -4023,6 +4394,28 @@
                 "type": "object",
                 "example": {
                     "title": "any Title",
+                    "image": "image.png"
+                }
+            },
+            "UpdateNotificationRequest": {
+                "title": "UpdateNotificationRequest",
+                "description": "UpdateNotificationRequest body data",
+                "required": [],
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "notification title",
+                    "description": "notification description",
                     "image": "image.png"
                 }
             },
@@ -4356,6 +4749,33 @@
                         "items": {
                             "$ref": "#/components/schemas/FeatureResource"
                         }
+                    },
+                    "image": {
+                        "properties": {
+                            "": {
+                                "$ref": "#/components/schemas/ImageResource"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "NotificationResource": {
+                "title": "NotificationResource",
+                "description": "NotificationResource body data",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "notification title"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "notification description"
                     },
                     "image": {
                         "properties": {

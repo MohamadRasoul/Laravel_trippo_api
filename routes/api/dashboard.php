@@ -135,3 +135,14 @@ Route::group([
     Route::post('approveRequestHost/{user}', [Dashboard\UserController::class, 'approveRequestHost']);
     Route::post('rejectRequestHost/{user}', [Dashboard\UserController::class, 'rejectRequestHost']);
 });
+
+Route::group([
+    "prefix" => 'notification',
+], function () {
+    Route::get('index', [Dashboard\NotificationController::class, 'index']);
+    Route::get('{notification}/show', [Dashboard\NotificationController::class, 'show']);
+    
+    Route::post('store', [Dashboard\NotificationController::class, 'store']);
+    Route::post('{notification}/update', [Dashboard\NotificationController::class, 'update']);
+    Route::delete('{notification}/delete', [Dashboard\NotificationController::class, 'destroy']);
+});

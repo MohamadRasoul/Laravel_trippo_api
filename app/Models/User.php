@@ -45,6 +45,11 @@ class User extends Authenticatable implements JWTSubject, HasMedia
         return $this->hasMany(plan::class);
     }
 
+    public function notifications()
+    {
+        return $this->belongsToMany(Notification::class, "user_notification")->withTimestamps();
+    }
+
 
     ########## Query ##########
 
@@ -61,12 +66,12 @@ class User extends Authenticatable implements JWTSubject, HasMedia
             ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/city.jpg')
             ->singleFile();
 
-            $this
+        $this
             ->addMediaCollection('idfront')
             ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/city.jpg')
             ->singleFile();
 
-            $this
+        $this
             ->addMediaCollection('idback')
             ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/city.jpg')
             ->singleFile();

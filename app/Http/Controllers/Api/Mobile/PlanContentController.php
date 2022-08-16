@@ -77,8 +77,11 @@ class PlanContentController extends Controller
      *              property="data",
      *              @OA\Property(
      *                 property="planContents",
-     *                 type="object",
-     *                 ref="#/components/schemas/PlanContentResource"
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/PlanContentResource"
+     *                 )
      *              ),
      *           )
      *        ),

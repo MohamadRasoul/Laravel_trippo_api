@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Experience extends Model implements HasMedia
+class Notification extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
@@ -20,25 +20,9 @@ class Experience extends Model implements HasMedia
 
 
     ########## Relations ##########
-
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
-    
-    public function bookings()
-    {
-        return $this->hasMany(Booking::class);
-    }
-
     public function user()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function places()
-    {
-        return $this->belongsToMany(Place::class, 'experience_contents');
+        return $this->belongsToMany(User::class, 'user_notification')->withTimestamps();
     }
 
     ########## Query ##########
@@ -52,7 +36,7 @@ class Experience extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this
-            ->addMediaCollection('experience')
+            ->addMediaCollection('notification')
             ->useFallbackUrl(config('app.url') . '/images/static/fallback-images/city.jpg');
     }
 

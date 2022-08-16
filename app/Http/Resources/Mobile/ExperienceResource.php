@@ -56,6 +56,27 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *          type="string",
  *          example= "150",
  *      ),
+ *      @OA\Property(
+ *          property="user",
+ *          ref="#/components/schemas/UserInfoResource"
+ *          )
+ *       ),
+ *      @OA\Property(
+ *         property="places",
+ *         type="array",
+ *         @OA\Items(
+ *            type="object",
+ *            ref="#/components/schemas/PlaceInfoResource"
+ *         )
+ *      ),
+ *      @OA\Property(
+ *         property="bookings",
+ *         type="array",
+ *         @OA\Items(
+ *            type="object",
+ *            ref="#/components/schemas/BookingResource"
+ *         )
+ *      ),
  *
  * )
  */
@@ -77,7 +98,7 @@ class ExperienceResource extends JsonResource
             "longitude" => $this->longitude,
             "user" => new UserInfoResource($this->user),
             "places" => PlaceInfoResource::collection($this->places),
-            "places" => PlaceInfoResource::collection($this->places),
+            "bookings" => BookingResource::collection($this->bookings),
         ];
     }
 }

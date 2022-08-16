@@ -76,8 +76,11 @@ class PlanController extends Controller
      *              property="data",
      *              @OA\Property(
      *                 property="plans",
-     *                 type="object",
-     *                 ref="#/components/schemas/PlanResource"
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/PlanResource"
+     *                 )
      *              ),
      *           )
      *        ),
@@ -182,7 +185,7 @@ class PlanController extends Controller
     public function indexByUser()
     {
         $user = auth('user_api')->user();
-        
+
         $plans = $user->plans()->latest();
 
         return response()->success(

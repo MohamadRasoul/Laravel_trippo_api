@@ -1,26 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\Api\Mobile;
+namespace App\Http\Controllers\Api\Dashboard;
 
+use App\Models\Notification;
 use App\Http\Controllers\Controller;
 
-use App\Models\Experience;
-
 use App\Services\ImageService;
-use App\Http\Requests\StoreExperienceRequest;
-use App\Http\Requests\UpdateExperienceRequest;
-use App\Http\Resources\Mobile\ExperienceResource;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StoreNotificationRequest;
+use App\Http\Requests\UpdateNotificationRequest;
+use App\Http\Resources\Dashboard\NotificationResource;
+use App\Jobs\SendNotification;
+use App\Models\User;
 
-class ExperienceController extends Controller
+class NotificationController extends Controller
 {
-    /**
+    /** 
      * @OA\Get(
-     *    path="/api/mobile/experience/index",
-     *    operationId="IndexExperience",
-     *    tags={"Experience"},
-     *    summary="Get All Experiences",
+     *    path="/api/dashboard/notification/index",
+     *    operationId="IndexNotification",
+     *    tags={"Notification"},
+     *    summary="Get All Notifications",
      *    description="",
      *    security={{"bearerToken":{}}},
      *
@@ -33,7 +32,7 @@ class ExperienceController extends Controller
      *       description="Number of item per page",
      *       required=false,
      *       @OA\Schema(
-     *           type="integer",
+     *           type="integer",    
      *       )
      *    ),
      *    @OA\Parameter(
@@ -43,7 +42,7 @@ class ExperienceController extends Controller
      *        description="Page number",
      *        required=false,
      *        @OA\Schema(
-     *            type="integer",
+     *            type="integer",    
      *        )
      *    ),
      *
@@ -61,16 +60,16 @@ class ExperienceController extends Controller
      *           @OA\Property(
      *              property="message",
      *              type="string",
-     *              example="this is all experiences"
+     *              example="this is all notifications"
      *           ),
      *           @OA\Property(
      *              property="data",
      *              @OA\Property(
-     *                 property="experiences",
+     *                 property="notifications",
      *                 type="array",
      *                 @OA\Items(
      *                    type="object",
-     *                    ref="#/components/schemas/ExperienceResource"
+     *                    ref="#/components/schemas/NotificationResource"
      *                 )
      *              ),
      *           )
@@ -90,23 +89,101 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        $experiences = Experience::orderBy('id');
+        $notifications = Notification::latest();
 
         return response()->success(
-            'this is all Experiences',
+            'this is all Notifications',
             [
-                "experiences" => ExperienceResource::collection($experiences->paginate(request()->perPage ?? $experiences->count())),
+                "notifications" => NotificationResource::collection($notifications->paginate(request()->perPage ?? $notifications->count())),
             ]
         );
     }
 
 
-    /**
+    /** 
+     * @OA\Post(
+     *    path="/api/dashboard/notification/store",
+     *    operationId="StoreNotification",
+     *    tags={"Notification"},
+     *    summary="Add Notification",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *
+     *
+     *    @OA\RequestBody(
+     *        required=true,
+     *        @OA\MediaType(mediaType="application/json",
+     *           @OA\Schema(ref="#/components/schemas/StoreNotificationRequest")
+     *       )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="notification is added success"
+     *           ),
+     *           @OA\Property(
+     *              property="data",
+     *                 @OA\Property(
+     *                 property="notification",
+     *                 type="object",
+     *                 ref="#/components/schemas/NotificationResource"
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function store(StoreNotificationRequest $request)
+    {
+        $notification = Notification::create($request->validated());
+
+        (new ImageService)->storeImage(
+            model: $notification,
+            image: $request->image,
+            collection: 'notification'
+        );
+
+        SendNotification::dispatch(User::get(), $notification);
+
+
+        return response()->success(
+            'notification is added success',
+            [
+                "notification" => new NotificationResource($notification),
+            ]
+        );
+    }
+
+
+    /** 
      * @OA\Get(
-     *    path="/api/mobile/experience/{id}/show",
-     *    operationId="ShowExperience",
-     *    tags={"Experience"},
-     *    summary="Get Experience By ID",
+     *    path="/api/dashboard/notification/{id}/show",
+     *    operationId="ShowNotification",
+     *    tags={"Notification"},
+     *    summary="Get Notification By ID",
      *    description="",
      *    security={{"bearerToken":{}}},
      *
@@ -116,7 +193,7 @@ class ExperienceController extends Controller
      *        name="id",
      *        example=1,
      *        in="path",
-     *        description="Experience ID",
+     *        description="Notification ID",
      *        required=true,
      *        @OA\Schema(
      *           type="integer"
@@ -137,14 +214,14 @@ class ExperienceController extends Controller
      *           @OA\Property(
      *              property="message",
      *              type="string",
-     *              example="this is your experience"
+     *              example="this is your notification"
      *           ),
      *           @OA\Property(
      *              property="data",
      *                 @OA\Property(
-     *                 property="experience",
+     *                 property="notification",
      *                 type="object",
-     *                 ref="#/components/schemas/ExperienceResource"
+     *                 ref="#/components/schemas/NotificationResource"
      *              ),
      *           )
      *        ),
@@ -161,118 +238,23 @@ class ExperienceController extends Controller
      *     )
      * )
      */
-    public function show(Experience $experience)
+    public function show(Notification $notification)
     {
         return response()->success(
-            'this is your experience',
+            'this is your notification',
             [
-                "experience" => new ExperienceResource($experience),
+                "notification" => new NotificationResource($notification),
             ]
         );
     }
 
 
-    /**
+    /** 
      * @OA\Post(
-     *    path="/api/mobile/experience/store",
-     *    operationId="StoreExperience",
-     *    tags={"Experience"},
-     *    summary="Add Experience",
-     *    description="",
-     *    security={{"bearerToken":{}}},
-     *
-     *
-     *
-     *    @OA\RequestBody(
-     *        required=true,
-     *        @OA\MediaType(mediaType="application/json",
-     *           @OA\Schema(ref="#/components/schemas/StoreExperienceRequest")
-     *       )
-     *    ),
-     *
-     *
-     *    @OA\Response(
-     *        response=200,
-     *        description="Successful operation",
-     *        @OA\JsonContent(
-     *           @OA\Property(
-     *              property="success",
-     *              type="boolean",
-     *              example="true"
-     *           ),
-     *           @OA\Property(
-     *              property="message",
-     *              type="string",
-     *              example="experience is added success"
-     *           ),
-     *           @OA\Property(
-     *              property="data",
-     *                 @OA\Property(
-     *                 property="experience",
-     *                 type="object",
-     *                 ref="#/components/schemas/ExperienceResource"
-     *              ),
-     *           )
-     *        ),
-     *     ),
-     *
-     *     @OA\Response(
-     *        response=401,
-     *        description="Error: Unauthorized",
-     *        @OA\Property(
-     *           property="message",
-     *           type="string",
-     *           example="Unauthenticated."
-     *        ),
-     *     )
-     * )
-     */
-    public function store(StoreExperienceRequest $request)
-    {
-
-        try {
-            DB::beginTransaction();
-            $experience = Experience::create($request->validated());
-
-            $experience->places()->sync(request()->places);
-
-            foreach ($request->images as $image) {
-                (new ImageService)->storeImage(
-                    model: $experience,
-                    image: $image,
-                    collection: 'experience'
-                );
-            }
-
-            foreach ($request->bookings as $booking) {
-                $experience->bookings()->create(
-                    Arr::only($booking, ['name', 'price', 'people_count', 'is_active'])
-                );
-            };
-
-            DB::commit();
-
-            return response()->success(
-                'experience is added success',
-                [
-                    "experience" => new ExperienceResource($experience),
-                ]
-            );
-        } catch (\Throwable $th) {
-            DB::rollBack();
-            return response()->error(
-                'experience is not added',
-            );
-        }
-    }
-
-
-    /**
-     * @OA\Post(
-     *    path="/api/mobile/experience/{id}/update",
-     *    operationId="UpdateExperience",
-     *    tags={"Experience"},
-     *    summary="Edit Experience",
+     *    path="/api/dashboard/notification/{id}/update",
+     *    operationId="UpdateNotification",
+     *    tags={"Notification"},
+     *    summary="Edit Notification",
      *    description="",
      *    security={{"bearerToken":{}}},
      *
@@ -282,7 +264,7 @@ class ExperienceController extends Controller
      *       name="id",
      *       example=1,
      *       in="path",
-     *       description="Experience ID",
+     *       description="Notification ID",
      *       required=true,
      *       @OA\Schema(
      *           type="integer"
@@ -294,9 +276,10 @@ class ExperienceController extends Controller
      *    @OA\RequestBody(
      *        required=true,
      *        @OA\MediaType(mediaType="application/json",
-     *           @OA\Schema(ref="#/components/schemas/UpdateExperienceRequest")
+     *           @OA\Schema(ref="#/components/schemas/UpdateNotificationRequest")
      *       )
      *    ),
+     *
      *
      *
      *    @OA\Response(
@@ -311,14 +294,14 @@ class ExperienceController extends Controller
      *           @OA\Property(
      *              property="message",
      *              type="string",
-     *              example="experience is updated success"
+     *              example="notification is updated success"
      *           ),
      *           @OA\Property(
      *              property="data",
      *              @OA\Property(
-     *                 property="experience",
+     *                 property="notification",
      *                 type="object",
-     *                 ref="#/components/schemas/ExperienceResource"
+     *                 ref="#/components/schemas/NotificationResource"
      *              ),
      *           )
      *        ),
@@ -334,33 +317,33 @@ class ExperienceController extends Controller
      *     )
      * )
      */
-    public function update(UpdateExperienceRequest $request, Experience $experience)
+    public function update(UpdateNotificationRequest $request, Notification $notification)
     {
-        $experience->update($request->validated());
+        $notification->update($request->validated());
 
-        foreach ($request->images as $image) {
-            (new ImageService)->storeImage(
-                model: $experience,
-                image: $image,
-                collection: 'experience'
-            );
-        }
+        (new ImageService)->storeImage(
+            model: $notification,
+            image: $request->image,
+            collection: 'notification'
+        );
+
+        SendNotification::dispatchNow(User::all(), $notification);
+
 
         return response()->success(
-            'experience is updated success',
+            'notification is updated success',
             [
-                "experience" => new ExperienceResource($experience),
+                "notification" => new NotificationResource($notification),
             ]
         );
     }
 
-
-    /**
+    /** 
      * @OA\Delete(
-     *    path="/api/mobile/experience/{id}/delete",
-     *    operationId="DeleteExperience",
-     *    tags={"Experience"},
-     *    summary="Delete Experience By ID",
+     *    path="/api/dashboard/notification/{id}/delete",
+     *    operationId="DeleteNotification",
+     *    tags={"Notification"},
+     *    summary="Delete Notification By ID",
      *    description="",
      *    security={{"bearerToken":{}}},
      *
@@ -370,7 +353,7 @@ class ExperienceController extends Controller
      *        name="id",
      *        example=1,
      *        in="path",
-     *        description="Experience ID",
+     *        description="Notification ID",
      *        required=true,
      *        @OA\Schema(
      *            type="integer"
@@ -391,7 +374,7 @@ class ExperienceController extends Controller
      *           @OA\Property(
      *              property="message",
      *              type="string",
-     *              example="experience is deleted success"
+     *              example="notification is deleted success"
      *           ),
      *        ),
      *     ),
@@ -407,10 +390,10 @@ class ExperienceController extends Controller
      *     )
      * )
      */
-    public function destroy(Experience $experience)
+    public function destroy(Notification $notification)
     {
-        $experience->delete();
+        $notification->delete();
 
-        return response()->success('experience is deleted success');
+        return response()->success('notification is deleted success');
     }
 }

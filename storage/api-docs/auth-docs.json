@@ -789,6 +789,10 @@
                         "type": "string",
                         "example": "experiance address"
                     },
+                    "price_begin": {
+                        "type": "string",
+                        "example": "150"
+                    },
                     "latitude": {
                         "type": "string",
                         "example": 36.2435
@@ -796,6 +800,25 @@
                     "longitude": {
                         "type": "string",
                         "example": 36.2435
+                    },
+                    "places": {
+                        "type": "string",
+                        "example": [
+                            1,
+                            2
+                        ]
+                    },
+                    "bookings": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "example": {
+                                "name": "mohamad_ra",
+                                "price": "2000",
+                                "people_count": "2",
+                                "is_active": "1"
+                            }
+                        }
                     },
                     "images": {
                         "type": "array",
@@ -844,6 +867,31 @@
                 "type": "object",
                 "example": {
                     "title": "any Title",
+                    "image": "image.png"
+                }
+            },
+            "StoreNotificationRequest": {
+                "title": "StoreNotificationRequest",
+                "description": "StoreNotificationRequest body data",
+                "required": [
+                    "title",
+                    "description"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "notification title",
+                    "description": "notification description",
                     "image": "image.png"
                 }
             },
@@ -1164,6 +1212,28 @@
                 "type": "object",
                 "example": {
                     "title": "any Title",
+                    "image": "image.png"
+                }
+            },
+            "UpdateNotificationRequest": {
+                "title": "UpdateNotificationRequest",
+                "description": "UpdateNotificationRequest body data",
+                "required": [],
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "notification title",
+                    "description": "notification description",
                     "image": "image.png"
                 }
             },
