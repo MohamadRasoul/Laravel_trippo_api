@@ -43,9 +43,9 @@ use Illuminate\Foundation\Http\FormRequest;
  *         example=36.2435,
  *      ),
  *      @OA\Property(
- *         property="longitude",
+ *         property="places",
  *         type="string",
- *         example=36.2435,
+ *         example={1,2},
  *      ),
  *              
  *      @OA\Property(
@@ -77,10 +77,10 @@ class StoreExperienceRequest extends FormRequest
             'latitude' => ['nullable'],
             'longitude' => ['nullable'],
             'images'    => ['nullable'],
-            "features.*" => ['required', 'numeric'],
+            "places.*" => ['required', 'numeric'],
         ];
     }
- 
+
 
     public function validated($key = null, $default = null)
     {

@@ -25,10 +25,15 @@ class Experience extends Model implements HasMedia
     {
         return $this->hasMany(Comment::class);
     }
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function places()
+    {
+        return $this->belongsToMany(Place::class, 'experience_contents');
     }
 
     ########## Query ##########

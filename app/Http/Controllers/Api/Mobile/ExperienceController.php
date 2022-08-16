@@ -226,6 +226,8 @@ class ExperienceController extends Controller
     {
         $experience = Experience::create($request->validated());
 
+        $experience->places()->sync(request()->places);
+
         foreach ($request->images as $image) {
             (new ImageService)->storeImage(
                 model: $experience,

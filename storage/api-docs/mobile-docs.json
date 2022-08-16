@@ -3229,6 +3229,13 @@
                         "type": "string",
                         "example": 36.2435
                     },
+                    "places": {
+                        "type": "string",
+                        "example": [
+                            1,
+                            2
+                        ]
+                    },
                     "images": {
                         "type": "array",
                         "items": {

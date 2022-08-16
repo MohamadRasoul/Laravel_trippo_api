@@ -182,6 +182,7 @@ class PlanController extends Controller
     public function indexByUser()
     {
         $user = auth('user_api')->user();
+        
         $plans = $user->plans()->latest();
 
         return response()->success(
