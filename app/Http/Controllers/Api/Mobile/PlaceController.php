@@ -135,7 +135,61 @@ class PlaceController extends Controller
      *            type="integer",
      *        )
      *    ),
-     *
+     *     
+     *    @OA\Parameter(
+     *        name="name",
+     *        in="query",
+     *        description="filter by name",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    @OA\Parameter(
+     *        name="placeRating",
+     *        in="query",
+     *        description="filter by placeRating",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    @OA\Parameter(
+     *        name="feature_id",
+     *        in="query",
+     *        description="filter by feature",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    @OA\Parameter(
+     *        name="type_id",
+     *        in="query",
+     *        description="filter by type",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    @OA\Parameter(
+     *        name="option_id",
+     *        in="query",
+     *        description="filter by option",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    @OA\Parameter(
+     *        name="city_id",
+     *        in="query",
+     *        description="filter by city",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
      *
      *
      *    @OA\Response(
@@ -179,25 +233,37 @@ class PlaceController extends Controller
      */
     public function indexwithSearch(Request $request)
     {
+        $name = $request->name;
+        $placeRating = $request->placeRating;
+        $feature = $request->feature_id;
+        $type = $request->type_id;
+        $option = $request->option_id;
+        $city = $request->city_id;
+
         $places = Place::query()
-            ->when($request->placeRating ?? null, function ($query, $name) {
-                $query->whereHas('name', 'like', "%$name%");
+            ->when($name, function ($query, $name) {
+                $query->where('name', 'like', "%$name%");
             })
-            ->when($request->featureTitle ?? null, function ($query, $name) {
-                $query->whereHas('name', 'like', "%$name%");
+            ->when($placeRating, function ($query, $placeRating) {
+                $query->where('ratting', $placeRating);
             })
-            ->when($request->feature ?? null, function ($query, $name) {
-                $query->whereHas('name', 'like', "%$name%");
+            ->when($type, function ($query, $type) {
+                $query->where('type_id', $type);
             })
-            ->when($request->type ?? null, function ($query, $name) {
-                $query->whereHas('name', 'like', "%$name%");
+            ->when($city, function ($query, $city) {
+                $query->where('city_id', $city);
             })
-            ->when($request->option ?? null, function ($query, $name) {
-                $query->whereHas('name', 'like', "%$name%");
+            ->when($feature, function ($query, $feature) {
+                $query->whereHas('featurePlaces', function ($query) use ($feature) {
+                    $query->where('feature_id', $feature);
+                });
             })
-            ->when($request->city ?? null, function ($query, $name) {
-                $query->whereHas('name', 'like', "%$name%");
+            ->when($option, function ($query, $option) {
+                $query->whereHas('optionPlaces', function ($query) use ($option) {
+                    $query->where('option_id', $option);
+                });
             });
+
 
         return response()->success(
             'this is all Places',

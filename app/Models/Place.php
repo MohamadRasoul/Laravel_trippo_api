@@ -26,15 +26,26 @@ class Place extends Model implements HasMedia
         return $this->belongsToMany(Feature::class, 'feature_places');
     }
 
+    public function featurePlaces()
+    {
+        return $this->hasMany(FeaturePlace::class);
+    }
+
     public function options()
     {
         return $this->belongsToMany(Option::class, 'option_places');
+    }
+
+    public function optionPlaces()
+    {
+        return $this->hasMany(OptionPlace::class);
     }
 
     public function awards()
     {
         return $this->belongsToMany(Award::class, 'award_places');
     }
+
 
     public function city()
     {

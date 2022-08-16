@@ -1649,6 +1649,133 @@
                 ]
             }
         },
+        "/api/mobile/place/indexwithSearch": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get All Places",
+                "description": "",
+                "operationId": "IndexPlacewithSearch",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "filter by name",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "placeRating",
+                        "in": "query",
+                        "description": "filter by placeRating",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "feature_id",
+                        "in": "query",
+                        "description": "filter by feature",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "type_id",
+                        "in": "query",
+                        "description": "filter by type",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "option_id",
+                        "in": "query",
+                        "description": "filter by option",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "city_id",
+                        "in": "query",
+                        "description": "filter by city",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all places"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "places": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/PlaceResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
         "/api/mobile/place/{id}/image/index": {
             "get": {
                 "tags": [
@@ -3316,6 +3443,31 @@
                     "image": "image.png"
                 }
             },
+            "StoreNotificationRequest": {
+                "title": "StoreNotificationRequest",
+                "description": "StoreNotificationRequest body data",
+                "required": [
+                    "title",
+                    "description"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "notification title",
+                    "description": "notification description",
+                    "image": "image.png"
+                }
+            },
             "StoreOptionRequest": {
                 "title": "StoreOptionRequest",
                 "description": "StoreOptionRequest body data",
@@ -3633,6 +3785,28 @@
                 "type": "object",
                 "example": {
                     "title": "any Title",
+                    "image": "image.png"
+                }
+            },
+            "UpdateNotificationRequest": {
+                "title": "UpdateNotificationRequest",
+                "description": "UpdateNotificationRequest body data",
+                "required": [],
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "example": {
+                    "title": "notification title",
+                    "description": "notification description",
                     "image": "image.png"
                 }
             },

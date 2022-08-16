@@ -3,6 +3,8 @@
 namespace App\Http\Resources\Dashboard;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\App;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 /**
  * @OA\Schema(
@@ -35,10 +37,10 @@ class AnswerResource extends JsonResource
 
     public function toArray($request)
     {
-//        return parent::toArray($request);
+        //        return parent::toArray($request);
         return [
             'id'        => $this->id,
-            'text'      => $this->text,
+            'text'      => GoogleTranslate::trans($this->text, App::getLocale()),
         ];
     }
 }
