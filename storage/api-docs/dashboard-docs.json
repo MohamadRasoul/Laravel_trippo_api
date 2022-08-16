@@ -2950,6 +2950,16 @@
                             "type": "integer"
                         },
                         "example": 1
+                    },
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": 1
                     }
                 ],
                 "responses": {

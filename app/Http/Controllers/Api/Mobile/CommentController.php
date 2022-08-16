@@ -26,6 +26,28 @@ class CommentController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -151,6 +173,28 @@ class CommentController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -275,6 +319,28 @@ class CommentController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -346,6 +412,28 @@ class CommentController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *    @OA\Parameter(
      *        name="placeId",
@@ -412,7 +500,7 @@ class CommentController extends Controller
         $placeComments = $place->comments;
 
         $place->update([
-            'ratting'    => $placeComments->sum('rating') / $placeComments->count(),
+            'ratting'    => round($placeComments->sum('rating') / $placeComments->count()),
         ]);
 
 
@@ -441,6 +529,28 @@ class CommentController extends Controller
      *    summary="Add comment to experience",
      *    description="",
      *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
      *
      *
      *    @OA\Parameter(
@@ -508,7 +618,7 @@ class CommentController extends Controller
         $experienceComments = $experience->comments();
 
         $experience->update([
-            'rating'    => $experienceComments->sum('rating') / $experienceComments->count(),
+            'rating'    => round($experienceComments->sum('rating') / $experienceComments->count()),
         ]);
 
         foreach ($request->images as $image) {

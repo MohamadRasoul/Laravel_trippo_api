@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
 Route::group([
     "prefix" => 'city',
 ], function () {

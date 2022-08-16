@@ -58,6 +58,17 @@ class QuestionController extends Controller
      *            type="integer",
      *        )
      *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="language",
+     *        example=1,
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
      *
      *
      *

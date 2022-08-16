@@ -68,6 +68,7 @@ class AdminAuthController extends Controller
 
     public function register(RegisterAdminRequest $request)
     {
+        
         $admin = Admin::create($request->validated());
 
         $token = Auth::guard('admin_api')->login($admin);

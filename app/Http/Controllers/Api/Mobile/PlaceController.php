@@ -27,6 +27,28 @@ class PlaceController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -106,12 +128,226 @@ class PlaceController extends Controller
 
     /**
      * @OA\Get(
+     *    path="/api/mobile/place/indexwithSearch",
+     *    operationId="IndexPlacewithSearch",
+     *    tags={"Place"},
+     *    summary="Get All Places",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Parameter(
+     *       name="perPage",
+     *       example=10,
+     *       in="query",
+     *       description="Number of item per page",
+     *       required=false,
+     *       @OA\Schema(
+     *           type="integer",
+     *       )
+     *    ),
+     *    @OA\Parameter(
+     *        name="page",
+     *        example=1,
+     *        in="query",
+     *        description="Page number",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *     
+     *    @OA\Parameter(
+     *        name="name",
+     *        in="query",
+     *        description="filter by name",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    @OA\Parameter(
+     *        name="placeRating",
+     *        in="query",
+     *        description="filter by placeRating",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    @OA\Parameter(
+     *        name="feature_id",
+     *        in="query",
+     *        description="filter by feature",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    @OA\Parameter(
+     *        name="type_id",
+     *        in="query",
+     *        description="filter by type",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    @OA\Parameter(
+     *        name="option_id",
+     *        in="query",
+     *        description="filter by option",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    @OA\Parameter(
+     *        name="city_id",
+     *        in="query",
+     *        description="filter by city",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is all places"
+     *           ),
+     *          @OA\Property(
+     *              property="data",
+     *              @OA\Property(
+     *                 property="places",
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/PlaceResource"
+     *                 ),
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function indexwithSearch(Request $request)
+    {
+        $name = $request->name;
+        $placeRating = $request->placeRating;
+        $feature = $request->feature_id;
+        $type = $request->type_id;
+        $option = $request->option_id;
+        $city = $request->city_id;
+
+        $places = Place::query()
+            ->when($name, function ($query, $name) {
+                $query->where('name', 'like', "%$name%");
+            })
+            ->when($placeRating, function ($query, $placeRating) {
+                $query->where('ratting', $placeRating);
+            })
+            ->when($type, function ($query, $type) {
+                $query->where('type_id', $type);
+            })
+            ->when($city, function ($query, $city) {
+                $query->where('city_id', $city);
+            })
+            ->when($feature, function ($query, $feature) {
+                $query->whereHas('featurePlaces', function ($query) use ($feature) {
+                    $query->where('feature_id', $feature);
+                });
+            })
+            ->when($option, function ($query, $option) {
+                $query->whereHas('optionPlaces', function ($query) use ($option) {
+                    $query->where('option_id', $option);
+                });
+            });
+
+
+        return response()->success(
+            'this is all Places',
+            [
+                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
+            ]
+        );
+    }
+
+
+    /**
+     * @OA\Get(
      *    path="/api/mobile/place/{id}/image/index",
      *    operationId="indexPlaceImage",
      *    tags={"Place"},
      *    summary="Get All Place Image",
      *    description="",
      *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
      *
      *
      *
@@ -192,6 +428,28 @@ class PlaceController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -264,6 +522,28 @@ class PlaceController extends Controller
      *    summary="Add Image To Place",
      *    description="",
      *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
      *
      *
      *
