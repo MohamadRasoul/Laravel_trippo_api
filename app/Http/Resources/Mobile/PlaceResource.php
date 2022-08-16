@@ -155,7 +155,7 @@ class PlaceResource extends JsonResource
 
         $placeImage = $this->getMedia('place')->flatten();
         $placeImageAdmin = $this->getMedia('place_admin')->flatten();
-        $placeImageUser = count($this->getMedia('place_user', ['isAccept' => true])) > 0 ? $this->getMedia('place_user', ['isAccept' => true])->flatten() : [];
+        $placeImageUser = count($this->getMedia('place_user', ['isAccept'                => true])) > 0 ? $this->getMedia('place_user', ['isAccept'                => true])->flatten() : [];
         $images = $placeImage->merge($placeImageAdmin)->merge($placeImageUser);
 
         $features = $this->features
@@ -166,32 +166,32 @@ class PlaceResource extends JsonResource
             });
 
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'about' => $this->about,
-            'address' => $this->address,
-            'latitude' => (float)$this->latitude,
-            'longitude' => (float)$this->longitude,
-            'ratting' => round($this->ratting),
+            'id'            => $this->id,
+            'name'          => $this->name,
+            'about'         => $this->about,
+            'address'       => $this->address,
+            'latitude'      => (float)$this->latitude,
+            'longitude'     => (float)$this->longitude,
+            'ratting'       => round($this->ratting),
 
             'ratting_count' => $this->comments()->count(),
-            'image_count' => count($images),
-            'views' => $this->views,
-            'web_site' => $this->web_site,
-            'phone_number' => $this->phone_number,
-            'email' => $this->email,
-            'is_open' => $this->isOpen(),
-            'is_favourite' => $user->favoritesPlace()->where('place_id', $this->id)->exists(),
-            'open_at' => $this->open_at,
-            'close_at' => $this->close_at,
-            'created_at' => $this->created_at,
-            'city_id'      => $this->city->id,
-            'city'      => $this->city->name,
-            'type'      => $this->type->name,
-            "images"       => ImageResource::collection($images),
-            "awards"       => AwardResource::collection($this->awards),
-            'options'      => OptionResource::collection($this->options),
-            "features"     => $features,
+            'image_count'   => count($images),
+            'views'         => $this->views,
+            'web_site'      => $this->web_site,
+            'phone_number'  => $this->phone_number,
+            'email'         => $this->email,
+            'is_open'       => $this->isOpen(),
+            'is_favourite'  => $user->favoritesPlace()->where('place_id', $this->id)->exists(),
+            'open_at'       => $this->open_at,
+            'close_at'      => $this->close_at,
+            'created_at'    => $this->created_at,
+            'city_id'       => $this->city->id,
+            'city'          => $this->city->name,
+            'type'          => $this->type->name,
+            "images"        => ImageResource::collection($images),
+            "awards"        => AwardResource::collection($this->awards),
+            'options'       => OptionResource::collection($this->options),
+            "features"      => $features,
         ];
     }
 }
