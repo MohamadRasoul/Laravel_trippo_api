@@ -23,6 +23,28 @@ class QuestionController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *    @OA\Parameter(
      *        name="cityId",
@@ -119,6 +141,28 @@ class QuestionController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *    @OA\Parameter(
      *        name="cityId",
@@ -200,6 +244,28 @@ class QuestionController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -280,6 +346,28 @@ class QuestionController extends Controller
      *    summary="Delete Question By ID",
      *    description="",
      *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
      *
      *
      *

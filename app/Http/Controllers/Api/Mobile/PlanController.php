@@ -25,6 +25,28 @@ class PlanController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -122,6 +144,28 @@ class PlanController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -209,6 +253,28 @@ class PlanController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\RequestBody(
@@ -290,6 +356,28 @@ class PlanController extends Controller
      *    summary="Edit Plan",
      *    description="",
      *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
      *
      *
      *
@@ -376,6 +464,28 @@ class PlanController extends Controller
      *    summary="Delete Plan By ID",
      *    description="",
      *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
      *
      *
      *

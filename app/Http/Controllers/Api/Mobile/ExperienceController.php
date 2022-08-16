@@ -24,6 +24,28 @@ class ExperienceController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -110,6 +132,28 @@ class ExperienceController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -180,6 +224,28 @@ class ExperienceController extends Controller
      *    summary="Add Experience",
      *    description="",
      *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
      *
      *
      *
@@ -276,6 +342,28 @@ class ExperienceController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -363,6 +451,28 @@ class ExperienceController extends Controller
      *    summary="Delete Experience By ID",
      *    description="",
      *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
      *
      *
      *

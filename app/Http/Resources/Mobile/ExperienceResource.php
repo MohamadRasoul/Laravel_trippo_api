@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Mobile;
 
+use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
@@ -57,6 +58,14 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *          example= "150",
  *      ),
  *      @OA\Property(
+ *         property="images",
+ *         type="array",
+ *         @OA\Items(
+ *            type="object",
+ *            ref="#/components/schemas/ImageResource"
+ *         )
+ *      ),
+ *      @OA\Property(
  *          property="user",
  *          ref="#/components/schemas/UserInfoResource"
  *          )
@@ -96,6 +105,7 @@ class ExperienceResource extends JsonResource
             "address" => $this->address,
             "latitude" => $this->latitude,
             "longitude" => $this->longitude,
+            "images"     => ImageResource::collection($this->load('media')->getMedia('experience')),
             "user" => new UserInfoResource($this->user),
             "places" => PlaceInfoResource::collection($this->places),
             "bookings" => BookingResource::collection($this->bookings),

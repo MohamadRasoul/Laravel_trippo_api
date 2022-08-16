@@ -27,6 +27,28 @@ class PlaceController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -112,6 +134,28 @@ class PlaceController extends Controller
      *    summary="Get All Places",
      *    description="",
      *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
      *
      *
      *
@@ -283,6 +327,28 @@ class PlaceController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -362,6 +428,28 @@ class PlaceController extends Controller
      *    description="",
      *    security={{"bearerToken":{}}},
      *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *
      *
      *
      *    @OA\Parameter(
@@ -434,6 +522,28 @@ class PlaceController extends Controller
      *    summary="Add Image To Place",
      *    description="",
      *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
      *
      *
      *

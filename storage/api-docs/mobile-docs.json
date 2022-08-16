@@ -287,6 +287,26 @@
                 "operationId": "DeleteAnswer",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "Answer ID",
@@ -338,6 +358,26 @@
                 "description": "",
                 "operationId": "IndexCity",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "perPage",
                         "in": "query",
@@ -412,6 +452,26 @@
                 "operationId": "IndexTrendingCity",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "perPage",
                         "in": "query",
                         "description": "Number of item per page",
@@ -485,6 +545,26 @@
                 "operationId": "indexCityImage",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "City ID",
@@ -548,6 +628,26 @@
                 "operationId": "ShowCity",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "City ID",
@@ -607,6 +707,26 @@
                 "description": "",
                 "operationId": "AddImageToCity",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "cityId",
                         "in": "path",
@@ -687,6 +807,26 @@
                 "description": "",
                 "operationId": "IndexCommentByPlace",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "perPage",
                         "in": "query",
@@ -771,6 +911,26 @@
                 "operationId": "IndexComment",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "perPage",
                         "in": "query",
                         "description": "Number of item per page",
@@ -854,6 +1014,26 @@
                 "operationId": "Showcomment",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "comment ID",
@@ -913,6 +1093,26 @@
                 "description": "",
                 "operationId": "storePlaceComment",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "placeId",
                         "in": "path",
@@ -984,6 +1184,26 @@
                 "operationId": "storeExperienceComment",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "experienceId",
                         "in": "path",
                         "description": "place ID",
@@ -1053,6 +1273,26 @@
                 "description": "",
                 "operationId": "IndexExperience",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "perPage",
                         "in": "query",
@@ -1127,6 +1367,26 @@
                 "operationId": "ShowExperience",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "Experience ID",
@@ -1185,6 +1445,28 @@
                 "summary": "Add Experience",
                 "description": "",
                 "operationId": "StoreExperience",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    }
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -1244,6 +1526,26 @@
                 "description": "",
                 "operationId": "UpdateExperience",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -1315,6 +1617,26 @@
                 "operationId": "DeleteExperience",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "Experience ID",
@@ -1366,6 +1688,26 @@
                 "description": "",
                 "operationId": "IndexFeature",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "perPage",
                         "in": "query",
@@ -1450,6 +1792,26 @@
                 "operationId": "IndexFeatureTitle",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "perPage",
                         "in": "query",
                         "description": "Number of item per page",
@@ -1522,6 +1884,26 @@
                 "description": "",
                 "operationId": "IndexOption",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "perPage",
                         "in": "query",
@@ -1606,6 +1988,26 @@
                 "operationId": "IndexPlace",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "perPage",
                         "in": "query",
                         "description": "Number of item per page",
@@ -1678,6 +2080,26 @@
                 "description": "",
                 "operationId": "IndexPlacewithSearch",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "perPage",
                         "in": "query",
@@ -1806,6 +2228,26 @@
                 "operationId": "indexPlaceImage",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "Place ID",
@@ -1869,6 +2311,26 @@
                 "operationId": "ShowPlace",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "Place ID",
@@ -1928,6 +2390,26 @@
                 "description": "",
                 "operationId": "AddImageToPlace",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "placeId",
                         "in": "path",
@@ -2008,6 +2490,26 @@
                 "description": "",
                 "operationId": "IndexPlanContentByPlan",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "perPage",
                         "in": "query",
@@ -2092,6 +2594,26 @@
                 "operationId": "ShowPlanContent",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "PlanContent ID",
@@ -2151,6 +2673,26 @@
                 "description": "",
                 "operationId": "StorePlanContent",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "planId",
                         "in": "path",
@@ -2222,6 +2764,26 @@
                 "operationId": "UpdatePlanContent",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "PlanContent ID",
@@ -2292,6 +2854,26 @@
                 "operationId": "DeletePlanContent",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "PlanContent ID",
@@ -2343,6 +2925,26 @@
                 "description": "",
                 "operationId": "IndexPlan",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "perPage",
                         "in": "query",
@@ -2427,6 +3029,26 @@
                 "operationId": "IndexPlanByUser",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "perPage",
                         "in": "query",
                         "description": "Number of item per page",
@@ -2495,6 +3117,28 @@
                 "summary": "Add Plan",
                 "description": "",
                 "operationId": "StorePlan",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    }
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -2554,6 +3198,26 @@
                 "description": "",
                 "operationId": "UpdatePlan",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -2625,6 +3289,26 @@
                 "operationId": "DeletePlan",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "Plan ID",
@@ -2676,6 +3360,26 @@
                 "description": "",
                 "operationId": "IndexByCity",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "cityId",
                         "in": "path",
@@ -2760,6 +3464,26 @@
                 "operationId": "StoreQuestion",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "cityId",
                         "in": "path",
                         "description": "City ID",
@@ -2830,6 +3554,26 @@
                 "operationId": "ShowQuestion",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "Question ID",
@@ -2896,6 +3640,26 @@
                 "operationId": "DeleteQuestion",
                 "parameters": [
                     {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
                         "name": "id",
                         "in": "path",
                         "description": "Question ID",
@@ -2947,6 +3711,26 @@
                 "description": "",
                 "operationId": "IndexType",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "perPage",
                         "in": "query",
@@ -3017,6 +3801,26 @@
                 "description": "",
                 "operationId": "IndexVisitType",
                 "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
                     {
                         "name": "perPage",
                         "in": "query",
