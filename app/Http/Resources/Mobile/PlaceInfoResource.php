@@ -64,7 +64,7 @@ class PlaceInfoResource extends JsonResource
             'ratting' => $this->ratting,
             'ratting_count' => $this->comments()->count(),
             'type' => $this->type->name,
-            "images"    => new ImageResource($this->getFirstMedia('place')),
+            "images"    =>  ImageResource::collection($this->getMedia('place')->flatten()),
         ];
     }
 }
