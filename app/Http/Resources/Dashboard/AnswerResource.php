@@ -41,6 +41,8 @@ class AnswerResource extends JsonResource
         return [
             'id'        => $this->id,
             'text'      => GoogleTranslate::trans($this->text, App::getLocale()),
+            'text'       => $this->text,
+
         ];
     }
 }
