@@ -2008,6 +2008,599 @@
                         "example": "14265416154646"
                     },
                     {
+                        "name": "filter[city_id]",
+                        "in": "query",
+                        "description": "filter by city",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filter[type_id]",
+                        "in": "query",
+                        "description": "filter by type",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all places"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "places": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/PlaceResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/place/indexTopAttraction": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get All Places",
+                "description": "",
+                "operationId": "IndexTopAttractionPlace",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
+                        "name": "filter[city_id]",
+                        "in": "query",
+                        "description": "filter by city",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filter[type_id]",
+                        "in": "query",
+                        "description": "filter by type",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all places"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "places": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/PlaceResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/place/indexNearBy": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get All Places",
+                "description": "",
+                "operationId": "IndexNearByPlace",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
+                        "name": "filter[city_id]",
+                        "in": "query",
+                        "description": "filter by city",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filter[type_id]",
+                        "in": "query",
+                        "description": "filter by type",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    },
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "description": "latitude",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "36.66465"
+                    },
+                    {
+                        "name": "long",
+                        "in": "query",
+                        "description": "longitude",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "36.66465"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all places"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "places": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/PlaceResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/place/indexRecentlyViewed": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get All Places",
+                "description": "",
+                "operationId": "IndexRecentlyViewedPlace",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
+                        "name": "filter[city_id]",
+                        "in": "query",
+                        "description": "filter by city",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filter[type_id]",
+                        "in": "query",
+                        "description": "filter by type",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all places"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "places": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/PlaceResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/place/indexTrending": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get All Places",
+                "description": "",
+                "operationId": "IndexTrendingPlace",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
+                        "name": "filter[city_id]",
+                        "in": "query",
+                        "description": "filter by city",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filter[type_id]",
+                        "in": "query",
+                        "description": "filter by type",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of item per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "this is all places"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "places": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/PlaceResource"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ]
+            }
+        },
+        "/api/mobile/place/indexMostFavorite": {
+            "get": {
+                "tags": [
+                    "Place"
+                ],
+                "summary": "Get All Places",
+                "description": "",
+                "operationId": "IndexMostFavoritePlace",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "app language",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "en"
+                    },
+                    {
+                        "name": "fcmtoken",
+                        "in": "header",
+                        "description": "add fcm token to user",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "14265416154646"
+                    },
+                    {
+                        "name": "filter[city_id]",
+                        "in": "query",
+                        "description": "filter by city",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filter[type_id]",
+                        "in": "query",
+                        "description": "filter by type",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
                         "name": "perPage",
                         "in": "query",
                         "description": "Number of item per page",
@@ -4205,18 +4798,6 @@
                             2
                         ]
                     },
-                    "bookings": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "example": {
-                                "name": "mohamad_ra",
-                                "price": "2000",
-                                "people_count": "2",
-                                "is_active": "1"
-                            }
-                        }
-                    },
                     "images": {
                         "type": "array",
                         "items": {
@@ -5039,13 +5620,6 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/PlaceInfoResource"
-                        }
-                    },
-                    "bookings": {
-                        "schema": "ExperienceResource",
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/BookingResource"
                         }
                     }
                 },

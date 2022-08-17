@@ -15,6 +15,9 @@ use App\Http\Resources\ImageResource;
 use App\Http\Resources\Mobile\PlaceResource;
 use App\Models\FavouritePlace;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class PlaceController extends Controller
 {
@@ -49,7 +52,26 @@ class PlaceController extends Controller
      *            type="string",
      *        )
      *    ),
-     *
+     *    
+     *    @OA\Parameter(
+     *        name="filter[city_id]",
+     *        in="query",
+     *        description="filter by city",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="filter[type_id]",
+     *        in="query",
+     *        description="filter by type",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
      *
      *
      *    @OA\Parameter(
@@ -116,7 +138,11 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        $places = Place::with(['comments'])->inRandomOrder();
+        $places = QueryBuilder::for(Place::with(['comments'])->inRandomOrder())
+            ->allowedFilters([
+                AllowedFilter::exact('city_id'),
+                AllowedFilter::exact('type_id'),
+            ]);
 
         return response()->success(
             'this is all Places',
@@ -126,6 +152,692 @@ class PlaceController extends Controller
         );
     }
 
+
+    /**
+     * @OA\Get(
+     *    path="/api/mobile/place/indexTopAttraction",
+     *    operationId="IndexTopAttractionPlace",
+     *    tags={"Place"},
+     *    summary="Get All Places",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="filter[city_id]",
+     *        in="query",
+     *        description="filter by city",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="filter[type_id]",
+     *        in="query",
+     *        description="filter by type",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *    @OA\Parameter(
+     *       name="perPage",
+     *       example=10,
+     *       in="query",
+     *       description="Number of item per page",
+     *       required=false,
+     *       @OA\Schema(
+     *           type="integer",
+     *       )
+     *    ),
+     *    @OA\Parameter(
+     *        name="page",
+     *        example=1,
+     *        in="query",
+     *        description="Page number",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is all places"
+     *           ),
+     *          @OA\Property(
+     *              property="data",
+     *              @OA\Property(
+     *                 property="places",
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/PlaceResource"
+     *                 ),
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function indexTopAttraction()
+    {
+        $places = QueryBuilder::for(Place::with(['comments'])->orderBy("ratting", 'desc'))
+            ->allowedFilters([
+                AllowedFilter::exact('city_id'),
+                AllowedFilter::exact('type_id'),
+            ]);
+
+        return response()->success(
+            'this is all Places',
+            [
+                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
+            ]
+        );
+    }
+
+
+
+    /**
+     * @OA\Get(
+     *    path="/api/mobile/place/indexNearBy",
+     *    operationId="IndexNearByPlace",
+     *    tags={"Place"},
+     *    summary="Get All Places",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="filter[city_id]",
+     *        in="query",
+     *        description="filter by city",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="filter[type_id]",
+     *        in="query",
+     *        description="filter by type",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *    @OA\Parameter(
+     *       name="perPage",
+     *       example=10,
+     *       in="query",
+     *       description="Number of item per page",
+     *       required=false,
+     *       @OA\Schema(
+     *           type="integer",
+     *       )
+     *    ),
+     *    @OA\Parameter(
+     *        name="page",
+     *        example=1,
+     *        in="query",
+     *        description="Page number",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="lat",
+     *        example="36.66465",
+     *        in="query",
+     *        description="latitude",
+     *        required=true,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     * 
+     *    @OA\Parameter(
+     *        name="long",
+     *        example="36.66465",
+     *        in="query",
+     *        description="longitude",
+     *        required=true,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is all places"
+     *           ),
+     *          @OA\Property(
+     *              property="data",
+     *              @OA\Property(
+     *                 property="places",
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/PlaceResource"
+     *                 ),
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function indexNearBy()
+    {
+        $latitude = request()->lat;
+        $longitude = request()->long;
+
+        $places = Place::selectRaw('*, ( 6367 * acos( cos( radians(' . $latitude . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $longitude . ') ) + sin( radians(' . $latitude . ') ) * sin( radians( latitude ) ) ) ) AS distance')
+            ->having('distance', '<', 5)
+            ->orderBy('distance');
+
+        $places = QueryBuilder::for($places->with(['comments']))
+            ->allowedFilters([
+                AllowedFilter::exact('city_id'),
+                AllowedFilter::exact('type_id'),
+            ]);
+
+        return response()->success(
+            'this is all Places',
+            [
+                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
+            ]
+        );
+    }
+
+
+
+    /**
+     * @OA\Get(
+     *    path="/api/mobile/place/indexRecentlyViewed",
+     *    operationId="IndexRecentlyViewedPlace",
+     *    tags={"Place"},
+     *    summary="Get All Places",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="filter[city_id]",
+     *        in="query",
+     *        description="filter by city",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="filter[type_id]",
+     *        in="query",
+     *        description="filter by type",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *    @OA\Parameter(
+     *       name="perPage",
+     *       example=10,
+     *       in="query",
+     *       description="Number of item per page",
+     *       required=false,
+     *       @OA\Schema(
+     *           type="integer",
+     *       )
+     *    ),
+     *    @OA\Parameter(
+     *        name="page",
+     *        example=1,
+     *        in="query",
+     *        description="Page number",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is all places"
+     *           ),
+     *          @OA\Property(
+     *              property="data",
+     *              @OA\Property(
+     *                 property="places",
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/PlaceResource"
+     *                 ),
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function indexRecentlyViewed()
+    {
+        $user = Auth::guard('user_api')->user();
+
+        $places = QueryBuilder::for($user->placeViews()->with(['comments']))
+            ->allowedFilters([
+                AllowedFilter::exact('city_id'),
+                AllowedFilter::exact('type_id'),
+            ]);
+
+        return response()->success(
+            'this is all Places',
+            [
+                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
+            ]
+        );
+    }
+
+
+    /**
+     * @OA\Get(
+     *    path="/api/mobile/place/indexTrending",
+     *    operationId="IndexTrendingPlace",
+     *    tags={"Place"},
+     *    summary="Get All Places",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="filter[city_id]",
+     *        in="query",
+     *        description="filter by city",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="filter[type_id]",
+     *        in="query",
+     *        description="filter by type",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *    @OA\Parameter(
+     *       name="perPage",
+     *       example=10,
+     *       in="query",
+     *       description="Number of item per page",
+     *       required=false,
+     *       @OA\Schema(
+     *           type="integer",
+     *       )
+     *    ),
+     *    @OA\Parameter(
+     *        name="page",
+     *        example=1,
+     *        in="query",
+     *        description="Page number",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is all places"
+     *           ),
+     *          @OA\Property(
+     *              property="data",
+     *              @OA\Property(
+     *                 property="places",
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/PlaceResource"
+     *                 ),
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function indexTrending()
+    {
+        $places = QueryBuilder::for(Place::with(['comments'])->orderBy('views', 'desc'))
+            ->allowedFilters([
+                AllowedFilter::exact('city_id'),
+                AllowedFilter::exact('type_id'),
+            ]);
+
+        return response()->success(
+            'this is all Places',
+            [
+                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
+            ]
+        );
+    }
+
+
+    /**
+     * @OA\Get(
+     *    path="/api/mobile/place/indexMostFavorite",
+     *    operationId="IndexMostFavoritePlace",
+     *    tags={"Place"},
+     *    summary="Get All Places",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="filter[city_id]",
+     *        in="query",
+     *        description="filter by city",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="filter[type_id]",
+     *        in="query",
+     *        description="filter by type",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *    @OA\Parameter(
+     *       name="perPage",
+     *       example=10,
+     *       in="query",
+     *       description="Number of item per page",
+     *       required=false,
+     *       @OA\Schema(
+     *           type="integer",
+     *       )
+     *    ),
+     *    @OA\Parameter(
+     *        name="page",
+     *        example=1,
+     *        in="query",
+     *        description="Page number",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is all places"
+     *           ),
+     *          @OA\Property(
+     *              property="data",
+     *              @OA\Property(
+     *                 property="places",
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/PlaceResource"
+     *                 ),
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function indexMostFavorite()
+    {
+        $places = QueryBuilder::for(Place::withCount('favourite')->with(['comments'])->orderBy('favourite_count', 'desc'))
+            ->allowedFilters([
+                AllowedFilter::exact('city_id'),
+                AllowedFilter::exact('type_id'),
+            ]);
+
+        return response()->success(
+            'this is all Places',
+            [
+                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
+            ]
+        );
+    }
 
     /**
      * @OA\Get(
@@ -648,84 +1360,4 @@ class PlaceController extends Controller
             ]
         );
     }
-
-    // public function recentlyViewedPlaces()
-    // {
-    //     $places = Place::with(['comments'])->inRandomOrder();
-
-    //     return response()->success(
-    //         'this is all Places',
-    //         [
-    //             "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
-    //         ]
-    //     );
-    // }
-
-    public function topAttractionPlaces()
-    {
-        $places = array();
-        $city_id = request()->city_id;
-        $type_id = request()->type_id;
-        $favouriteplace = Place::has('favourite')
-        ->when($city_id, function ($query) use ($city_id) {
-            $query->where('city_id', $city_id);
-        })->when($type_id, function ($query) use ($type_id) {
-            $query->where('city_id', $type_id);
-        });
-        return response()->success(
-            'this is all Places',
-            [
-                "places" => PlaceResource::collection($favouriteplace->paginate(request()->perPage ?? $favouriteplace->count())),
-            ]
-        );
-    }
-
-
-    public function youMightLikePlaces()
-    {
-        $city_id = request()->city_id;
-        $type_id = request()->type_id;
-        $places = Place::with(['comments'])
-        ->when($city_id, function ($query) use ($city_id) {
-            $query->where('city_id', $city_id);
-        })
-        ->when($type_id, function ($query) use ($type_id) {
-            $query->where('city_id', $type_id);
-        })
-        ->inRandomOrder();
-
-        return response()->success(
-            'you Might Like Places',
-            [
-                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
-            ]
-        );
-    }
-
-    public function nearBy5km()
-    {
-        $latitude = request()->lat;
-        $longitude = request()->long;
-        $city_id = request()->city_id;
-        $type_id = request()->type_id;
-        $places = Place::selectRaw('*, ( 6367 * acos( cos( radians(' . $latitude . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $longitude . ') ) + sin( radians(' . $latitude . ') ) * sin( radians( latitude ) ) ) ) AS distance')
-          ->having('distance', '<', 5)
-          ->orderBy('distance')
-          ->when($city_id, function ($query) use ($city_id) {
-            $query->where('city_id', $city_id);
-        })
-        ->when($type_id, function ($query) use ($type_id) {
-            $query->where('city_id', $type_id);
-        });
-
-          return response()->success(
-            'you Might Like Places',
-            [
-                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
-            ]
-        );
-    }
-
-   
-
 }
