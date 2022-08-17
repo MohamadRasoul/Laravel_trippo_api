@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             FavouritePlaceSeeder::class,
             VisitTypeSeeder::class,
             CommentSeeder::class,
+            ExperienceContentSeeder::class,
         ]);
     }
 }

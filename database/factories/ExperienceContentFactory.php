@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Experience;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class ExperienceContentFactory extends Factory
     public function definition()
     {
         return [
-            // "name"   => $this->faker->name,
+            "experience_id"   => \App\Models\Experience::all()->random()->id,
+            "place_id"        => \App\Models\Place::all()->random()->id,
         ];
     }
 }

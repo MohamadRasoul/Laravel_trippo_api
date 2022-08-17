@@ -7,11 +7,10 @@ use Illuminate\Database\Seeder;
 
 class OptionSeeder extends Seeder
 {
-    
-    
+
+
     public function run()
     {
-         \App\Models\Option::factory(10)->create();
-        
+        \App\Models\Option::factory(10)->create();
     }
 }

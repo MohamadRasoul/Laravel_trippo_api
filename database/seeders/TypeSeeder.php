@@ -12,13 +12,22 @@ class TypeSeeder extends Seeder
 
     public function run()
     {
-        \App\Models\Type::factory(10)->create()->each(
+        \App\Models\Type::insert([
+            [
+                'name'  => "Hotel",
+            ],
+            [
+                'name'  => "Thing To Do",
+            ],
+            [
+                'name'  => "Restaurant",
+            ],
+        ])->each(
             function ($type) {
-                (new ImageService)->storeStaticImage(
+                (new ImageService)->storeUrlImage(
                     model: $type,
-                    image: 'default.jpg',
-                    collection: 'type',
-                    folderName: 'fallback-images'
+                    image: 'https://source.unsplash.com/random/?travel,city',
+                    collection: 'type'
                 );
             }
         );;

@@ -22,7 +22,7 @@ class CommentFactory extends Factory
     {
 
         return [
-            "tilte" => $this->faker->text(),
+            "tilte" => $this->faker->text(50),
             "description" => $this->faker->text(),
             "full_date" => $this->faker->date(),
             "place_id" => \App\Models\Place::all()->random()->id,

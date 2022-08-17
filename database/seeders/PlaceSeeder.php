@@ -14,11 +14,19 @@ class PlaceSeeder extends Seeder
     {
         \App\Models\Place::factory(50)->create()->each(
             function ($place) {
-                (new ImageService)->storeStaticImage(
+                (new ImageService)->storeUrlImage(
                     model: $place,
-                    image: 'default.jpg',
+                    image: 'https://source.unsplash.com/random/?travel,city',
                     collection: 'place',
-                    folderName: 'fallback-images'
+                );
+                (new ImageService)->storeUrlImage(
+                    model: $place,
+                    image: 'https://source.unsplash.com/random/?travel,city',
+                    collection: 'place',
+                );(new ImageService)->storeUrlImage(
+                    model: $place,
+                    image: 'https://source.unsplash.com/random/?travel,city',
+                    collection: 'place',
                 );
             }
         );

@@ -20,7 +20,7 @@ class FeatureFactory extends Factory
     public function definition()
     {
         return [
-            "title"   => $this->faker->name(),
+            "title"   => $this->faker->word(),
             "feature_title_id"   =>\App\Models\FeatureTitle::all()->random()->id,
         ];
     }

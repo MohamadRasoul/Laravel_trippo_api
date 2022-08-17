@@ -20,7 +20,7 @@ class PlanFactory extends Factory
     public function definition()
     {
         return [
-            "name"   => $this->faker->name(),
+            "name"   => $this->faker->sentence(3, true),
             "description"   => $this->faker->text(),
             "is_private"   => $this->faker->boolean(),
             "user_id"   => \App\Models\User::all()->random()->id,

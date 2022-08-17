@@ -24,7 +24,7 @@ class ExperienceFactory extends Factory
             "name" => $this->faker->name(),
             "about" => $this->faker->text(),
             "ratting" => $this->faker->numberBetween(0, 5),
-            "views" => $this->faker->numberBetween(10000, 300000),
+            "views" => $this->faker->numberBetween(1000, 30000),
             "address" => $this->faker->text(),
             "latitude" => $this->faker->latitude(),
             "longitude" => $this->faker->longitude(),

@@ -7,11 +7,10 @@ use Illuminate\Database\Seeder;
 
 class FeatureSeeder extends Seeder
 {
-    
-    
+
+
     public function run()
     {
-         \App\Models\Feature::factory(10)->create();
-        
+        \App\Models\Feature::factory(10)->create();
     }
 }

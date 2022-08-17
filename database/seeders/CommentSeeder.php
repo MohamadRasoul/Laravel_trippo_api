@@ -15,11 +15,10 @@ class CommentSeeder extends Seeder
         \App\Models\Comment::factory(100)->create()
             ->each(
                 function ($comment) {
-                    (new ImageService)->storeStaticImage(
+                    (new ImageService)->storeUrlImage(
                         model: $comment,
-                        image: 'default.jpg',
+                        image: 'https://source.unsplash.com/random/?travel,city',
                         collection: 'comment',
-                        folderName: 'fallback-images'
                     );
                 }
             );

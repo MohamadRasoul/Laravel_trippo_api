@@ -7,11 +7,10 @@ use Illuminate\Database\Seeder;
 
 class UserFollowerSeeder extends Seeder
 {
-    
-    
+
+
     public function run()
     {
-         \App\Models\UserFollower::factory(10)->create();
-        
+        \App\Models\UserFollower::factory(10)->create();
     }
 }

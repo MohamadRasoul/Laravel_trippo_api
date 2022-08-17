@@ -14,11 +14,10 @@ class PlanSeeder extends Seeder
     {
         \App\Models\Plan::factory(10)->create()->each(
             function ($plan) {
-                (new ImageService)->storeStaticImage(
+                (new ImageService)->storeUrlImage(
                     model: $plan,
-                    image: 'default.jpg',
-                    collection: 'plan',
-                    folderName: 'fallback-images'
+                    image: 'https://source.unsplash.com/random/?travel,city',
+                    collection: 'plan'
                 );
             }
         );

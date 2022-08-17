@@ -15,11 +15,25 @@ class CitySeeder extends Seeder
         \App\Models\City::factory(10)->create()
             ->each(
                 function ($city) {
-                    (new ImageService)->storeStaticImage(
+                    (new ImageService)->storeUrlImage(
                         model: $city,
-                        image: 'default.jpg',
+                        image: 'https://source.unsplash.com/random/?travel,city',
                         collection: 'city',
-                        folderName: 'fallback-images'
+                    );
+                    (new ImageService)->storeUrlImage(
+                        model: $city,
+                        image: 'https://source.unsplash.com/random/?travel,city',
+                        collection: 'city_admin',
+                    );
+                    (new ImageService)->storeUrlImage(
+                        model: $city,
+                        image: 'https://source.unsplash.com/random/?travel,city',
+                        collection: 'city_admin',
+                    );
+                    (new ImageService)->storeUrlImage(
+                        model: $city,
+                        image: 'https://source.unsplash.com/random/?travel,city',
+                        collection: 'city_admin',
                     );
                 }
             );

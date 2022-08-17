@@ -22,13 +22,13 @@ class PlaceFactory extends Factory
 
 
         return [
-            "name" => $this->faker->name(),
+            "name" => $this->faker->sentence(4,  true),
             "open_at" => $this->faker->time(),
             "close_at" => $this->faker->time(),
             "about" => $this->faker->text(),
             "address" => $this->faker->text(),
-            "latitude" => $this->faker->latitude($min=30,$max = 36),
-            "longitude" => $this->faker->longitude($min=30,$max = 36),
+            "latitude" => $this->faker->latitude($min = 30, $max = 36),
+            "longitude" => $this->faker->longitude($min = 30, $max = 36),
             "ratting" => $this->faker->numberBetween(1, 5),
             "views" => $this->faker->numberBetween(10, 300),
             "web_site" => $this->faker->text($maxNbChars = 200),

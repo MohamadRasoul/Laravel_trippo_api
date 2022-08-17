@@ -7,11 +7,10 @@ use Illuminate\Database\Seeder;
 
 class FeaturePlaceSeeder extends Seeder
 {
-    
-    
+
+
     public function run()
     {
-         \App\Models\FeaturePlace::factory(10)->create();
-        
+        \App\Models\FeaturePlace::factory(10)->create();
     }
 }

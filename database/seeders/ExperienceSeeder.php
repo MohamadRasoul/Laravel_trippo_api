@@ -15,23 +15,25 @@ class ExperienceSeeder extends Seeder
         \App\Models\Experience::factory(10)->create()
             ->each(
                 function ($experience) {
-                    (new ImageService)->storeStaticImage(
+                    (new ImageService)->storeUrlImage(
                         model: $experience,
-                        image: 'default.jpg',
+                        image: 'https://source.unsplash.com/random/?travel,city',
                         collection: 'experience',
-                        folderName: 'fallback-images'
                     );
-                    (new ImageService)->storeStaticImage(
+                    (new ImageService)->storeUrlImage(
                         model: $experience,
-                        image: 'default_1.jpg',
+                        image: 'https://source.unsplash.com/random/?travel,city',
                         collection: 'experience',
-                        folderName: 'fallback-images'
                     );
-                    (new ImageService)->storeStaticImage(
+                    (new ImageService)->storeUrlImage(
                         model: $experience,
-                        image: 'default_2.jpg',
+                        image: 'https://source.unsplash.com/random/?travel,city',
                         collection: 'experience',
-                        folderName: 'fallback-images'
+                    );
+                    (new ImageService)->storeUrlImage(
+                        model: $experience,
+                        image: 'https://source.unsplash.com/random/?travel,city',
+                        collection: 'experience',
                     );
                 }
             );

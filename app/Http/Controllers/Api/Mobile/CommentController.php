@@ -14,6 +14,7 @@ use App\Models\Experience;
 use App\Models\Place;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class CommentController extends Controller
 {
@@ -138,22 +139,26 @@ class CommentController extends Controller
                 'ratting' => [
                     [
                         'name'   => 'all',
+                        // 'name'   => GoogleTranslate::trans('all', app()->getLocale()),
                         'count'  => $comments->count(),
                     ],
                     [
                         'name'   => 'Family',
+                        // 'name'   => GoogleTranslate::trans('Family', app()->getLocale()),
                         'count'  => isset($commentsRating['Family']) ? $commentsRating['Family'] : 0,
                     ],
                     [
                         'name'   => 'Solo',
+                        // 'name'   => GoogleTranslate::trans('Solo', app()->getLocale()),
                         'count'  => isset($commentsRating['Solo']) ? $commentsRating['Solo'] : 0,
                     ],
                     [
-                        'name'   => 'Business',
+                        // 'name'   => GoogleTranslate::trans('Business', app()->getLocale()),
                         'count'  => isset($commentsRating['Business']) ? $commentsRating['Business'] : 0,
                     ],
                     [
                         'name'   => 'Friends',
+                        // // 'name'   => GoogleTranslate::trans('Friends', app()->getLocale()),
                         'count'  => isset($commentsRating['Friends']) ? $commentsRating['Friends'] : 0,
                     ],
                 ],
@@ -284,22 +289,27 @@ class CommentController extends Controller
                 'ratting' => [
                     [
                         'name'   => 'all',
+                        // 'name'   => GoogleTranslate::trans('all', app()->getLocale()),
                         'count'  => $comments->count(),
                     ],
                     [
                         'name'   => 'Family',
+                        // 'name'   => GoogleTranslate::trans('Family', app()->getLocale()),
                         'count'  => isset($commentsRating['Family']) ? $commentsRating['Family'] : 0,
                     ],
                     [
                         'name'   => 'Solo',
+                        // 'name'   => GoogleTranslate::trans('Solo', app()->getLocale()),
                         'count'  => isset($commentsRating['Solo']) ? $commentsRating['Solo'] : 0,
                     ],
                     [
                         'name'   => 'Business',
+                        // 'name'   => GoogleTranslate::trans('Business', app()->getLocale()),
                         'count'  => isset($commentsRating['Business']) ? $commentsRating['Business'] : 0,
                     ],
                     [
                         'name'   => 'Friends',
+                        // // 'name'   => GoogleTranslate::trans('Friends', app()->getLocale()),
                         'count'  => isset($commentsRating['Friends']) ? $commentsRating['Friends'] : 0,
                     ],
                 ],

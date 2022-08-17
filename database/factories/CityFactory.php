@@ -22,11 +22,11 @@ class CityFactory extends Factory
     public function definition()
     {
         return [
-            "name"   => $this->faker->name(),
+            "name"           => $this->faker->city(),
             "description"   => $this->faker->text(),
-            "latitude"   => $this->faker->latitude,
-            "longitude"   => $this->faker->longitude,
-            "views"   => $this->faker->numberBetween(10,300),
+            "latitude"       => $this->faker->latitude,
+            "longitude"      => $this->faker->longitude,
+            "views"          => $this->faker->numberBetween(10,300),
         ];
     }
 }

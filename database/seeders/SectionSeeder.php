@@ -7,11 +7,10 @@ use Illuminate\Database\Seeder;
 
 class SectionSeeder extends Seeder
 {
-    
-    
+
+
     public function run()
     {
-         \App\Models\Section::factory(10)->create();
-        
+        \App\Models\Section::factory(10)->create();
     }
 }

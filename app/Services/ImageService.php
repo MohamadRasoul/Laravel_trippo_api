@@ -76,4 +76,31 @@ class ImageService
             }
         };
     }
+
+    public function storeUrlImage(
+        $model,
+        $image,
+        $collection,
+    ) {
+        if (!empty($image)) {
+            try {
+                // $model->clearMediaCollection($collection);
+
+                $mediaImage = $model
+                    ->addMediaFromUrl($image)
+                    ->preservingOriginal()
+                    ->toMediaCollection($collection);
+
+                $image = Image::make($model->getFirstMediaPath($collection));
+
+                $hashImage = BlurHash::encode($image);
+
+                $mediaImage->setCustomProperty('hash', $hashImage);
+
+                $mediaImage->save();
+            } catch (\Exception $ex) {
+                throw $ex;
+            }
+        };
+    }
 }

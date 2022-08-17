@@ -20,7 +20,7 @@ class OptionFactory extends Factory
     public function definition()
     {
         return [
-            "name"   => $this->faker->name(),
+            "name"   => $this->faker->word(),
             "views"   => $this->faker->numberBetween(10,300),
             "type_id"   => \App\Models\Type::all()->random()->id,
         ];

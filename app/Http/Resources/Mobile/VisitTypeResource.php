@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Mobile;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 /**
  * @OA\Schema(
@@ -40,6 +41,7 @@ class VisitTypeResource extends JsonResource
         return [
             'id'        => $this->id,
             'name'      => $this->name,
+            'name'      => GoogleTranslate::trans($this->name, app()->getLocale()),
         ];
     }
 }
