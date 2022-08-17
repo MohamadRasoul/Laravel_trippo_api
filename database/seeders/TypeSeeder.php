@@ -22,14 +22,6 @@ class TypeSeeder extends Seeder
             [
                 'name'  => "Restaurant",
             ],
-        ])->each(
-            function ($type) {
-                (new ImageService)->storeUrlImage(
-                    model: $type,
-                    image: 'https://source.unsplash.com/random/?travel,city',
-                    collection: 'type'
-                );
-            }
-        );;
+        ]);
     }
 }

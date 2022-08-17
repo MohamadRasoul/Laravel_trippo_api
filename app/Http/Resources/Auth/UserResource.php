@@ -91,7 +91,7 @@ class UserResource extends JsonResource
             'username'         => $this->username,
             'email'            => $this->email,
             'about'            => $this->about,
-            'is_host'            => $this->is_host,
+            'is_host'          => $this->is_host,
             'gender'           => $this->gender,
             'date_of_birthday' => $this->date_of_birthday,
             'phone_number'     => $this->phone_number,

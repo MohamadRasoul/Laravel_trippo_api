@@ -12,7 +12,7 @@ class CommentSeeder extends Seeder
 
     public function run()
     {
-        \App\Models\Comment::factory(100)->create()
+        \App\Models\Comment::factory(10)->create()
             ->each(
                 function ($comment) {
                     (new ImageService)->storeUrlImage(

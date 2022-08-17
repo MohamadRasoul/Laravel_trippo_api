@@ -25,16 +25,6 @@ class ExperienceSeeder extends Seeder
                         image: 'https://source.unsplash.com/random/?travel,city',
                         collection: 'experience',
                     );
-                    (new ImageService)->storeUrlImage(
-                        model: $experience,
-                        image: 'https://source.unsplash.com/random/?travel,city',
-                        collection: 'experience',
-                    );
-                    (new ImageService)->storeUrlImage(
-                        model: $experience,
-                        image: 'https://source.unsplash.com/random/?travel,city',
-                        collection: 'experience',
-                    );
                 }
             );
     }

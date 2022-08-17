@@ -15,11 +15,10 @@ class UserSeeder extends Seeder
         \App\Models\User::factory(10)->create()
             ->each(
                 function ($user) {
-                    (new ImageService)->storeStaticImage(
+                    (new ImageService)->storeUrlImage(
                         model: $user,
-                        image: 'default.jpg',
-                        collection: 'user',
-                        folderName: 'fallback-images'
+                        image: 'https://api.lorem.space/image/face?w=150&h=150',
+                        collection: 'user'
                     );
                 }
             );

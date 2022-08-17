@@ -12,6 +12,5 @@ class BookingSeeder extends Seeder
     public function run()
     {
          \App\Models\Booking::factory(10)->create();
-        
     }
 }

@@ -20,7 +20,7 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
-            "text"   => $this->faker->text(),
+            "text"      => $this->faker->text(),
             "city_id"   => \App\Models\City::all()->random()->id,
             "user_id"   => \App\Models\User::all()->random()->id,
 

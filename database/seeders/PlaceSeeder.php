@@ -12,7 +12,7 @@ class PlaceSeeder extends Seeder
 
     public function run()
     {
-        \App\Models\Place::factory(50)->create()->each(
+        \App\Models\Place::factory(20)->create()->each(
             function ($place) {
                 (new ImageService)->storeUrlImage(
                     model: $place,
@@ -20,10 +20,6 @@ class PlaceSeeder extends Seeder
                     collection: 'place',
                 );
                 (new ImageService)->storeUrlImage(
-                    model: $place,
-                    image: 'https://source.unsplash.com/random/?travel,city',
-                    collection: 'place',
-                );(new ImageService)->storeUrlImage(
                     model: $place,
                     image: 'https://source.unsplash.com/random/?travel,city',
                     collection: 'place',
