@@ -69,6 +69,7 @@ Route::group([
     Route::get('indexwithSearch', [Mobile\PlaceController::class, 'indexwithSearch']);
     Route::get('indexTopAttraction', [Mobile\PlaceController::class, 'indexTopAttraction']);
     Route::get('indexNearBy', [Mobile\PlaceController::class, 'indexNearBy']);
+    Route::get('{place}/indexNearByPlace', [Mobile\PlaceController::class, 'indexNearByPlace']);
     Route::get('indexRecentlyViewed', [Mobile\PlaceController::class, 'indexRecentlyViewed']);
     Route::get('indexTrending', [Mobile\PlaceController::class, 'indexTrending']);
     Route::get('indexMostFavorite', [Mobile\PlaceController::class, 'indexMostFavorite']);

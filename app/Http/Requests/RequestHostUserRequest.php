@@ -29,7 +29,8 @@ class RequestHostUserRequest extends FormRequest
 
     public function validated($key = null, $default = null)
     {
-         $data = [
+
+        $data = [
             'city_id'         => $this->city_id,
             'is_host'         => 1,
         ];

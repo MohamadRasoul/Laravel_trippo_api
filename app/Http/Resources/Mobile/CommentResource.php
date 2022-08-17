@@ -4,6 +4,7 @@ namespace App\Http\Resources\Mobile;
 
 use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 /**
  * @OA\Schema(
@@ -76,10 +77,13 @@ class CommentResource extends JsonResource
         return [
             "id"             => $this->id,
             "tilte"          => $this->tilte,
+            // "tilte"          => GoogleTranslate::trans($this->tilte, app()->getLocale()),
             "description"    => $this->description,
+            // // "description"    => GoogleTranslate::trans($this->description, app()->getLocale()),
             "rating"         => $this->rating,
             "full_date"      => $this->full_date,
             "visit_type"     => $this->visitType->name,
+            // "visit_type"     => GoogleTranslate::trans($this->visitType->name, app()->getLocale()),
             "created_at"     => $this->created_at,
             "images"         => ImageResource::collection($this->load('media')->getMedia('comment')),
             'user'           => new UserInfoResource($this->user),

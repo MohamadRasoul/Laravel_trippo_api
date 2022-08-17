@@ -514,7 +514,6 @@ class UserController extends Controller
             image: $request->idfront,
             collection: 'idfront'
         );
-
         return response()->success(
             'user request host success',
         );

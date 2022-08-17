@@ -4,6 +4,7 @@ namespace App\Http\Resources\Mobile;
 
 use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 /**
  * @OA\Schema(
@@ -50,6 +51,7 @@ class AwardResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
+            // 'description' => GoogleTranslate::trans($this->description, app()->getLocale()),
             'donor' => $this->donor,
             'image' => new ImageResource($this->getFirstMedia('award')),
         ];

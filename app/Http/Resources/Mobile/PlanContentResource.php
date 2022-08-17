@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Mobile;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 /**
  * @OA\Schema(
@@ -50,6 +51,7 @@ class PlanContentResource extends JsonResource
             "place"        => new PlaceInfoResource($this->place),
             "full_date"    => $this->full_date,
             "comment"      => $this->comment,
+            // "comment"      => GoogleTranslate::trans($this->comment, app()->getLocale()),
         ];
     }
 }

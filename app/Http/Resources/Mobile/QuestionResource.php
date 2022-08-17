@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Mobile;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 /**
  * @OA\Schema(
@@ -55,6 +56,7 @@ class QuestionResource extends JsonResource
         return [
             'id'           => $this->id,
             'text'         => $this->text,
+            // 'text'         => GoogleTranslate::trans($this->text, app()->getLocale()),
             'created_at'   => $this->created_at,
             'user'         => new UserInfoResource($this->user),
             'answers'      => AnswerResource::collection($this->answers()->latest()->limit(3)->get()),

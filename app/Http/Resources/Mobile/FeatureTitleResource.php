@@ -5,6 +5,7 @@ namespace App\Http\Resources\Mobile;
 use App\Http\Resources\Dashboard\FeatureResource;
 use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 /**
  * @OA\Schema(
@@ -46,6 +47,7 @@ class FeatureTitleResource extends JsonResource
         return [
             'id'       => $this->id,
             'title'    => $this->title,
+            // 'title'    => GoogleTranslate::trans($this->title, app()->getLocale()),
             'image'    => new ImageResource($this->getFirstMedia('featureTitle')),
             'features' => FeatureResource::collection($this->features),
         ];

@@ -8,6 +8,7 @@ use App\Models\FavouritePlace;
 use App\Models\FeatureTitle;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Carbon\Carbon;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 /**
  * @OA\Schema(
@@ -168,8 +169,11 @@ class PlaceResource extends JsonResource
         return [
             'id'            => $this->id,
             'name'          => $this->name,
+            // 'name'          => GoogleTranslate::trans($this->name, app()->getLocale()),
             'about'         => $this->about,
+            // 'about'         => GoogleTranslate::trans($this->about, app()->getLocale()),
             'address'       => $this->address,
+            // 'address'       => GoogleTranslate::trans($this->address, app()->getLocale()),
             'latitude'      => (float)$this->latitude,
             'longitude'     => (float)$this->longitude,
             'ratting'       => round($this->ratting),
@@ -188,6 +192,7 @@ class PlaceResource extends JsonResource
             'city_id'       => $this->city->id,
             'city'          => $this->city->name,
             'type'          => $this->type->name,
+            // 'type'          => GoogleTranslate::trans($this->type->name, app()->getLocale()),
             "images"        => ImageResource::collection($images),
             "awards"        => AwardResource::collection($this->awards),
             'options'       => OptionResource::collection($this->options),

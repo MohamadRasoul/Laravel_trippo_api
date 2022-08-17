@@ -4,6 +4,7 @@ namespace App\Http\Resources\Mobile;
 
 use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 /**
  * @OA\Schema(
@@ -73,7 +74,9 @@ class CityResource extends JsonResource
         return [
             "id"           => $this->id,
             "name"         => $this->name,
+            // "name"         => GoogleTranslate::trans($this->name, app()->getLocale()),
             "description"  => $this->description,
+            // "description"  => GoogleTranslate::trans($this->description, app()->getLocale()),
             "views"        => $this->views,
             "latitude"     => $this->latitude,
             "longitude"    => $this->longitude,

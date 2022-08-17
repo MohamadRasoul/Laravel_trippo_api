@@ -284,6 +284,156 @@ class PlaceController extends Controller
 
     /**
      * @OA\Get(
+     *    path="/api/mobile/place/{placeId}/indexNearByPlace",
+     *    operationId="IndexNearByPlaceFromPlace",
+     *    tags={"Place"},
+     *    summary="Get All Places",
+     *    description="",
+     *    security={{"bearerToken":{}}},
+     *    
+     *    @OA\Parameter(
+     *        name="placeId",
+     *        example=1,
+     *        in="path",
+     *        description="Place ID",
+     *        required=true,
+     *        @OA\Schema(
+     *           type="integer"
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="language",
+     *        example="en",
+     *        in="header",
+     *        description="app language",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="fcmtoken",
+     *        example="14265416154646",
+     *        in="header",
+     *        description="add fcm token to user",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="string",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="filter[city_id]",
+     *        in="query",
+     *        description="filter by city",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    
+     *    @OA\Parameter(
+     *        name="filter[type_id]",
+     *        in="query",
+     *        description="filter by type",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *
+     *
+     *    @OA\Parameter(
+     *       name="perPage",
+     *       example=10,
+     *       in="query",
+     *       description="Number of item per page",
+     *       required=false,
+     *       @OA\Schema(
+     *           type="integer",
+     *       )
+     *    ),
+     *    @OA\Parameter(
+     *        name="page",
+     *        example=1,
+     *        in="query",
+     *        description="Page number",
+     *        required=false,
+     *        @OA\Schema(
+     *            type="integer",
+     *        )
+     *    ),
+     *    
+     *    
+     *    
+     *
+     *    @OA\Response(
+     *        response=200,
+     *        description="Successful operation",
+     *        @OA\JsonContent(
+     *           @OA\Property(
+     *              property="success",
+     *              type="boolean",
+     *              example="true"
+     *           ),
+     *           @OA\Property(
+     *              property="message",
+     *              type="string",
+     *              example="this is all places"
+     *           ),
+     *          @OA\Property(
+     *              property="data",
+     *              @OA\Property(
+     *                 property="places",
+     *                 type="array",
+     *                 @OA\Items(
+     *                    type="object",
+     *                    ref="#/components/schemas/PlaceResource"
+     *                 ),
+     *              ),
+     *           )
+     *        ),
+     *     ),
+     *
+     *     @OA\Response(
+     *        response=401,
+     *        description="Error: Unauthorized",
+     *        @OA\Property(
+     *           property="message",
+     *           type="string",
+     *           example="Unauthenticated."
+     *        ),
+     *     )
+     * )
+     */
+    public function indexNearByPlace(Place $place)
+    {
+        $latitude = $place->latitude;
+        $longitude = $place->longitude;
+
+        $places = Place::selectRaw('*, ( 6367 * acos( cos( radians(' . $latitude . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $longitude . ') ) + sin( radians(' . $latitude . ') ) * sin( radians( latitude ) ) ) ) AS distance')
+            ->having('distance', '<', 5)
+            ->orderBy('distance');
+
+        $places = QueryBuilder::for($places->with(['comments']))
+            ->allowedFilters([
+                AllowedFilter::exact('city_id'),
+                AllowedFilter::exact('type_id'),
+            ]);
+
+        return response()->success(
+            'this is all Places',
+            [
+                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
+            ]
+        );
+    }
+
+
+    /**
+     * @OA\Get(
      *    path="/api/mobile/place/indexNearBy",
      *    operationId="IndexNearByPlace",
      *    tags={"Place"},

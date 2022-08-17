@@ -4,6 +4,7 @@ namespace App\Http\Resources\Mobile;
 
 use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 /**
  * @OA\Schema(
@@ -97,11 +98,14 @@ class ExperienceResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->name,
+            "name" => GoogleTranslate::trans($this->name, app()->getLocale()),
             "about" => $this->about,
+            "about" => GoogleTranslate::trans($this->about, app()->getLocale()),
             "ratting" => (int) $this->ratting,
             "views" => (int) $this->views,
             "price_begin" => (int) $this->price_begin,
             "address" => $this->address,
+            "address" => GoogleTranslate::trans($this->address, app()->getLocale()),
             "latitude" => $this->latitude,
             "longitude" => $this->longitude,
             "images"     => ImageResource::collection($this->load('media')->getMedia('experience')),
