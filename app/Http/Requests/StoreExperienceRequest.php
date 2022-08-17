@@ -48,18 +48,7 @@ use Illuminate\Foundation\Http\FormRequest;
  *         example={1,2},
  *      ),
  *              
- *      @OA\Property(
- *         property="bookings",
- *         type="array",
- *         @OA\Items(
- *            type="object",
- *            example={"name":"mohamad_ra","price":"2000","people_count":"2","is_active":"1"},
- *         ),
- *         @OA\Items(
- *            type="object",
- *            example={"name":"ahmad","price":"5000","people_count":"3","is_active":"0"},
- *         )
- *      ),
+
  *      
  *      @OA\Property(
  *          property="images",
@@ -71,7 +60,18 @@ use Illuminate\Foundation\Http\FormRequest;
  *
  * )
  */
-
+//  *      @OA\Property(
+//  *         property="bookings",
+//  *         type="array",
+//  *         @OA\Items(
+//  *            type="object",
+//  *            example={"name":"mohamad_ra","price":"2000","people_count":"2","is_active":"1"},
+//  *         ),
+//  *         @OA\Items(
+//  *            type="object",
+//  *            example={"name":"ahmad","price":"5000","people_count":"3","is_active":"0"},
+//  *         )
+//  *      ),
 class StoreExperienceRequest extends FormRequest
 {
 
@@ -93,11 +93,11 @@ class StoreExperienceRequest extends FormRequest
 
             "places.*" => ['required', 'numeric'],
 
-            "bookings.*" => ['required'],
-            "bookings.*.name" => ['required'],
-            "bookings.*.price" => ['required'],
-            "bookings.*.people_count" => ['required'],
-            "bookings.*.is_active" => ['required'],
+            // "bookings.*" => ['required'],
+            // "bookings.*.name" => ['required'],
+            // "bookings.*.price" => ['required'],
+            // "bookings.*.people_count" => ['required'],
+            // "bookings.*.is_active" => ['required'],
         ];
     }
 

@@ -310,11 +310,11 @@ class ExperienceController extends Controller
                 );
             }
 
-            foreach ($request->bookings as $booking) {
-                $experience->bookings()->create(
-                    Arr::only($booking, ['name', 'price', 'people_count', 'is_active'])
-                );
-            };
+            // foreach ($request->bookings as $booking) {
+            //     $experience->bookings()->create(
+            //         Arr::only($booking, ['name', 'price', 'people_count', 'is_active'])
+            //     );
+            // };
 
             DB::commit();
 

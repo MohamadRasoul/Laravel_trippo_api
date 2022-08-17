@@ -78,18 +78,17 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *            ref="#/components/schemas/PlaceInfoResource"
  *         )
  *      ),
- *      @OA\Property(
- *         property="bookings",
- *         type="array",
- *         @OA\Items(
- *            type="object",
- *            ref="#/components/schemas/BookingResource"
- *         )
- *      ),
  *
  * )
  */
-
+//  *      @OA\Property(
+//  *         property="bookings",
+//  *         type="array",
+//  *         @OA\Items(
+//  *            type="object",
+//  *            ref="#/components/schemas/BookingResource"
+//  *         )
+//  *      ),
 
 class ExperienceResource extends JsonResource
 {
@@ -108,7 +107,7 @@ class ExperienceResource extends JsonResource
             "images"     => ImageResource::collection($this->load('media')->getMedia('experience')),
             "user" => new UserInfoResource($this->user),
             "places" => PlaceInfoResource::collection($this->places),
-            "bookings" => BookingResource::collection($this->bookings),
+            // "bookings" => BookingResource::collection($this->bookings),
         ];
     }
 }
