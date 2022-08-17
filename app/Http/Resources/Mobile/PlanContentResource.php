@@ -50,8 +50,8 @@ class PlanContentResource extends JsonResource
             'id'           => $this->id,
             "place"        => new PlaceInfoResource($this->place),
             "full_date"    => $this->full_date,
-            "comment"      => $this->comment,
-            // "comment"      => GoogleTranslate::trans($this->comment, app()->getLocale()),
+            // "comment"      => $this->comment,
+            "comment"      => GoogleTranslate::trans($this->comment, app()->getLocale()),
         ];
     }
 }

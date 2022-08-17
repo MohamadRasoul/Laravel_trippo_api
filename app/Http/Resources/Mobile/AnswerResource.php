@@ -46,8 +46,8 @@ class AnswerResource extends JsonResource
         //        return parent::toArray($request);
         return [
             'id'         => $this->id,
-            // 'text'       => GoogleTranslate::trans($this->text, app()->getLocale()),
-            'text'       => $this->text,
+            // 'text'       => $this->text,
+            'text'       => GoogleTranslate::trans($this->text, app()->getLocale()),
             'created_at' => $this->created_at,
             'user'       => new UserInfoResource($this->user),
         ];

@@ -60,14 +60,14 @@ class PlaceInfoResource extends JsonResource
 
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            // 'name' => GoogleTranslate::trans($this->name, app()->getLocale()),
-            'about' => $this->about,
-            // 'about' => GoogleTranslate::trans($this->about, app()->getLocale()),
+            // 'name' => $this->name,
+            'name' => GoogleTranslate::trans($this->name, app()->getLocale()),
+            // 'about' => $this->about,
+            'about' => GoogleTranslate::trans($this->about, app()->getLocale()),
             'ratting' => $this->ratting,
             'ratting_count' => $this->comments()->count(),
-            'type' => $this->type->name,
-            // // 'type' => GoogleTranslate::trans($this->type->name, app()->getLocale()),
+            // 'type' => $this->type->name,
+            'type' => GoogleTranslate::trans($this->type->name, app()->getLocale()),
             "images"    =>  ImageResource::collection($this->getMedia('place')->flatten()),
         ];
     }

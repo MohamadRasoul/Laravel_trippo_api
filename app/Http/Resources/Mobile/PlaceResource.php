@@ -168,12 +168,12 @@ class PlaceResource extends JsonResource
 
         return [
             'id'            => $this->id,
-            'name'          => $this->name,
-            // 'name'          => GoogleTranslate::trans($this->name, app()->getLocale()),
-            'about'         => $this->about,
-            // 'about'         => GoogleTranslate::trans($this->about, app()->getLocale()),
-            'address'       => $this->address,
-            // 'address'       => GoogleTranslate::trans($this->address, app()->getLocale()),
+            // 'name'          => $this->name,
+            'name'          => GoogleTranslate::trans($this->name, app()->getLocale()),
+            // 'about'         => $this->about,
+            'about'         => GoogleTranslate::trans($this->about, app()->getLocale()),
+            // 'address'       => $this->address,
+            'address'       => GoogleTranslate::trans($this->address, app()->getLocale()),
             'latitude'      => (float)$this->latitude,
             'longitude'     => (float)$this->longitude,
             'ratting'       => round($this->ratting),

@@ -73,10 +73,10 @@ class CityResource extends JsonResource
         // dd($this->questions());
         return [
             "id"           => $this->id,
-            "name"         => $this->name,
-            // "name"         => GoogleTranslate::trans($this->name, app()->getLocale()),
-            "description"  => $this->description,
-            // "description"  => GoogleTranslate::trans($this->description, app()->getLocale()),
+            // "name"         => $this->name,
+            "name"         => GoogleTranslate::trans($this->name, app()->getLocale()),
+            // "description"  => $this->description,
+            "description"  => GoogleTranslate::trans($this->description, app()->getLocale()),
             "views"        => $this->views,
             "latitude"     => $this->latitude,
             "longitude"    => $this->longitude,

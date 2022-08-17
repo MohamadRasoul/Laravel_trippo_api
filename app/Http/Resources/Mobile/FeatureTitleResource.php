@@ -46,8 +46,8 @@ class FeatureTitleResource extends JsonResource
     {
         return [
             'id'       => $this->id,
-            'title'    => $this->title,
-            // 'title'    => GoogleTranslate::trans($this->title, app()->getLocale()),
+            // 'title'    => $this->title,
+            'title'    => GoogleTranslate::trans($this->title, app()->getLocale()),
             'image'    => new ImageResource($this->getFirstMedia('featureTitle')),
             'features' => FeatureResource::collection($this->features),
         ];

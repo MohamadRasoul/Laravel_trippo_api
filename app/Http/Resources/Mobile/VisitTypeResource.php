@@ -40,7 +40,7 @@ class VisitTypeResource extends JsonResource
 
         return [
             'id'        => $this->id,
-            'name'      => $this->name,
+            // 'name'      => $this->name,
             'name'      => GoogleTranslate::trans($this->name, app()->getLocale()),
         ];
     }

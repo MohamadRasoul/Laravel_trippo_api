@@ -50,8 +50,8 @@ class AwardResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'description' => $this->description,
-            // 'description' => GoogleTranslate::trans($this->description, app()->getLocale()),
+            // 'description' => $this->description,
+            'description' => GoogleTranslate::trans($this->description, app()->getLocale()),
             'donor' => $this->donor,
             'image' => new ImageResource($this->getFirstMedia('award')),
         ];

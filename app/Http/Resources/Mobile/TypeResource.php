@@ -48,8 +48,8 @@ class TypeResource extends JsonResource
         //        return parent::toArray($request);
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            // 'name' => GoogleTranslate::trans($this->name, app()->getLocale()),
+            // 'name' => $this->name,
+            'name' => GoogleTranslate::trans($this->name, app()->getLocale()),
             'options' => OptionResource::collection($this->options),
             'image' => new ImageResource($this->getFirstMedia('type')),
         ];

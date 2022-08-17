@@ -48,10 +48,10 @@ class PlanResource extends JsonResource
 
         return [
             'id'           => $this->id,
-            'name'         => $this->name,
-            // 'name'         => GoogleTranslate::trans($this->name, app()->getLocale()),
-            'description'  => $this->description,
-            // 'description'  => GoogleTranslate::trans($this->description, app()->getLocale()),
+            // 'name'         => $this->name,
+            'name'         => GoogleTranslate::trans($this->name, app()->getLocale()),
+            // 'description'  => $this->description,
+            'description'  => GoogleTranslate::trans($this->description, app()->getLocale()),
             'image'        => new ImageResource($this->getFirstMedia('plan')),
         ];
     }
