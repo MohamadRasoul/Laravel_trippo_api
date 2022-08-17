@@ -13,6 +13,7 @@ use App\Http\Requests\StorePlaceRequest;
 use App\Http\Requests\UpdatePlaceRequest;
 use App\Http\Resources\ImageResource;
 use App\Http\Resources\Mobile\PlaceResource;
+use App\Models\FavouritePlace;
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
@@ -647,4 +648,84 @@ class PlaceController extends Controller
             ]
         );
     }
+
+    // public function recentlyViewedPlaces()
+    // {
+    //     $places = Place::with(['comments'])->inRandomOrder();
+
+    //     return response()->success(
+    //         'this is all Places',
+    //         [
+    //             "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
+    //         ]
+    //     );
+    // }
+
+    public function topAttractionPlaces()
+    {
+        $places = array();
+        $city_id = request()->city_id;
+        $type_id = request()->type_id;
+        $favouriteplace = Place::has('favourite')
+        ->when($city_id, function ($query) use ($city_id) {
+            $query->where('city_id', $city_id);
+        })->when($type_id, function ($query) use ($type_id) {
+            $query->where('city_id', $type_id);
+        });
+        return response()->success(
+            'this is all Places',
+            [
+                "places" => PlaceResource::collection($favouriteplace->paginate(request()->perPage ?? $favouriteplace->count())),
+            ]
+        );
+    }
+
+
+    public function youMightLikePlaces()
+    {
+        $city_id = request()->city_id;
+        $type_id = request()->type_id;
+        $places = Place::with(['comments'])
+        ->when($city_id, function ($query) use ($city_id) {
+            $query->where('city_id', $city_id);
+        })
+        ->when($type_id, function ($query) use ($type_id) {
+            $query->where('city_id', $type_id);
+        })
+        ->inRandomOrder();
+
+        return response()->success(
+            'you Might Like Places',
+            [
+                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
+            ]
+        );
+    }
+
+    public function nearBy5km()
+    {
+        $latitude = request()->lat;
+        $longitude = request()->long;
+        $city_id = request()->city_id;
+        $type_id = request()->type_id;
+        $places = Place::selectRaw('*, ( 6367 * acos( cos( radians(' . $latitude . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $longitude . ') ) + sin( radians(' . $latitude . ') ) * sin( radians( latitude ) ) ) ) AS distance')
+          ->having('distance', '<', 5)
+          ->orderBy('distance')
+          ->when($city_id, function ($query) use ($city_id) {
+            $query->where('city_id', $city_id);
+        })
+        ->when($type_id, function ($query) use ($type_id) {
+            $query->where('city_id', $type_id);
+        });
+
+          return response()->success(
+            'you Might Like Places',
+            [
+                "places" => PlaceResource::collection($places->paginate(request()->perPage ?? $places->count())),
+            ]
+        );
+    }
+
+   
+
 }

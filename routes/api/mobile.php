@@ -72,6 +72,9 @@ Route::group([
     Route::get('place_by_point_map', [Mobile\PlaceController::class, 'getPlacesWithPointMap']);
 
     Route::post('{place}/image/store', [Mobile\PlaceController::class, 'addImage']);
+    Route::get('topAttractionPlaces', [Mobile\PlaceController::class, 'topAttractionPlaces']);
+    Route::get('youMightLikePlaces', [Mobile\PlaceController::class, 'youMightLikePlaces']);
+    Route::get('nearBy5km', [Mobile\PlaceController::class, 'nearBy5km']);
 });
 
 
