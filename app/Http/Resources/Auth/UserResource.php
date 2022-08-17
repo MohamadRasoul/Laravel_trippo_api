@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Auth;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use phpDocumentor\Reflection\Types\Boolean;
 
 /**
  * @OA\Schema(
@@ -91,7 +92,7 @@ class UserResource extends JsonResource
             'username'         => $this->username,
             'email'            => $this->email,
             'about'            => $this->about,
-            'is_host'          => (int) $this->is_host,
+            'is_host'          => (Boolean) $this->is_host,
             'gender'           => $this->gender,
             'date_of_birthday' => $this->date_of_birthday,
             'phone_number'     => $this->phone_number,
