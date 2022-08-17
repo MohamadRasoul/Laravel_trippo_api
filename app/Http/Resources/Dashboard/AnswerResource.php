@@ -40,7 +40,7 @@ class AnswerResource extends JsonResource
         //        return parent::toArray($request);
         return [
             'id'        => $this->id,
-            'text'      => GoogleTranslate::trans($this->text, App::getLocale()),
+            'text'      => $this->text, App::getLocale(),
             'text'       => $this->text,
 
         ];

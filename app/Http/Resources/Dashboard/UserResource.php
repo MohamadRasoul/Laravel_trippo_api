@@ -20,7 +20,6 @@ class UserResource extends JsonResource
             'username'         => $this->username,
             "idfront"        =>  new ImageResource($this->getFirstMedia('idfront')),
             "idback"        => new ImageResource($this->getFirstMedia('idback')),
-
         ];
     }
 }

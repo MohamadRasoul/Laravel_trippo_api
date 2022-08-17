@@ -4000,18 +4000,6 @@
                             2
                         ]
                     },
-                    "bookings": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "example": {
-                                "name": "mohamad_ra",
-                                "price": "2000",
-                                "people_count": "2",
-                                "is_active": "1"
-                            }
-                        }
-                    },
                     "images": {
                         "type": "array",
                         "items": {

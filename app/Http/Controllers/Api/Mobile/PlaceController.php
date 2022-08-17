@@ -9,11 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Place;
 
 use App\Services\ImageService;
-use App\Http\Requests\StorePlaceRequest;
-use App\Http\Requests\UpdatePlaceRequest;
 use App\Http\Resources\ImageResource;
 use App\Http\Resources\Mobile\PlaceResource;
-use App\Models\FavouritePlace;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\QueryBuilder\AllowedFilter;

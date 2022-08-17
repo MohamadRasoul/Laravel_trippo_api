@@ -497,7 +497,7 @@ class UserController extends Controller
         return response()->success('user is deleted success');
     }
 
-
+    // TODO : add Swagger
     public function requestHost(RequestHostUserRequest $request)
     {
         $user = auth('user_api')->user();

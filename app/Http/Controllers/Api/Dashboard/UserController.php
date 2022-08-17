@@ -156,7 +156,7 @@ class UserController extends Controller
     //  */
     public function store(StoreUserRequest $request)
     {
-         $user = User::create($request->validated());
+        $user = User::create($request->validated());
 
         (new ImageService)->storeImage(
             model: $user,
@@ -314,7 +314,7 @@ class UserController extends Controller
     //  */
     public function update(UpdateUserRequest $request, User $user)
     {
-         $user->update($request->validated());
+        $user->update($request->validated());
 
         (new ImageService)->storeImage(
             model: $user,
@@ -389,10 +389,10 @@ class UserController extends Controller
         return response()->success('user is deleted success');
     }
 
-
+    // TODO : add Swagger
     public function getAllRequestHost()
     {
-        $users = User::where('is_host',1)->orderBy('id');
+        $users = User::where('is_host', 1)->orderBy('id');
         return response()->success(
             'this is all requests users for host',
             [
@@ -401,6 +401,7 @@ class UserController extends Controller
         );
     }
 
+    // TODO : add Swagger
     public function approveRequestHost(ApproveHostRequest $request, User $user)
     {
         $user->update($request->validated());
@@ -409,7 +410,7 @@ class UserController extends Controller
         );
     }
 
-    
+
     public function rejectRequestHost(RejectHostRequest $request, User $user)
     {
         $user->update($request->validated());

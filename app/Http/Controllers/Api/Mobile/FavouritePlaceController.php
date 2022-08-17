@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Auth;
 
 class FavouritePlaceController extends Controller
 {
+    // TODO : add Swagger
+
     public function index()
     {
         $places = array();
@@ -32,6 +34,7 @@ class FavouritePlaceController extends Controller
             ]
         );
     }
+    // TODO : add Swagger
 
     public function changeStatus($place_id, FavouritePlace $favouritePlace)
     {
