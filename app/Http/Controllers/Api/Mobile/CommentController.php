@@ -153,6 +153,7 @@ class CommentController extends Controller
                         'count'  => isset($commentsRating['Solo']) ? $commentsRating['Solo'] : 0,
                     ],
                     [
+                        'name'   => 'Business',
                         // 'name'   => GoogleTranslate::trans('Business', app()->getLocale()),
                         'count'  => isset($commentsRating['Business']) ? $commentsRating['Business'] : 0,
                     ],
