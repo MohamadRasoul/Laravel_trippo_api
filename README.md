@@ -7,25 +7,24 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Address API
+# Trippo API
 
 ### Install
 *  Make sure to create a new `.env` file, you can copy the content from `.env.example `
 *  Make sure to create a new database and connect in `.env`
 *  Run the following commands:
     ```shell script
-    git clone https://gitlab.com/Mohamad_RA/trippo_laravel.git
-    cd trippo_laravel
+    git clone https://github.com/MohamadRasoul/Trippo_laravel_api.git
+    cd Trippo_laravel_api
     composer install
     php artisan migrate:fresh --seed
-    php artisan serv --port=5000 --host=0.0.0.0
+    php artisan serv
+    php artisan l5-swagger:generate --all
     ```
 
-*  turn on Mobile Hotspot in your laptop 
-*  connection your app to : `http://localhost:5000`
 
 ### API Documentation
-* [Link to API documentaion for Authentication.](http://localhost:5000/api/docs/auth)
-* [Link to API documentaion for Dashboard.](http://localhost:5000/api/docs/dashboard)
-* [Link to API documentaion for Mobile.](http://localhost:5000/api/docs/mobile)
+* [Link to API documentaion for Authentication.](http://localhost:8000/api/docs/auth)
+* [Link to API documentaion for Dashboard.](http://localhost:8000/api/docs/dashboard)
+* [Link to API documentaion for Mobile.](http://localhost:8000/api/docs/mobile)
 
