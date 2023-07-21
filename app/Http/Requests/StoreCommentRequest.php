@@ -4,11 +4,12 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use OpenApi\Annotations as OA;
 
 /**
  * @OA\Schema(
- *      title="StorecommentRequest",
- *      description="StorecommentRequest body data",
+ *      title="StoreCommentRequest",
+ *      description="StoreCommentRequest body data",
  *      type="object",
  *      required={"tilte","description","rating","full_date","images","visit_type_id"},
  *
@@ -33,13 +34,13 @@ use Illuminate\Support\Facades\Auth;
  *         type="string",
  *         example="5-10-2022"
  *      ),
- *      
+ *
  *      @OA\Property(
  *          property="images",
  *          type="array",
  *          @OA\Items(type="string"),
  *          example={"image.png","image.png"},
- *          
+ *
  *       ),
  *      @OA\Property(
  *         property="visit_type_id",

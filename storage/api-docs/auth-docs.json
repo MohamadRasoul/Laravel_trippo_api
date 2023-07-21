@@ -10,7 +10,7 @@
     },
     "servers": [
         {
-            "url": "http://127.0.0.1:5000/",
+            "url": "http://192.168.137.1:5000",
             "description": "Demo API Server"
         }
     ],
@@ -724,8 +724,8 @@
                 }
             },
             "StoreCommentRequest": {
-                "title": "StorecommentRequest",
-                "description": "StorecommentRequest body data",
+                "title": "StoreCommentRequest",
+                "description": "StoreCommentRequest body data",
                 "required": [
                     "tilte",
                     "description",

@@ -41,11 +41,11 @@ return [
                  * Absolute paths to directory containing the swagger annotations are stored.
                 */
                 'annotations' => [
-                    base_path('App\Http\Controllers\Api\Auth'),
-                    base_path('App\Http\Controllers\Api\ImageController.php'),
-                    base_path('App\Http\Resources\ImageResource.php'),
-                    base_path('App\Http\Resources\Auth'),
-                    base_path('App\Http\Requests'),
+                    base_path('app/Http/Controllers/Api/Auth'),
+                    base_path('app/Http/Controllers/Api/ImageController.php'),
+                    base_path('app/Http/Resources/ImageResource.php'),
+                    base_path('app/Http/Resources/Auth'),
+                    base_path('app/Http/Requests'),
 
                 ],
 
@@ -89,11 +89,11 @@ return [
                  * Absolute paths to directory containing the swagger annotations are stored.
                 */
                 'annotations' => [
-                    base_path('App\Http\Controllers\Api\Dashboard'),
-                    base_path('App\Http\Controllers\Api\ImageController.php'),
-                    base_path('App\Http\Resources\ImageResource.php'),
-                    base_path('App\Http\Resources\Dashboard'),
-                    base_path('App\Http\Requests'),
+                    base_path('app/Http/Controllers/Api/Dashboard'),
+                    base_path('app/Http/Controllers/Api/ImageController.php'),
+                    base_path('app/Http/Resources/ImageResource.php'),
+                    base_path('app/Http/Resources/Dashboard'),
+                    base_path('app/Http/Requests'),
                 ],
 
             ],
@@ -136,11 +136,11 @@ return [
                  * Absolute paths to directory containing the swagger annotations are stored.
                 */
                 'annotations' => [
-                    base_path('App\Http\Controllers\Api\Mobile'),
-                    base_path('App\Http\Controllers\Api\ImageController.php'),
-                    base_path('App\Http\Resources\Mobile'),
-                    base_path('App\Http\Resources\ImageResource.php'),
-                    base_path('App\Http\Requests'),
+                    base_path('app/Http/Controllers/Api/Mobile'),
+                    base_path('app/Http/Controllers/Api/ImageController.php'),
+                    base_path('app/Http/Resources/Mobile'),
+                    base_path('app/Http/Resources/ImageResource.php'),
+                    base_path('app/Http/Requests'),
 
                 ],
 
@@ -206,16 +206,16 @@ return [
 
         'scanOptions' => [
             /**
-             * analyser: defaults to \OpenApi\StaticAnalyser .
+             * analyser: defaults to /OpenApi/StaticAnalyser .
              *
-             * @see \OpenApi\scan
+             * @see /OpenApi/scan
              */
             'analyser' => null,
 
             /**
-             * analysis: defaults to a new \OpenApi\Analysis .
+             * analysis: defaults to a new /OpenApi/Analysis .
              *
-             * @see \OpenApi\scan
+             * @see /OpenApi/scan
              */
             'analysis' => null,
 
@@ -223,23 +223,23 @@ return [
              * Custom query path processors classes.
              *
              * @link https://github.com/zircote/swagger-php/tree/master/Examples/schema-query-parameter-processor
-             * @see \OpenApi\scan
+             * @see /OpenApi/scan
              */
             'processors' => [
-                // new \App\SwaggerProcessors\SchemaQueryParameter(),
+                // new /App/SwaggerProcessors/SchemaQueryParameter(),
             ],
 
             /**
              * pattern: string       $pattern File pattern(s) to scan (default: *.php) .
              *
-             * @see \OpenApi\scan
+             * @see /OpenApi/scan
              */
             'pattern' => null,
 
             /*
              * Absolute path to directories that should be exclude from scanning
              * @note This option overwrites `paths.excludes`
-             * @see \OpenApi\scan
+             * @see /OpenApi/scan
             */
             'exclude' => [],
         ],
