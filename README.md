@@ -13,6 +13,10 @@ This application's purpose is to manage the tourism sector in Syria.
 It was developed using the Laravel framework as Api.
 
 
+### ERD (System Analysis)
+* [Link For ERD](https://drive.google.com/file/d/1vECQYHMuVvdXJagBGJBfsOhd3OLF76NH/view)
+
+
 ### TECHNOLOGY I USED
 * [laravel 9](https://laravel.com/docs/9.x/releases)
 
