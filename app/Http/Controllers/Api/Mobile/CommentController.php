@@ -12,6 +12,7 @@ use App\Http\Requests\UpdateCommentRequest;
 use App\Http\Resources\Mobile\CommentResource;
 use App\Models\Experience;
 use App\Models\Place;
+use OpenApi\Annotations as OA;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 use Stichoza\GoogleTranslate\GoogleTranslate;
@@ -37,7 +38,7 @@ class CommentController extends Controller
      *            type="string",
      *        )
      *    ),
-     *    
+     *
      *    @OA\Parameter(
      *        name="fcmtoken",
      *        example="14265416154646",
@@ -71,7 +72,7 @@ class CommentController extends Controller
      *            type="integer",
      *        )
      *    ),
-     *   
+     *
      *      @OA\Parameter(
      *        name="placeId",
      *        example=1,
@@ -153,6 +154,7 @@ class CommentController extends Controller
                         'count'  => isset($commentsRating['Solo']) ? $commentsRating['Solo'] : 0,
                     ],
                     [
+                        'name'   => 'Business',
                         // 'name'   => GoogleTranslate::trans('Business', app()->getLocale()),
                         'count'  => isset($commentsRating['Business']) ? $commentsRating['Business'] : 0,
                     ],
@@ -188,7 +190,7 @@ class CommentController extends Controller
      *            type="string",
      *        )
      *    ),
-     *    
+     *
      *    @OA\Parameter(
      *        name="fcmtoken",
      *        example="14265416154646",
@@ -339,7 +341,7 @@ class CommentController extends Controller
      *            type="string",
      *        )
      *    ),
-     *    
+     *
      *    @OA\Parameter(
      *        name="fcmtoken",
      *        example="14265416154646",
@@ -432,7 +434,7 @@ class CommentController extends Controller
      *            type="string",
      *        )
      *    ),
-     *    
+     *
      *    @OA\Parameter(
      *        name="fcmtoken",
      *        example="14265416154646",
@@ -550,7 +552,7 @@ class CommentController extends Controller
      *            type="string",
      *        )
      *    ),
-     *    
+     *
      *    @OA\Parameter(
      *        name="fcmtoken",
      *        example="14265416154646",

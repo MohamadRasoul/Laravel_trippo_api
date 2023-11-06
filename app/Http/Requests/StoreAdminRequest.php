@@ -24,7 +24,7 @@ use Illuminate\Foundation\Http\FormRequest;
 //  *
 //  *      example={
 //  *         "username"              : "mohamad_ra",
-//  *         "email"                 : "mralmaahlol@gmail.com",
+//  *         "email"                 : l@gmail.com",
 //  *      }
 //  * )
 //  */

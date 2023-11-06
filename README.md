@@ -7,25 +7,60 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Address API
+# Trippo API
+
+This application's purpose is to manage the tourism sector in Syria.
+It was developed using the Laravel framework as Api.
+
+
+### ERD (System Analysis)
+* [Link For ERD](https://drive.google.com/file/d/1vECQYHMuVvdXJagBGJBfsOhd3OLF76NH/view)
+
+
+### TECHNOLOGY I USED
+* [laravel 9](https://laravel.com/docs/9.x/releases)
+
+* [laravel-media-library](https://spatie.be/docs/laravel-medialibrary)
+
+* [laravel-query-builder](https://spatie.be/docs/laravel-query-builder)
+
+* [laravel-permission](https://spatie.be/docs/laravel-permission)
+
+* [jwt-auth](https://github.com/PHP-Open-Source-Saver/jwt-auth)
+
+* [l5-swagger](https://github.com/DarkaOnLine/L5-Swagger)
+
+* [blurhash](https://github.com/bepsvpt/blurhash)
+
+* [google-translate-php](https://github.com/Stichoza/google-translate-php)
 
 ### Install
 *  Make sure to create a new `.env` file, you can copy the content from `.env.example `
 *  Make sure to create a new database and connect in `.env`
 *  Run the following commands:
     ```shell script
-    git clone https://gitlab.com/Mohamad_RA/trippo_laravel.git
-    cd trippo_laravel
+    git clone https://github.com/MohamadRasoul/Trippo_laravel_api.git
+    cd Trippo_laravel_api
+
     composer install
+
     php artisan migrate:fresh --seed
-    php artisan serv --port=5000 --host=0.0.0.0
+
+    php artisan serv --port=8000
+
+    php artisan l5-swagger:generate --all
     ```
 
-*  turn on Mobile Hotspot in your laptop 
-*  connection your app to : `http://localhost:5000`
 
-### API Documentation
-* [Link to API documentaion for Authentication.](http://localhost:5000/api/docs/auth)
-* [Link to API documentaion for Dashboard.](http://localhost:5000/api/docs/dashboard)
-* [Link to API documentaion for Mobile.](http://localhost:5000/api/docs/mobile)
+### API LocalHost Documentation
+* [Link to API documentaion for Authentication.](http://localhost:8000/api/docs/auth)
+* [Link to API documentaion for Dashboard.](http://localhost:8000/api/docs/dashboard)
+* [Link to API documentaion for Mobile.](http://localhost:8000/api/docs/mobile)
+
+
+
+### API Online Documentation
+* [Link to API documentaion for Authentication.](https://trippo.mohamad-rasoul.website/api/docs/auth)
+* [Link to API documentaion for Dashboard.](https://trippo.mohamad-rasoul.website/api/docs/dashboard)
+* [Link to API documentaion for Mobile.](https://trippo.mohamad-rasoul.website/api/docs/mobile)
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use OpenApi\Annotations as OA;
 
 
 /**
@@ -12,7 +13,7 @@ use Illuminate\Http\Request;
  *      title="Laravel Trippo - Auth",
  *      description="L5 Swagger OpenApi description",
  *      @OA\Contact(
- *          email="mralmaahlol@gmail.com"
+ *          email="mohamad.rasoul.almahlol@gmail.com"
  *      ),
  *
  * )

@@ -6,8 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 // /**
 //  * @OA\Schema(
-//  *      title="UpdatecommentRequest",
-//  *      description="UpdatecommentRequest body data",
+//  *      title="UpdateCommentRequest",
+//  *      description="UpdateCommentRequest body data",
 //  *      type="object",
 //  *      required={"username","email"},
 //  *
@@ -24,14 +24,14 @@ use Illuminate\Foundation\Http\FormRequest;
 //  *
 //  *      example={
 //  *         "username"              : "mohamad_ra",
-//  *         "email"                 : "mralmaahlol@gmail.com",
+//  *         "email"                 : l@gmail.com",
 //  *      }
 //  * )
 //  */
 
 class UpdateCommentRequest extends FormRequest
 {
-    
+
     public function authorize()
     {
         return true;
