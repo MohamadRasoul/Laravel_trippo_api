@@ -70,7 +70,7 @@ use Illuminate\Validation\Rules\Enum;
  *         "first_name"            : "Mohamad",
  *         "last_name"             : "Rasoul",
  *         "username"              : "mohamad_ra",
- *         "email"                 : l@gmail.com",
+ *         "email"                 : "mohamad.rasoul.almahlol@gmail.com",
  *         "password"              : "12345678",
  *         "password_confirmation" : "12345678",
  *         "about"                 : "this is my profile",

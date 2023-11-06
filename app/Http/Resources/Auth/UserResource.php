@@ -64,7 +64,7 @@ use phpDocumentor\Reflection\Types\Boolean;
  *         "first_name"       : "Mohamad",
  *         "last_name"        : "Rasoul",
  *         "username"         : "mohamad_ra",
- *         "email"            : l@gmail.com",
+ *         "email"            : "mohamad.rasoul.almahlol@gmail.com",
  *         "about"            : "this is my profile",
  *         "gender"           : "male",
  *         "date_of_birthday" : "1998-09-15T00:00:00.000000Z",
