@@ -33,7 +33,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *         "id"               : "1",
  *         "name"             : "Mohamad",
  *         "username"         : "mohamad_ra",
- *         "email"            : "mralmaahlol@gmail.com",
+ *         "email"            : l@gmail.com",
  *      }
  * )
  */

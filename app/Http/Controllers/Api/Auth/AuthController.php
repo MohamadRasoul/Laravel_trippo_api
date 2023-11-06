@@ -13,7 +13,7 @@ use OpenApi\Annotations as OA;
  *      title="Laravel Trippo - Auth",
  *      description="L5 Swagger OpenApi description",
  *      @OA\Contact(
- *          email="mralmaahlol@gmail.com"
+ *          email="mohamd.rasoul.almahlol@gmail.com"
  *      ),
  *
  * )

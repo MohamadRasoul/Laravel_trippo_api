@@ -27,14 +27,14 @@ use Illuminate\Validation\Rules\Enum;
 //  *
 //  *      example={
 //  *         "username"              : "mohamad_ra",
-//  *         "email"                 : "mralmaahlol@gmail.com",
+//  *         "email"                 : l@gmail.com",
 //  *      }
 //  * )
 //  */
 
 class UpdateUserRequest extends FormRequest
 {
-    
+
     public function authorize()
     {
         return true;

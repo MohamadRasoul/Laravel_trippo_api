@@ -40,7 +40,7 @@ use Illuminate\Validation\Rules\Enum;
  *      example={
  *         "name"                  : "Mohamad Rasoul",
  *         "username"              : "admin",
- *         "email"                 : "mralmaahlol@gmail.com",
+ *         "email"                 : l@gmail.com",
  *         "password"              : "12345678",
  *         "password_confirmation" : "12345678",
  *      }

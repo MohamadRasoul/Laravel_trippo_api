@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
  *      title="Laravel Trippo - Mobile",
  *      description="L5 Swagger OpenApi description",
  *      @OA\Contact(
- *          email="mralmaahlol@gmail.com"
+ *          email=l@gmail.com"
  *      ),
  *
  * )
