@@ -46,14 +46,21 @@ It was developed using the Laravel framework as Api.
 
     php artisan migrate:fresh --seed
 
-    php artisan serv
+    php artisan serv --port=8000
 
     php artisan l5-swagger:generate --all
     ```
 
 
-### API Documentation
+### API LocalHost Documentation
 * [Link to API documentaion for Authentication.](http://localhost:8000/api/docs/auth)
 * [Link to API documentaion for Dashboard.](http://localhost:8000/api/docs/dashboard)
 * [Link to API documentaion for Mobile.](http://localhost:8000/api/docs/mobile)
+
+
+
+### API Online Documentation
+* [Link to API documentaion for Authentication.](https://trippo.mohamad-rasoul.website/api/docs/auth)
+* [Link to API documentaion for Dashboard.](https://trippo.mohamad-rasoul.website/api/docs/dashboard)
+* [Link to API documentaion for Mobile.](https://trippo.mohamad-rasoul.website/api/docs/mobile)
 
