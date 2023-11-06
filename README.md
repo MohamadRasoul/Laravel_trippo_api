@@ -9,6 +9,27 @@
 
 # Trippo API
 
+This application's purpose is to manage the tourism sector in Syria.
+It was developed using the Laravel framework as Api.
+
+
+### TECHNOLOGY I USED
+* [laravel 9](https://laravel.com/docs/9.x/releases)
+
+* [laravel-media-library](https://spatie.be/docs/laravel-medialibrary)
+
+* [laravel-query-builder](https://spatie.be/docs/laravel-query-builder)
+
+* [laravel-permission](https://spatie.be/docs/laravel-permission)
+
+* [jwt-auth](https://github.com/PHP-Open-Source-Saver/jwt-auth)
+
+* [l5-swagger](https://github.com/DarkaOnLine/L5-Swagger)
+
+* [blurhash](https://github.com/bepsvpt/blurhash)
+
+* [google-translate-php](https://github.com/Stichoza/google-translate-php)
+
 ### Install
 *  Make sure to create a new `.env` file, you can copy the content from `.env.example `
 *  Make sure to create a new database and connect in `.env`
@@ -16,9 +37,13 @@
     ```shell script
     git clone https://github.com/MohamadRasoul/Trippo_laravel_api.git
     cd Trippo_laravel_api
+
     composer install
+
     php artisan migrate:fresh --seed
+
     php artisan serv
+
     php artisan l5-swagger:generate --all
     ```
 
