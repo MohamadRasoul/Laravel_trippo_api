@@ -1,11 +1,6 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+
 
 # Trippo API
 
@@ -13,11 +8,24 @@ This application's purpose is to manage the tourism sector in Syria.
 It was developed using the Laravel framework as Api.
 
 
-### ERD (System Analysis)
+
+## Table of Contents
+
+- [ERD (System Analysis)](#ERD-(System-Analysis))
+- [TECHNOLOGY USED](#technology-used)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [API Documentation](#api-documentation)
+- [API Online Documentation](#api-online-documentation)
+
+
+
+
+## ERD (System Analysis)
 * [Link For ERD](https://drive.google.com/file/d/1vECQYHMuVvdXJagBGJBfsOhd3OLF76NH/view)
 
 
-### TECHNOLOGY I USED
+## Technology Used
 * [laravel 9](https://laravel.com/docs/9.x/releases)
 
 * [laravel-media-library](https://spatie.be/docs/laravel-medialibrary)
@@ -34,33 +42,67 @@ It was developed using the Laravel framework as Api.
 
 * [google-translate-php](https://github.com/Stichoza/google-translate-php)
 
-### Install
-*  Make sure to create a new `.env` file, you can copy the content from `.env.example `
-*  Make sure to create a new database and connect in `.env`
-*  Run the following commands:
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+- PHP (>= 8.0)
+- Composer
+- A web server (e.g., Apache, Nginx)
+- MySQL or another database of your choice
+
+
+## Installation
+
+1. Clone the repository:
     ```shell script
     git clone https://github.com/MohamadRasoul/Trippo_laravel_api.git
-    cd Trippo_laravel_api
-
-    composer install
-
-    php artisan migrate:fresh --seed
-
-    php artisan serv --port=8000
-
-    php artisan l5-swagger:generate --all
     ```
 
 
-### API LocalHost Documentation
+2. Navigate to the project folder:
+    ```shell script
+    cd Trippo_laravel_api
+    ```
+
+3. Install PHP dependencies using Composer:
+    ```shell script
+    composer install
+    ```
+
+
+4. Copy the `.env.example` file to `.env`:
+    ```shell script
+    cp .env.example .env
+    ```
+
+5. Generate an application key:
+    ```shell script
+    php artisan key:generate
+    ```
+
+6. Generate secret key for JWT:
+    ```shell script
+    php artisan jwt:secret
+    ```
+
+7. Configure your `.env` file with your database credentials and other settings.
+
+8. Migrate and seed the database:
+    ```shell script
+    php artisan migrate --seed
+    ```
+
+
+## API Documentation
 * [Link to API documentaion for Authentication.](http://localhost:8000/api/docs/auth)
 * [Link to API documentaion for Dashboard.](http://localhost:8000/api/docs/dashboard)
 * [Link to API documentaion for Mobile.](http://localhost:8000/api/docs/mobile)
 
 
 
-### API Online Documentation
+## API Online Documentation
 * [Link to API documentaion for Authentication.](https://trippo.mohamad-rasoul.website/api/docs/auth)
 * [Link to API documentaion for Dashboard.](https://trippo.mohamad-rasoul.website/api/docs/dashboard)
 * [Link to API documentaion for Mobile.](https://trippo.mohamad-rasoul.website/api/docs/mobile)
+
 
