@@ -27,7 +27,7 @@ use Illuminate\Validation\Rules\Enum;
 //  *
 //  *      example={
 //  *         "username"              : "mohamad_ra",
-//  *         "email"                 : l@gmail.com",
+//  *         "email"                 : "mohamad.rasoul.almahlol@gmail.com",
 //  *      }
 //  * )
 //  */
